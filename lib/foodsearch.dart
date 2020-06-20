@@ -1,18 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'foods.dart';
-import 'favoritefoods.dart';
 import 'foodsview.dart';
 
 class FoodSearch extends SearchDelegate<String> {
-
-  FavoriteFoods favorites;
-  dynamic _updateFavorites;
-
-  FoodSearch(FavoriteFoods _favorites, void _updateFav (FavoriteFoods favoriteFoods)) {
-    favorites = _favorites;
-    _updateFavorites = _updateFav;
-  }
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -38,9 +29,9 @@ class FoodSearch extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-    final List<String> suggestionList = query.isEmpty ?
+    final List<String> resultList = query.isEmpty ?
     allFoods : allFoods.where((s) => s.toLowerCase().startsWith(query.toLowerCase())).toList();
-    return foodsInSeasonView(context, suggestionList, favorites, _updateFavorites);
+    return foodsInSeasonView(resultList);
   }
 
   @override

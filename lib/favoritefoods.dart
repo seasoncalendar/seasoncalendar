@@ -1,48 +1,38 @@
+import 'dart:async';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
-class FavoriteFoods {
-
-  List<String> foods = List<String>();
-  SharedPreferences _prefs;
-
-  void init() async {
-    _prefs = await SharedPreferences.getInstance();
-    if (_prefs != null) {
-      final foodString = _prefs.getString("favoriteFoods");
-      if (foods != null) {
-        foods = foodString.split(", ");
-        for (int i = 0; i < foods.length; ++i) {
-          if (foods[i] == "") {
-            foods.remove(foods[i]);
-          }
-        }
-      }
-    }
-  }
-
-  bool isFavoriteFood(String foodName) {
+Future<bool> isFavoriteFood(String foodName) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  List<String> foods = prefs.getStringList("favoriteFoods");
+  if (foods == null) {
+    return false;
+  } else {
     return foods.contains(foodName);
   }
+}
 
-  List<String> getFavoriteFoods() {
-    return foods;
-  }
+Future<List<String>> getFavoriteFoods() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  return prefs.getStringList("favoriteFoods") ?? List<String>();
+}
 
-  void setFavoriteFoods(List<String> favoriteFoods) {
-    foods = favoriteFoods;
-    _prefs.setString("favoriteFoods", foods.join(", "));
-  }
+void setFavoriteFoods(List<String> favoriteFoods) async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setStringList("favoriteFoods", favoriteFoods);
+}
 
-  void addFavoriteFood(String foodName) {
-    if (foods.contains(foodName)) return;
-    foods.add(foodName);
-    foods.sort();
-    _prefs.setString("favoriteFoods", foods.join(", "));
-  }
+void addFavoriteFood(String foodName) async {
+  List<String> foods = await getFavoriteFoods();
+  if (foods.contains(foodName)) return;
+  foods.add(foodName);
+  foods.sort();
+  setFavoriteFoods(foods);
+}
 
-  void removeFavoriteFood(String foodName) {
-    if (!foods.contains(foodName)) return;
-    foods.remove(foodName);
-    _prefs.setString("favoriteFoods", foods.join(", "));
-  }
+void removeFavoriteFood(String foodName) async {
+  List<String> foods = await getFavoriteFoods();
+  if (!foods.contains(foodName)) return;
+  foods.remove(foodName);
+  setFavoriteFoods(foods);
 }

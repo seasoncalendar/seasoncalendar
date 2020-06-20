@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'favoritefoods.dart';
 
-Widget foodsInSeasonView(BuildContext context, List<String> foodsToDisplay,
-    FavoriteFoods favorites, void _updateFavorites(FavoriteFoods favorites)) {
+Widget foodsInSeasonView(List<String> foodsToDisplay) {
   return GridView.builder(
     itemCount: foodsToDisplay.length,
     padding: const EdgeInsets.all(16.0),
@@ -12,67 +11,94 @@ Widget foodsInSeasonView(BuildContext context, List<String> foodsToDisplay,
 
     ),
     itemBuilder: (context, i) {
-      return _foodTile(foodsToDisplay[i], favorites, _updateFavorites);
+      return FoodTile(foodsToDisplay[i]);
     },
   );
 }
 
-Widget _foodTile(String foodName, FavoriteFoods favorites, void _updateFavorites(FavoriteFoods favorites)) {
-  bool isFavorite = favorites.isFavoriteFood(foodName);
-  return GestureDetector(
-    onTap: () {
-      if (isFavorite) {
-        favorites.removeFavoriteFood(foodName);
-        _updateFavorites(favorites);
-      }
-      else {
-        favorites.addFavoriteFood(foodName);
-        _updateFavorites(favorites);
-      }
-      isFavorite = !isFavorite;
-    },
-    child: Card(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 12,
-            child: FittedBox(
-              fit: BoxFit.fill,
-              child: Image(
-                  image: AssetImage("img/apple.jpg"),
-                  filterQuality: FilterQuality.low,
-              ),
-            )
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(
-              color: Colors.greenAccent,
-              child: Container(
-                margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: 12,
-                      child: Text(
-                        foodName,
-                        style: TextStyle(fontSize: 18.0),
+class FoodTile extends StatefulWidget {
+
+  String _foodName;
+
+  FoodTile(String foodName) {
+    _foodName = foodName;
+  }
+
+  @override
+  FoodTileState createState() => new FoodTileState();
+}
+
+class FoodTileState extends State<FoodTile> {
+
+  bool _isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: isFavoriteFood(widget._foodName),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          _isFavorite = snapshot.hasData ? snapshot.data : _isFavorite;
+          return GestureDetector(
+              onTap: () {
+                if (_isFavorite) {
+                  removeFavoriteFood(widget._foodName);
+                }
+                else {
+                  addFavoriteFood(widget._foodName);
+                }
+                setState(() {
+                  _isFavorite = !_isFavorite;
+                });
+              },
+              child: Card(
+                  child: Column(
+                    children: <Widget>[
+                      Expanded(
+                          flex: 12,
+                          child: FittedBox(
+                            fit: BoxFit.fill,
+                            child: Image(
+                              image: AssetImage("img/apple.jpg"),
+                              filterQuality: FilterQuality.low,
+                            ),
+                          )
                       ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Icon(
-                        isFavorite ? Icons.star : Icons.star_border,
-                        color: isFavorite ? null : null,
-                      ),
-                    )
-                  ],
-                )
+                      Expanded(
+                          flex: 2,
+                          child: Container(
+                              color: Colors.greenAccent,
+                              child: Container(
+                                  margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        flex: 12,
+                                        child: Text(
+                                          widget._foodName,
+                                          style: TextStyle(fontSize: 18.0),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 2,
+                                        child: Icon(
+                                          _isFavorite ? Icons.star : Icons.star_border,
+                                          color: _isFavorite ? null : null,
+                                        ),
+                                      )
+                                    ],
+                                  )
+                              )
+                          )
+                      )
+                    ],
+                  )
               )
-            )
-          )
-        ],
-      )
-    )
-  );
+          );
+        } else {
+          return CircularProgressIndicator();
+        }
+      },
+    );
+  }
 }

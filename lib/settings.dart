@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Map<String, dynamic> initialSettings = {
-  "popularFoodsOnly": false,
-  "foodSorting": "alphabetical",
+  "foodSorting": false,
   "foodMinAvailability": 2.0
 };
 
@@ -13,21 +13,40 @@ class SettingsPage extends StatefulWidget {
   SettingsPageState createState() => new SettingsPageState();
 }
 
-class SettingsPageState extends State<SettingsPage>{
+class SettingsPageState extends State<SettingsPage> {
 
-  Map<String, dynamic> settings;
-
-  @override
-  void initState() {
-    super.initState();
-    setState(() {
-      settings = initialSettings;
+  Future<Map<String, dynamic>> getSettings() async {
+    Map<String, dynamic> settings = {};
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    initialSettings.keys.forEach((key) {
+      settings[key] = prefs.get(key) ?? initialSettings[key];
     });
+    return settings;
   }
 
-  void changeSetting(String name, newVal) async {
+  setSettings(Map<String, dynamic> settings) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    settings.keys.forEach((key) {setValue(prefs, key, settings[key]);});
+  }
+
+  setSetting(String key, dynamic newVal) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setValue(prefs, key, newVal);
+  }
+
+  setValue(SharedPreferences prefs, String key, dynamic value) {
     setState(() {
-      settings[name] = newVal;
+      if (value is bool) {
+        prefs.setBool(key, value);
+      } else if (value is double) {
+        prefs.setDouble(key, value);
+      } else if (value is int) {
+        prefs.setInt(key, value);
+      } else if (value is String) {
+        prefs.setString(key, value);
+      } else if (value is List<String>) {
+        prefs.setStringList(key, value);
+      }
     });
   }
 
@@ -39,31 +58,39 @@ class SettingsPageState extends State<SettingsPage>{
         title: Text("Settings")
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            SwitchListTile.adaptive(
-              title: Text("Nur beliebte Sorten anzeigen"),
-              value: settings["popularFoodsOnly"],
-              dense: false,
-              onChanged: (newVal) {changeSetting("popularFoodsOnly", newVal);},
-            ),
-            SwitchListTile.adaptive(
-              title: Text("Sortierung"),
-              subtitle: Text(settings["foodSorting"] == "alphabetical" ? "alphabetisch" : "nach Kategorie"),
-              value: settings["foodSorting"] == "category",
-              dense: false,
-              onChanged: (newVal) {changeSetting("foodSorting", newVal ? "category" : "alphabetical");},
-            ),
-            Text("Minimale Verfügbarkeit für Anzeige"),
-            Slider.adaptive(
-              divisions: 4,
-              min: 0,
-              max: 4,
-              value: settings["foodMinAvailability"],
-              onChanged: (newVal) {changeSetting("foodMinAvailability", newVal);},
-            )
-          ],
+        child: FutureBuilder(
+          future: getSettings(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              Map<String, dynamic> settings = snapshot.data;
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SwitchListTile.adaptive(
+                    title: Text("Sortierung"),
+                    subtitle: Text(settings["foodSorting"] ? "nach Kategorie" : "alphabetisch"),
+                    value: settings["foodSorting"],
+                    dense: false,
+                    onChanged: (newVal) {
+                      setSetting("foodSorting", newVal);
+                      },
+                  ),
+                  Text("Minimale Verfügbarkeit für Anzeige"),
+                  Slider.adaptive(
+                    divisions: 4,
+                    min: 0,
+                    max: 4,
+                    value: settings["foodMinAvailability"],
+                    onChanged: (newVal) {
+                      setSetting("foodMinAvailability", newVal);
+                      },
+                  )
+                ],
+              );
+            } else {
+              return CircularProgressIndicator();
+            }
+          }
         )
       )
     );

@@ -8,7 +8,6 @@ import 'foodsearch.dart';
 class HomeState extends State<HomePage> {
 
   List<String> foods;
-  FavoriteFoods favorites;
   bool favoritesSelected;
   DateTime date;
 
@@ -22,13 +21,11 @@ class HomeState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    favorites = FavoriteFoods();
-    favorites.init();
+    //favorites.init();
     setState(() {
       date = new DateTime.now();
       foods = allFoods;
       favoritesSelected = false;
-      favorites = favorites;
     });
   }
 
@@ -40,7 +37,7 @@ class HomeState extends State<HomePage> {
         actions: <Widget>[
           IconButton(icon: Icon(favoritesSelected ? Icons.star : Icons.star_border), onPressed: () {_toggleFavoritesSelected();}),
           IconButton(icon: Icon(Icons.settings), onPressed: _showSettings),
-          IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch(favorites, _updateFavorites));}),
+          IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch());}),
           PopupMenuButton(
             icon: Icon(Icons.more_vert),
             onSelected: _chooseEtcPage,
@@ -55,7 +52,7 @@ class HomeState extends State<HomePage> {
           ),
         ],
       ),
-      body: foodsInSeasonView(context, foods, favorites, _updateFavorites),
+      body: foodsInSeasonView(foods),
       bottomNavigationBar: Container(
         color: Colors.black12,
         child: ListTile(
@@ -85,21 +82,20 @@ class HomeState extends State<HomePage> {
     }
   }
 
-  void _updateFavorites(FavoriteFoods fav) {
-    setState(() {
-      favorites = fav;
-    });
-  }
-
-  void _toggleFavoritesSelected() {
+  void _toggleFavoritesSelected() async{
     setState(() {
       favoritesSelected = !favoritesSelected;
-      if (favoritesSelected) {
-        foods = favorites.getFavoriteFoods();
-      } else {
-        foods = allFoods;
-      }
     });
+    if (favoritesSelected) {
+      final newFoods = await getFavoriteFoods();
+      setState(() {
+        foods = newFoods;
+      });
+    } else {
+      setState(() {
+        foods = allFoods;
+      });
+    }
   }
 
   void _showSettings() {
