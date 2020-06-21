@@ -12,10 +12,10 @@ class HomeState extends State<HomePage> {
   DateTime date;
 
   static const Map<String, String> etcPages = {
-    "About": "/about",
-    "Contribute": "/contribute",
-    "Support": "/support",
-    "Imprint": "/imprint"
+    "Über die App": "/about",
+    "App verbessern": "/contribute",
+    "Unterstützen": "/support",
+    "Impressum": "/imprint"
   };
 
   @override
