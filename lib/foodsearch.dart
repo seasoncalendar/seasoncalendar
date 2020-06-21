@@ -1,9 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'foods.dart';
+import 'food.dart';
 import 'foodsview.dart';
 
 class FoodSearch extends SearchDelegate<String> {
+
+  int _month;
+
+  FoodSearch(int month) {
+    _month = month;
+  }
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -29,9 +35,10 @@ class FoodSearch extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-    final List<String> resultList = query.isEmpty ?
-    allFoods : allFoods.where((s) => s.toLowerCase().startsWith(query.toLowerCase())).toList();
-    return foodsInSeasonView(resultList);
+    final List<Food> resultList = query.isEmpty ?
+    allFoods : allFoods.where((food) =>
+        food.name.toLowerCase().startsWith(query.toLowerCase())).toList();
+    return foodsInSeasonView(resultList, _month);
   }
 
   @override

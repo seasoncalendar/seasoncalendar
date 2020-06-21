@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'foods.dart';
+import 'food.dart';
 import 'favoritefoods.dart';
 import 'foodsview.dart';
 import 'foodsearch.dart';
 
 class HomeState extends State<HomePage> {
 
-  List<String> foods;
+  List<Food> foods;
   bool favoritesSelected;
   DateTime date;
 
@@ -37,7 +37,7 @@ class HomeState extends State<HomePage> {
         actions: <Widget>[
           IconButton(icon: Icon(favoritesSelected ? Icons.star : Icons.star_border), onPressed: () {_toggleFavoritesSelected();}),
           IconButton(icon: Icon(Icons.settings), onPressed: _showSettings),
-          IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch());}),
+          IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch(date.toLocal().month));}),
           PopupMenuButton(
             icon: Icon(Icons.more_vert),
             onSelected: _chooseEtcPage,
@@ -52,7 +52,7 @@ class HomeState extends State<HomePage> {
           ),
         ],
       ),
-      body: foodsInSeasonView(foods),
+      body: foodsInSeasonView(foods, date.toLocal().month),
       bottomNavigationBar: Container(
         color: Colors.black12,
         child: ListTile(
@@ -87,7 +87,8 @@ class HomeState extends State<HomePage> {
       favoritesSelected = !favoritesSelected;
     });
     if (favoritesSelected) {
-      final newFoods = await getFavoriteFoods();
+      final newFoodNames = await getFavoriteFoods();
+      final newFoods = getFoodsFromFoodNames(newFoodNames);
       setState(() {
         foods = newFoods;
       });
