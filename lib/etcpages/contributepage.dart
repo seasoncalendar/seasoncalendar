@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:seasoncalendar/helpers/styles.dart';
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:seasoncalendar/helpers/links.dart';
 
 final String contribContact = "Diese App ist noch sehr jung und kann noch"
   " Fehler enthalten bzw. in sehr viele Richtungen erweitert werden. Wenn"
@@ -12,7 +13,7 @@ final String contribContact = "Diese App ist noch sehr jung und kann noch"
 final String contribWebsiteContact = "meine Website.";
 
 final String contribCode1 = "Der Quellcode dieser App ist auf ";
-final String contribCode2 = "GitLab";
+final String contribCode2 = "GitHub";
 final String contribCode3 = " verfügbar.";
 
 class ContributePage extends StatelessWidget {
@@ -25,7 +26,6 @@ class ContributePage extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.all(18),
-        child: Expanded(
           child: Column(
             children: <Widget>[
               Text("Etwas fehlt dir oder ist falsch?", style: font20b),
@@ -43,7 +43,7 @@ class ContributePage extends StatelessWidget {
                       style: font18link,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
-                          final url = 'https://github.com/flutter/gallery/';
+                          final url = websiteContactForm;
                           if (await canLaunch(url)) {
                             await launch(
                               url,
@@ -71,7 +71,7 @@ class ContributePage extends StatelessWidget {
                       style: font18link,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
-                          final url = 'https://github.com/flutter/gallery/';
+                          final url = seasonCalendarGithub;
                           if (await canLaunch(url)) {
                             await launch(
                               url,
@@ -90,7 +90,6 @@ class ContributePage extends StatelessWidget {
             ],
           )
         )
-      )
     );
   }
 }

@@ -23,7 +23,7 @@ class FoodTile extends StatefulWidget {
   String _assetImgPath;
   Color _availabilityColor = Colors.black12;
   Container _availabilityIconContainer;
-  int _nameContainerFlex = 10;
+  int _nameContainerFlex = 12;
   int _avIconContainerFlex = 2;
 
   FoodTile(Food foodToDisplay, int month) {
@@ -36,11 +36,12 @@ class FoodTile extends StatefulWidget {
         child: availabilityModeIcons[availabilities[0]],
       );
     } else {
-      _nameContainerFlex = 8;
+      _nameContainerFlex = 10;
       _avIconContainerFlex = 4;
       _availabilityIconContainer = Container(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             availabilityModeIcons[availabilities[0]],
             availabilityModeIcons[availabilities[1]],
@@ -65,27 +66,55 @@ class FoodTileState extends State<FoodTile> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           _isFavorite = snapshot.hasData ? snapshot.data : _isFavorite;
-          return GestureDetector(
-            onTap: () {
-              if (_isFavorite) {
-                removeFavoriteFood(widget._foodName);
-              }
-              else {
-                addFavoriteFood(widget._foodName);
-              }
-              setState(() {
-                _isFavorite = !_isFavorite;
-              });
-            },
-            child: Card(
+          return Card(
               child: Column(
                 children: <Widget>[
                   Expanded(
                     flex: 12,
-                    child: Image(
-                      image: AssetImage(widget._assetImgPath),
-                      filterQuality: FilterQuality.low,
-                    ),
+                    child: Stack(
+                      overflow: Overflow.clip,
+                      alignment: AlignmentDirectional.topEnd,
+                      children: <Widget>[
+                        Image(
+                          image: AssetImage(widget._assetImgPath),
+                          filterQuality: FilterQuality.low,
+                        ),
+                        Positioned(
+                          top: -40,
+                          right: -40,
+                          child: Container(
+                            width: 80,
+                            height: 80,
+                            decoration: new BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.grey[100],
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          top: 2,
+                          right: 2,
+                          child: InkWell(
+                            onTap: () {
+                              if (_isFavorite) {
+                                removeFavoriteFood(widget._foodName);
+                              }
+                              else {
+                                addFavoriteFood(widget._foodName);
+                              }
+                              setState(() {
+                                _isFavorite = !_isFavorite;
+                              });
+                            },
+                            child: Icon(
+                              _isFavorite ? Icons.star : Icons.star_border,
+                              color: _isFavorite ? null : null,
+                              size: 27,
+                            ),
+                          ),
+                        )
+                      ],
+                    )
                   ),
                   Expanded(
                     flex: 2,
@@ -106,13 +135,6 @@ class FoodTileState extends State<FoodTile> {
                               flex: widget._avIconContainerFlex,
                               child: widget._availabilityIconContainer
                             ),
-                            Expanded(
-                              flex: 2,
-                              child: Icon(
-                                _isFavorite ? Icons.star : Icons.star_border,
-                                color: _isFavorite ? null : null,
-                              ),
-                            )
                           ],
                         )
                       )
@@ -120,7 +142,6 @@ class FoodTileState extends State<FoodTile> {
                   )
                 ],
               )
-            )
           );
         } else {
           return CircularProgressIndicator();
