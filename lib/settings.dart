@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Map<String, dynamic> initialSettings = {
-  "foodSorting": false,
-  "foodMinAvailability": 2.0
+  "foodSorting": false, // false is alphabetical, true is categorical
+  "foodMinAvailability": 0.0
 };
 
 class SettingsPage extends StatefulWidget {
@@ -15,7 +15,7 @@ class SettingsPage extends StatefulWidget {
 
 class SettingsPageState extends State<SettingsPage> {
 
-  Future<Map<String, dynamic>> getSettings() async {
+  static Future<Map<String, dynamic>> getSettings() async {
     Map<String, dynamic> settings = {};
     SharedPreferences prefs = await SharedPreferences.getInstance();
     initialSettings.keys.forEach((key) {
@@ -53,6 +53,8 @@ class SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
 
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Settings")
@@ -77,9 +79,9 @@ class SettingsPageState extends State<SettingsPage> {
                   ),
                   Text("Minimale Verfügbarkeit für Anzeige"),
                   Slider.adaptive(
-                    divisions: 4,
+                    divisions: 3,
                     min: 0,
-                    max: 4,
+                    max: 3,
                     value: settings["foodMinAvailability"],
                     onChanged: (newVal) {
                       setSetting("foodMinAvailability", newVal);

@@ -3,16 +3,17 @@ import 'package:flutter/cupertino.dart';
 import 'favoritefoods.dart';
 import 'food.dart';
 
-Widget foodsInSeasonView(List<Food> foodsToDisplay, int month) {
+Widget foodsView(List<Food> preparedFoods, int month) {
+
   return GridView.builder(
-    itemCount: foodsToDisplay.length,
+    itemCount: preparedFoods.length,
     padding: const EdgeInsets.all(16.0),
     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
       maxCrossAxisExtent: 200,
 
     ),
     itemBuilder: (context, i) {
-      return FoodTile(foodsToDisplay[i], month);
+      return FoodTile(preparedFoods[i], month);
     },
   );
 }
@@ -169,4 +170,14 @@ const Map<String, Color> availabilityModeColor = {
   "seaTransportAvailable":  Colors.yellowAccent,
   "flightTransportAvailable": Colors.orangeAccent,
   "notAvailable": Colors.black12,
+};
+
+const Map<String, double> availabilityModeValues = {
+  "localSeason": 3.5,
+  "localStorage": 3,
+  "landTransportSeason": 2.5,
+  "landTransportStorage":  2,
+  "seaTransportAvailable":  1,
+  "flightTransportAvailable": 0,
+  "notAvailable": -1,
 };

@@ -38,7 +38,7 @@ class FoodSearch extends SearchDelegate<String> {
     final List<Food> resultList = query.isEmpty ?
     allFoods : allFoods.where((food) =>
         food.name.toLowerCase().startsWith(query.toLowerCase())).toList();
-    return foodsInSeasonView(resultList, _month);
+    return foodsView(resultList, _month);
   }
 
   @override
