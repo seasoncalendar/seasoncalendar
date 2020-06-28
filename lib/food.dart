@@ -27,6 +27,13 @@ List<Food> getFoodsFromFoodNames(List<String> foodNames) {
   return matchingFoods;
 }
 
+Map <double, String> minAvailabilityIndicator = {
+  0: "Keine Einschränkungen",
+  1: "Keine eingeflogenen Sorten",
+  2: "Keine eingeflogenen Sorten\nKeine eingeschifften Sorten",
+  3: "Nur heimische Sorten",
+};
+
 class Food {
   String name;
   String assetImgPath = "";

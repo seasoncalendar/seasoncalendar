@@ -22,56 +22,56 @@ class ContributePage extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.all(18),
-          child: Column(
-            children: <Widget>[
-              Text("Etwas fehlt dir oder ist falsch?", style: font20b),
-              SizedBox(height: 20),
-              RichText(
-                textAlign: TextAlign.justify,
-                text: TextSpan(
-                  text: contribContact,
-                  style: font18.copyWith(color: Colors.black),
-                ),
+        child: Column(
+          children: <Widget>[
+            Text("Etwas fehlt dir oder ist falsch?", style: font20b),
+            SizedBox(height: 20),
+            RichText(
+              textAlign: TextAlign.justify,
+              text: TextSpan(
+                text: contribContact,
+                style: font18.copyWith(color: Colors.black),
               ),
-              SizedBox(height: 10),
-              RaisedButton(
-                child: Text("Zur Website"),
-                onPressed: () async {
-                  final url = websiteContactForm;
-                  if (await canLaunch(url)) {
-                    await launch(
-                      url,
-                      forceSafariVC: false,
-                    );
-                  }
-                },
+            ),
+            SizedBox(height: 10),
+            RaisedButton(
+              child: Text("Zur Website"),
+              onPressed: () async {
+                final url = websiteContactForm;
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                    forceSafariVC: false,
+                  );
+                }
+              },
+            ),
+            SizedBox(height: 50),
+            Text("Zeig mir den Code!", style: font20b),
+            SizedBox(height: 20),
+            RichText(
+              textAlign: TextAlign.justify,
+              text: TextSpan(
+                text: contribCode,
+                style: font18.copyWith(color: Colors.black),
               ),
-              SizedBox(height: 50),
-              Text("Zeig mir den Code!", style: font20b),
-              SizedBox(height: 20),
-              RichText(
-                textAlign: TextAlign.justify,
-                text: TextSpan(
-                  text: contribCode,
-                  style: font18.copyWith(color: Colors.black),
-                ),
-              ),
-              SizedBox(height: 10),
-              RaisedButton(
-                child: Text("Zum GitHub-Repo"),
-                onPressed: () async {
-                  final url = seasonCalendarGithub;
-                  if (await canLaunch(url)) {
-                    await launch(
-                      url,
-                      forceSafariVC: false,
-                    );
-                  }
-                },
-              )
-            ],
-          )
+            ),
+            SizedBox(height: 10),
+            RaisedButton(
+              child: Text("Zum GitHub-Repo"),
+              onPressed: () async {
+                final url = seasonCalendarGithub;
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                    forceSafariVC: false,
+                  );
+                }
+              },
+            )
+          ],
         )
+      )
     );
   }
 }

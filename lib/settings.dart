@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/helpers/styles.dart';
+import 'food.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Map<String, dynamic> initialSettings = {
@@ -53,11 +55,9 @@ class SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
 
-
-
     return Scaffold(
       appBar: AppBar(
-        title: Text("Settings")
+        title: Text("Einstellungen")
       ),
       body: SingleChildScrollView(
         child: FutureBuilder(
@@ -65,29 +65,38 @@ class SettingsPageState extends State<SettingsPage> {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               Map<String, dynamic> settings = snapshot.data;
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SwitchListTile.adaptive(
-                    title: Text("Sortierung"),
-                    subtitle: Text(settings["foodSorting"] ? "nach Kategorie" : "alphabetisch"),
-                    value: settings["foodSorting"],
-                    dense: false,
-                    onChanged: (newVal) {
-                      setSetting("foodSorting", newVal);
+              return Container(
+                margin: EdgeInsets.all(10),
+                child: Column(
+                  children: <Widget>[
+                    SwitchListTile.adaptive(
+                      secondary: const Icon(Icons.sort_by_alpha),
+                      title: Text("Sortierung"),
+                      subtitle: Text(settings["foodSorting"] ? "nach Kategorie" : "alphabetisch"),
+                      value: settings["foodSorting"],
+                      dense: false,
+                      onChanged: (newVal) {
+                        setSetting("foodSorting", newVal);
                       },
-                  ),
-                  Text("Minimale Verfügbarkeit für Anzeige"),
-                  Slider.adaptive(
-                    divisions: 3,
-                    min: 0,
-                    max: 3,
-                    value: settings["foodMinAvailability"],
-                    onChanged: (newVal) {
-                      setSetting("foodMinAvailability", newVal);
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.visibility),
+                      title: Text("Filtern"),
+                      isThreeLine: true,
+                      subtitle: Text(minAvailabilityIndicator[settings["foodMinAvailability"]]),
+                      dense: false,
+                    ),
+                    Slider.adaptive(
+                      divisions: 3,
+                      min: 0,
+                      max: 3,
+                      value: settings["foodMinAvailability"],
+                      onChanged: (newVal) {
+                        setSetting("foodMinAvailability", newVal);
                       },
-                  )
-                ],
+                    ),
+                  ],
+                ),
               );
             } else {
               return CircularProgressIndicator();
