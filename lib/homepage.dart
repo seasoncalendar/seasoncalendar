@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/helpers/styles.dart';
 import 'food.dart';
 import 'favoritefoods.dart';
 import 'foodsview.dart';
@@ -11,7 +12,7 @@ class HomeState extends State<HomePage> {
 
   List<Food> _foods;
   bool _favoritesSelected;
-  DateTime _date;
+  int _monthIndex = DateTime.now().toLocal().month - 1;
 
   static const Map<String, String> etcPages = {
     "Über die App": "/about",
@@ -25,7 +26,7 @@ class HomeState extends State<HomePage> {
     super.initState();
     //favorites.init();
     setState(() {
-      _date = new DateTime.now();
+      _monthIndex = _monthIndex;
       _foods = allFoods;
       _favoritesSelected = false;
     });
@@ -39,7 +40,7 @@ class HomeState extends State<HomePage> {
         actions: <Widget>[
           IconButton(icon: Icon(_favoritesSelected ? Icons.star : Icons.star_border), onPressed: () {_toggleFavoritesSelected();}),
           IconButton(icon: Icon(Icons.settings), onPressed: _showSettings),
-          IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch(_date.toLocal().month));}),
+          IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch(_monthIndex));}),
           PopupMenuButton(
             icon: Icon(Icons.more_vert),
             onSelected: _chooseEtcPage,
@@ -54,35 +55,32 @@ class HomeState extends State<HomePage> {
           ),
         ],
       ),
-      body: foodsView(_foods, _date.toLocal().month),
+      body: foodsView(_foods, _monthIndex),
       bottomNavigationBar: Container(
         color: Colors.black12,
         child: ListTile(
-          title: Text(_date.toLocal().day.toString() + "." +
-              _date.toLocal().month.toString() + "." +
-              _date.toLocal().year.toString()),
+          leading: IconButton(
+            icon: const Icon(Icons.chevron_left),
+            onPressed: () {_shiftMonth(-1);},
+          ),
+          title: Text(monthToString[_monthIndex], textAlign: TextAlign.center, style: font20b,),
           trailing: IconButton(
-            icon: Icon(Icons.calendar_today),
-            onPressed: () {_selectDate(context);},
+            icon: const Icon(Icons.chevron_right),
+            onPressed: () {_shiftMonth(1);},
           ),
         ),
       )
     );
   }
 
-  Future<Null> _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-        context: context,
-        initialDate: _date,
-        firstDate: _date.subtract(new Duration(days: 365)),
-        lastDate: _date.add(new Duration(days: 365)),
-    );
-    if (picked != null) {
-      setState(() {
-        _date = picked;
-      });
-    }
+  _shiftMonth(int value) {
+    setState(() {
+      _monthIndex = (_monthIndex + value) % 12;
+    });
   }
+
+  List<String> monthToString = ["Januar", "Februar", "März", "April", "Mai",
+    "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
 
   void _toggleFavoritesSelected() async{
     setState(() {_favoritesSelected = !_favoritesSelected;});
@@ -98,11 +96,11 @@ class HomeState extends State<HomePage> {
       filteredFoods = allFoods;
     }
     Map<String, dynamic> settings = await SettingsPageState.getSettings();
-    filteredFoods = filteredFoods.where((food) => [for (String av in food.getAvailabilityModes(_date.toLocal().month)) availabilityModeValues[av]]
+    filteredFoods = filteredFoods.where((food) => [for (String av in food.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
         .reduce(max) >= settings['foodMinAvailability']).toList();
     if (settings['foodSorting'] == true) {
-      filteredFoods.sort((a, b) => [for (String av in b.getAvailabilityModes(_date.toLocal().month)) availabilityModeValues[av]]
-          .reduce(max).compareTo([for (String av in a.getAvailabilityModes(_date.toLocal().month)) availabilityModeValues[av]]
+      filteredFoods.sort((a, b) => [for (String av in b.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
+          .reduce(max).compareTo([for (String av in a.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
           .reduce(max)));
     }
     setState(() {

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'favoritefoods.dart';
 import 'food.dart';
 
-Widget foodsView(List<Food> preparedFoods, int month) {
+Widget foodsView(List<Food> preparedFoods, int monthIndex) {
 
   return GridView.builder(
     itemCount: preparedFoods.length,
@@ -13,7 +13,7 @@ Widget foodsView(List<Food> preparedFoods, int month) {
 
     ),
     itemBuilder: (context, i) {
-      return FoodTile(preparedFoods[i], month);
+      return FoodTile(preparedFoods[i], monthIndex);
     },
   );
 }
@@ -27,10 +27,10 @@ class FoodTile extends StatefulWidget {
   int _nameContainerFlex = 12;
   int _avIconContainerFlex = 2;
 
-  FoodTile(Food foodToDisplay, int month) {
+  FoodTile(Food foodToDisplay, int monthIndex) {
     _foodName = foodToDisplay.name;
     _assetImgPath = foodToDisplay.assetImgPath;
-    List<String> availabilities = foodToDisplay.getAvailabilityModes(month);
+    List<String> availabilities = foodToDisplay.getAvailabilityModes(monthIndex);
     _availabilityColor = availabilityModeColor[availabilities[0]];
     if (availabilities.length == 1) {
       _availabilityIconContainer = Container(

@@ -1,7 +1,5 @@
 import 'dart:collection';
 
-import 'package:flutter/material.dart';
-
 final List<Food> allFoods = [apple, apricot, pear];
 
 enum availability {
@@ -56,15 +54,13 @@ class Food {
     this._availabilities["flightTransportAvailable"] = flightTransportAvailable;
   }
 
-  List<String> getAvailabilityModes(int month) {
-    final index = month - 1;
+  List<String> getAvailabilityModes(int monthIndex) {
     LinkedHashMap<String, availability> availabilitiesThisMonth = LinkedHashMap();
     this._availabilities.keys.forEach((key) {
-      availabilitiesThisMonth[key] = this._availabilities[key][index];
+      availabilitiesThisMonth[key] = this._availabilities[key][monthIndex];
     });
 
     List<String> resultModes = new List();
-    List<String> keys = availabilitiesThisMonth.keys.toList();
     availabilitiesThisMonth.keys.forEach((key) {
       availability curModeAv = availabilitiesThisMonth[key];
       if (curModeAv != availability.none) {

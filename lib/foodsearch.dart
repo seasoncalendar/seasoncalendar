@@ -5,10 +5,10 @@ import 'foodsview.dart';
 
 class FoodSearch extends SearchDelegate<String> {
 
-  int _month;
+  int _monthIndex;
 
-  FoodSearch(int month) {
-    _month = month;
+  FoodSearch(int monthIndex) {
+    _monthIndex = monthIndex;
   }
 
   @override
@@ -38,7 +38,7 @@ class FoodSearch extends SearchDelegate<String> {
     final List<Food> resultList = query.isEmpty ?
     allFoods : allFoods.where((food) =>
         food.name.toLowerCase().startsWith(query.toLowerCase())).toList();
-    return foodsView(resultList, _month);
+    return foodsView(resultList, _monthIndex);
   }
 
   @override
