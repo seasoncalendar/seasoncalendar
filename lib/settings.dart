@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/helpers/styles.dart';
 import 'food.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -10,6 +9,8 @@ Map<String, dynamic> initialSettings = {
 };
 
 class SettingsPage extends StatefulWidget {
+
+  Map<String, dynamic> _settings;
 
   @override
   SettingsPageState createState() => new SettingsPageState();
@@ -26,12 +27,8 @@ class SettingsPageState extends State<SettingsPage> {
     return settings;
   }
 
-  setSettings(Map<String, dynamic> settings) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    settings.keys.forEach((key) {setValue(prefs, key, settings[key]);});
-  }
-
   setSetting(String key, dynamic newVal) async {
+    widget._settings[key] = newVal;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setValue(prefs, key, newVal);
   }
@@ -65,46 +62,57 @@ class SettingsPageState extends State<SettingsPage> {
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               Map<String, dynamic> settings = snapshot.data;
-              return Container(
-                margin: EdgeInsets.all(10),
-                child: Column(
-                  children: <Widget>[
-                    SwitchListTile.adaptive(
-                      secondary: const Icon(Icons.sort_by_alpha),
-                      title: Text("Sortierung"),
-                      subtitle: Text(settings["foodSorting"] ? "nach Kategorie" : "alphabetisch"),
-                      value: settings["foodSorting"],
-                      dense: false,
-                      onChanged: (newVal) {
-                        setSetting("foodSorting", newVal);
-                      },
-                    ),
-                    ListTile(
-
-                      leading: Icon(Icons.visibility),
-                      title: Text("Filtern"),
-                      isThreeLine: false,
-                      subtitle: Text(minAvailabilityIndicator[settings["foodMinAvailability"]]),
-                      dense: false,
-                    ),
-                    Slider.adaptive(
-                      divisions: 3,
-                      min: 0,
-                      max: 3,
-                      value: settings["foodMinAvailability"],
-                      onChanged: (newVal) {
-                        setSetting("foodMinAvailability", newVal);
-                      },
-                    ),
-                  ],
-                ),
-              );
-            } else {
-              return CircularProgressIndicator();
+              widget._settings = settings;
             }
+            return _buildSettings(context);
           }
         )
       )
     );
+  }
+
+  Widget _buildSettings(BuildContext context) {
+    if (widget._settings == null) {
+      return Align(
+        alignment: Alignment.center,
+        child: CircularProgressIndicator(),
+      );
+    }
+    else {
+      return Container(
+        margin: EdgeInsets.all(10),
+        child: Column(
+          children: <Widget>[
+            SwitchListTile.adaptive(
+              secondary: const Icon(Icons.sort_by_alpha),
+              title: Text("Sortierung"),
+              subtitle: Text(widget._settings["foodSorting"] ? "nach Kategorie" : "alphabetisch"),
+              value: widget._settings["foodSorting"],
+              dense: false,
+              onChanged: (newVal) {
+                setSetting("foodSorting", newVal);
+              },
+            ),
+            ListTile(
+
+              leading: Icon(Icons.visibility),
+              title: Text("Filtern"),
+              isThreeLine: false,
+              subtitle: Text(minAvailabilityIndicator[widget._settings["foodMinAvailability"]]),
+              dense: false,
+            ),
+            Slider.adaptive(
+              divisions: 3,
+              min: 0,
+              max: 3,
+              value: widget._settings["foodMinAvailability"],
+              onChanged: (newVal) {
+                setSetting("foodMinAvailability", newVal);
+              },
+            ),
+          ],
+        ),
+      );
+    }
   }
 }
