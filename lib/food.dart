@@ -1,17 +1,49 @@
 import 'dart:collection';
+import 'package:flutter/material.dart';
 
 final List<Food> allFoods = [apple, apricot, pear];
-
 enum availability {
   none,
   some,
   full
 }
-
 const availability n = availability.none;
 const availability s = availability.some;
 const availability f = availability.full;
 const List<availability> naList = [n, n, n, n, n, n, n, n, n, n, n, n];
+Map <double, String> minAvailabilityIndicator = {
+  0: "Keine Einschränkungen",
+  1: "Keine eingeflogenen Sorten",
+  2: "Keine eingeflogenen/eingeschifften Sorten",
+  3: "Nur heimische Sorten",
+};
+const Map<String, Icon> availabilityModeIcons = {
+  "localSeason": Icon(Icons.home, color: Colors.green),
+  "localStorage": Icon(Icons.home),
+  "landTransportSeason": Icon(Icons.local_shipping, color: Colors.green,),
+  "landTransportStorage":  Icon(Icons.local_shipping),
+  "seaTransportAvailable":  Icon(Icons.directions_boat),
+  "flightTransportAvailable": Icon(Icons.airplanemode_active),
+  "notAvailable": Icon(Icons.remove),
+};
+const Map<String, Color> availabilityModeColor = {
+  "localSeason": Colors.lightGreen,
+  "localStorage": Colors.lightGreenAccent,
+  "landTransportSeason": Colors.lime,
+  "landTransportStorage":  Colors.limeAccent,
+  "seaTransportAvailable":  Colors.yellowAccent,
+  "flightTransportAvailable": Colors.orangeAccent,
+  "notAvailable": Colors.black12,
+};
+const Map<String, double> availabilityModeValues = {
+  "localSeason": 3.5,
+  "localStorage": 3,
+  "landTransportSeason": 2.5,
+  "landTransportStorage":  2,
+  "seaTransportAvailable":  1,
+  "flightTransportAvailable": 0,
+  "notAvailable": -1,
+};
 
 List<Food> getFoodsFromFoodNames(List<String> foodNames) {
   List<Food> matchingFoods = new List();
@@ -24,13 +56,6 @@ List<Food> getFoodsFromFoodNames(List<String> foodNames) {
   });
   return matchingFoods;
 }
-
-Map <double, String> minAvailabilityIndicator = {
-  0: "Keine Einschränkungen",
-  1: "Keine eingeflogenen Sorten",
-  2: "Keine eingeflogenen/eingeschifften Sorten",
-  3: "Nur heimische Sorten",
-};
 
 class Food {
   String name;
@@ -81,13 +106,11 @@ class Food {
 final Food apple = Food("Apfel", "img/apple.png",
     localSeason:              [n, n, n, n, n, n, s, f, f, f, f, n],
     localStorage:             [f, f, f, f, f, f, f, f, f, f, f, f]);
-
 final Food apricot = Food("Aprikose", "img/apricot.png",
     localSeason:              [n, n, n, n, n, n, s, s, s, n, n, n],
     landTransportSeason:      [n, n, n, n, f, f, f, f, f, n, n, n],
     landTransportStorage:     [n, n, n, n, n, n, n, n, n, s, s, n],
     flightTransportAvailable: [s, s, s, s, s, s, s, s, s, s, s, s]);
-
 final Food pear = Food("Birne", "img/pear.png",
     localSeason:              [n, n, n, n, n, n, n, f, f, f, f, s],
     localStorage:             [s, s, n, n, n, n, n, s, s, s, s, s],

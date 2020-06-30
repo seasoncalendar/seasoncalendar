@@ -55,6 +55,20 @@ class HomeState extends State<HomePage> {
           ),
         ],
       ),
+      /*body: FutureBuilder(
+        future: Future.wait([getFavoriteFoods(), SettingsPageState.getSettings()]),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            _filterAndSortFoods(snapshot.data[0], snapshot.data[1]);
+            return foodsView(_foods, _monthIndex);
+          } else {
+            return Align(
+              alignment: Alignment.center,
+              child: CircularProgressIndicator(),
+            );
+          }
+        }
+      ),*/
       body: foodsView(_foods, _monthIndex),
       bottomNavigationBar: Container(
         color: Colors.black12,
@@ -84,18 +98,20 @@ class HomeState extends State<HomePage> {
 
   void _toggleFavoritesSelected() async{
     setState(() {_favoritesSelected = !_favoritesSelected;});
-    _filterAndSortFoods();
+    _filterAndSortFoodsAsync();
   }
 
-  void _filterAndSortFoods() async {
-    List<Food> filteredFoods;
-    if (_favoritesSelected) {
-      final favoriteFoodNames = await getFavoriteFoods();
-      filteredFoods = getFoodsFromFoodNames(favoriteFoodNames);
-    } else {
-      filteredFoods = allFoods;
-    }
+  Future<List<Food>> _filterAndSortFoodsAsync() async {
+    final favoriteFoodNames = await getFavoriteFoods();
     Map<String, dynamic> settings = await SettingsPageState.getSettings();
+    _filterAndSortFoods(favoriteFoodNames, settings);
+  }
+
+  void _filterAndSortFoods(List<String> favoriteFoodNames, Map<String, dynamic> settings) {
+
+    List<Food> filteredFoods = allFoods;
+    if (_favoritesSelected) {filteredFoods = getFoodsFromFoodNames(favoriteFoodNames);}
+
     filteredFoods = filteredFoods.where((food) => [for (String av in food.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
         .reduce(max) >= settings['foodMinAvailability']).toList();
     if (settings['foodSorting'] == true) {
@@ -110,7 +126,7 @@ class HomeState extends State<HomePage> {
 
   void _showSettings() {
     Navigator.of(context).pushNamed("/settings")
-        .then((_) => _filterAndSortFoods());
+        .then((_) => _filterAndSortFoodsAsync());
   }
 
   void _chooseEtcPage(String pageRoute) {
