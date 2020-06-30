@@ -28,7 +28,7 @@ List<Food> getFoodsFromFoodNames(List<String> foodNames) {
 Map <double, String> minAvailabilityIndicator = {
   0: "Keine Einschränkungen",
   1: "Keine eingeflogenen Sorten",
-  2: "Keine eingeflogenen Sorten\nKeine eingeschifften Sorten",
+  2: "Keine eingeflogenen/eingeschifften Sorten",
   3: "Nur heimische Sorten",
 };
 

@@ -80,9 +80,10 @@ class SettingsPageState extends State<SettingsPage> {
                       },
                     ),
                     ListTile(
+
                       leading: Icon(Icons.visibility),
                       title: Text("Filtern"),
-                      isThreeLine: true,
+                      isThreeLine: false,
                       subtitle: Text(minAvailabilityIndicator[settings["foodMinAvailability"]]),
                       dense: false,
                     ),
