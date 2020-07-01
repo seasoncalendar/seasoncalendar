@@ -10,9 +10,13 @@ import 'settings.dart';
 
 class HomeState extends State<HomePage> {
 
-  List<Food> _foods;
-  bool _favoritesSelected;
+  List<Food> _foods = List<Food>();
+  bool _favoritesSelected = false;
   int _monthIndex = DateTime.now().toLocal().month - 1;
+
+  HomeState(List<String> favoriteFoodNames, Map<String, dynamic> settings) {
+    _foods = _getFilteredAndSortedFoods(favoriteFoodNames, settings);
+  }
 
   static const Map<String, String> etcPages = {
     "Über die App": "/about",
@@ -27,8 +31,9 @@ class HomeState extends State<HomePage> {
     //favorites.init();
     setState(() {
       _monthIndex = _monthIndex;
-      _foods = allFoods;
-      _favoritesSelected = false;
+      if (_foods.length == 0) {
+        _foods = allFoods;
+      }
     });
   }
 
@@ -91,6 +96,7 @@ class HomeState extends State<HomePage> {
     setState(() {
       _monthIndex = (_monthIndex + value) % 12;
     });
+    _filterAndSortFoodsAsync();
   }
 
   List<String> monthToString = ["Januar", "Februar", "März", "April", "Mai",
@@ -101,13 +107,15 @@ class HomeState extends State<HomePage> {
     _filterAndSortFoodsAsync();
   }
 
-  Future<List<Food>> _filterAndSortFoodsAsync() async {
+  _filterAndSortFoodsAsync() async {
     final favoriteFoodNames = await getFavoriteFoods();
     Map<String, dynamic> settings = await SettingsPageState.getSettings();
-    _filterAndSortFoods(favoriteFoodNames, settings);
+    setState(() {
+      _foods = _getFilteredAndSortedFoods(favoriteFoodNames, settings);
+    });
   }
 
-  void _filterAndSortFoods(List<String> favoriteFoodNames, Map<String, dynamic> settings) {
+  List<Food> _getFilteredAndSortedFoods(List<String> favoriteFoodNames, Map<String, dynamic> settings) {
 
     List<Food> filteredFoods = allFoods;
     if (_favoritesSelected) {filteredFoods = getFoodsFromFoodNames(favoriteFoodNames);}
@@ -119,9 +127,7 @@ class HomeState extends State<HomePage> {
           .reduce(max).compareTo([for (String av in a.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
           .reduce(max)));
     }
-    setState(() {
-      _foods = filteredFoods;
-    });
+    return filteredFoods;
   }
 
   void _showSettings() {
@@ -135,6 +141,15 @@ class HomeState extends State<HomePage> {
 }
 
 class HomePage extends StatefulWidget {
+
+  List<String> _favoriteFoodNames;
+  Map<String, dynamic> _settings;
+
+  HomePage(List<String> favoriteFoodNames, Map<String, dynamic> settings) {
+    _favoriteFoodNames = favoriteFoodNames;
+    _settings = settings;
+  }
+
   @override
-  HomeState createState() => HomeState();
+  HomeState createState() => HomeState(_favoriteFoodNames, _settings);
 }
