@@ -22,7 +22,6 @@ class HomeState extends State<HomePage> {
     "Über die App": "/about",
     "App verbessern": "/contribute",
     "Unterstützen": "/support",
-    "Impressum": "/imprint"
   };
 
   @override
@@ -46,6 +45,10 @@ class HomeState extends State<HomePage> {
           IconButton(icon: Icon(_favoritesSelected ? Icons.star : Icons.star_border), onPressed: () {_toggleFavoritesSelected();}),
           IconButton(icon: Icon(Icons.settings), onPressed: _showSettings),
           IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch(_monthIndex));}),
+          FlatButton(
+              child: Text("Impressum", style: const TextStyle(color: Colors.white),),
+              onPressed: () {Navigator.of(context).pushNamed("/imprint");}
+          ),
           PopupMenuButton(
             icon: Icon(Icons.more_vert),
             onSelected: _chooseEtcPage,
@@ -60,20 +63,6 @@ class HomeState extends State<HomePage> {
           ),
         ],
       ),
-      /*body: FutureBuilder(
-        future: Future.wait([getFavoriteFoods(), SettingsPageState.getSettings()]),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            _filterAndSortFoods(snapshot.data[0], snapshot.data[1]);
-            return foodsView(_foods, _monthIndex);
-          } else {
-            return Align(
-              alignment: Alignment.center,
-              child: CircularProgressIndicator(),
-            );
-          }
-        }
-      ),*/
       body: foodsView(_foods, _monthIndex),
       bottomNavigationBar: Container(
         color: Colors.black12,

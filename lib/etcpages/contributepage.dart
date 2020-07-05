@@ -37,7 +37,7 @@ class ContributePage extends StatelessWidget {
             RaisedButton(
               child: Text("Zur Website"),
               onPressed: () async {
-                final url = websiteContactForm;
+                final url = websiteContactPage;
                 if (await canLaunch(url)) {
                   await launch(
                     url,

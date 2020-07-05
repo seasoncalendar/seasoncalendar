@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'food.dart';
 import 'foodsview.dart';
+import 'package:edit_distance/edit_distance.dart';
+
+const maxEditDist = 3;
 
 class FoodSearch extends SearchDelegate<String> {
 
@@ -35,9 +38,10 @@ class FoodSearch extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
+    final Levenshtein lvs = new Levenshtein();
     final List<Food> resultList = query.isEmpty ?
     allFoods : allFoods.where((food) =>
-        food.name.toLowerCase().startsWith(query.toLowerCase())).toList();
+      lvs.distance(food.name.toLowerCase(), query.toLowerCase()) <= maxEditDist).toList();
     return foodsView(resultList, _monthIndex);
   }
 
