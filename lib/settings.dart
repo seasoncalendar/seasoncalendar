@@ -1,26 +1,34 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'food.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-Map<String, dynamic> initialSettings = {
-  "foodSorting": false, // false is alphabetical, true is categorical
-  "foodMinAvailability": 0.0
-};
+import 'package:flutter/services.dart' show rootBundle;
 
 class SettingsPage extends StatefulWidget {
 
+  Map<String, dynamic> _initialSettings;
   Map<String, dynamic> _settings;
+
+  SettingsPage(Map<String, dynamic> initialSettings) {
+    _initialSettings = initialSettings;
+  }
 
   @override
   SettingsPageState createState() => new SettingsPageState();
 }
 
 class SettingsPageState extends State<SettingsPage> {
-
+  
   static Future<Map<String, dynamic>> getSettings() async {
+    final initialSettingsJson = await rootBundle.loadString("assets/initialsettings.json");
+    return getSettingsI(json.decode(initialSettingsJson));
+  }
+
+  static Future<Map<String, dynamic>> getSettingsI(Map<String, dynamic> initialSettings) async {
     Map<String, dynamic> settings = {};
     SharedPreferences prefs = await SharedPreferences.getInstance();
+
     initialSettings.keys.forEach((key) {
       settings[key] = prefs.get(key) ?? initialSettings[key];
     });
@@ -54,11 +62,11 @@ class SettingsPageState extends State<SettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Einstellungen")
+        title: Text(widget._initialSettings['settingsPageTitle'])
       ),
       body: SingleChildScrollView(
         child: FutureBuilder(
-          future: getSettings(),
+          future: getSettingsI(widget._initialSettings),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
               Map<String, dynamic> settings = snapshot.data;
@@ -85,8 +93,10 @@ class SettingsPageState extends State<SettingsPage> {
           children: <Widget>[
             SwitchListTile.adaptive(
               secondary: const Icon(Icons.sort_by_alpha),
-              title: Text("Sortierung"),
-              subtitle: Text(widget._settings["foodSorting"] ? "nach Kategorie" : "alphabetisch"),
+              title: Text(widget._initialSettings['settingsSortingTitle']),
+              subtitle: Text(widget._settings["foodSorting"]
+                  ? widget._initialSettings['settingsSortingOnText']
+                  : widget._initialSettings['settingsSortingOffText']),
               value: widget._settings["foodSorting"],
               dense: false,
               onChanged: (newVal) {
@@ -96,9 +106,9 @@ class SettingsPageState extends State<SettingsPage> {
             ListTile(
 
               leading: Icon(Icons.visibility),
-              title: Text("Filtern"),
+              title: Text(widget._initialSettings['settingsFilterTitle']),
               isThreeLine: false,
-              subtitle: Text(minAvailabilityIndicator[widget._settings["foodMinAvailability"]]),
+              subtitle: Text(widget._initialSettings['minAvailabilityIndicator'][widget._settings["foodMinAvailability"]]),
               dense: false,
             ),
             Slider.adaptive(

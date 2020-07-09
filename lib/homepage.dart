@@ -7,6 +7,7 @@ import 'favoritefoods.dart';
 import 'foodsview.dart';
 import 'foodsearch.dart';
 import 'settings.dart';
+import 'routes.dart';
 
 class HomeState extends State<HomePage> {
 
@@ -14,25 +15,14 @@ class HomeState extends State<HomePage> {
   bool _favoritesSelected = false;
   int _monthIndex = DateTime.now().toLocal().month - 1;
 
-  HomeState(List<String> favoriteFoodNames, Map<String, dynamic> settings) {
-    _foods = _getFilteredAndSortedFoods(favoriteFoodNames, settings);
-  }
-
-  static const Map<String, String> etcPages = {
-    "Über die App": "/about",
-    "App verbessern": "/contribute",
-    "Unterstützen": "/support",
-  };
-
   @override
   void initState() {
     super.initState();
     //favorites.init();
     setState(() {
       _monthIndex = _monthIndex;
-      if (_foods.length == 0) {
-        _foods = allFoods;
-      }
+      _favoritesSelected = _favoritesSelected;
+      _foods = _getFilteredAndSortedFoods(widget._favoriteFoodNames, widget._settings);
     });
   }
 
@@ -40,13 +30,12 @@ class HomeState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('In Saison'),
         actions: <Widget>[
           IconButton(icon: Icon(_favoritesSelected ? Icons.star : Icons.star_border), onPressed: () {_toggleFavoritesSelected();}),
           IconButton(icon: Icon(Icons.settings), onPressed: _showSettings),
-          IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch(_monthIndex));}),
+          IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch(widget._allFoods, _monthIndex));}),
           FlatButton(
-              child: Text("Impressum", style: const TextStyle(color: Colors.white),),
+              child: Text(widget._hpText['imprintPageButtonText'], style: const TextStyle(color: Colors.white),),
               onPressed: () {Navigator.of(context).pushNamed("/imprint");}
           ),
           PopupMenuButton(
@@ -71,7 +60,7 @@ class HomeState extends State<HomePage> {
             icon: const Icon(Icons.chevron_left),
             onPressed: () {_shiftMonth(-1);},
           ),
-          title: Text(monthToString[_monthIndex], textAlign: TextAlign.center, style: font20b,),
+          title: Text(widget._hpText['monthToString'][_monthIndex], textAlign: TextAlign.center, style: font20b,),
           trailing: IconButton(
             icon: const Icon(Icons.chevron_right),
             onPressed: () {_shiftMonth(1);},
@@ -88,9 +77,6 @@ class HomeState extends State<HomePage> {
     _filterAndSortFoodsAsync();
   }
 
-  List<String> monthToString = ["Januar", "Februar", "März", "April", "Mai",
-    "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
-
   void _toggleFavoritesSelected() async{
     setState(() {_favoritesSelected = !_favoritesSelected;});
     _filterAndSortFoodsAsync();
@@ -106,8 +92,10 @@ class HomeState extends State<HomePage> {
 
   List<Food> _getFilteredAndSortedFoods(List<String> favoriteFoodNames, Map<String, dynamic> settings) {
 
-    List<Food> filteredFoods = allFoods;
-    if (_favoritesSelected) {filteredFoods = getFoodsFromFoodNames(favoriteFoodNames);}
+    List<Food> filteredFoods = widget._allFoods;
+    if (_favoritesSelected) {
+      filteredFoods = getFoodsFromFoodNames(favoriteFoodNames, widget._allFoods);
+    }
 
     filteredFoods = filteredFoods.where((food) => [for (String av in food.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
         .reduce(max) >= settings['foodMinAvailability']).toList();
@@ -133,12 +121,17 @@ class HomePage extends StatefulWidget {
 
   List<String> _favoriteFoodNames;
   Map<String, dynamic> _settings;
+  Map<String, dynamic> _hpText;
+  List<Food> _allFoods;
 
-  HomePage(List<String> favoriteFoodNames, Map<String, dynamic> settings) {
+  HomePage(List<String> favoriteFoodNames, Map<String, dynamic> settings,
+      Map<String, dynamic> homepageText, List<Food> allFoods,) {
     _favoriteFoodNames = favoriteFoodNames;
     _settings = settings;
+    _hpText = homepageText;
+    _allFoods = allFoods;
   }
 
   @override
-  HomeState createState() => HomeState(_favoriteFoodNames, _settings);
+  HomeState createState() => HomeState();
 }

@@ -10,4 +10,5 @@ final font32 = const TextStyle(fontSize: 32.0, color: Colors.black);
 final font20b = const TextStyle(fontSize: 20.0, color: Colors.black, fontWeight: FontWeight.bold);
 final font17b = const TextStyle(fontSize: 17.0, color: Colors.black, fontWeight: FontWeight.bold);
 
+final font18i = const TextStyle(fontSize: 18.0, color: Colors.black, fontStyle: FontStyle.italic);
 final font18link = const TextStyle(fontSize: 18.0, color: Colors.lightBlueAccent);

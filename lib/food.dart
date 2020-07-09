@@ -1,28 +1,39 @@
 import 'dart:collection';
 import 'package:flutter/material.dart';
 
-final List<Food> allFoods = [apple, apricot, pear];
-enum availability {
-  none,
-  some,
-  full
+enum Availability { none, some, full }
+
+const Availability n = Availability.none;
+const Availability s = Availability.some;
+const Availability f = Availability.full;
+
+Availability fromDouble(double val) {
+  if (val == 0.0) return n;
+  if (val == 1.0)
+    return f;
+  else
+    return s;
 }
-const availability n = availability.none;
-const availability s = availability.some;
-const availability f = availability.full;
-const List<availability> naList = [n, n, n, n, n, n, n, n, n, n, n, n];
-Map <double, String> minAvailabilityIndicator = {
-  0: "Keine Einschränkungen",
-  1: "Keine eingeflogenen Sorten",
-  2: "Keine eingeflogenen/eingeschifften Sorten",
-  3: "Nur heimische Sorten",
-};
+
+const List<Availability> naList = [n, n, n, n, n, n, n, n, n, n, n, n];
+
+List<Availability> availabilitiesFromJson(List<dynamic> availabilitiesJson) {
+  List<Availability> availabilities = new List<Availability>();
+  availabilitiesJson.forEach((av) {
+    availabilities.add(fromDouble(av.toDouble()));
+  });
+  return availabilities;
+}
+
 const Map<String, Icon> availabilityModeIcons = {
   "localSeason": Icon(Icons.home, color: Colors.green),
   "localStorage": Icon(Icons.home),
-  "landTransportSeason": Icon(Icons.local_shipping, color: Colors.green,),
-  "landTransportStorage":  Icon(Icons.local_shipping),
-  "seaTransportAvailable":  Icon(Icons.directions_boat),
+  "landTransportSeason": Icon(
+    Icons.local_shipping,
+    color: Colors.green,
+  ),
+  "landTransportStorage": Icon(Icons.local_shipping),
+  "seaTransportAvailable": Icon(Icons.directions_boat),
   "flightTransportAvailable": Icon(Icons.airplanemode_active),
   "notAvailable": Icon(Icons.remove),
 };
@@ -30,8 +41,8 @@ const Map<String, Color> availabilityModeColor = {
   "localSeason": Colors.lightGreen,
   "localStorage": Colors.lightGreenAccent,
   "landTransportSeason": Colors.lime,
-  "landTransportStorage":  Colors.limeAccent,
-  "seaTransportAvailable":  Colors.yellowAccent,
+  "landTransportStorage": Colors.limeAccent,
+  "seaTransportAvailable": Colors.yellowAccent,
   "flightTransportAvailable": Colors.orangeAccent,
   "notAvailable": Colors.black12,
 };
@@ -39,13 +50,13 @@ const Map<String, double> availabilityModeValues = {
   "localSeason": 3.5,
   "localStorage": 3,
   "landTransportSeason": 2.5,
-  "landTransportStorage":  2,
-  "seaTransportAvailable":  1,
+  "landTransportStorage": 2,
+  "seaTransportAvailable": 1,
   "flightTransportAvailable": 0,
   "notAvailable": -1,
 };
 
-List<Food> getFoodsFromFoodNames(List<String> foodNames) {
+List<Food> getFoodsFromFoodNames(List<String> foodNames, List<Food> allFoods) {
   List<Food> matchingFoods = new List();
   Map<String, Food> allFoodsMap = Map.fromIterable(allFoods,
       key: (food) => food.name, value: (food) => food);
@@ -57,18 +68,51 @@ List<Food> getFoodsFromFoodNames(List<String> foodNames) {
   return matchingFoods;
 }
 
+List<Food> getFoodsFromJson(Map<String, dynamic> foodsJson) {
+  List<Food> allFoods = List<Food>();
+  foodsJson.forEach((foodKey, foodDict) {
+    List<Availability> localSeason = foodDict.containsKey("localSeason")
+      ? availabilitiesFromJson(foodDict['localSeason'])
+      : naList;
+    List<Availability> localStorage = foodDict.containsKey("localStorage")
+      ? availabilitiesFromJson(foodDict['localStorage'])
+      : naList;
+    List<Availability> landTransportSeason = foodDict.containsKey("landTransportSeason")
+      ? availabilitiesFromJson(foodDict['landTransportSeason'])
+      : naList;
+    List<Availability> landTransportStorage = foodDict.containsKey("landTransportStorage")
+      ? availabilitiesFromJson(foodDict['landTransportStorage'])
+      : naList;
+    List<Availability> seaTransportAvailable = foodDict.containsKey("seaTransportAvailable")
+      ? availabilitiesFromJson(foodDict['seaTransportAvailable'])
+      : naList;
+    List<Availability> flightTransportAvailable = foodDict.containsKey("flightTransportAvailable")
+      ? availabilitiesFromJson(foodDict['flightTransportAvailable'])
+      : naList;
+    allFoods.add(new Food(foodDict["name"], foodDict["img"],
+        localSeason: localSeason,
+        localStorage: localStorage,
+        landTransportSeason: landTransportSeason,
+        landTransportStorage: landTransportStorage,
+        seaTransportAvailable: seaTransportAvailable,
+        flightTransportAvailable: flightTransportAvailable));
+  });
+  return allFoods;
+}
+
 class Food {
   String name;
   String assetImgPath = "";
-  LinkedHashMap<String, List<availability>> _availabilities = new LinkedHashMap();
+  LinkedHashMap<String, List<Availability>> _availabilities =
+      new LinkedHashMap();
 
-  Food(String name, String assetImgPath, {
-    List<availability> localSeason = naList,
-    List<availability> localStorage = naList,
-    List<availability> landTransportSeason = naList,
-    List<availability> landTransportStorage = naList,
-    List<availability> seaTransportAvailable = naList,
-    List<availability> flightTransportAvailable = naList}) {
+  Food(String name, String assetImgPath,
+      {List<Availability> localSeason = naList,
+      List<Availability> localStorage = naList,
+      List<Availability> landTransportSeason = naList,
+      List<Availability> landTransportStorage = naList,
+      List<Availability> seaTransportAvailable = naList,
+      List<Availability> flightTransportAvailable = naList}) {
     this.name = name;
     this.assetImgPath = assetImgPath;
     this._availabilities["localSeason"] = localSeason;
@@ -80,19 +124,20 @@ class Food {
   }
 
   List<String> getAvailabilityModes(int monthIndex) {
-    LinkedHashMap<String, availability> availabilitiesThisMonth = LinkedHashMap();
+    LinkedHashMap<String, Availability> availabilitiesThisMonth =
+        LinkedHashMap();
     this._availabilities.keys.forEach((key) {
       availabilitiesThisMonth[key] = this._availabilities[key][monthIndex];
     });
 
     List<String> resultModes = new List();
     availabilitiesThisMonth.keys.forEach((key) {
-      availability curModeAv = availabilitiesThisMonth[key];
-      if (curModeAv != availability.none) {
+      Availability curModeAv = availabilitiesThisMonth[key];
+      if (curModeAv != Availability.none) {
         resultModes.add(key);
       }
-      if (curModeAv == availability.full || resultModes.length >= 2) {
-        return resultModes;
+      if (curModeAv == Availability.full || resultModes.length >= 2) {
+        return resultModes; // TODO break instead?
       }
     });
     if (resultModes.length == 0) {
@@ -102,16 +147,3 @@ class Food {
     }
   }
 }
-
-final Food apple = Food("Apfel", "img/apple.png",
-    localSeason:              [n, n, n, n, n, n, s, f, f, f, f, n],
-    localStorage:             [f, f, f, f, f, f, f, f, f, f, f, f]);
-final Food apricot = Food("Aprikose", "img/apricot.png",
-    localSeason:              [n, n, n, n, n, n, s, s, s, n, n, n],
-    landTransportSeason:      [n, n, n, n, f, f, f, f, f, n, n, n],
-    landTransportStorage:     [n, n, n, n, n, n, n, n, n, s, s, n],
-    flightTransportAvailable: [s, s, s, s, s, s, s, s, s, s, s, s]);
-final Food pear = Food("Birne", "img/pear.png",
-    localSeason:              [n, n, n, n, n, n, n, f, f, f, f, s],
-    localStorage:             [s, s, n, n, n, n, n, s, s, s, s, s],
-    flightTransportAvailable: [s, s, s, s, s, s, s, s, s, s, s, s]);

@@ -1,7 +1,4 @@
-// Copyright 2018 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'routes.dart';
 
@@ -12,9 +9,23 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: DefaultAssetBundle.of(context).loadString("assets/text/apptext.json"),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final mainText = json.decode(snapshot.data);
+          return getMaterialApp(context, mainText["appTitle"]);
+        } else {
+          return getMaterialApp(context, "Season Calendar");
+        }
+      }
+    );
+  }
+
+  Widget getMaterialApp(BuildContext context, String appTitle) {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
-      title: 'Saisonkalender',
+      title: appTitle,
       theme: ThemeData.light(),
       initialRoute: '/',
       routes: appRoutes,

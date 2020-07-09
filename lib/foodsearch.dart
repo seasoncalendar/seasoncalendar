@@ -8,9 +8,11 @@ const maxEditDist = 3;
 
 class FoodSearch extends SearchDelegate<String> {
 
+  List<Food> _allFoods;
   int _monthIndex;
 
-  FoodSearch(int monthIndex) {
+  FoodSearch(List<Food> allFoods, int monthIndex) {
+    _allFoods = allFoods;
     _monthIndex = monthIndex;
   }
 
@@ -40,7 +42,7 @@ class FoodSearch extends SearchDelegate<String> {
   Widget buildResults(BuildContext context) {
     final Levenshtein lvs = new Levenshtein();
     final List<Food> resultList = query.isEmpty ?
-    allFoods : allFoods.where((food) =>
+    _allFoods : _allFoods.where((food) =>
       lvs.distance(food.name.toLowerCase(), query.toLowerCase()) <= maxEditDist).toList();
     return foodsView(resultList, _monthIndex);
   }
