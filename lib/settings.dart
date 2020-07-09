@@ -1,18 +1,18 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter/services.dart' show rootBundle;
+
+import 'helpers/jsonassetloader.dart';
 
 class SettingsPage extends StatefulWidget {
 
-  Map<String, dynamic> _initialSettings;
+  final Map<String, dynamic> _initialSettings;
+  final Map<String, dynamic> _settingsText;
   Map<String, dynamic> _settings;
 
-  SettingsPage(Map<String, dynamic> initialSettings) {
-    _initialSettings = initialSettings;
-  }
+  SettingsPage(Map<String, dynamic> initialSettings, Map<String, dynamic> settingsText):
+    _initialSettings = initialSettings, _settingsText = settingsText;
 
   @override
   SettingsPageState createState() => new SettingsPageState();
@@ -21,8 +21,8 @@ class SettingsPage extends StatefulWidget {
 class SettingsPageState extends State<SettingsPage> {
   
   static Future<Map<String, dynamic>> getSettings() async {
-    final initialSettingsJson = await rootBundle.loadString("assets/initialsettings.json");
-    return getSettingsI(json.decode(initialSettingsJson));
+    final initialSettings = await loadAssetFromJson("assets/initialsettings.json");
+    return getSettingsI(initialSettings);
   }
 
   static Future<Map<String, dynamic>> getSettingsI(Map<String, dynamic> initialSettings) async {
@@ -62,13 +62,13 @@ class SettingsPageState extends State<SettingsPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget._initialSettings['settingsPageTitle'])
+        title: Text(widget._settingsText['settingsPageTitle'])
       ),
       body: SingleChildScrollView(
         child: FutureBuilder(
           future: getSettingsI(widget._initialSettings),
           builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasData) {
               Map<String, dynamic> settings = snapshot.data;
               widget._settings = settings;
             }
@@ -87,16 +87,18 @@ class SettingsPageState extends State<SettingsPage> {
       );
     }
     else {
+      print(widget._settingsText['minAvailabilityIndicator']);
+      print(widget._settings["foodMinAvailability"].round().toString());
       return Container(
         margin: EdgeInsets.all(10),
         child: Column(
           children: <Widget>[
             SwitchListTile.adaptive(
               secondary: const Icon(Icons.sort_by_alpha),
-              title: Text(widget._initialSettings['settingsSortingTitle']),
+              title: Text(widget._settingsText['settingsSortingTitle']),
               subtitle: Text(widget._settings["foodSorting"]
-                  ? widget._initialSettings['settingsSortingOnText']
-                  : widget._initialSettings['settingsSortingOffText']),
+                  ? widget._settingsText['settingsSortingOnText']
+                  : widget._settingsText['settingsSortingOffText']),
               value: widget._settings["foodSorting"],
               dense: false,
               onChanged: (newVal) {
@@ -104,11 +106,10 @@ class SettingsPageState extends State<SettingsPage> {
               },
             ),
             ListTile(
-
               leading: Icon(Icons.visibility),
-              title: Text(widget._initialSettings['settingsFilterTitle']),
+              title: Text(widget._settingsText['settingsFilterTitle']),
               isThreeLine: false,
-              subtitle: Text(widget._initialSettings['minAvailabilityIndicator'][widget._settings["foodMinAvailability"]]),
+              subtitle: Text(widget._settingsText['minAvailabilityIndicator'][widget._settings["foodMinAvailability"].round().toString()]),
               dense: false,
             ),
             Slider.adaptive(

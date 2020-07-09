@@ -119,18 +119,17 @@ class HomeState extends State<HomePage> {
 
 class HomePage extends StatefulWidget {
 
-  List<String> _favoriteFoodNames;
-  Map<String, dynamic> _settings;
-  Map<String, dynamic> _hpText;
-  List<Food> _allFoods;
+  final List<String> _favoriteFoodNames;
+  final Map<String, dynamic> _settings;
+  final Map<String, dynamic> _hpText;
+  final List<Food> _allFoods;
 
   HomePage(List<String> favoriteFoodNames, Map<String, dynamic> settings,
-      Map<String, dynamic> homepageText, List<Food> allFoods,) {
-    _favoriteFoodNames = favoriteFoodNames;
-    _settings = settings;
-    _hpText = homepageText;
+      Map<String, dynamic> homepageText, List<Food> allFoods,) :
+    _favoriteFoodNames = favoriteFoodNames,
+    _settings = settings,
+    _hpText = homepageText,
     _allFoods = allFoods;
-  }
 
   @override
   HomeState createState() => HomeState();

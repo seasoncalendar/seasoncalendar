@@ -66,7 +66,7 @@ class FoodTileState extends State<FoodTile> {
     return FutureBuilder(
       future: isFavoriteFood(widget._foodName),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
+        if (snapshot.hasData) {
           _isFavorite = snapshot.hasData ? (snapshot.data ? 1 : -1) : _isFavorite;
         }
         return _buildFoodTile();
