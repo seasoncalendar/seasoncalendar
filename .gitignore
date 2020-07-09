@@ -71,4 +71,5 @@
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 # seasoncalendar-related
-data/
+assets/*
+*.py
