@@ -43,7 +43,8 @@ class FoodSearch extends SearchDelegate<String> {
     final Levenshtein lvs = new Levenshtein();
     final List<Food> resultList = query.isEmpty ?
     _allFoods : _allFoods.where((food) =>
-      lvs.distance(food.name.toLowerCase(), query.toLowerCase()) <= maxEditDist).toList();
+      lvs.distance(food.name.toLowerCase(), query.toLowerCase()) <= maxEditDist
+          || food.name.toLowerCase().startsWith(query.toLowerCase())).toList();
     return foodsView(resultList, _monthIndex);
   }
 
