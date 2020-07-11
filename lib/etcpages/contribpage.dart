@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:seasoncalendar/helpers/styles.dart';
+import 'package:seasoncalendar/helpers/themes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContribPage extends StatelessWidget {
@@ -21,13 +21,13 @@ class ContribPage extends StatelessWidget {
         margin: EdgeInsets.all(18),
         child: Column(
           children: <Widget>[
-            Text(_contribPageText['contribPageContactHeadline'], style: font20b),
+            Text(_contribPageText['contribPageContactHeadline'], style: defaultTheme.textTheme.headline4),
             SizedBox(height: 20),
             RichText(
               textAlign: TextAlign.justify,
               text: TextSpan(
                 text: _contribPageText['contribPageContact'],
-                style: font18.copyWith(color: Colors.black),
+                style: defaultTheme.textTheme.bodyText1.copyWith(color: Colors.black),
               ),
             ),
             SizedBox(height: 10),
@@ -44,13 +44,13 @@ class ContribPage extends StatelessWidget {
               },
             ),
             SizedBox(height: 50),
-            Text(_contribPageText['contribPageCodeHeadline'], style: font20b),
+            Text(_contribPageText['contribPageCodeHeadline'], style: defaultTheme.textTheme.headline4),
             SizedBox(height: 20),
             RichText(
               textAlign: TextAlign.justify,
               text: TextSpan(
                 text: _contribPageText['contribPageCode'],
-                style: font18.copyWith(color: Colors.black),
+                style: defaultTheme.textTheme.bodyText1.copyWith(color: Colors.black),
               ),
             ),
             SizedBox(height: 10),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/helpers/themes.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -116,6 +117,8 @@ class SettingsPageState extends State<SettingsPage> {
               divisions: 3,
               min: 0,
               max: 3,
+              activeColor: defaultTheme.accentColor,
+              inactiveColor: defaultTheme.primaryColor,
               value: widget._settings["foodMinAvailability"],
               onChanged: (newVal) {
                 setSetting("foodMinAvailability", newVal);

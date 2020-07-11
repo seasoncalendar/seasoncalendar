@@ -37,14 +37,14 @@ const Map<String, Icon> availabilityModeIcons = {
   "flightTransportAvailable": Icon(Icons.airplanemode_active),
   "notAvailable": Icon(Icons.remove),
 };
-const Map<String, Color> availabilityModeColor = {
-  "localSeason": Colors.lightGreen,
-  "localStorage": Colors.lightGreenAccent,
-  "landTransportSeason": Colors.lime,
-  "landTransportStorage": Colors.limeAccent,
-  "seaTransportAvailable": Colors.yellowAccent,
-  "flightTransportAvailable": Colors.orangeAccent,
-  "notAvailable": Colors.black12,
+Map<String, Color> availabilityModeColor = {
+  "localSeason": Colors.lightGreenAccent[100],
+  "localStorage": Colors.lightGreenAccent[100],
+  "landTransportSeason": Colors.lime[50],
+  "landTransportStorage": Colors.limeAccent[100],
+  "seaTransportAvailable": Colors.yellowAccent[100],
+  "flightTransportAvailable": Colors.orangeAccent[100],
+  "notAvailable": Colors.grey[200],
 };
 const Map<String, double> availabilityModeValues = {
   "localSeason": 3.5,

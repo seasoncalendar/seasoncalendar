@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/helpers/styles.dart';
+import 'package:seasoncalendar/helpers/themes.dart';
 import 'food.dart';
 import 'favoritefoods.dart';
 import 'foodsview.dart';
@@ -35,7 +35,7 @@ class HomeState extends State<HomePage> {
           IconButton(icon: Icon(Icons.settings), onPressed: _showSettings),
           IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch(widget._allFoods, _monthIndex));}),
           FlatButton(
-              child: Text(widget._hpText['imprintPageButtonText'], style: const TextStyle(color: Colors.white),),
+              child: Text(widget._hpText['imprintPageButtonText'], style: defaultTheme.textTheme.bodyText1.copyWith(fontWeight: FontWeight.bold),),
               onPressed: () {Navigator.of(context).pushNamed("/imprint");}
           ),
           PopupMenuButton(
@@ -54,13 +54,13 @@ class HomeState extends State<HomePage> {
       ),
       body: foodsView(_foods, _monthIndex),
       bottomNavigationBar: Container(
-        color: Colors.black12,
+        color: defaultTheme.primaryColor,
         child: ListTile(
           leading: IconButton(
             icon: const Icon(Icons.chevron_left),
             onPressed: () {_shiftMonth(-1);},
           ),
-          title: Text(widget._hpText['monthToString'][_monthIndex], textAlign: TextAlign.center, style: font20b,),
+          title: Text(widget._hpText['monthToString'][_monthIndex], textAlign: TextAlign.center, style: defaultTheme.textTheme.headline5,),
           trailing: IconButton(
             icon: const Icon(Icons.chevron_right),
             onPressed: () {_shiftMonth(1);},

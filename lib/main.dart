@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 
 import 'routes.dart';
 import 'helpers/jsonassetloader.dart';
+import 'helpers/themes.dart';
 
 void main() async {
   runApp(MyApp());
@@ -29,9 +28,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
       title: appTitle,
-      theme: ThemeData.light(),
       initialRoute: '/',
       routes: appRoutes,
+      theme: defaultTheme,
+      darkTheme: defaultTheme,
     );
   }
 }

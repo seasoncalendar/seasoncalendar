@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:seasoncalendar/helpers/themes.dart';
 import 'favoritefoods.dart';
 import 'food.dart';
 
@@ -7,9 +8,9 @@ Widget foodsView(List<Food> preparedFoods, int monthIndex) {
 
   return GridView.builder(
     itemCount: preparedFoods.length,
-    padding: const EdgeInsets.all(16.0),
+    padding: const EdgeInsets.all(8.0),
     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-      maxCrossAxisExtent: 200,
+      maxCrossAxisExtent: 300,
 
     ),
     itemBuilder: (context, i) {
@@ -99,10 +100,12 @@ class FoodTileState extends State<FoodTile> {
     }
 
     return Card(
+      elevation: 3,
+      color: widget._availabilityColor,
       child: Column(
         children: <Widget>[
           Expanded(
-            flex: 12,
+            flex: 10,
             child: Stack(
               overflow: Overflow.clip,
               alignment: AlignmentDirectional.topEnd,
@@ -111,42 +114,45 @@ class FoodTileState extends State<FoodTile> {
                   image: AssetImage(widget._assetImgPath),
                   filterQuality: FilterQuality.low,
                 ),
-                Positioned(
-                  top: -40,
-                  right: -40,
+                FractionallySizedBox(
+                  widthFactor: 2.5 / 12,
+                  heightFactor: 2.5 / 10,
                   child: Container(
-                    width: 80,
-                    height: 80,
-                    decoration: new BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.grey[100],
+                    padding: const EdgeInsets.all(4),
+                    decoration: ShapeDecoration(
+                      color: Colors.white.withAlpha(200),
+                      shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(0),
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(0),
+                            topRight: Radius.circular(0)),
+                        borderSide: BorderSide(width: 0, color: Colors.white.withAlpha(200)),
+                      )
+                    ),
+                    child: InkWell(
+                      onTap: tapCallback,
+                      child: new LayoutBuilder(builder: (context, constraint) {
+                        return getFavIcon(context, constraint, _isFavorite);
+                      }),
                     ),
                   ),
                 ),
-                Positioned(
-                  top: 2,
-                  right: 2,
-                  child: InkWell(
-                    onTap: tapCallback,
-                    child: favIndicator,
-                  ),
-                )
               ],
             )
           ),
           Expanded(
             flex: 2,
             child: Container(
-              color: widget._availabilityColor,
               child: Container(
-                margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
+                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: Row(
                   children: <Widget>[
                     Expanded(
                       flex: widget._nameContainerFlex,
                       child: Text(
                         widget._foodName,
-                        style: TextStyle(fontSize: 18.0),
+                        style: defaultTheme.textTheme.bodyText1,
                       ),
                     ),
                     Expanded(
@@ -162,4 +168,10 @@ class FoodTileState extends State<FoodTile> {
       )
     );
   }
+}
+
+Icon getFavIcon(context, constraint, int isFavorite) {
+  if (isFavorite == 1) return Icon(Icons.star, size: constraint.biggest.height);
+  else if (isFavorite == -1) return Icon(Icons.star_border, size: constraint.biggest.height);
+  else return Icon(Icons.star_half, size: constraint.biggest.height);
 }

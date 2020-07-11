@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:seasoncalendar/helpers/styles.dart';
+import 'package:seasoncalendar/helpers/themes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SupportPage extends StatelessWidget {
@@ -22,11 +22,11 @@ class SupportPage extends StatelessWidget {
         child: Expanded(
           child: Column(
             children: <Widget>[
-              Text(_supportPageText['supportPageHeadline'], style: font20b),
+              Text(_supportPageText['supportPageHeadline'], style: defaultTheme.textTheme.headline4),
               SizedBox(height: 20),
-              Text(_supportPageText['supportPageText1'], style: font18, textAlign: TextAlign.justify),
+              Text(_supportPageText['supportPageText1'], style: defaultTheme.textTheme.bodyText1, textAlign: TextAlign.justify),
               SizedBox(height: 10),
-              Text(_supportPageText['supportPageText2'], style: font18, textAlign: TextAlign.justify),
+              Text(_supportPageText['supportPageText2'], style: defaultTheme.textTheme.bodyText1, textAlign: TextAlign.justify),
               SizedBox(height: 10),
               RaisedButton(
                 child: Text(_supportPageText['supportPageWebsiteLink']),
