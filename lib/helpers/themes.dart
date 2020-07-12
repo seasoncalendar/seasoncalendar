@@ -22,6 +22,8 @@ final ThemeData defaultTheme = ThemeData(
 
       bodyText1: TextStyle(fontSize: 16.0, fontStyle: FontStyle.normal),
       bodyText2: TextStyle(fontSize: 16.0, fontStyle: FontStyle.normal),
-    )
+    ),
 
 );
+
+const TextStyle foodText = TextStyle(fontSize: 1024.0, fontWeight: FontWeight.w600);

@@ -25,17 +25,14 @@ List<Availability> availabilitiesFromJson(List<dynamic> availabilitiesJson) {
   return availabilities;
 }
 
-const Map<String, Icon> availabilityModeIcons = {
-  "localSeason": Icon(Icons.home, color: Colors.green),
-  "localStorage": Icon(Icons.home),
-  "landTransportSeason": Icon(
-    Icons.local_shipping,
-    color: Colors.green,
-  ),
-  "landTransportStorage": Icon(Icons.local_shipping),
-  "seaTransportAvailable": Icon(Icons.directions_boat),
-  "flightTransportAvailable": Icon(Icons.airplanemode_active),
-  "notAvailable": Icon(Icons.remove),
+const Map<String, IconData> availabilityModeIcons = {
+  "localSeason": Icons.home,
+  "localStorage": Icons.home,
+  "landTransportSeason": Icons.local_shipping,
+  "landTransportStorage": Icons.local_shipping,
+  "seaTransportAvailable": Icons.directions_boat,
+  "flightTransportAvailable": Icons.airplanemode_active,
+  "notAvailable": Icons.remove,
 };
 Map<String, Color> availabilityModeColor = {
   "localSeason": Colors.lightGreenAccent[100],

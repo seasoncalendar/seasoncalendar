@@ -8,7 +8,7 @@ Widget foodsView(List<Food> preparedFoods, int monthIndex) {
 
   return GridView.builder(
     itemCount: preparedFoods.length,
-    padding: const EdgeInsets.all(8.0),
+    padding: const EdgeInsets.all(5.0),
     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
       maxCrossAxisExtent: 300,
 
@@ -24,33 +24,14 @@ class FoodTile extends StatefulWidget {
   String _foodName;
   String _assetImgPath;
   Color _availabilityColor = Colors.black12;
-  Container _availabilityIconContainer;
-  int _nameContainerFlex = 12;
-  int _avIconContainerFlex = 2;
+  List<String> _availabilities;
 
   FoodTile(Food foodToDisplay, int monthIndex) {
     _foodName = foodToDisplay.name;
     _assetImgPath = foodToDisplay.assetImgPath;
-    List<String> availabilities = foodToDisplay.getAvailabilityModes(monthIndex);
-    _availabilityColor = availabilityModeColor[availabilities[0]];
-    if (availabilities.length == 1) {
-      _availabilityIconContainer = Container(
-        child: availabilityModeIcons[availabilities[0]],
-      );
-    } else {
-      _nameContainerFlex = 10;
-      _avIconContainerFlex = 4;
-      _availabilityIconContainer = Container(
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            availabilityModeIcons[availabilities[0]],
-            availabilityModeIcons[availabilities[1]],
-          ],
-        ),
-      );
-    }
+    _availabilities = foodToDisplay.getAvailabilityModes(monthIndex);
+    _availabilityColor = availabilityModeColor[_availabilities[0]];
+
   }
 
   @override
@@ -77,20 +58,15 @@ class FoodTileState extends State<FoodTile> {
 
   Widget _buildFoodTile() {
 
-    Widget favIndicator = Icon(Icons.star_half, size: 27, color: Colors.black26);
     GestureTapCallback tapCallback = () {};
-
     if (_isFavorite == 1) {
-        favIndicator = Icon(Icons.star, size: 27);
         tapCallback = () {
           removeFavoriteFood(widget._foodName);
           setState(() {
             _isFavorite = -1;
           });
         };
-
     } else if (_isFavorite == -1) {
-      favIndicator = Icon(Icons.star_border, size: 27);
       tapCallback = () {
         addFavoriteFood(widget._foodName);
         setState(() {
@@ -144,23 +120,31 @@ class FoodTileState extends State<FoodTile> {
           Expanded(
             flex: 2,
             child: Container(
-              child: Container(
-                margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      flex: widget._nameContainerFlex,
-                      child: Text(
-                        widget._foodName,
-                        style: defaultTheme.textTheme.bodyText1,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text(
+                            widget._foodName,
+                            style: foodText,
+                        ),
                       ),
                     ),
-                    Expanded(
-                        flex: widget._avIconContainerFlex,
-                        child: widget._availabilityIconContainer
+                  ),
+                  Container(
+                    color: Colors.white.withAlpha(220),
+                    padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+                    child: new LayoutBuilder(builder: (context, constraint) {
+                      return getAvailabilityIconContainer(context, constraint, widget._availabilities);
+                      }
                     ),
-                  ],
-                )
+                  ),
+                ],
               )
             )
           )
@@ -174,4 +158,34 @@ Icon getFavIcon(context, constraint, int isFavorite) {
   if (isFavorite == 1) return Icon(Icons.star, size: constraint.biggest.height);
   else if (isFavorite == -1) return Icon(Icons.star_border, size: constraint.biggest.height);
   else return Icon(Icons.star_half, size: constraint.biggest.height);
+}
+
+Container getAvailabilityIconContainer(BuildContext context, constraint, List <String> availabilities) {
+
+  Widget containerChild;
+  Color iconColor1 = Colors.black.withAlpha(180);
+  if (availabilities[0].contains("Season")) {
+    iconColor1 = Colors.lightGreen[900].withAlpha(180);
+  }
+
+  if (availabilities.length == 1) {
+    containerChild = Icon(availabilityModeIcons[availabilities[0]], size: constraint.biggest.height, color: iconColor1,);
+  } else {
+    Color iconColor2 = Colors.black.withAlpha(180);
+    if (availabilities[1].contains("Season")) {
+      iconColor2 = Colors.lightGreen[900].withAlpha(180);
+    }
+    containerChild = Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Icon(availabilityModeIcons[availabilities[0]], size: constraint.biggest.height, color: iconColor1),
+        Icon(availabilityModeIcons[availabilities[1]], size: constraint.biggest.height, color: iconColor2),
+      ],
+    );
+  }
+
+  return Container(
+    child: containerChild,
+  );
 }
