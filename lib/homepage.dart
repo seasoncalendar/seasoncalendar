@@ -103,6 +103,8 @@ class HomeState extends State<HomePage> {
       filteredFoods.sort((a, b) => [for (String av in b.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
           .reduce(max).compareTo([for (String av in a.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
           .reduce(max)));
+    } else {
+      filteredFoods.sort((a, b) => a.name.compareTo(b.name));
     }
     return filteredFoods;
   }
