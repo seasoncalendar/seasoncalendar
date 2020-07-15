@@ -88,8 +88,6 @@ class SettingsPageState extends State<SettingsPage> {
       );
     }
     else {
-      print(widget._settingsText['minAvailabilityIndicator']);
-      print(widget._settings["foodMinAvailability"].round().toString());
       return Container(
         margin: EdgeInsets.all(10),
         child: Column(

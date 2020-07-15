@@ -99,12 +99,16 @@ class HomeState extends State<HomePage> {
 
     filteredFoods = filteredFoods.where((food) => [for (String av in food.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
         .reduce(max) >= settings['foodMinAvailability']).toList();
+    filteredFoods.sort((a, b) => a.name.compareTo(b.name));
     if (settings['foodSorting'] == true) {
-      filteredFoods.sort((a, b) => [for (String av in b.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
-          .reduce(max).compareTo([for (String av in a.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
-          .reduce(max)));
-    } else {
-      filteredFoods.sort((a, b) => a.name.compareTo(b.name));
+      filteredFoods.sort((a, b) {
+        int comp = [for (String av in b.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
+          .reduce(max)
+          .compareTo([for (String av in a.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
+          .reduce(max));
+      if (comp != 0) return comp;
+      else return a.name.compareTo(b.name);
+      });
     }
     return filteredFoods;
   }

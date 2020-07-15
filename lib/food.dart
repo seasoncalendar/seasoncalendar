@@ -26,30 +26,24 @@ List<Availability> availabilitiesFromJson(List<dynamic> availabilitiesJson) {
 }
 
 const Map<String, IconData> availabilityModeIcons = {
-  "localSeason": Icons.home,
-  "localStorage": Icons.home,
-  "landTransportSeason": Icons.local_shipping,
-  "landTransportStorage": Icons.local_shipping,
-  "seaTransportAvailable": Icons.directions_boat,
-  "flightTransportAvailable": Icons.airplanemode_active,
+  "local": Icons.home,
+  "landTransport": Icons.local_shipping,
+  "seaTransport": Icons.directions_boat,
+  "flightTransport": Icons.airplanemode_active,
   "notAvailable": Icons.remove,
 };
 Map<String, Color> availabilityModeColor = {
-  "localSeason": Colors.lightGreenAccent[100],
-  "localStorage": Colors.lightGreenAccent[100],
-  "landTransportSeason": Colors.lime[50],
-  "landTransportStorage": Colors.limeAccent[100],
-  "seaTransportAvailable": Colors.yellowAccent[100],
-  "flightTransportAvailable": Colors.orangeAccent[100],
+  "local": Colors.lightGreenAccent[100],
+  "landTransport": Colors.lime[200],
+  "seaTransport": Colors.yellowAccent[100],
+  "flightTransport": Colors.orangeAccent[100],
   "notAvailable": Colors.grey[200],
 };
 const Map<String, double> availabilityModeValues = {
-  "localSeason": 3.5,
-  "localStorage": 3,
-  "landTransportSeason": 2.5,
-  "landTransportStorage": 2,
-  "seaTransportAvailable": 1,
-  "flightTransportAvailable": 0,
+  "local": 3,
+  "landTransport": 2,
+  "seaTransport": 1,
+  "flightTransport": 0,
   "notAvailable": -1,
 };
 
@@ -68,31 +62,23 @@ List<Food> getFoodsFromFoodNames(List<String> foodNames, List<Food> allFoods) {
 List<Food> getFoodsFromJson(Map<String, dynamic> foodsJson) {
   List<Food> allFoods = List<Food>();
   foodsJson.forEach((foodKey, foodDict) {
-    List<Availability> localSeason = foodDict.containsKey("localSeason")
-      ? availabilitiesFromJson(foodDict['localSeason'])
+    List<Availability> local = foodDict.containsKey("local")
+      ? availabilitiesFromJson(foodDict['local'])
       : naList;
-    List<Availability> localStorage = foodDict.containsKey("localStorage")
-      ? availabilitiesFromJson(foodDict['localStorage'])
+    List<Availability> landTransport = foodDict.containsKey("landTransport")
+      ? availabilitiesFromJson(foodDict['landTransport'])
       : naList;
-    List<Availability> landTransportSeason = foodDict.containsKey("landTransportSeason")
-      ? availabilitiesFromJson(foodDict['landTransportSeason'])
+    List<Availability> seaTransport = foodDict.containsKey("seaTransport")
+      ? availabilitiesFromJson(foodDict['seaTransport'])
       : naList;
-    List<Availability> landTransportStorage = foodDict.containsKey("landTransportStorage")
-      ? availabilitiesFromJson(foodDict['landTransportStorage'])
-      : naList;
-    List<Availability> seaTransportAvailable = foodDict.containsKey("seaTransportAvailable")
-      ? availabilitiesFromJson(foodDict['seaTransportAvailable'])
-      : naList;
-    List<Availability> flightTransportAvailable = foodDict.containsKey("flightTransportAvailable")
-      ? availabilitiesFromJson(foodDict['flightTransportAvailable'])
+    List<Availability> flightTransport = foodDict.containsKey("flightTransport")
+      ? availabilitiesFromJson(foodDict['flightTransport'])
       : naList;
     allFoods.add(new Food(foodDict["name"], foodDict["img"],
-        localSeason: localSeason,
-        localStorage: localStorage,
-        landTransportSeason: landTransportSeason,
-        landTransportStorage: landTransportStorage,
-        seaTransportAvailable: seaTransportAvailable,
-        flightTransportAvailable: flightTransportAvailable));
+        local: local,
+        landTransport: landTransport,
+        seaTransport: seaTransport,
+        flightTransport: flightTransport));
   });
   return allFoods;
 }
@@ -104,20 +90,16 @@ class Food {
       new LinkedHashMap();
 
   Food(String name, String assetImgPath,
-      {List<Availability> localSeason = naList,
-      List<Availability> localStorage = naList,
-      List<Availability> landTransportSeason = naList,
-      List<Availability> landTransportStorage = naList,
-      List<Availability> seaTransportAvailable = naList,
-      List<Availability> flightTransportAvailable = naList}) {
+      {List<Availability> local = naList,
+      List<Availability> landTransport = naList,
+      List<Availability> seaTransport = naList,
+      List<Availability> flightTransport = naList}) {
     this.name = name;
     this.assetImgPath = assetImgPath;
-    this._availabilities["localSeason"] = localSeason;
-    this._availabilities["localStorage"] = localStorage;
-    this._availabilities["landTransportSeason"] = landTransportSeason;
-    this._availabilities["landTransportStorage"] = landTransportStorage;
-    this._availabilities["seaTransportAvailable"] = seaTransportAvailable;
-    this._availabilities["flightTransportAvailable"] = flightTransportAvailable;
+    this._availabilities["local"] = local;
+    this._availabilities["landTransport"] = landTransport;
+    this._availabilities["seaTransport"] = seaTransport;
+    this._availabilities["flightTransport"] = flightTransport;
   }
 
   List<String> getAvailabilityModes(int monthIndex) {

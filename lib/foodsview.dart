@@ -163,24 +163,17 @@ Icon getFavIcon(context, constraint, int isFavorite) {
 Container getAvailabilityIconContainer(BuildContext context, constraint, List <String> availabilities) {
 
   Widget containerChild;
-  Color iconColor1 = Colors.black.withAlpha(180);
-  if (availabilities[0].contains("Season")) {
-    iconColor1 = Colors.lightGreen[900].withAlpha(180);
-  }
 
   if (availabilities.length == 1) {
-    containerChild = Icon(availabilityModeIcons[availabilities[0]], size: constraint.biggest.height, color: iconColor1,);
+    containerChild = Icon(availabilityModeIcons[availabilities[0]], size: constraint.biggest.height, color: Colors.black.withAlpha(180));
   } else {
-    Color iconColor2 = Colors.black.withAlpha(180);
-    if (availabilities[1].contains("Season")) {
-      iconColor2 = Colors.lightGreen[900].withAlpha(180);
-    }
     containerChild = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Icon(availabilityModeIcons[availabilities[0]], size: constraint.biggest.height, color: iconColor1),
-        Icon(availabilityModeIcons[availabilities[1]], size: constraint.biggest.height, color: iconColor2),
+        Icon(availabilityModeIcons[availabilities[0]], size: constraint.biggest.height, color: Colors.black.withAlpha(180)),
+        Text(" / "),
+        Icon(availabilityModeIcons[availabilities[1]], size: constraint.biggest.height / 1.4, color: Colors.black.withAlpha(140)),
       ],
     );
   }
