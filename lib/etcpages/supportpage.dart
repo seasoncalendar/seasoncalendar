@@ -19,7 +19,7 @@ class SupportPage extends StatelessWidget {
       ),
       body: Container(
         margin: EdgeInsets.all(18),
-        child: Expanded(
+        child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Text(_supportPageText['supportPageHeadline'], style: defaultTheme.textTheme.headline4),

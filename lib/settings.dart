@@ -90,40 +90,42 @@ class SettingsPageState extends State<SettingsPage> {
     else {
       return Container(
         margin: EdgeInsets.all(10),
-        child: Column(
-          children: <Widget>[
-            SwitchListTile.adaptive(
-              secondary: const Icon(Icons.sort_by_alpha),
-              title: Text(widget._settingsText['settingsSortingTitle']),
-              subtitle: Text(widget._settings["foodSorting"]
-                  ? widget._settingsText['settingsSortingOnText']
-                  : widget._settingsText['settingsSortingOffText']),
-              value: widget._settings["foodSorting"],
-              dense: false,
-              onChanged: (newVal) {
-                setSetting("foodSorting", newVal);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.visibility),
-              title: Text(widget._settingsText['settingsFilterTitle']),
-              isThreeLine: false,
-              subtitle: Text(widget._settingsText['minAvailabilityIndicator'][widget._settings["foodMinAvailability"].round().toString()]),
-              dense: false,
-            ),
-            Slider.adaptive(
-              divisions: 3,
-              min: 0,
-              max: 3,
-              activeColor: defaultTheme.accentColor,
-              inactiveColor: defaultTheme.primaryColor,
-              value: widget._settings["foodMinAvailability"],
-              onChanged: (newVal) {
-                setSetting("foodMinAvailability", newVal);
-              },
-            ),
-          ],
-        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SwitchListTile.adaptive(
+                secondary: const Icon(Icons.sort_by_alpha),
+                title: Text(widget._settingsText['settingsSortingTitle']),
+                subtitle: Text(widget._settings["foodSorting"]
+                    ? widget._settingsText['settingsSortingOnText']
+                    : widget._settingsText['settingsSortingOffText']),
+                value: widget._settings["foodSorting"],
+                dense: false,
+                onChanged: (newVal) {
+                  setSetting("foodSorting", newVal);
+                },
+              ),
+              ListTile(
+                leading: Icon(Icons.visibility),
+                title: Text(widget._settingsText['settingsFilterTitle']),
+                isThreeLine: false,
+                subtitle: Text(widget._settingsText['minAvailabilityIndicator'][widget._settings["foodMinAvailability"].round().toString()]),
+                dense: false,
+              ),
+              Slider.adaptive(
+                divisions: 3,
+                min: 0,
+                max: 3,
+                activeColor: defaultTheme.accentColor,
+                inactiveColor: defaultTheme.primaryColor,
+                value: widget._settings["foodMinAvailability"],
+                onChanged: (newVal) {
+                  setSetting("foodMinAvailability", newVal);
+                },
+              ),
+            ],
+          ),
+        )
       );
     }
   }

@@ -39,7 +39,7 @@ class HomeState extends State<HomePage> {
               onPressed: () {Navigator.of(context).pushNamed("/imprint");}
           ),
           PopupMenuButton(
-            icon: Icon(Icons.more_vert),
+            icon: Icon(Icons.help),
             onSelected: _chooseEtcPage,
             itemBuilder: (context) {
               return etcPages.keys.map((String page) {
