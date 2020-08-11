@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/helpers/seasoncalendaricons.dart';
 import 'package:seasoncalendar/helpers/themes.dart';
 import 'food.dart';
 import 'favoritefoods.dart';
@@ -13,6 +14,8 @@ class HomeState extends State<HomePage> {
 
   List<Food> _foods = List<Food>();
   bool _favoritesSelected = false;
+  bool _fruitsSelected = true;
+  bool _nonFruitsSelected = true;
   int _monthIndex = DateTime.now().toLocal().month - 1;
 
   @override
@@ -55,16 +58,45 @@ class HomeState extends State<HomePage> {
       body: foodsView(_foods, _monthIndex),
       bottomNavigationBar: Container(
         color: defaultTheme.primaryColor,
-        child: ListTile(
-          leading: IconButton(
-            icon: const Icon(Icons.chevron_left),
-            onPressed: () {_shiftMonth(-1);},
-          ),
-          title: Text(widget._hpText['monthToString'][_monthIndex], textAlign: TextAlign.center, style: defaultTheme.textTheme.headline5,),
-          trailing: IconButton(
-            icon: const Icon(Icons.chevron_right),
-            onPressed: () {_shiftMonth(1);},
-          ),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              flex: 25,
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    IconButton(
+                      icon: _fruitsSelected ? Icon(SeasonCalendarIcons.apple_alt, color: Colors.black,)
+                        : Icon(SeasonCalendarIcons.apple_alt, color: Colors.black26,),
+                      onPressed: () {_toggleFruitsSelected();},
+                    ),
+                    IconButton(
+                      icon: _nonFruitsSelected ? Icon(SeasonCalendarIcons.carrot, color: Colors.black,)
+                          : Icon(SeasonCalendarIcons.carrot, color: Colors.black26,),
+                      onPressed: () {_toggleNonFruitsSelected();},
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 75,
+              child: Container(
+                child: ListTile(
+                  leading: IconButton(
+                    icon: const Icon(Icons.chevron_left, color: Colors.black,),
+                    onPressed: () {_shiftMonth(-1);},
+                  ),
+                  title: Text(widget._hpText['monthToString'][_monthIndex], textAlign: TextAlign.center, style: defaultTheme.textTheme.headline5,),
+                  trailing: IconButton(
+                    icon: const Icon(Icons.chevron_right, color: Colors.black,),
+                    onPressed: () {_shiftMonth(1);},
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       )
     );
@@ -82,6 +114,16 @@ class HomeState extends State<HomePage> {
     _filterAndSortFoodsAsync();
   }
 
+  void _toggleFruitsSelected() async{
+    setState(() {_fruitsSelected = !_fruitsSelected;});
+    _filterAndSortFoodsAsync();
+  }
+
+  void _toggleNonFruitsSelected() async{
+    setState(() {_nonFruitsSelected = !_nonFruitsSelected;});
+    _filterAndSortFoodsAsync();
+  }
+
   _filterAndSortFoodsAsync() async {
     final favoriteFoodNames = await getFavoriteFoods();
     Map<String, dynamic> settings = await SettingsPageState.getSettings();
@@ -93,10 +135,19 @@ class HomeState extends State<HomePage> {
   List<Food> _getFilteredAndSortedFoods(List<String> favoriteFoodNames, Map<String, dynamic> settings) {
 
     List<Food> filteredFoods = widget._allFoods;
+
     if (_favoritesSelected) {
       filteredFoods = getFoodsFromFoodNames(favoriteFoodNames, widget._allFoods);
     }
-
+    if (settings['includeUncommon'] == false) {
+      filteredFoods = filteredFoods.where((food) => food.isCommon).toList();
+    }
+    if (!_fruitsSelected) {
+      filteredFoods = filteredFoods.where((food) => food.type != "fruit").toList();
+    }
+    if (!_nonFruitsSelected) {
+      filteredFoods = filteredFoods.where((food) => food.type != "nonFruit").toList();
+    }
     filteredFoods = filteredFoods.where((food) => [for (String av in food.getAvailabilityModes(_monthIndex)) availabilityModeValues[av]]
         .reduce(max) >= settings['foodMinAvailability']).toList();
     filteredFoods.sort((a, b) => a.name.compareTo(b.name));

@@ -105,6 +105,17 @@ class SettingsPageState extends State<SettingsPage> {
                   setSetting("foodSorting", newVal);
                 },
               ),
+              SwitchListTile.adaptive(
+                secondary: const Icon(Icons.category),
+                subtitle: Text(widget._settings["includeUncommon"]
+                    ? widget._settingsText['settingsUncommonOnText']
+                    : widget._settingsText['settingsUncommonOffText']),
+                value: widget._settings["includeUncommon"],
+                dense: false,
+                onChanged: (newVal) {
+                  setSetting("includeUncommon", newVal);
+                },
+              ),
               ListTile(
                 leading: Icon(Icons.visibility),
                 title: Text(widget._settingsText['settingsFilterTitle']),

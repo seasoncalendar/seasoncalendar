@@ -55,6 +55,12 @@ flutter:
     - assets/img/
     - assets/text/
 
+  fonts:
+    - family: SeasonCalendar
+      fonts:
+        - asset: assets/fonts/SeasonCalendar.ttf
+
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
