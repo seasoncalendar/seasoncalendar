@@ -85,12 +85,12 @@ class HomeState extends State<HomePage> {
               child: Container(
                 child: ListTile(
                   leading: IconButton(
-                    icon: const Icon(Icons.chevron_left, color: Colors.black,),
+                    icon: const Icon(SeasonCalendarIcons.arrow_left, color: Colors.black,),
                     onPressed: () {_shiftMonth(-1);},
                   ),
                   title: Text(widget._hpText['monthToString'][_monthIndex], textAlign: TextAlign.center, style: defaultTheme.textTheme.headline5,),
                   trailing: IconButton(
-                    icon: const Icon(Icons.chevron_right, color: Colors.black,),
+                    icon: const Icon(SeasonCalendarIcons.arrow_right, color: Colors.black,),
                     onPressed: () {_shiftMonth(1);},
                   ),
                 ),

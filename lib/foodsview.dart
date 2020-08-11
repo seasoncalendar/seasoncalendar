@@ -75,6 +75,51 @@ class FoodTileState extends State<FoodTile> {
       };
     }
 
+    Image foodImage = Image(
+      image: AssetImage(widget._assetImgPath),
+      filterQuality: FilterQuality.low,
+    );
+
+    GestureTapCallback showFoodInfo = () {
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          content: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Text(widget._foodName, textAlign: TextAlign.center, style: defaultTheme.textTheme.headline5,),
+                SizedBox(height: 10),
+                foodImage,
+                SizedBox(height: 10),
+                Text("Cool"),
+                SizedBox(height: 10),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    RaisedButton(
+                      child: Text('Zurück'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    RaisedButton(
+
+                      child: Text('Mehr Infos'),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          elevation: 10,
+        ),
+        barrierDismissible: true,
+      );
+    };
+
     return Card(
       elevation: 3,
       color: widget._availabilityColor,
@@ -86,9 +131,9 @@ class FoodTileState extends State<FoodTile> {
               overflow: Overflow.clip,
               alignment: AlignmentDirectional.topEnd,
               children: <Widget>[
-                Image(
-                  image: AssetImage(widget._assetImgPath),
-                  filterQuality: FilterQuality.low,
+                GestureDetector(
+                onTap: showFoodInfo,
+                child: foodImage,
                 ),
                 FractionallySizedBox(
                   widthFactor: 2.5 / 12,
