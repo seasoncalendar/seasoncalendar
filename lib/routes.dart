@@ -126,7 +126,7 @@ final Map<String, WidgetBuilder> appRoutes = {
 };
 
 const Map<String, String> etcPages = {
-  "Über die App": "/about",
+  "Erklärung": "/about",
   "App verbessern": "/contribute",
   "Unterstützen": "/support",
 };
