@@ -39,7 +39,7 @@ class HomeState extends State<HomePage> {
           IconButton(icon: Icon(Icons.search), onPressed: () {
             showSearch(
               context: context,
-              delegate: FoodSearch(widget._allFoods, _monthIndex, widget._hpText['monthToString'])
+              delegate: FoodSearch(widget._allFoods, _monthIndex, widget._hpText['monthToString'], "Suche...")
             );
           }),
           FlatButton(

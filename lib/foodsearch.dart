@@ -12,7 +12,8 @@ class FoodSearch extends SearchDelegate<String> {
   int _monthIndex;
   List<dynamic> _monthNames;
 
-  FoodSearch(List<Food> allFoods, int monthIndex, List<dynamic> monthNames) {
+  FoodSearch(List<Food> allFoods, int monthIndex, List<dynamic> monthNames, String searchFieldLabel)
+      : super(searchFieldLabel: searchFieldLabel) {
     _allFoods = allFoods;
     _monthIndex = monthIndex;
     _monthNames = monthNames;
