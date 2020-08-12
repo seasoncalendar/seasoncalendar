@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:seasoncalendar/helpers/themes.dart';
 import 'favoritefoods.dart';
 import 'food.dart';
 
-Widget foodsView(List<Food> preparedFoods, int monthIndex) {
+Widget foodsView(List<Food> preparedFoods, int monthIndex, List<dynamic> monthNames) {
 
   return GridView.builder(
     itemCount: preparedFoods.length,
@@ -14,7 +16,7 @@ Widget foodsView(List<Food> preparedFoods, int monthIndex) {
 
     ),
     itemBuilder: (context, i) {
-      return FoodTile(preparedFoods[i], monthIndex);
+      return FoodTile(preparedFoods[i], monthIndex, monthNames);
     },
   );
 }
@@ -23,14 +25,22 @@ class FoodTile extends StatefulWidget {
 
   String _foodName;
   String _assetImgPath;
-  Color _availabilityColor = Colors.black12;
-  List<String> _availabilities;
+  String _foodInfoURL;
+  List<dynamic> _monthNames;
+  int _curMonthIndex;
+  List<List<String>> _allAvailabilities;
+  List<String> _curAvailabilities;
+  Color _curAvailabilityColor = Colors.white70;
 
-  FoodTile(Food foodToDisplay, int monthIndex) {
+  FoodTile(Food foodToDisplay, int curMonthIndex, List<dynamic> monthNames) {
     _foodName = foodToDisplay.name;
     _assetImgPath = foodToDisplay.assetImgPath;
-    _availabilities = foodToDisplay.getAvailabilityModes(monthIndex);
-    _availabilityColor = availabilityModeColor[_availabilities[0]];
+    _foodInfoURL = foodToDisplay.infoURL;
+    _monthNames = monthNames;
+    _curMonthIndex = curMonthIndex;
+    _allAvailabilities = List.generate(12, (monthIndex) => foodToDisplay.getAvailabilityModes(monthIndex));
+    _curAvailabilities = _allAvailabilities[_curMonthIndex];
+    _curAvailabilityColor = availabilityModeColor[_curAvailabilities[0]];
 
   }
 
@@ -80,10 +90,61 @@ class FoodTileState extends State<FoodTile> {
       filterQuality: FilterQuality.low,
     );
 
+    Container availabilityIconContainer = Container(
+      color: Colors.white.withAlpha(220),
+      padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+      child: new LayoutBuilder(builder: (context, constraint) {
+        return getAvailabilityIconContainer(context, constraint, widget._curAvailabilities);
+        }
+      ),
+    );
+
+    Widget getAvailabilityInfoCard(int monthIndex) {
+
+      Widget containerChild;
+
+      if (widget._allAvailabilities[monthIndex].length == 1) {
+        containerChild = Icon(availabilityModeIcons[widget._allAvailabilities[monthIndex][0]], color: Colors.black.withAlpha(180));
+      } else {
+        containerChild = Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(availabilityModeIcons[widget._allAvailabilities[monthIndex][0]], color: Colors.black.withAlpha(180)),
+            Text(" / "),
+            Icon(availabilityModeIcons[widget._allAvailabilities[monthIndex][1]], color: Colors.black.withAlpha(110)),
+          ],
+        );
+      }
+
+      return Expanded(
+        flex: 1,
+        child: Container(
+          child: Card(
+            elevation: 1,
+            color: availabilityModeColor[widget._allAvailabilities[monthIndex][0]],
+            child: Container(
+              padding: const EdgeInsets.all(2),
+              child: Column(
+                children: <Widget>[
+                  Text(widget._monthNames[monthIndex].substring(0, 3), style: TextStyle(fontWeight: FontWeight.bold)),
+                  FittedBox(
+                      fit: BoxFit.contain,
+                      child: containerChild,
+                  ),
+                ],
+              ),
+            )
+          ),
+        ),
+      );
+    }
+
     GestureTapCallback showFoodInfo = () {
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
+          backgroundColor: Colors.white,
           content: SingleChildScrollView(
             child: Column(
               children: <Widget>[
@@ -91,7 +152,20 @@ class FoodTileState extends State<FoodTile> {
                 SizedBox(height: 10),
                 foodImage,
                 SizedBox(height: 10),
-                Text("Cool"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [for (var i=0; i<4; i+=1) getAvailabilityInfoCard(i)],
+                ),
+                SizedBox(height: 5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [for (var i=4; i<8; i+=1) getAvailabilityInfoCard(i)],
+                ),
+                SizedBox(height: 5),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [for (var i=8; i<12; i+=1) getAvailabilityInfoCard(i)],
+                ),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -103,10 +177,15 @@ class FoodTileState extends State<FoodTile> {
                       },
                     ),
                     RaisedButton(
-
-                      child: Text('Mehr Infos'),
-                      onPressed: () {
-                        Navigator.of(context).pop();
+                      child: Text('Wikipedia'),
+                      onPressed: () async {
+                        final url = widget._foodInfoURL;
+                        if (await canLaunch(url)) {
+                          await launch(
+                            url,
+                            forceSafariVC: false,
+                          );
+                        }
                       },
                     ),
                   ],
@@ -122,7 +201,7 @@ class FoodTileState extends State<FoodTile> {
 
     return Card(
       elevation: 3,
-      color: widget._availabilityColor,
+      color: widget._curAvailabilityColor,
       child: Column(
         children: <Widget>[
           Expanded(
@@ -181,14 +260,7 @@ class FoodTileState extends State<FoodTile> {
                       ),
                     ),
                   ),
-                  Container(
-                    color: Colors.white.withAlpha(220),
-                    padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-                    child: new LayoutBuilder(builder: (context, constraint) {
-                      return getAvailabilityIconContainer(context, constraint, widget._availabilities);
-                      }
-                    ),
-                  ),
+                  availabilityIconContainer
                 ],
               )
             )

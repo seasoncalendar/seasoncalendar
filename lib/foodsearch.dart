@@ -10,10 +10,12 @@ class FoodSearch extends SearchDelegate<String> {
 
   List<Food> _allFoods;
   int _monthIndex;
+  List<dynamic> _monthNames;
 
-  FoodSearch(List<Food> allFoods, int monthIndex) {
+  FoodSearch(List<Food> allFoods, int monthIndex, List<dynamic> monthNames) {
     _allFoods = allFoods;
     _monthIndex = monthIndex;
+    _monthNames = monthNames;
   }
 
   @override
@@ -45,7 +47,7 @@ class FoodSearch extends SearchDelegate<String> {
     _allFoods : _allFoods.where((food) =>
       lvs.distance(food.name.toLowerCase(), query.toLowerCase()) <= maxEditDist
           || food.name.toLowerCase().startsWith(query.toLowerCase())).toList();
-    return foodsView(resultList, _monthIndex);
+    return foodsView(resultList, _monthIndex, _monthNames);
   }
 
   @override

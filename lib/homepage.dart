@@ -36,7 +36,12 @@ class HomeState extends State<HomePage> {
         actions: <Widget>[
           IconButton(icon: Icon(_favoritesSelected ? Icons.star : Icons.star_border), onPressed: () {_toggleFavoritesSelected();}),
           IconButton(icon: Icon(Icons.settings), onPressed: _showSettings),
-          IconButton(icon: Icon(Icons.search), onPressed: () {showSearch(context: context, delegate: FoodSearch(widget._allFoods, _monthIndex));}),
+          IconButton(icon: Icon(Icons.search), onPressed: () {
+            showSearch(
+              context: context,
+              delegate: FoodSearch(widget._allFoods, _monthIndex, widget._hpText['monthToString'])
+            );
+          }),
           FlatButton(
               child: Text(widget._hpText['imprintPageButtonText'], style: defaultTheme.textTheme.bodyText1.copyWith(fontWeight: FontWeight.bold),),
               onPressed: () {Navigator.of(context).pushNamed("/imprint");}
@@ -55,7 +60,7 @@ class HomeState extends State<HomePage> {
           ),
         ],
       ),
-      body: foodsView(_foods, _monthIndex),
+      body: foodsView(_foods, _monthIndex, widget._hpText['monthToString']),
       bottomNavigationBar: Container(
         color: defaultTheme.primaryColor,
         child: Row(

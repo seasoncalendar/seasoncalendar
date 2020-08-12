@@ -74,7 +74,8 @@ List<Food> getFoodsFromJson(Map<String, dynamic> foodsJson) {
     List<Availability> flightTransport = foodDict.containsKey("flightTransport")
       ? availabilitiesFromJson(foodDict['flightTransport'])
       : naList;
-    allFoods.add(new Food(foodDict["name"], foodDict["img"], foodDict["isCommon"], foodDict["type"],
+    allFoods.add(new Food(foodDict["name"], foodDict["img"], foodDict["infoURL"],
+        foodDict["isCommon"], foodDict["type"],
         local: local,
         landTransport: landTransport,
         seaTransport: seaTransport,
@@ -84,20 +85,22 @@ List<Food> getFoodsFromJson(Map<String, dynamic> foodsJson) {
 }
 
 class Food {
-  String name;
+  String name = "null";
   String assetImgPath = "";
+  String infoURL = "";
   bool isCommon = true;
   String type = "none";
   LinkedHashMap<String, List<Availability>> _availabilities =
       new LinkedHashMap();
 
-  Food(String name, String assetImgPath, int isCommon, String type,
+  Food(String name, String assetImgPath, String infoURL, int isCommon, String type,
       {List<Availability> local = naList,
       List<Availability> landTransport = naList,
       List<Availability> seaTransport = naList,
       List<Availability> flightTransport = naList}) {
     this.name = name;
     this.assetImgPath = assetImgPath;
+    this.infoURL = infoURL;
     this.isCommon = isCommon == 1;
     this.type = type;
     this._availabilities["local"] = local;
