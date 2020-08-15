@@ -1,10 +1,18 @@
 # seasoncalendar
 
-This app is currently under construction and will be published in the Google Play Store and F-Droid repository this Summer!
+_This app is currently under construction and will be published in the Google Play Store and F-Droid repository this Summer!_
 
 It will show you which kinds of fruit, vegetables, salads etc. are in season right now and which ones can be bought without worrying about long transport routes.
 
 Stay tuned!
+
+## Screenshots
+
+![Screenshots_150820](assets/screenshots_150820.png)
+
+## Asset Sources
+
+see `assets/food_sources.xlsx` for a detailed list of where I got the food information from.
 
 # Installation
 
