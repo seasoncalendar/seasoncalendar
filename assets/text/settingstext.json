@@ -1,0 +1,16 @@
+{
+    "settingsPageTitle": "Einstellungen",
+    "settingsSortingTitle": "Sortierung",
+    "settingsSortingOffText": "Alphabetisch",
+    "settingsSortingOnText": "Nach Kategorie",
+    "settingsUncommonOffText": "Zeige nur handels\u00fcbliche Sorten an",
+    "settingsUncommonOnText": "Zeige auch im Handel un\u00fcbliche Sorten an",
+    "settingsFilterTitle": "Filtern",
+    "minAvailabilityIndicator": {
+        "0": "Alle verf\u00fcgbaren Sorten",
+        "1": "Keine eingeflogenen Sorten",
+        "2": "Keine eingeflogenen/-geschifften Sorten",
+        "3": "Nur heimische Sorten"
+    },
+    "imprintPageTitle": "Impressum"
+}

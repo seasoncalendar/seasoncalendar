@@ -1,0 +1,22 @@
+{
+  "name": "SeasonCalendar",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "7e4759519d0c60a2d572aca3ee723ab5",
+      "css": "apple_alt",
+      "code": 62929,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "9e559a2177d021249ca7385e9ca8d3e6",
+      "css": "carrot",
+      "code": 63367,
+      "src": "fontawesome5"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+    "monthToString": [
+        "Januar",
+        "Februar",
+        "M\u00e4rz",
+        "April",
+        "Mai",
+        "Juni",
+        "Juli",
+        "August",
+        "September",
+        "Oktober",
+        "November",
+        "Dezember"
+    ],
+    "imprintPageButtonText": "Impressum"
+}

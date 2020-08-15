@@ -1,0 +1,5 @@
+{
+    "foodSorting": true,
+    "includeUncommon": false,
+    "foodMinAvailability": 1.0
+}
