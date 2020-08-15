@@ -29,3 +29,7 @@ final ThemeData defaultTheme = ThemeData(
 const TextStyle foodText = TextStyle(fontSize: 1024.0, fontWeight: FontWeight.w600);
 
 final Color foodInfoViewBackgroundColor = Colors.lightGreen[50];
+
+final ListTileTheme defaultListTileTheme = ListTileTheme(
+  selectedColor: Colors.lightGreen[700],
+);

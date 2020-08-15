@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/helpers/seasoncalendaricons.dart';
 import 'package:seasoncalendar/helpers/themes.dart';
+import 'package:swipe_gesture_recognizer/swipe_gesture_recognizer.dart';
 import 'food.dart';
 import 'favoritefoods.dart';
 import 'foodsview.dart';
@@ -33,74 +34,111 @@ class HomeState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[
-          IconButton(icon: Icon(_favoritesSelected ? Icons.star : Icons.star_border), onPressed: () {_toggleFavoritesSelected();}),
-          IconButton(icon: Icon(Icons.settings), onPressed: _showSettings),
-          IconButton(icon: Icon(Icons.search), onPressed: () {
-            showSearch(
-              context: context,
-              delegate: FoodSearch(widget._allFoods, _monthIndex, widget._hpText['monthToString'], "Suche...")
-            );
-          }),
-          FlatButton(
-              child: Text(widget._hpText['imprintPageButtonText'], style: defaultTheme.textTheme.bodyText1.copyWith(fontWeight: FontWeight.bold),),
-              onPressed: () {Navigator.of(context).pushNamed("/imprint");}
+        title: SwipeGestureRecognizer(
+          onSwipeLeft: () {_shiftMonth(1);},
+          onSwipeRight: () {_shiftMonth(-1);},
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 10,
+                child: Container(
+                  margin: const EdgeInsets.all(2),
+                  color: Colors.white24,
+                  child: IconButton(
+                      icon: const Icon(SeasonCalendarIcons.arrow_left, color: Colors.black,),
+                      onPressed: () {_shiftMonth(-1);}
+                  ),
+                )
+              ),
+              Expanded(
+                flex: 20,
+                child: Container(
+                  margin: const EdgeInsets.all(2),
+                  child: GestureDetector(
+                    child: Text(
+                      widget._hpText['monthToString'][_monthIndex],
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    onTap: () {_shiftMonth(DateTime.now().toLocal().month - 1 - _monthIndex);},
+                  )
+                ),
+              ),
+              Expanded(
+                flex: 10,
+                child: Container(
+                  color: Colors.white24,
+                  child: IconButton(
+                    icon: const Icon(SeasonCalendarIcons.arrow_right, color: Colors.black,),
+                    onPressed: () {_shiftMonth(1);},
+                  ),
+                ),
+              ),
+            ],
           ),
-          PopupMenuButton(
-            icon: Icon(Icons.help),
-            onSelected: _chooseEtcPage,
-            itemBuilder: (context) {
-              return etcPages.keys.map((String page) {
-                return PopupMenuItem<String>(
-                  value: page,
-                  child: Text(page)
-                );
-              }).toList();
-            },
-          ),
-        ],
+        ),
       ),
       body: foodsView(_foods, _monthIndex, widget._hpText['monthToString']),
       bottomNavigationBar: Container(
         color: defaultTheme.primaryColor,
         child: Row(
           children: <Widget>[
+            Spacer(flex: 2),
             Expanded(
-              flex: 25,
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    IconButton(
-                      icon: _fruitsSelected ? Icon(SeasonCalendarIcons.apple_alt, color: Colors.black,)
-                        : Icon(SeasonCalendarIcons.apple_alt, color: Colors.black26,),
-                      onPressed: () {_toggleFruitsSelected();},
-                    ),
-                    IconButton(
-                      icon: _nonFruitsSelected ? Icon(SeasonCalendarIcons.carrot, color: Colors.black,)
-                          : Icon(SeasonCalendarIcons.carrot, color: Colors.black26,),
-                      onPressed: () {_toggleNonFruitsSelected();},
-                    ),
-                  ],
-                ),
+              flex: 10,
+              child: IconButton(
+                icon: _fruitsSelected ? Icon(SeasonCalendarIcons.apple_alt, color: Colors.black,)
+                    : Icon(SeasonCalendarIcons.apple_alt, color: Colors.black26,),
+                onPressed: () {_toggleFruitsSelected();},
               ),
             ),
             Expanded(
-              flex: 75,
-              child: Container(
-                child: ListTile(
-                  leading: IconButton(
-                    icon: const Icon(SeasonCalendarIcons.arrow_left, color: Colors.black,),
-                    onPressed: () {_shiftMonth(-1);},
-                  ),
-                  title: Text(widget._hpText['monthToString'][_monthIndex], textAlign: TextAlign.center, style: defaultTheme.textTheme.headline5,),
-                  trailing: IconButton(
-                    icon: const Icon(SeasonCalendarIcons.arrow_right, color: Colors.black,),
-                    onPressed: () {_shiftMonth(1);},
-                  ),
+                flex: 10,
+                child: IconButton(
+                  icon: _nonFruitsSelected ? Icon(SeasonCalendarIcons.carrot, color: Colors.black,)
+                      : Icon(SeasonCalendarIcons.carrot, color: Colors.black26,),
+                  onPressed: () {_toggleNonFruitsSelected();},
                 ),
+            ),
+            Spacer(flex: 5),
+            Expanded(
+                flex: 10,
+                child: IconButton(
+                  icon: Icon(_favoritesSelected ? Icons.star : Icons.star_border),
+                  onPressed: () {_toggleFavoritesSelected();},
+                ),
+            ),
+            Expanded(
+                flex: 10,
+                child: IconButton(icon: Icon(Icons.search), onPressed: () {
+                  showSearch(
+                      context: context,
+                      delegate: FoodSearch(widget._allFoods, _monthIndex, widget._hpText['monthToString'], "Suche...")
+                  );
+                }),
+            ),
+            Spacer(flex: 5),
+            Expanded(
+                flex: 10,
+                child: IconButton(icon: Icon(Icons.settings), onPressed: _showSettings),
+            ),
+            Expanded(
+              flex: 10,
+              child: PopupMenuButton(
+                icon: Icon(Icons.help),
+                offset: Offset(0, -205),
+                onSelected: _chooseEtcPage,
+                itemBuilder: (context) {
+                  return etcPages.keys.map((String page) {
+                    return PopupMenuItem<String>(
+                        value: page,
+                        child: Text(page)
+                    );
+                  }).toList();
+                },
               ),
-            )
+            ),
+            Spacer(flex: 2)
           ],
         ),
       )
@@ -120,12 +158,32 @@ class HomeState extends State<HomePage> {
   }
 
   void _toggleFruitsSelected() async{
-    setState(() {_fruitsSelected = !_fruitsSelected;});
+    setState(() {
+      if (!_fruitsSelected) {
+        _fruitsSelected = true;
+      }
+      else if (_nonFruitsSelected){
+        _nonFruitsSelected = false;
+      }
+      else {
+        _nonFruitsSelected = true;
+      }
+    });
     _filterAndSortFoodsAsync();
   }
 
   void _toggleNonFruitsSelected() async{
-    setState(() {_nonFruitsSelected = !_nonFruitsSelected;});
+    setState(() {
+      if (!_nonFruitsSelected) {
+        _nonFruitsSelected = true;
+      }
+      else if (_fruitsSelected){
+        _fruitsSelected = false;
+      }
+      else {
+        _fruitsSelected = true;
+      }
+    });
     _filterAndSortFoodsAsync();
   }
 

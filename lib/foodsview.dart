@@ -140,6 +140,8 @@ class FoodTileState extends State<FoodTile> {
       );
     }
 
+    // TODO use OrientationBuilder -or- var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait
+
     GestureTapCallback showFoodInfo = () {
       showDialog(
         context: context,

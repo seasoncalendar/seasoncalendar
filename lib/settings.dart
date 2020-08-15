@@ -134,6 +134,17 @@ class SettingsPageState extends State<SettingsPage> {
                   setSetting("foodMinAvailability", newVal);
                 },
               ),
+              ListTileTheme(
+                selectedColor: Colors.lightGreen[700],
+                child: ListTile(
+                  leading: Icon(Icons.info_outline),
+                  title: Text(widget._settingsText['imprintPageTitle']),
+                  isThreeLine: false,
+                  dense: false,
+                  selected: true,
+                  onTap: () => {Navigator.of(context).pushNamed("/imprint")},
+                ),
+              ),
             ],
           ),
         )

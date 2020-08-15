@@ -129,4 +129,5 @@ const Map<String, String> etcPages = {
   "Erklärung": "/about",
   "App verbessern": "/contribute",
   "Unterstützen": "/support",
+  "Impressum": "/imprint",
 };
