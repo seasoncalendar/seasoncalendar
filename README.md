@@ -8,7 +8,7 @@ Stay tuned!
 
 ## Screenshots
 
-![Screenshots_150820](assets/screenshots_150820.png)
+![Screenshots_150820](assets/screenshots_150820.jpg)
 
 ## Asset Sources
 
