@@ -258,7 +258,7 @@ foods['lychee'] = {
     'name': 'Litschi',
     'img': 'assets/img/lychee.jpg',
     "infoURL": "https://de.wikipedia.org/wiki/Litschibaum",
-    'isCommon': 0,
+    'isCommon': 1,
     'type': 'fruit',
     'landTransport'           : [0.0, 0.0, 0.0,  0.0, 0.0, 0.5,   0.5, 0.5, 0.5,  0.0, 0.0, 0.0],
     'flightTransport'         : [0.5, 0.5, 0.5,  0.5, 0.5, 0.0,   0.0, 0.0, 0.0,  0.0, 0.5, 0.5]

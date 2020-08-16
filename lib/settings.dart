@@ -94,11 +94,8 @@ class SettingsPageState extends State<SettingsPage> {
           child: Column(
             children: <Widget>[
               SwitchListTile.adaptive(
-                secondary: const Icon(Icons.sort_by_alpha),
+                secondary: const Icon(Icons.category),
                 title: Text(widget._settingsText['settingsSortingTitle']),
-                subtitle: Text(widget._settings["foodSorting"]
-                    ? widget._settingsText['settingsSortingOnText']
-                    : widget._settingsText['settingsSortingOffText']),
                 value: widget._settings["foodSorting"],
                 dense: false,
                 onChanged: (newVal) {
@@ -106,10 +103,9 @@ class SettingsPageState extends State<SettingsPage> {
                 },
               ),
               SwitchListTile.adaptive(
-                secondary: const Icon(Icons.category),
-                subtitle: Text(widget._settings["includeUncommon"]
-                    ? widget._settingsText['settingsUncommonOnText']
-                    : widget._settingsText['settingsUncommonOffText']),
+                secondary: const Icon(Icons.folder_special),
+                title: Text(widget._settingsText['settingsUncommonTitle']),
+                subtitle: Text(widget._settingsText['settingsUncommonText']),
                 value: widget._settings["includeUncommon"],
                 dense: false,
                 onChanged: (newVal) {
@@ -123,13 +119,23 @@ class SettingsPageState extends State<SettingsPage> {
                 subtitle: Text(widget._settingsText['minAvailabilityIndicator'][widget._settings["foodMinAvailability"].round().toString()]),
                 dense: false,
               ),
+              /*DropdownButton<int>(
+                value: widget._settings["foodMinAvailability"],
+                icon: Icon(Icons.arrow_downward),
+                items: [0, 1, 2, 3].map<DropdownMenuItem<int>> ((int value) {
+                  return DropdownMenuItem<int>(
+                    value: value,
+                    child: Text(widget._settingsText['minAvailabilityIndicator'][value.toString()]),
+                  );
+                }).toList(),
+              ),*/
               Slider.adaptive(
                 divisions: 3,
                 min: 0,
                 max: 3,
                 activeColor: defaultTheme.accentColor,
                 inactiveColor: defaultTheme.primaryColor,
-                value: widget._settings["foodMinAvailability"],
+                value: widget._settings["foodMinAvailability"].toDouble(),
                 onChanged: (newVal) {
                   setSetting("foodMinAvailability", newVal);
                 },

@@ -1,10 +1,8 @@
 {
     "settingsPageTitle": "Einstellungen",
-    "settingsSortingTitle": "Sortierung",
-    "settingsSortingOffText": "Alphabetisch",
-    "settingsSortingOnText": "Nach Kategorie",
-    "settingsUncommonOffText": "Zeige nur handels\u00fcbliche Sorten an",
-    "settingsUncommonOnText": "Zeige auch im Handel un\u00fcbliche Sorten an",
+    "settingsSortingTitle": "Nach Verfügbarkeit sortieren",
+    "settingsUncommonTitle": "Spezielle Sorten anzeigen",
+    "settingsUncommonText": "z.B. Quitten, Moltebeeren",
     "settingsFilterTitle": "Filtern",
     "minAvailabilityIndicator": {
         "0": "Alle verf\u00fcgbaren Sorten",
