@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import 'package:seasoncalendar/helpers/themes.dart';
 import 'favoritefoods.dart';
 import 'food.dart';
+import 'additionalinfodialog.dart';
 
 Widget foodsView(List<Food> preparedFoods, int monthIndex, List<dynamic> monthNames) {
 
@@ -99,102 +99,13 @@ class FoodTileState extends State<FoodTile> {
       ),
     );
 
-    Widget getAvailabilityInfoCard(int monthIndex) {
-
-      Widget containerChild;
-
-      if (widget._allAvailabilities[monthIndex].length == 1) {
-        containerChild = Icon(availabilityModeIcons[widget._allAvailabilities[monthIndex][0]], color: Colors.black.withAlpha(180));
-      } else {
-        containerChild = Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(availabilityModeIcons[widget._allAvailabilities[monthIndex][0]], color: Colors.black.withAlpha(180)),
-            Text(" / "),
-            Icon(availabilityModeIcons[widget._allAvailabilities[monthIndex][1]], color: Colors.black.withAlpha(110)),
-          ],
-        );
-      }
-
-      return Expanded(
-        flex: 1,
-        child: Container(
-          child: Card(
-            elevation: 1,
-            color: availabilityModeColor[widget._allAvailabilities[monthIndex][0]],
-            child: Container(
-              padding: const EdgeInsets.all(2),
-              child: Column(
-                children: <Widget>[
-                  Text(widget._monthNames[monthIndex].substring(0, 3), style: TextStyle(fontWeight: FontWeight.bold)),
-                  FittedBox(
-                      fit: BoxFit.contain,
-                      child: containerChild,
-                  ),
-                ],
-              ),
-            )
-          ),
-        ),
-      );
-    }
-
-    // TODO use OrientationBuilder -or- var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait
-
     GestureTapCallback showFoodInfo = () {
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
           backgroundColor: Colors.white,
-          content: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Text(widget._foodName, textAlign: TextAlign.center, style: defaultTheme.textTheme.headline5,),
-                SizedBox(height: 10),
-                foodImage,
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [for (var i=0; i<4; i+=1) getAvailabilityInfoCard(i)],
-                ),
-                SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [for (var i=4; i<8; i+=1) getAvailabilityInfoCard(i)],
-                ),
-                SizedBox(height: 5),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [for (var i=8; i<12; i+=1) getAvailabilityInfoCard(i)],
-                ),
-                SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    RaisedButton(
-                      child: Text('Zurück'),
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                    RaisedButton(
-                      child: Text('Wikipedia'),
-                      onPressed: () async {
-                        final url = widget._foodInfoURL;
-                        if (await canLaunch(url)) {
-                          await launch(
-                            url,
-                            forceSafariVC: false,
-                          );
-                        }
-                      },
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
+          content: AdditionalInfoDialog(widget._foodName, widget._foodInfoURL,
+            foodImage, widget._monthNames, widget._allAvailabilities),
           elevation: 10,
         ),
         barrierDismissible: true,
