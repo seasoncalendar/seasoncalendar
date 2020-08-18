@@ -36,7 +36,7 @@ class SettingsPageState extends State<SettingsPage> {
     return settings;
   }
 
-  setSetting(String key, dynamic newVal) async {
+  setSettingI(String key, dynamic newVal) async {
     widget._settings[key] = newVal;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setValue(prefs, key, newVal);
@@ -94,52 +94,34 @@ class SettingsPageState extends State<SettingsPage> {
           child: Column(
             children: <Widget>[
               SwitchListTile.adaptive(
-                secondary: const Icon(Icons.category),
-                title: Text(widget._settingsText['settingsSortingTitle']),
-                value: widget._settings["foodSorting"],
-                dense: false,
-                onChanged: (newVal) {
-                  setSetting("foodSorting", newVal);
-                },
-              ),
-              SwitchListTile.adaptive(
                 secondary: const Icon(Icons.folder_special),
                 title: Text(widget._settingsText['settingsUncommonTitle']),
                 subtitle: Text(widget._settingsText['settingsUncommonText']),
                 value: widget._settings["includeUncommon"],
                 dense: false,
                 onChanged: (newVal) {
-                  setSetting("includeUncommon", newVal);
+                  setSettingI("includeUncommon", newVal);
                 },
               ),
+              const Divider(),
+              SwitchListTile.adaptive(
+                secondary: const Icon(Icons.category),
+                title: Text(widget._settingsText['settingsSortingTitle']),
+                value: widget._settings["foodSorting"],
+                dense: false,
+                onChanged: (newVal) {
+                  setSettingI("foodSorting", newVal);
+                },
+              ),
+              const Divider(),
               ListTile(
                 leading: Icon(Icons.visibility),
                 title: Text(widget._settingsText['settingsFilterTitle']),
                 isThreeLine: false,
-                subtitle: Text(widget._settingsText['minAvailabilityIndicator'][widget._settings["foodMinAvailability"].round().toString()]),
                 dense: false,
+                onTap: () => Navigator.of(context).pushNamed("/settings/filter"),
               ),
-              /*DropdownButton<int>(
-                value: widget._settings["foodMinAvailability"],
-                icon: Icon(Icons.arrow_downward),
-                items: [0, 1, 2, 3].map<DropdownMenuItem<int>> ((int value) {
-                  return DropdownMenuItem<int>(
-                    value: value,
-                    child: Text(widget._settingsText['minAvailabilityIndicator'][value.toString()]),
-                  );
-                }).toList(),
-              ),*/
-              Slider.adaptive(
-                divisions: 3,
-                min: 0,
-                max: 3,
-                activeColor: defaultTheme.accentColor,
-                inactiveColor: defaultTheme.primaryColor,
-                value: widget._settings["foodMinAvailability"].toDouble(),
-                onChanged: (newVal) {
-                  setSetting("foodMinAvailability", newVal);
-                },
-              ),
+              const Divider(),
               ListTileTheme(
                 selectedColor: Colors.lightGreen[700],
                 child: ListTile(

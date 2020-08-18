@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'homepage.dart';
 import 'settings.dart';
+import 'settingsfiltersetting.dart';
 import 'food.dart';
 import 'favoritefoods.dart';
 import 'etcpages/aboutpage.dart';
@@ -55,6 +56,25 @@ final Map<String, WidgetBuilder> appRoutes = {
           }
         },
       ),
+  "/settings/filter": (_) => FutureBuilder(
+    future: Future.wait([
+      loadAssetFromJson("assets/initialsettings.json"),
+      loadAssetFromJson("assets/text/settingstext.json"),
+    ]),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        final initialSettings = snapshot.data[0];
+        final settingsText = snapshot.data[1];
+        return SettingsFilterSettingPage(initialSettings, settingsText);
+      } else {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text("..."),
+          ),
+        );
+      }
+    },
+  ),
   "/about": (_) => FutureBuilder(
         future: loadAssetFromJson("assets/text/aboutpagetext.json"),
         builder: (context, snapshot) {
