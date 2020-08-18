@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.0.1+1
+version: 0.0.1+2
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -30,7 +30,6 @@ dependencies:
   swipe_gesture_recognizer: ^0.0.2
   # geolocator: ^5.3.2+2
   # flutter_map: ^0.9.0
-
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -60,7 +59,24 @@ flutter:
     - family: SeasonCalendar
       fonts:
         - asset: assets/fonts/SeasonCalendar.ttf
-
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-SemiBold.ttf
+        - asset: assets/fonts/Raleway-SemiBoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/Raleway-ExtraBold.ttf
+          weight: 700
+    - family: Overpass
+      fonts:
+        - asset: assets/fonts/Overpass-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Overpass-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Overpass-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Overpass-BoldItalic.ttf
+          weight: 700
+          style: italic
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
