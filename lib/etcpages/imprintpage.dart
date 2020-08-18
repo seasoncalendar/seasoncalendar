@@ -54,6 +54,10 @@ class ImprintPage extends StatelessWidget {
               SizedBox(height: 10),
               Text("Die Namen der Urheber für die Bilder werde ich so schnell wie möglich in einem zukünftigen Update in die erweiterte Ansicht einfügen.",
                   style: defaultTheme.textTheme.bodyText1.copyWith(fontStyle: FontStyle.italic)),
+              SizedBox(height: 10),
+              Text(_imprintPageText['imprintPageFontsHeadline'], style: defaultTheme.textTheme.headline6, textAlign: TextAlign.left,),
+              SizedBox(height: 10),
+              Text(_imprintPageText['imprintPageFontsText'], textAlign: TextAlign.left,),
             ],
           )
         )
