@@ -60,7 +60,39 @@ class HomeState extends State<HomePage> {
                       textAlign: TextAlign.center,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    onTap: () {_shiftMonth(DateTime.now().toLocal().month - 1 - _monthIndex);},
+                    onTap: () {showDialog(
+                      context: context,
+                      builder: (_) => AlertDialog(
+                        backgroundColor: Colors.white,
+                        content: Container(
+                          width: double.minPositive,
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              itemCount: widget._hpText['monthToString'].length * 2 - 1,
+                              itemBuilder: (context, i) {
+                                if (i % 2 == 0) {
+                                  return ListTile(
+                                    title: Text(
+                                      widget._hpText['monthToString'][(i/2).round()],
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(fontWeight: FontWeight.bold),
+                                    ),
+                                    onTap: () {
+                                      _setMonth((i/2).round());
+                                      Navigator.of(context).pop();
+                                      },
+                                  );
+                                }
+                                else {
+                                  return const Divider(height: 0,);
+                                }
+                              }
+                          ),
+                        ),
+                        elevation: 10,
+                      ),
+                      barrierDismissible: true,
+                    );}
                   )
                 ),
               ),
@@ -143,6 +175,13 @@ class HomeState extends State<HomePage> {
         ),
       )
     );
+  }
+
+  _setMonth(int value) {
+    setState(() {
+      _monthIndex = value % 12;
+    });
+    _filterAndSortFoodsAsync();
   }
 
   _shiftMonth(int value) {

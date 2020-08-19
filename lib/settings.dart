@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/helpers/themes.dart';
+import 'package:package_info/package_info.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -11,6 +11,7 @@ class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
   final Map<String, dynamic> _settingsText;
   Map<String, dynamic> _settings;
+  String _versionInfo = "...";
 
   SettingsPage(Map<String, dynamic> initialSettings, Map<String, dynamic> settingsText):
     _initialSettings = initialSettings, _settingsText = settingsText;
@@ -67,17 +68,26 @@ class SettingsPageState extends State<SettingsPage> {
       ),
       body: SingleChildScrollView(
         child: FutureBuilder(
-          future: getSettingsI(widget._initialSettings),
+          future: Future.wait([
+            getSettingsI(widget._initialSettings),
+            getVersionInfo()
+          ]),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              Map<String, dynamic> settings = snapshot.data;
+              Map<String, dynamic> settings = snapshot.data[0];
               widget._settings = settings;
+              widget._versionInfo = snapshot.data[1];
             }
             return _buildSettings(context);
           }
         )
       )
     );
+  }
+
+  Future<String> getVersionInfo() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    return packageInfo.version + "+" + packageInfo.buildNumber;
   }
 
   Widget _buildSettings(BuildContext context) {
@@ -105,7 +115,7 @@ class SettingsPageState extends State<SettingsPage> {
               ),
               const Divider(),
               SwitchListTile.adaptive(
-                secondary: const Icon(Icons.category),
+                secondary: const Icon(Icons.sort),
                 title: Text(widget._settingsText['settingsSortingTitle']),
                 value: widget._settings["foodSorting"],
                 dense: false,
@@ -125,13 +135,22 @@ class SettingsPageState extends State<SettingsPage> {
               ListTileTheme(
                 selectedColor: Colors.lightGreen[700],
                 child: ListTile(
-                  leading: Icon(Icons.info_outline),
+                  leading: Icon(Icons.account_balance),
                   title: Text(widget._settingsText['imprintPageTitle']),
                   isThreeLine: false,
                   dense: false,
                   selected: true,
                   onTap: () => {Navigator.of(context).pushNamed("/imprint")},
                 ),
+              ),
+              const Divider(),
+              ListTile(
+                leading: Icon(Icons.info_outline),
+                enabled: false,
+                title: Text('Version'),
+                trailing: Text(widget._versionInfo, style: const TextStyle(color: Colors.black38),),
+                isThreeLine: false,
+                dense: false,
               ),
             ],
           ),
