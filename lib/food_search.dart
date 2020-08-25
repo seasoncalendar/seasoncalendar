@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'food.dart';
-import 'foodsview.dart';
+import 'food_view.dart';
 import 'package:edit_distance/edit_distance.dart';
 
 const maxEditDist = 3;

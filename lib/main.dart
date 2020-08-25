@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'routes.dart';
-import 'helpers/jsonassetloader.dart';
+import 'helpers/json_asset_loader.dart';
 import 'helpers/themes.dart';
 
 void main() async {

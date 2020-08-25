@@ -1,18 +1,16 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'homepage.dart';
 import 'settings.dart';
-import 'settingsfiltersetting.dart';
+import 'settings_filter_setting.dart';
 import 'food.dart';
-import 'favoritefoods.dart';
-import 'etcpages/aboutpage.dart';
-import 'etcpages/contribpage.dart';
-import 'etcpages/supportpage.dart';
-import 'etcpages/imprintpage.dart';
-import 'helpers/jsonassetloader.dart';
+import 'favorite_foods.dart';
+import 'etcpages/about_page.dart';
+import 'etcpages/contrib_page.dart';
+import 'etcpages/support_page.dart';
+import 'etcpages/imprint_page.dart';
+import 'helpers/json_asset_loader.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
   "/": (_) => FutureBuilder(

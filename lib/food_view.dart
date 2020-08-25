@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:seasoncalendar/helpers/themes.dart';
-import 'favoritefoods.dart';
+import 'favorite_foods.dart';
 import 'food.dart';
-import 'additionalinfodialog.dart';
+import 'additional_info_dialog.dart';
 
 Widget foodsView(
     List<Food> preparedFoods, int monthIndex, List<dynamic> monthNames) {

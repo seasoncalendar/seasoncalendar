@@ -1,13 +1,13 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/helpers/seasoncalendaricons.dart';
+import 'package:seasoncalendar/helpers/seasoncalendar_icons.dart';
 import 'package:seasoncalendar/helpers/themes.dart';
 import 'package:swipe_gesture_recognizer/swipe_gesture_recognizer.dart';
 import 'food.dart';
-import 'favoritefoods.dart';
-import 'foodsview.dart';
-import 'foodsearch.dart';
+import 'favorite_foods.dart';
+import 'food_view.dart';
+import 'food_search.dart';
 import 'settings.dart';
 import 'routes.dart';
 

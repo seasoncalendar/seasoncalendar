@@ -4,7 +4,7 @@ import 'package:package_info/package_info.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'helpers/jsonassetloader.dart';
+import 'helpers/json_asset_loader.dart';
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
