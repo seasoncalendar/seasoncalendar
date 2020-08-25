@@ -12,16 +12,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: loadAssetFromJson("assets/text/apptext.json"),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final mainText = snapshot.data;
-          return getMaterialApp(context, mainText["appTitle"]);
-        } else {
-          return getMaterialApp(context, "NAME NOT FOUND");
-        }
-      }
-    );
+        future: loadAssetFromJson("assets/text/apptext.json"),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final mainText = snapshot.data;
+            return getMaterialApp(context, mainText["appTitle"]);
+          } else {
+            return getMaterialApp(context, "NAME NOT FOUND");
+          }
+        });
   }
 
   Widget getMaterialApp(BuildContext context, String appTitle) {

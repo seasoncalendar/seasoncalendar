@@ -7,7 +7,6 @@ import 'helpers/themes.dart';
 import 'food.dart';
 
 class AdditionalInfoDialog extends StatelessWidget {
-
   String _foodName;
   Image _foodImage;
   String _foodInfoURL;
@@ -15,30 +14,34 @@ class AdditionalInfoDialog extends StatelessWidget {
   List<List<String>> _allAvailabilities;
 
   AdditionalInfoDialog(String foodName, String foodInfoURL, Image foodImage,
-    List<dynamic> monthNames, List<List<String>> allAvailabilities)
-    : _foodName = foodName, _foodImage = foodImage, _foodInfoURL = foodInfoURL,
-    _monthNames = monthNames, _allAvailabilities = allAvailabilities;
+      List<dynamic> monthNames, List<List<String>> allAvailabilities)
+      : _foodName = foodName,
+        _foodImage = foodImage,
+        _foodInfoURL = foodInfoURL,
+        _monthNames = monthNames,
+        _allAvailabilities = allAvailabilities;
 
   @override
   Widget build(BuildContext context) {
-
     var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
     var availabilities = Column(
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [for (var i=0; i<4; i+=1) getAvailabilityInfoCard(i)],
+          children: [for (var i = 0; i < 4; i += 1) getAvailabilityInfoCard(i)],
         ),
         SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [for (var i=4; i<8; i+=1) getAvailabilityInfoCard(i)],
+          children: [for (var i = 4; i < 8; i += 1) getAvailabilityInfoCard(i)],
         ),
         SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [for (var i=8; i<12; i+=1) getAvailabilityInfoCard(i)],
+          children: [
+            for (var i = 8; i < 12; i += 1) getAvailabilityInfoCard(i)
+          ],
         ),
       ],
     );
@@ -47,14 +50,9 @@ class AdditionalInfoDialog extends StatelessWidget {
 
     if (isPortrait) {
       imgAndAvailabilities = Column(
-        children: <Widget>[
-          _foodImage,
-          SizedBox(height: 10),
-          availabilities
-        ],
+        children: <Widget>[_foodImage, SizedBox(height: 10), availabilities],
       );
-    }
-    else {
+    } else {
       imgAndAvailabilities = Row(
         children: <Widget>[
           Expanded(
@@ -73,7 +71,11 @@ class AdditionalInfoDialog extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          Text(_foodName, textAlign: TextAlign.center, style: defaultTheme.textTheme.headline5,),
+          Text(
+            _foodName,
+            textAlign: TextAlign.center,
+            style: defaultTheme.textTheme.headline5,
+          ),
           SizedBox(height: 10),
           imgAndAvailabilities,
           SizedBox(height: 10),
@@ -106,19 +108,22 @@ class AdditionalInfoDialog extends StatelessWidget {
   }
 
   Widget getAvailabilityInfoCard(int monthIndex) {
-
     Widget containerChild;
 
     if (_allAvailabilities[monthIndex].length == 1) {
-      containerChild = Icon(availabilityModeIcons[_allAvailabilities[monthIndex][0]], color: Colors.black.withAlpha(180));
+      containerChild = Icon(
+          availabilityModeIcons[_allAvailabilities[monthIndex][0]],
+          color: Colors.black.withAlpha(180));
     } else {
       containerChild = Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(availabilityModeIcons[_allAvailabilities[monthIndex][0]], color: Colors.black.withAlpha(180)),
+          Icon(availabilityModeIcons[_allAvailabilities[monthIndex][0]],
+              color: Colors.black.withAlpha(180)),
           Text(" / "),
-          Icon(availabilityModeIcons[_allAvailabilities[monthIndex][1]], color: Colors.black.withAlpha(110)),
+          Icon(availabilityModeIcons[_allAvailabilities[monthIndex][1]],
+              color: Colors.black.withAlpha(110)),
         ],
       );
     }
@@ -133,15 +138,15 @@ class AdditionalInfoDialog extends StatelessWidget {
               padding: const EdgeInsets.all(2),
               child: Column(
                 children: <Widget>[
-                  Text(_monthNames[monthIndex].substring(0, 3), style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text(_monthNames[monthIndex].substring(0, 3),
+                      style: TextStyle(fontWeight: FontWeight.bold)),
                   FittedBox(
                     fit: BoxFit.contain,
                     child: containerChild,
                   ),
                 ],
               ),
-            )
-        ),
+            )),
       ),
     );
   }
