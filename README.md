@@ -1,10 +1,16 @@
 # seasoncalendar
 
-_This app is currently under construction and will be published in the Google Play Store and F-Droid repository this Summer!_
+This app is a practical and easy to use tool showing you which kinds of fruit, vegetables, salads etc. are in season right now.
 
-It will show you which kinds of fruit, vegetables, salads etc. are in season right now and which ones can be bought without worrying about long transport routes.
+Foods that are produced regionally are often times cheaper, tastier and better for the environment due to a shorter and more convenient transport.
 
 Stay tuned!
+
+## Get it!
+
+- **From Google Play**: https://play.google.com/store/apps/details?id=flunzmas.seasoncalendar
+- **From F-Droid**: *coming soon!*
+- **From my website**: *coming soon!*
 
 ## Screenshots
 
@@ -19,7 +25,7 @@ see `assets/food_sources.xlsx` for a detailed list of where I got the food infor
 0. Clone the repo
 1. `cd seasoncalendar`.
 2. `mv assets/text/imprintpagetext_template.json assets/text/imprintpagetext.json`.
-3. Add your contact data if desired.
+3. Override the contact data of the imprint if desired.
 4. `flutter build appbundle` (builds a release bundle).
 5. The bundle is available at `./build/app/outputs/bundle/release/app.aab`.
 
