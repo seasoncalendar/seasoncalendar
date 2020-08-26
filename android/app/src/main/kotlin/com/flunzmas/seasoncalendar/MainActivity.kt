@@ -1,4 +1,4 @@
-package com.example.seasoncalendar
+package com.flunzmas.seasoncalendar
 
 import io.flutter.embedding.android.FlutterActivity
 
