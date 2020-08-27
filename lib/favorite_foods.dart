@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<bool> isFavoriteFood(String foodName) async {
+Future<bool> isFavoriteFood(String foodId) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   List<String> foods = prefs.getStringList("favoriteFoods");
   if (foods == null) {
     return false;
   } else {
-    return foods.contains(foodName);
+    return foods.contains(foodId);
   }
 }
 
@@ -22,17 +22,17 @@ void setFavoriteFoods(List<String> favoriteFoods) async {
   prefs.setStringList("favoriteFoods", favoriteFoods);
 }
 
-void addFavoriteFood(String foodName) async {
+void addFavoriteFood(String foodId) async {
   List<String> foods = await getFavoriteFoods();
-  if (foods.contains(foodName)) return;
-  foods.add(foodName);
+  if (foods.contains(foodId)) return;
+  foods.add(foodId);
   foods.sort();
   setFavoriteFoods(foods);
 }
 
-void removeFavoriteFood(String foodName) async {
+void removeFavoriteFood(String foodId) async {
   List<String> foods = await getFavoriteFoods();
-  if (!foods.contains(foodName)) return;
-  foods.remove(foodName);
+  if (!foods.contains(foodId)) return;
+  foods.remove(foodId);
   setFavoriteFoods(foods);
 }

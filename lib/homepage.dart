@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:seasoncalendar/helpers/seasoncalendar_icons.dart';
 import 'package:seasoncalendar/helpers/themes.dart';
 import 'package:swipe_gesture_recognizer/swipe_gesture_recognizer.dart';
-import 'food.dart';
+import 'models/food.dart';
 import 'favorite_foods.dart';
 import 'food_view.dart';
 import 'food_search.dart';
@@ -263,20 +263,20 @@ class HomeState extends State<HomePage> {
   }
 
   _filterAndSortFoodsAsync() async {
-    final favoriteFoodNames = await getFavoriteFoods();
+    final favoriteFoodIds = await getFavoriteFoods();
     Map<String, dynamic> settings = await SettingsPageState.getSettings();
     setState(() {
-      _foods = _getFilteredAndSortedFoods(favoriteFoodNames, settings);
+      _foods = _getFilteredAndSortedFoods(favoriteFoodIds, settings);
     });
   }
 
   List<Food> _getFilteredAndSortedFoods(
-      List<String> favoriteFoodNames, Map<String, dynamic> settings) {
+      List<String> favoriteFoodIds, Map<String, dynamic> settings) {
     List<Food> filteredFoods = widget._allFoods;
 
     if (_favoritesSelected) {
       filteredFoods =
-          getFoodsFromFoodNames(favoriteFoodNames, widget._allFoods);
+          getFoodsFromIds(favoriteFoodIds, widget._allFoods);
     }
     if (settings['includeUncommon'] == false) {
       filteredFoods = filteredFoods.where((food) => food.isCommon).toList();
@@ -297,7 +297,7 @@ class HomeState extends State<HomePage> {
             ].reduce(max) >=
             settings['foodMinAvailability'])
         .toList();
-    filteredFoods.sort((a, b) => a.name.compareTo(b.name));
+    filteredFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
     if (settings['foodSorting'] == true) {
       filteredFoods.sort((a, b) {
         int comp = [
@@ -310,7 +310,7 @@ class HomeState extends State<HomePage> {
         if (comp != 0)
           return comp;
         else
-          return a.name.compareTo(b.name);
+          return a.displayName.compareTo(b.displayName);
       });
     }
     return filteredFoods;

@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'homepage.dart';
 import 'settings.dart';
 import 'settings_filter_setting.dart';
-import 'food.dart';
+import 'models/food.dart';
 import 'favorite_foods.dart';
 import 'etcpages/about_page.dart';
 import 'etcpages/contrib_page.dart';
 import 'etcpages/support_page.dart';
 import 'etcpages/imprint_page.dart';
 import 'helpers/json_asset_loader.dart';
+import 'helpers/db_provider.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
   "/": (_) => FutureBuilder(
@@ -18,14 +19,14 @@ final Map<String, WidgetBuilder> appRoutes = {
         getFavoriteFoods(),
         SettingsPageState.getSettings(),
         loadAssetFromJson("assets/text/homepagetext.json"),
-        loadAssetFromJson("assets/foods.json")
+        DBProvider.db.getFoods(),
       ]),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           final favoriteFoodNames = snapshot.data[0];
           final settings = snapshot.data[1];
           final homePageText = snapshot.data[2];
-          final allFoods = getFoodsFromJson(snapshot.data[3]);
+          final allFoods = snapshot.data[3];
           return HomePage(favoriteFoodNames, settings, homePageText, allFoods);
         } else {
           return Scaffold(

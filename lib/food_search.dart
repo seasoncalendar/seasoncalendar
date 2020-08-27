@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'food.dart';
+import 'models/food.dart';
 import 'food_view.dart';
 import 'package:edit_distance/edit_distance.dart';
 
@@ -47,9 +47,9 @@ class FoodSearch extends SearchDelegate<String> {
         ? _allFoods
         : _allFoods
             .where((food) =>
-                lvs.distance(food.name.toLowerCase(), query.toLowerCase()) <=
+                lvs.distance(food.displayName.toLowerCase(), query.toLowerCase()) <=
                     maxEditDist ||
-                food.name.toLowerCase().startsWith(query.toLowerCase()))
+                food.displayName.toLowerCase().startsWith(query.toLowerCase()))
             .toList();
     return foodsView(resultList, _monthIndex, _monthNames);
   }

@@ -1130,3 +1130,44 @@ foods['zucchini'] = {
 }
 
 json.dump(foods, open("foods.json", "w"))
+
+
+import sqlite3
+
+conn = sqlite3.connect('db/foods.db')
+c = conn.cursor()
+
+for foodkey in foods.keys():
+
+    for mode in ['local', 'landTransport', 'seaTransport', 'flightTransport']:
+        if not mode in foods[foodkey].keys():
+            foods[foodkey][mode] = [0.0, 0.0, 0.0,  0.0, 0.0, 0.0,   0.0, 0.0, 0.0,  0.0, 0.0, 0.0]
+
+    execution_string = str("INSERT INTO foods VALUES ('{0}','{1}','{2}','{3}', {4}, '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}')".format
+    (
+        foodkey,
+        foods[foodkey]['name'],
+        foods[foodkey]['name'],  # synonyms
+        foods[foodkey]['type'],
+        foods[foodkey]['isCommon'],  
+        str(foods[foodkey]['local'])[1:-1],
+        str(foods[foodkey]['landTransport'])[1:-1],
+        str(foods[foodkey]['seaTransport'])[1:-1],
+        str(foods[foodkey]['flightTransport'])[1:-1],
+        foods[foodkey]['infoURL'],
+        foods[foodkey]['img'],
+        foods[foodkey]['assetImgSourceUrl'],
+        foods[foodkey]['assetImgInfo'],
+    ))
+
+    print(execution_string)
+    #  exit(0)
+
+    c.execute(execution_string)
+
+# Save (commit) the changes
+conn.commit()
+
+# We can also close the connection if we are done with it.
+# Just be sure any changes have been committed or they will be lost.
+conn.close()

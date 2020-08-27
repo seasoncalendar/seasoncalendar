@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:seasoncalendar/helpers/themes.dart';
 import 'favorite_foods.dart';
-import 'food.dart';
+import 'models/food.dart';
 import 'additional_info_dialog.dart';
 
 Widget foodsView(
@@ -21,7 +21,8 @@ Widget foodsView(
 }
 
 class FoodTile extends StatefulWidget {
-  String _foodName;
+  String _foodId;
+  String _foodDisplayName;
   String _assetImgPath;
   String _foodInfoURL;
   List<dynamic> _monthNames;
@@ -31,9 +32,10 @@ class FoodTile extends StatefulWidget {
   Color _curAvailabilityColor = Colors.white70;
 
   FoodTile(Food foodToDisplay, int curMonthIndex, List<dynamic> monthNames) {
-    _foodName = foodToDisplay.name;
+    _foodId = foodToDisplay.id;
+    _foodDisplayName = foodToDisplay.displayName;
     _assetImgPath = foodToDisplay.assetImgPath;
-    _foodInfoURL = foodToDisplay.infoURL;
+    _foodInfoURL = foodToDisplay.infoUrl;
     _monthNames = monthNames;
     _curMonthIndex = curMonthIndex;
     _allAvailabilities = List.generate(
@@ -53,7 +55,7 @@ class FoodTileState extends State<FoodTile> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: isFavoriteFood(widget._foodName),
+      future: isFavoriteFood(widget._foodId),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           _isFavorite =
@@ -68,14 +70,14 @@ class FoodTileState extends State<FoodTile> {
     GestureTapCallback tapCallback = () {};
     if (_isFavorite == 1) {
       tapCallback = () {
-        removeFavoriteFood(widget._foodName);
+        removeFavoriteFood(widget._foodId);
         setState(() {
           _isFavorite = -1;
         });
       };
     } else if (_isFavorite == -1) {
       tapCallback = () {
-        addFavoriteFood(widget._foodName);
+        addFavoriteFood(widget._foodId);
         setState(() {
           _isFavorite = 1;
         });
@@ -101,7 +103,7 @@ class FoodTileState extends State<FoodTile> {
         context: context,
         builder: (_) => AlertDialog(
           backgroundColor: Colors.white,
-          content: AdditionalInfoDialog(widget._foodName, widget._foodInfoURL,
+          content: AdditionalInfoDialog(widget._foodDisplayName, widget._foodInfoURL,
               foodImage, widget._monthNames, widget._allAvailabilities),
           elevation: 10,
         ),
@@ -164,7 +166,7 @@ class FoodTileState extends State<FoodTile> {
                         child: FittedBox(
                           fit: BoxFit.contain,
                           child: Text(
-                            widget._foodName,
+                            widget._foodDisplayName,
                             style: foodText,
                           ),
                         ),
