@@ -88,21 +88,15 @@ class ImprintPage extends StatelessWidget {
                   style: defaultTheme.textTheme.bodyText1
                       .copyWith(fontStyle: FontStyle.italic)),
               SizedBox(height: 20),
-              Text(
-                _imprintPageText['imprintPageImagesHeadline'],
-                style: defaultTheme.textTheme.headline6,
-                textAlign: TextAlign.left,
+              GestureDetector(
+                child: Text(
+                  _imprintPageText['imprintPageImagesHeadline'] ,
+                  style: defaultTheme.textTheme.headline6.copyWith(color: defaultTheme.accentColor),
+                  textAlign: TextAlign.left,
+                ),
+                onTap: () => Navigator.of(context).pushNamed("/imprint/imgs"),
               ),
-              SizedBox(height: 10),
-              Text(
-                _imprintPageText['imprintPageImagesText'],
-                textAlign: TextAlign.left,
-              ),
-              SizedBox(height: 10),
-              Text(
-                  "Die Namen der Urheber für die Bilder werde ich so schnell wie möglich in einem zukünftigen Update in die erweiterte Ansicht einfügen.",
-                  style: defaultTheme.textTheme.bodyText1
-                      .copyWith(fontStyle: FontStyle.italic)),
+
               SizedBox(height: 10),
               Text(
                 _imprintPageText['imprintPageFontsHeadline'],

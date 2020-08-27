@@ -20,6 +20,17 @@ class SupportPage extends StatelessWidget {
             child: SingleChildScrollView(
                 child: Column(
               children: <Widget>[
+                Text(_supportPageText['supportPageSpreadTitle'],
+                    style: defaultTheme.textTheme.headline4),
+                SizedBox(height: 20),
+                Text(_supportPageText['supportPageSpreadText1'],
+                    style: defaultTheme.textTheme.bodyText1,
+                    textAlign: TextAlign.justify),
+                SizedBox(height: 10),
+                Text(_supportPageText['supportPageSpreadText2'],
+                    style: defaultTheme.textTheme.bodyText1,
+                    textAlign: TextAlign.justify),
+                SizedBox(height: 10),
                 Text(_supportPageText['supportPageHeadline'],
                     style: defaultTheme.textTheme.headline4),
                 SizedBox(height: 20),

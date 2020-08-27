@@ -45,7 +45,7 @@ class ContribPage extends StatelessWidget {
                       }
                     },
                   ),
-                  SizedBox(height: 50),
+                  SizedBox(height: 10),
                   Text(_contribPageText['contribPageCodeHeadline'],
                       style: defaultTheme.textTheme.headline4),
                   SizedBox(height: 20),

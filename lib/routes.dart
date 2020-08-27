@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/etcpages/imprint_imgs_page.dart';
 
 import 'homepage.dart';
 import 'settings.dart';
@@ -142,6 +143,25 @@ final Map<String, WidgetBuilder> appRoutes = {
           }
         },
       ),
+  "/imprint/imgs": (_) => FutureBuilder(
+    future: Future.wait([
+      loadAssetFromJson("assets/text/imprintpagetext.json"),
+      DBProvider.db.getFoods(),
+    ]),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        final imprintPageText = snapshot.data[0];
+        final allFoods = snapshot.data[1];
+        return ImprintImgsPage(allFoods, imprintPageText);
+      } else {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text("..."),
+          ),
+        );
+      }
+    },
+  ),
 };
 
 const Map<String, String> etcPages = {
