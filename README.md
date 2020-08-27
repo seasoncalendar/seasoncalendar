@@ -18,7 +18,7 @@ Stay tuned!
 
 ## Asset Sources
 
-see `assets/food_sources.xlsx` for a detailed list of where I got the food information from.
+The database file `assets/db/foods.db` contains all food information and their respective sources. You can open the file e.g. with ![the official SQLite DB Browser](https://sqlitebrowser.org/)
 
 # Installation
 
