@@ -10,7 +10,7 @@ Stay tuned!
 
 - **From Google Play**: https://play.google.com/store/apps/details?id=flunzmas.seasoncalendar
 - **From F-Droid**: *coming soon!*
-- **From my website**: *coming soon!*
+- **From my website**: https://flunzmas.com/seasonal-foods-calendar
 
 ## Screenshots
 
