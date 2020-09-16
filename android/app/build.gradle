@@ -33,7 +33,8 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     compileSdkVersion 29
-    ndkVersion "21.3.6528147" // Was needed by CI
+    ndkVersion "21.3.6528147"
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -43,11 +44,14 @@ android {
     }
 
     defaultConfig {
-        applicationId "flunzmas.seasoncalendar"
+        applicationId "com.flunzmas.seasoncalendar"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        ndk {
+            debugSymbolLevel 'SYMBOL_TABLE'
+        }
     }
 
     signingConfigs {
