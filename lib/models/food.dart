@@ -69,7 +69,7 @@ List<Availability> availabilitiesFromStringList(List<String> avStringList) {
 class Food {
   String id;
   String displayName;
-  List<String> synonmys;
+  List<String> synonyms;
   String type;
   bool isCommon;
   LinkedHashMap<String, List<Availability>> availabilities;
@@ -101,7 +101,7 @@ class Food {
         this.assetImgSourceUrl = assetImgSourceUrl,
         this.assetImgInfo = assetImgInfo {
     // handle synonyms
-    this.synonmys = splitByCommaAndTrim(synonymString);
+    this.synonyms = splitByCommaAndTrim(synonymString);
 
     // handle availabilities
     this.availabilities = LinkedHashMap<String, List<Availability>>();

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'models/food.dart';
@@ -42,16 +44,51 @@ class FoodSearch extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
+    List<Food> resultList = List<Food>();
+
+    if (query.isEmpty) {
+      return foodsView(_allFoods, _monthIndex, _monthNames);
+    }
+
+    var exactMatches = _allFoods
+        .where((food) => food.synonyms
+            .map((s) => s.toLowerCase())
+            .contains(query.toLowerCase()))
+        .toList();
+
+    print("exactMatches.length:");
+    print(exactMatches.length);
+
+    if (exactMatches.length > 0) {
+      return foodsView(exactMatches, _monthIndex, _monthNames);
+    }
+
+    var startsWith = _allFoods
+        .where((food) => food.synonyms.any((synonym) =>
+            synonym.toLowerCase().startsWith(query.toLowerCase()) &&
+            query.length >= 4))
+        .toList();
+
+    print("startsWith.length:");
+    print(startsWith.length);
+
+    if (startsWith.length > 0) {
+      return foodsView(startsWith, _monthIndex, _monthNames);
+    }
+
     final Levenshtein lvs = new Levenshtein();
-    final List<Food> resultList = query.isEmpty
-        ? _allFoods
-        : _allFoods
-            .where((food) =>
-                lvs.distance(food.displayName.toLowerCase(), query.toLowerCase()) <=
-                    maxEditDist ||
-                food.displayName.toLowerCase().startsWith(query.toLowerCase()))
-            .toList();
-    return foodsView(resultList, _monthIndex, _monthNames);
+
+    var lvsResults = _allFoods
+        .where((food) =>
+            (food.synonyms.map((synonym) {
+              return lvs.distance(synonym.toLowerCase(), query.toLowerCase()) / synonym.length;
+            })).reduce(min) <= 0.5)
+        .toList();
+
+    print("LVSResults.length:");
+    print(lvsResults.length);
+
+    return foodsView(lvsResults, _monthIndex, _monthNames);
   }
 
   @override
