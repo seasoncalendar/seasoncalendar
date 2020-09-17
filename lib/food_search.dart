@@ -47,7 +47,9 @@ class FoodSearch extends SearchDelegate<String> {
     List<Food> resultList = List<Food>();
 
     if (query.isEmpty) {
-      return foodsView(_allFoods, _monthIndex, _monthNames);
+      resultList = _allFoods;
+      resultList.sort((a, b) => a.displayName.compareTo(b.displayName));
+      return foodsView(resultList, _monthIndex, _monthNames);
     }
 
     var exactMatches = _allFoods
