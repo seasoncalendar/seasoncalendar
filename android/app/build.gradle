@@ -44,7 +44,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.flunzmas.seasoncalendar"
+        applicationId "flunzmas.seasoncalendar"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
