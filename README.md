@@ -25,10 +25,8 @@ Please note that the data concerning foods' availability partly stems from ![leb
 # Installation
 
 0. Clone the repo
-1. `cd seasoncalendar`.
-2. `mv assets/text/imprintpagetext_template.json assets/text/imprintpagetext.json`.
-3. Override the contact data of the imprint if desired.
-4. `flutter build appbundle` (builds a release bundle).
-5. The bundle is available at `./build/app/outputs/bundle/release/app.aab`.
+1. `flutter pub get`
+2. `flutter build apk --debug` **or** `flutter build apk --release`
+_You need an own key to sign release versions of this app._
 
 _Helpful info:_ https://flutter.dev/docs/deployment/android
