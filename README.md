@@ -27,6 +27,7 @@ Please note that the data concerning foods' availability partly stems from ![leb
 0. Clone the repo
 1. `flutter pub get`
 2. `flutter build apk --debug` **or** `flutter build apk --release`
+
 _You need an own key to sign release versions of this app._
 
 _Helpful info:_ https://flutter.dev/docs/deployment/android
