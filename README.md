@@ -4,7 +4,7 @@ This app is a practical and easy to use tool showing you which kinds of fruit, v
 
 Foods that are produced regionally are often times cheaper, tastier and better for the environment due to a shorter and more convenient transport.
 
-Stay tuned!
+While currently available only in German and for Germany/Austria/Switzerland, I plan to extend the languages and regions offered.
 
 ## Get it!
 
@@ -18,7 +18,9 @@ Stay tuned!
 
 ## Asset Sources
 
-The database file `assets/db/foods.db` contains all food information and their respective sources. You can open the file e.g. with ![the official SQLite DB Browser](https://sqlitebrowser.org/)
+The database file `assets/db/foods.db` contains all food information and their respective sources. You can open the file e.g. with ![the official SQLite DB Browser](https://sqlitebrowser.org/).
+
+Please note that the data concerning foods' availability partly stems from ![lebensmittellexikon.de](lebensmittellexikon.de) and thus is __not__ subject to the GPL license. I kindly ask you to contact me before re-using the availability data (columns starting with 'av' from the file `assets/db/foods.db`).
 
 # Installation
 
