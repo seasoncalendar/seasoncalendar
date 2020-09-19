@@ -29,6 +29,13 @@ pubspec.lock
 .pub/
 /build/
 
+# Fastlane related
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/Appfile
+
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle

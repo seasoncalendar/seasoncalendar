@@ -1,0 +1,1 @@
+Neu in v1.1: Die Suchfunktion wurde verbessert und erkennt jetzt auch gängige Synonyme der vorhandenen Lebensmittel.
