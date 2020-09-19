@@ -1,0 +1,2 @@
+Version 1.1.2+15: Interne Änderungen (Build-Mechanismus und Metadaten der App).
+Es fallen weiterhin keine personenbezogenen Daten an und keine neuen Berechtigungen werden benötigt.
