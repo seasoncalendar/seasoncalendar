@@ -3,3 +3,4 @@
 <li>Eine große Auswahl an verschiedenen Obst- und Gemüsesorten</li>
 <li>Markiere deine Favoriten und greife schnell auf sie zu</li>
 <li>Unterstützt eine breite Palette an Android-Geräten</li>
+<p><br>(Lizenziert nach GNU GPL-3.0, mit Ausnahme der Datenbanken im Assets-Ordner 'assets/db'. Ich bitte um Kontaktaufnahme vor der Wiederverwendung.)</p>
