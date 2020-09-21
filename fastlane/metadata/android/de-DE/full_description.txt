@@ -1,1 +1,5 @@
-Diese App zeigt dir auf einen Blick an, welche Lebensmittel aktuell Saison haben und aus nächster Nähe verfügbar sind. Solche Lebensmittel sind oft nicht nur günstiger und leckerer, sondern schonen auch das Klima durch bessere klimatische Bedingungen und kürzeren Transportwegen.
+<p>Diese App zeigt dir auf einen Blick an, welche Lebensmittel aktuell Saison haben und aus nächster Nähe verfügbar sind. Solche Lebensmittel sind oft nicht nur günstiger und leckerer, sondern schonen auch das Klima durch bessere klimatische Bedingungen und kürzeren Transportwegen.</p>
+<p><br><b>Features:</b></p><ul>
+<li>Eine große Auswahl an verschiedenen Obst- und Gemüsesorten</li>
+<li>Markiere deine Favoriten und greife schnell auf sie zu</li>
+<li>Unterstützt eine breite Palette an Android-Geräten</li>
