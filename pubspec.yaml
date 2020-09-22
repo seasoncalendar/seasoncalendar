@@ -59,24 +59,6 @@ flutter:
     - family: SeasonCalendar
       fonts:
         - asset: assets/fonts/SeasonCalendar.ttf
-    - family: Raleway
-      fonts:
-        - asset: assets/fonts/Raleway-SemiBold.ttf
-        - asset: assets/fonts/Raleway-SemiBoldItalic.ttf
-          style: italic
-        - asset: assets/fonts/Raleway-ExtraBold.ttf
-          weight: 700
-    - family: Overpass
-      fonts:
-        - asset: assets/fonts/Overpass-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/Overpass-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/Overpass-Bold.ttf
-          weight: 700
-        - asset: assets/fonts/Overpass-BoldItalic.ttf
-          weight: 700
-          style: italic
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
