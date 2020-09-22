@@ -1,20 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/helpers/themes.dart';
 
 import 'package:url_launcher/url_launcher.dart';
+
+import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/models/food.dart';
 
-class ImprintImgsPage extends StatelessWidget {
+class ImgSourcesScreen extends StatelessWidget {
   List<Food> _allFoods;
   final Map<String, dynamic> _imprintPageText;
 
-  ImprintImgsPage(List<Food> allFoods, Map<String, dynamic> imprintPageText)
+  ImgSourcesScreen(List<Food> allFoods, Map<String, dynamic> imprintPageText)
       : this._imprintPageText = imprintPageText {
-    this._allFoods = allFoods;
-    this
-        ._allFoods
-        .sort((Food a, Food b) => a.displayName.compareTo(b.displayName));
+    _allFoods = allFoods;
+    _allFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
   }
 
   @override

@@ -1,18 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/etcpages/imprint_imgs_page.dart';
 
-import 'homepage.dart';
-import 'settings.dart';
-import 'settings_filter_setting.dart';
-import 'models/food.dart';
-import 'favorite_foods.dart';
-import 'etcpages/about_page.dart';
-import 'etcpages/contrib_page.dart';
-import 'etcpages/support_page.dart';
-import 'etcpages/imprint_page.dart';
-import 'helpers/json_asset_loader.dart';
-import 'helpers/db_provider.dart';
+import 'package:seasoncalendar/components/favorite_foods.dart';
+import 'package:seasoncalendar/components/loading_scaffold.dart';
+import 'package:seasoncalendar/helpers/db_provider.dart';
+import 'package:seasoncalendar/helpers/json_asset_loader.dart';
+import 'package:seasoncalendar/models/food.dart';
+import 'package:seasoncalendar/screens/about/about_screen.dart';
+import 'package:seasoncalendar/screens/contrib/contrib_screen.dart';
+import 'package:seasoncalendar/screens/home/home_screen.dart';
+import 'package:seasoncalendar/screens/imprint/imprint_screen.dart';
+import 'package:seasoncalendar/screens/imprint/imgsources/imgsources_screen.dart';
+import 'package:seasoncalendar/screens/settings/settings_screen.dart';
+import 'package:seasoncalendar/screens/settings/filterfoods/settings_filterfoods_screen.dart';
+import 'package:seasoncalendar/screens/support/support_screen.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
   "/": (_) => FutureBuilder(
@@ -28,13 +29,9 @@ final Map<String, WidgetBuilder> appRoutes = {
           final settings = snapshot.data[1];
           final homePageText = snapshot.data[2];
           final allFoods = snapshot.data[3];
-          return HomePage(favoriteFoodNames, settings, homePageText, allFoods);
+          return HomeScreen(favoriteFoodNames, settings, homePageText, allFoods);
         } else {
-          return Scaffold(
-            appBar: AppBar(
-              title: Text("..."),
-            ),
-          );
+          return LoadingScaffold();
         }
       }),
   "/settings": (_) => FutureBuilder(
@@ -48,11 +45,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final settingsText = snapshot.data[1];
             return SettingsPage(initialSettings, settingsText);
           } else {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text("..."),
-              ),
-            );
+            return LoadingScaffold();
           }
         },
       ),
@@ -67,11 +60,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final settingsText = snapshot.data[1];
             return SettingsFilterSettingPage(initialSettings, settingsText);
           } else {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text("..."),
-              ),
-            );
+            return LoadingScaffold();
           }
         },
       ),
@@ -82,11 +71,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final aboutPageText = snapshot.data;
             return AboutPage(aboutPageText);
           } else {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text("..."),
-              ),
-            );
+            return LoadingScaffold();
           }
         },
       ),
@@ -101,11 +86,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final links = snapshot.data[1];
             return ContribPage(contribPageText, links);
           } else {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text("..."),
-              ),
-            );
+            return LoadingScaffold();
           }
         },
       ),
@@ -120,11 +101,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final links = snapshot.data[1];
             return SupportPage(supportPageText, links);
           } else {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text("..."),
-              ),
-            );
+            return LoadingScaffold();
           }
         },
       ),
@@ -135,11 +112,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final imprintPageText = snapshot.data;
             return ImprintPage(imprintPageText);
           } else {
-            return Scaffold(
-              appBar: AppBar(
-                title: Text("..."),
-              ),
-            );
+            return LoadingScaffold();
           }
         },
       ),
@@ -151,14 +124,10 @@ final Map<String, WidgetBuilder> appRoutes = {
     builder: (context, snapshot) {
       if (snapshot.hasData) {
         final imprintPageText = snapshot.data[0];
-        final allFoods = snapshot.data[1];
-        return ImprintImgsPage(allFoods, imprintPageText);
+        final List<Food> allFoods = snapshot.data[1];
+        return ImgSourcesScreen(allFoods, imprintPageText);
       } else {
-        return Scaffold(
-          appBar: AppBar(
-            title: Text("..."),
-          ),
-        );
+        return LoadingScaffold();
       }
     },
   ),

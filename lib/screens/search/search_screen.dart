@@ -1,19 +1,21 @@
 import 'dart:math';
 
+import 'package:edit_distance/edit_distance.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'models/food.dart';
-import 'food_view.dart';
-import 'package:edit_distance/edit_distance.dart';
+
+import 'package:seasoncalendar/models/food.dart';
+import 'package:seasoncalendar/components/food_view.dart';
 
 const maxEditDist = 3;
 
-class FoodSearch extends SearchDelegate<String> {
+class SearchScreen extends SearchDelegate<String> {
   List<Food> _allFoods;
   int _monthIndex;
   List<dynamic> _monthNames;
 
-  FoodSearch(List<Food> allFoods, int monthIndex, List<dynamic> monthNames,
+  SearchScreen(List<Food> allFoods, int monthIndex, List<dynamic> monthNames,
       String searchFieldLabel)
       : super(searchFieldLabel: searchFieldLabel) {
     _allFoods = allFoods;
@@ -49,7 +51,7 @@ class FoodSearch extends SearchDelegate<String> {
     if (query.isEmpty) {
       resultList = _allFoods;
       resultList.sort((a, b) => a.displayName.compareTo(b.displayName));
-      return foodsView(resultList, _monthIndex, _monthNames);
+      return FoodView(resultList, _monthIndex, _monthNames);
     }
 
     var exactMatches = _allFoods
@@ -62,7 +64,7 @@ class FoodSearch extends SearchDelegate<String> {
     print(exactMatches.length);
 
     if (exactMatches.length > 0) {
-      return foodsView(exactMatches, _monthIndex, _monthNames);
+      return FoodView(exactMatches, _monthIndex, _monthNames);
     }
 
     var startsWith = _allFoods
@@ -75,7 +77,7 @@ class FoodSearch extends SearchDelegate<String> {
     print(startsWith.length);
 
     if (startsWith.length > 0) {
-      return foodsView(startsWith, _monthIndex, _monthNames);
+      return FoodView(startsWith, _monthIndex, _monthNames);
     }
 
     final Levenshtein lvs = new Levenshtein();
@@ -90,7 +92,7 @@ class FoodSearch extends SearchDelegate<String> {
     print("LVSResults.length:");
     print(lvsResults.length);
 
-    return foodsView(lvsResults, _monthIndex, _monthNames);
+    return FoodView(lvsResults, _monthIndex, _monthNames);
   }
 
   @override

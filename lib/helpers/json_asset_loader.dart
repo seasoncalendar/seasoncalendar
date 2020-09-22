@@ -1,5 +1,6 @@
-import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
+
+import 'package:flutter/services.dart' show rootBundle;
 
 Future<Map<String, dynamic>> loadAssetFromJson(String assetPath) async{
 

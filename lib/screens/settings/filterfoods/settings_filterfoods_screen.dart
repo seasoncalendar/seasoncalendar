@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'settings.dart';
-import 'theme/themes.dart';
+import 'package:seasoncalendar/screens/settings/settings_screen.dart';
+import 'package:seasoncalendar/theme/themes.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 

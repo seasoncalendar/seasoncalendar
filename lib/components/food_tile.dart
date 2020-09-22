@@ -1,45 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:seasoncalendar/helpers/themes.dart';
-import 'favorite_foods.dart';
-import 'models/food.dart';
-import 'additional_info_dialog.dart';
-
-Widget foodsView(
-    List<Food> preparedFoods, int monthIndex, List<dynamic> monthNames) {
-  return GridView.builder(
-    itemCount: preparedFoods.length,
-    padding: const EdgeInsets.all(5.0),
-    gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-      maxCrossAxisExtent: 300,
-    ),
-    itemBuilder: (context, i) {
-      return FoodTile(preparedFoods[i], monthIndex, monthNames);
-    },
-  );
-}
+import 'package:seasoncalendar/theme/themes.dart';
+import 'package:seasoncalendar/components/favorite_foods.dart';
+import 'package:seasoncalendar/models/food.dart';
+import 'package:seasoncalendar/components/food_details_dialog.dart';
 
 class FoodTile extends StatefulWidget {
-  String _foodId;
-  String _foodDisplayName;
-  String _assetImgPath;
-  String _foodInfoURL;
-  List<dynamic> _monthNames;
-  int _curMonthIndex;
-  List<List<String>> _allAvailabilities;
+  final String _foodId;
+  final String _foodDisplayName;
+  final String _assetImgPath;
+  final String _foodInfoURL;
+  final List<dynamic> _monthNames;
+  final int _curMonthIndex;
+  final List<List<String>> _allAvailabilities;
   List<String> _curAvailabilities;
   Color _curAvailabilityColor = Colors.white70;
 
-  FoodTile(Food foodToDisplay, int curMonthIndex, List<dynamic> monthNames) {
-    _foodId = foodToDisplay.id;
-    _foodDisplayName = foodToDisplay.displayName;
-    _assetImgPath = foodToDisplay.assetImgPath;
-    _foodInfoURL = foodToDisplay.infoUrl;
-    _monthNames = monthNames;
-    _curMonthIndex = curMonthIndex;
-    _allAvailabilities = List.generate(
-        12, (monthIndex) => foodToDisplay.getAvailabilityModes(monthIndex));
+  FoodTile(Food foodToDisplay, int curMonthIndex, List<dynamic> monthNames)
+      : _foodId = foodToDisplay.id,
+        _foodDisplayName = foodToDisplay.displayName,
+        _assetImgPath = foodToDisplay.assetImgPath,
+        _foodInfoURL = foodToDisplay.infoUrl,
+        _monthNames = monthNames,
+        _curMonthIndex = curMonthIndex,
+        _allAvailabilities = List.generate(12,
+                (monthIndex) => foodToDisplay.getAvailabilityModes(monthIndex)) {
     _curAvailabilities = _allAvailabilities[_curMonthIndex];
     _curAvailabilityColor = availabilityModeColor[_curAvailabilities[0]];
   }
@@ -59,7 +45,7 @@ class FoodTileState extends State<FoodTile> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           _isFavorite =
-              snapshot.hasData ? (snapshot.data ? 1 : -1) : _isFavorite;
+          snapshot.hasData ? (snapshot.data ? 1 : -1) : _isFavorite;
         }
         return _buildFoodTile();
       },
@@ -103,8 +89,12 @@ class FoodTileState extends State<FoodTile> {
         context: context,
         builder: (_) => AlertDialog(
           backgroundColor: Colors.white,
-          content: AdditionalInfoDialog(widget._foodDisplayName, widget._foodInfoURL,
-              foodImage, widget._monthNames, widget._allAvailabilities),
+          content: FoodDetailsDialog(
+              widget._foodDisplayName,
+              widget._foodInfoURL,
+              foodImage,
+              widget._monthNames,
+              widget._allAvailabilities),
           elevation: 10,
         ),
         barrierDismissible: true,
@@ -145,7 +135,7 @@ class FoodTileState extends State<FoodTile> {
                         child: InkWell(
                           onTap: tapCallback,
                           child:
-                              new LayoutBuilder(builder: (context, constraint) {
+                          new LayoutBuilder(builder: (context, constraint) {
                             return getFavIcon(context, constraint, _isFavorite);
                           }),
                         ),
@@ -157,24 +147,24 @@ class FoodTileState extends State<FoodTile> {
                 flex: 2,
                 child: Container(
                     child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-                        child: FittedBox(
-                          fit: BoxFit.contain,
-                          child: Text(
-                            widget._foodDisplayName,
-                            style: foodText,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+                            child: FittedBox(
+                              fit: BoxFit.contain,
+                              child: Text(
+                                widget._foodDisplayName,
+                                style: foodText,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-                    availabilityIconContainer
-                  ],
-                )))
+                        availabilityIconContainer
+                      ],
+                    )))
           ],
         ));
   }

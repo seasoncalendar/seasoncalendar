@@ -1,4 +1,5 @@
 import 'dart:collection';
+
 import 'package:flutter/material.dart';
 
 enum Availability { none, some, full }
@@ -123,7 +124,7 @@ class Food {
     });
 
     List<String> resultModes = new List();
-    availabilitiesThisMonth.keys.forEach((key) {
+    for (var key in availabilitiesThisMonth.keys) {
       Availability curModeAv = availabilitiesThisMonth[key];
       if (curModeAv != Availability.none) {
         resultModes.add(key);
@@ -131,7 +132,8 @@ class Food {
       if (curModeAv == Availability.full || resultModes.length >= 2) {
         return resultModes;
       }
-    });
+    }
+
     if (resultModes.length == 0) {
       return ["notAvailable"];
     } else {

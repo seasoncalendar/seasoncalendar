@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'routes.dart';
-import 'helpers/json_asset_loader.dart';
-import 'helpers/themes.dart';
+import 'package:seasoncalendar/routes.dart';
+import 'package:seasoncalendar/helpers/json_asset_loader.dart';
+import 'package:seasoncalendar/theme/themes.dart';
 
 void main() async {
   runApp(MyApp());

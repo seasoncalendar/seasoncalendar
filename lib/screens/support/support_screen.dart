@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:seasoncalendar/helpers/themes.dart';
+
 import 'package:url_launcher/url_launcher.dart';
+
+import 'package:seasoncalendar/theme/themes.dart';
 
 class SupportPage extends StatelessWidget {
   final Map<String, dynamic> _supportPageText;

@@ -1,10 +1,7 @@
-import 'dart:io';
-
-import 'package:package_info/package_info.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:seasoncalendar/helpers/themes.dart';
+
+import 'package:seasoncalendar/theme/themes.dart';
 
 class ImprintPage extends StatelessWidget {
   final Map<String, dynamic> _imprintPageText;
