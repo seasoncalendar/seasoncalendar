@@ -3,17 +3,17 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
-import 'helpers/themes.dart';
+import 'theme/themes.dart';
 import 'models/food.dart';
 
-class AdditionalInfoDialog extends StatelessWidget {
+class FoodDetailsDialog extends StatelessWidget {
   String _foodDisplayName;
   Image _foodImage;
   String _foodInfoURL;
   List<dynamic> _monthNames;
   List<List<String>> _allAvailabilities;
 
-  AdditionalInfoDialog(String foodDisplayName, String foodInfoURL, Image foodImage,
+  FoodDetailsDialog(String foodDisplayName, String foodInfoURL, Image foodImage,
       List<dynamic> monthNames, List<List<String>> allAvailabilities)
       : _foodDisplayName = foodDisplayName,
         _foodImage = foodImage,
