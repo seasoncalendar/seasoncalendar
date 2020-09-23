@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'package:seasoncalendar/components/food_display_configuration.dart';
+import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/theme/seasoncalendar_icons.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/screens/search/search_screen.dart';
 import 'package:seasoncalendar/routes.dart';
 
 class HomeScreenNavigationBar extends StatelessWidget {
-  final GlobalKey<FoodDisplayConfigurationState> _foodStateKey;
+  final FoodDisplayConfiguration _fdc;
 
-  HomeScreenNavigationBar(GlobalKey<FoodDisplayConfigurationState> foodStateKey)
-      : _foodStateKey = foodStateKey;
+  HomeScreenNavigationBar(FoodDisplayConfiguration fdc) : _fdc = fdc;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class HomeScreenNavigationBar extends StatelessWidget {
           Expanded(
             flex: 10,
             child: IconButton(
-              icon: _foodStateKey.currentState.fruitsSelected
+              icon: _fdc.fruitsSelected
                   ? Icon(
                       SeasonCalendarIcons.apple_alt,
                       color: Colors.black,
@@ -32,14 +31,14 @@ class HomeScreenNavigationBar extends StatelessWidget {
                       color: Colors.black26,
                     ),
               onPressed: () {
-                _foodStateKey.currentState.toggleFruitsSelected();
+                _fdc.toggleFruitsSelected();
               },
             ),
           ),
           Expanded(
             flex: 10,
             child: IconButton(
-              icon: _foodStateKey.currentState.nonFruitsSelected
+              icon: _fdc.nonFruitsSelected
                   ? Icon(
                       SeasonCalendarIcons.carrot,
                       color: Colors.black,
@@ -49,7 +48,7 @@ class HomeScreenNavigationBar extends StatelessWidget {
                       color: Colors.black26,
                     ),
               onPressed: () {
-                _foodStateKey.currentState.toggleNonFruitsSelected();
+                _fdc.toggleNonFruitsSelected();
               },
             ),
           ),
@@ -57,11 +56,10 @@ class HomeScreenNavigationBar extends StatelessWidget {
           Expanded(
             flex: 10,
             child: IconButton(
-              icon: Icon(_foodStateKey.currentState.favoritesSelected
-                  ? Icons.star
-                  : Icons.star_border),
+              icon:
+                  Icon(_fdc.favoritesSelected ? Icons.star : Icons.star_border),
               onPressed: () {
-                _foodStateKey.currentState.toggleFavoritesSelected();
+                _fdc.toggleFavoritesSelected();
               },
             ),
           ),
@@ -72,11 +70,7 @@ class HomeScreenNavigationBar extends StatelessWidget {
                 onPressed: () {
                   showSearch(
                       context: context,
-                      delegate: SearchScreen(
-                          _foodStateKey.currentState.widget.allFoods,
-                          _foodStateKey.currentState.monthIndex,
-                          _foodStateKey.currentState.widget.monthNames,
-                          "Suche..."));
+                      delegate: SearchScreen(_fdc.allFoods, "Suche..."));
                 }),
           ),
           Spacer(flex: 5),
@@ -108,7 +102,7 @@ class HomeScreenNavigationBar extends StatelessWidget {
   void _showSettings(BuildContext context) {
     Navigator.of(context)
         .pushNamed("/settings")
-        .then((_) => _foodStateKey.currentState.filterAndSortFoodsAsync());
+        .then((_) => _fdc.updateFoodsAndNotify());
   }
 
   void _chooseEtcPage(String pageRoute, BuildContext context) {
