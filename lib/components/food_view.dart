@@ -6,42 +6,31 @@ import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/components/food_tile.dart';
 
 class FoodView extends StatelessWidget {
-  final FoodDisplayConfiguration _fdc;
-  final bool _fromSearchResult;
-  final List<Food> _searchResultFoods;
+  final List<Food> _foodsToDisplay;
+  final int _monthIndex;
+  final List<dynamic> _monthNames;
 
   FoodView(FoodDisplayConfiguration fdc)
-      : _fdc = fdc,
-        _fromSearchResult = false,
-        _searchResultFoods = List<Food>();
+      : _foodsToDisplay = fdc.foodsToDisplay,
+        _monthIndex = fdc.monthIndex,
+        _monthNames = fdc.monthNames;
 
   FoodView.fromSearchResult(
-      FoodDisplayConfiguration fdc, List<Food> searchResultFoods)
-      : _fdc = fdc,
-        _fromSearchResult = true,
-        _searchResultFoods = searchResultFoods;
+      List<Food> searchResultFoods, int monthIndex, List<dynamic> monthNames)
+      : _foodsToDisplay = searchResultFoods,
+        _monthIndex = monthIndex,
+        _monthNames = monthNames;
 
   @override
   Widget build(BuildContext context) {
-    List<Food> preparedFoods;
-
-    if (_fromSearchResult) {
-      preparedFoods = _searchResultFoods;
-    } else {
-      preparedFoods = _fdc.foodsToDisplay;
-    }
-
-    int monthIndex = _fdc.monthIndex;
-    List<dynamic> monthNames = _fdc.monthNames;
-
     return GridView.builder(
-      itemCount: preparedFoods.length,
+      itemCount: _foodsToDisplay.length,
       padding: const EdgeInsets.all(5.0),
       gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
         maxCrossAxisExtent: 300,
       ),
       itemBuilder: (context, i) {
-        return FoodTile(preparedFoods[i], monthIndex, monthNames);
+        return FoodTile(_foodsToDisplay[i], _monthIndex, _monthNames);
       },
     );
   }

@@ -70,7 +70,8 @@ class HomeScreenNavigationBar extends StatelessWidget {
                 onPressed: () {
                   showSearch(
                       context: context,
-                      delegate: SearchScreen(_fdc.allFoods, "Suche..."));
+                      delegate: SearchScreen(_fdc.allFoods, _fdc.monthIndex,
+                          _fdc.monthNames, "Suche..."));
                 }),
           ),
           Spacer(flex: 5),

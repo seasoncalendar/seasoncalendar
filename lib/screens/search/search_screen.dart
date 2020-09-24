@@ -4,21 +4,23 @@ import 'package:edit_distance/edit_distance.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/components/food_view.dart';
-import 'package:seasoncalendar/models/food_display_configuration.dart';
 
 const maxEditDist = 3;
 
 class SearchScreen extends SearchDelegate<String> {
-  List<Food> _allFoods;
+  final List<Food> _allFoods;
+  final int _monthIndex;
+  final List<dynamic> _monthNames;
 
-  SearchScreen(List<Food> allFoods, String searchFieldLabel)
-      : super(searchFieldLabel: searchFieldLabel) {
-    _allFoods = allFoods;
-  }
+  SearchScreen(List<Food> allFoods, int monthIndex, List<dynamic> monthNames,
+      String searchFieldLabel)
+      : _allFoods = allFoods,
+        _monthIndex = monthIndex,
+        _monthNames = monthNames,
+        super(searchFieldLabel: searchFieldLabel);
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -48,11 +50,7 @@ class SearchScreen extends SearchDelegate<String> {
     if (query.isEmpty) {
       resultList = _allFoods;
       resultList.sort((a, b) => a.displayName.compareTo(b.displayName));
-      return Consumer<FoodDisplayConfiguration>(
-        builder: (context, fdc, child) {
-          return FoodView.fromSearchResult(fdc, resultList);
-        },
-      );
+      return FoodView.fromSearchResult(resultList, _monthIndex, _monthNames);
     }
 
     var exactMatches = _allFoods
@@ -65,11 +63,7 @@ class SearchScreen extends SearchDelegate<String> {
     print(exactMatches.length);
 
     if (exactMatches.length > 0) {
-      return Consumer<FoodDisplayConfiguration>(
-        builder: (context, fdc, child) {
-          return FoodView.fromSearchResult(fdc, exactMatches);
-        },
-      );
+      return FoodView.fromSearchResult(exactMatches, _monthIndex, _monthNames);
     }
 
     var startsWith = _allFoods
@@ -82,11 +76,7 @@ class SearchScreen extends SearchDelegate<String> {
     print(startsWith.length);
 
     if (startsWith.length > 0) {
-      return Consumer<FoodDisplayConfiguration>(
-        builder: (context, fdc, child) {
-          return FoodView.fromSearchResult(fdc, startsWith);
-        },
-      );
+      return FoodView.fromSearchResult(startsWith, _monthIndex, _monthNames);
     }
 
     final Levenshtein lvs = new Levenshtein();
@@ -103,11 +93,7 @@ class SearchScreen extends SearchDelegate<String> {
     print("LVSResults.length:");
     print(lvsResults.length);
 
-    return Consumer<FoodDisplayConfiguration>(
-      builder: (context, fdc, child) {
-        return FoodView.fromSearchResult(fdc, lvsResults);
-      },
-    );
+    return FoodView.fromSearchResult(lvsResults, _monthIndex, _monthNames);
   }
 
   @override

@@ -1,0 +1,2 @@
+Version 1.1.3+18: Interne Änderungen (Foods-Anzeige wird nun verwaltet mit dem Provider-package von flutter).
+Es fallen weiterhin keine personenbezogenen Daten an und keine neuen Berechtigungen werden benötigt.
