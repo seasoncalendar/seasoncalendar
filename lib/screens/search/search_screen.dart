@@ -47,7 +47,7 @@ class SearchScreen extends SearchDelegate<String> {
   Widget buildResults(BuildContext context) {
     List<Food> resultList = List<Food>();
 
-    if (query.isEmpty) {
+    if (query.length < 3) {
       resultList = _allFoods;
       resultList.sort((a, b) => a.displayName.compareTo(b.displayName));
       return FoodView.fromSearchResult(resultList, _monthIndex, _monthNames);
