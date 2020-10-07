@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 class ImprintPage extends StatelessWidget {
-  final Map<String, dynamic> _imprintPageText;
-
-  ImprintPage(Map<String, dynamic> imprintPageText)
-      : _imprintPageText = imprintPageText;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(_imprintPageText['imprintPageTitle'])),
+      appBar: AppBar(title: Text(AppLocalizations.of(context).imprintPageTitle)),
       body: Container(
           margin: EdgeInsets.all(18),
           child: SingleChildScrollView(
@@ -20,74 +17,74 @@ class ImprintPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Text(
-                _imprintPageText['imprintPagePublisher'],
+                AppLocalizations.of(context).imprintPagePublisher,
                 style: defaultTheme.textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
               Text(
-                _imprintPageText['imprintPageAddress'],
+                AppLocalizations.of(context).imprintPageAddress,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 20),
               Text(
-                _imprintPageText['imprintPageDisclaimerHeadline'],
+                AppLocalizations.of(context).imprintPageDisclaimerHeadline,
                 style: defaultTheme.textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
               Text(
-                _imprintPageText['imprintPageDisclaimerText'],
-                textAlign: TextAlign.left,
+                AppLocalizations.of(context).imprintPageDisclaimerText,
+                textAlign: TextAlign.justify
               ),
               SizedBox(height: 20),
               Text(
-                _imprintPageText['imprintPageDataProtectionHeadline'],
+                AppLocalizations.of(context).imprintPageDataProtectionHeadline,
                 style: defaultTheme.textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
               Text(
-                _imprintPageText['imprintPageDataProtectionText'],
-                textAlign: TextAlign.left,
+                AppLocalizations.of(context).imprintPageDataProtectionText,
+                textAlign: TextAlign.justify
               ),
               SizedBox(height: 20),
               Text(
-                _imprintPageText['imprintPageSourcesHeadline'],
+                AppLocalizations.of(context).imprintPageSourcesHeadline,
                 style: defaultTheme.textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
               Text(
-                _imprintPageText['imprintPageTextHeadline'],
+                AppLocalizations.of(context).imprintPageTextHeadline,
                 style: defaultTheme.textTheme.headline6,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
               Text(
-                _imprintPageText['imprintPageMyName'],
+                AppLocalizations.of(context).imprintPageMyName,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 20),
               Text(
-                _imprintPageText['imprintPageDataHeadline'],
+                AppLocalizations.of(context).imprintPageDataHeadline,
                 style: defaultTheme.textTheme.headline6,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
               Text(
-                _imprintPageText['imprintPageDataText'],
+                AppLocalizations.of(context).imprintPageDataText,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
-              Text(_imprintPageText['imprintPageDataText2'],
+              Text(AppLocalizations.of(context).imprintPageDataText2,
                   textAlign: TextAlign.left,
                   style: defaultTheme.textTheme.bodyText1
                       .copyWith(fontStyle: FontStyle.italic)),
               SizedBox(height: 20),
               GestureDetector(
                 child: Text(
-                  _imprintPageText['imprintPageImagesHeadline'] ,
+                  AppLocalizations.of(context).imprintPageImagesHeadline ,
                   style: defaultTheme.textTheme.headline6.copyWith(color: defaultTheme.accentColor),
                   textAlign: TextAlign.left,
                 ),
@@ -96,13 +93,13 @@ class ImprintPage extends StatelessWidget {
 
               SizedBox(height: 10),
               Text(
-                _imprintPageText['imprintPageFontsHeadline'],
+                AppLocalizations.of(context).imprintPageFontsHeadline,
                 style: defaultTheme.textTheme.headline6,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
               Text(
-                _imprintPageText['imprintPageFontsText'],
+                AppLocalizations.of(context).imprintPageFontsText,
                 textAlign: TextAlign.left,
               ),
             ],

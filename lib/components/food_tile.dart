@@ -11,18 +11,16 @@ class FoodTile extends StatefulWidget {
   final String _foodDisplayName;
   final String _assetImgPath;
   final String _foodInfoURL;
-  final List<dynamic> _monthNames;
   final int _curMonthIndex;
   final List<List<String>> _allAvailabilities;
   List<String> _curAvailabilities;
   Color _curAvailabilityColor = Colors.white70;
 
-  FoodTile(Food foodToDisplay, int curMonthIndex, List<dynamic> monthNames)
+  FoodTile(Food foodToDisplay, int curMonthIndex)
       : _foodId = foodToDisplay.id,
         _foodDisplayName = foodToDisplay.displayName,
         _assetImgPath = foodToDisplay.assetImgPath,
         _foodInfoURL = foodToDisplay.infoUrl,
-        _monthNames = monthNames,
         _curMonthIndex = curMonthIndex,
         _allAvailabilities = List.generate(12,
                 (monthIndex) => foodToDisplay.getAvailabilityModes(monthIndex)) {
@@ -93,7 +91,6 @@ class FoodTileState extends State<FoodTile> {
               widget._foodDisplayName,
               widget._foodInfoURL,
               foodImage,
-              widget._monthNames,
               widget._allAvailabilities),
           elevation: 10,
         ),

@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/models/food.dart';
+import 'package:seasoncalendar/helpers/text_selector.dart';
 
 class FoodDetailsDialog extends StatelessWidget {
   final String _foodDisplayName;
   final Image _foodImage;
   final String _foodInfoURL;
-  final List<dynamic> _monthNames;
   final List<List<String>> _allAvailabilities;
 
   FoodDetailsDialog(String foodDisplayName, String foodInfoURL, Image foodImage,
-      List<dynamic> monthNames, List<List<String>> allAvailabilities)
+      List<List<String>> allAvailabilities)
       : _foodDisplayName = foodDisplayName,
         _foodImage = foodImage,
         _foodInfoURL = foodInfoURL,
-        _monthNames = monthNames,
         _allAvailabilities = allAvailabilities;
 
   @override
@@ -29,18 +29,18 @@ class FoodDetailsDialog extends StatelessWidget {
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [for (var i = 0; i < 4; i += 1) getAvailabilityInfoCard(i)],
+          children: [for (var i = 0; i < 4; i += 1) getAvailabilityInfoCard(context, i)],
         ),
         SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [for (var i = 4; i < 8; i += 1) getAvailabilityInfoCard(i)],
+          children: [for (var i = 4; i < 8; i += 1) getAvailabilityInfoCard(context, i)],
         ),
         SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            for (var i = 8; i < 12; i += 1) getAvailabilityInfoCard(i)
+            for (var i = 8; i < 12; i += 1) getAvailabilityInfoCard(context, i)
           ],
         ),
       ],
@@ -83,13 +83,13 @@ class FoodDetailsDialog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               RaisedButton(
-                child: Text('Zurück'),
+                child: Text(AppLocalizations.of(context).back),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
               RaisedButton(
-                child: Text('Wikipedia'),
+                child: Text(AppLocalizations.of(context).wikipedia),
                 onPressed: () async {
                   final url = _foodInfoURL;
                   if (await canLaunch(url)) {
@@ -107,7 +107,7 @@ class FoodDetailsDialog extends StatelessWidget {
     );
   }
 
-  Widget getAvailabilityInfoCard(int monthIndex) {
+  Widget getAvailabilityInfoCard(BuildContext context, int monthIndex) {
     Widget containerChild;
 
     if (_allAvailabilities[monthIndex].length == 1) {
@@ -138,7 +138,7 @@ class FoodDetailsDialog extends StatelessWidget {
               padding: const EdgeInsets.all(2),
               child: Column(
                 children: <Widget>[
-                  Text(_monthNames[monthIndex].substring(0, 3),
+                  Text(getMonthNameFromIndex(context, monthIndex).substring(0, 3),
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   FittedBox(
                     fit: BoxFit.contain,

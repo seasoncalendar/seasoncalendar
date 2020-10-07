@@ -13,13 +13,10 @@ const maxEditDist = 3;
 class SearchScreen extends SearchDelegate<String> {
   final List<Food> _allFoods;
   final int _monthIndex;
-  final List<dynamic> _monthNames;
 
-  SearchScreen(List<Food> allFoods, int monthIndex, List<dynamic> monthNames,
-      String searchFieldLabel)
+  SearchScreen(List<Food> allFoods, int monthIndex, String searchFieldLabel)
       : _allFoods = allFoods,
         _monthIndex = monthIndex,
-        _monthNames = monthNames,
         super(searchFieldLabel: searchFieldLabel);
 
   @override
@@ -50,7 +47,7 @@ class SearchScreen extends SearchDelegate<String> {
     if (query.length < 3) {
       resultList = _allFoods;
       resultList.sort((a, b) => a.displayName.compareTo(b.displayName));
-      return FoodView.fromSearchResult(resultList, _monthIndex, _monthNames);
+      return FoodView.fromSearchResult(resultList, _monthIndex);
     }
 
     var exactMatches = _allFoods
@@ -59,11 +56,10 @@ class SearchScreen extends SearchDelegate<String> {
             .contains(query.toLowerCase()))
         .toList();
 
-    print("exactMatches.length:");
     print(exactMatches.length);
 
     if (exactMatches.length > 0) {
-      return FoodView.fromSearchResult(exactMatches, _monthIndex, _monthNames);
+      return FoodView.fromSearchResult(exactMatches, _monthIndex);
     }
 
     var startsWith = _allFoods
@@ -72,11 +68,10 @@ class SearchScreen extends SearchDelegate<String> {
             query.length >= 4))
         .toList();
 
-    print("startsWith.length:");
     print(startsWith.length);
 
     if (startsWith.length > 0) {
-      return FoodView.fromSearchResult(startsWith, _monthIndex, _monthNames);
+      return FoodView.fromSearchResult(startsWith, _monthIndex);
     }
 
     final Levenshtein lvs = new Levenshtein();
@@ -90,10 +85,9 @@ class SearchScreen extends SearchDelegate<String> {
             0.5)
         .toList();
 
-    print("LVSResults.length:");
     print(lvsResults.length);
 
-    return FoodView.fromSearchResult(lvsResults, _monthIndex, _monthNames);
+    return FoodView.fromSearchResult(lvsResults, _monthIndex);
   }
 
   @override

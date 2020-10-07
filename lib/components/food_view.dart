@@ -4,30 +4,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/components/food_tile.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 class FoodView extends StatelessWidget {
   final List<Food> _foodsToDisplay;
   final int _monthIndex;
-  final List<dynamic> _monthNames;
   final String _viewContext;
 
   FoodView(FoodDisplayConfiguration fdc)
       : _foodsToDisplay = fdc.foodsToDisplay,
         _monthIndex = fdc.monthIndex,
-        _monthNames = fdc.monthNames,
         _viewContext = fdc.favoritesSelected ? "fav" : "main";
 
   FoodView.fromSearchResult(
-      List<Food> searchResultFoods, int monthIndex, List<dynamic> monthNames)
+      List<Food> searchResultFoods, int monthIndex)
       : _foodsToDisplay = searchResultFoods,
         _monthIndex = monthIndex,
-        _monthNames = monthNames,
         _viewContext = "search";
 
   @override
   Widget build(BuildContext context) {
     if (_foodsToDisplay.length < 1) {
-      return _buildEmpty(_viewContext);
+      return _buildEmpty(context, _viewContext);
     }
     return GridView.builder(
       itemCount: _foodsToDisplay.length,
@@ -36,27 +34,27 @@ class FoodView extends StatelessWidget {
         maxCrossAxisExtent: 300,
       ),
       itemBuilder: (context, i) {
-        return FoodTile(_foodsToDisplay[i], _monthIndex, _monthNames);
+        return FoodTile(_foodsToDisplay[i], _monthIndex);
       },
     );
   }
 
-  Widget _buildEmpty(String viewContext) {
+  Widget _buildEmpty(BuildContext context, String viewContext) {
     IconData emptyIcon = Icons.spa;
-    String emptyText = "keine Lebensmittel verfügbar!";
+    String emptyText = AppLocalizations.of(context).emptyFoodsViewText;
     Widget favAddHint = Container();
 
     if (viewContext.startsWith("fav")) {
       emptyIcon = Icons.star_border;
-      emptyText = "keine Favoriten verfügbar!";
+      emptyText = AppLocalizations.of(context).emptyFavoritesViewText;
       favAddHint = Text(
-        "Füge deine Lieblingssorten durch\nTipp auf den jeweiligen Stern \u2606 hinzu.",
+        AppLocalizations.of(context).emptyFavoritesViewHint,
         style: const TextStyle(color: Colors.black54),
         textAlign: TextAlign.center,
       );
     } else if (viewContext == "search") {
       emptyIcon = Icons.search;
-      emptyText = "keine Lebensmittel gefunden!";
+      emptyText = AppLocalizations.of(context).emptySearchViewText;
     }
     return SizedBox(
         height: double.infinity,

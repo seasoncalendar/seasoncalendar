@@ -4,50 +4,45 @@ import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 class SupportPage extends StatelessWidget {
-  final Map<String, dynamic> _supportPageText;
-  final Map<String, dynamic> _links;
-
-  SupportPage(Map<String, dynamic> supportPageText, Map<String, dynamic> links)
-      : _supportPageText = supportPageText,
-        _links = links;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(_supportPageText['supportPageTitle'])),
+        appBar: AppBar(title: Text(AppLocalizations.of(context).supportPageTitle)),
         body: Container(
             margin: EdgeInsets.all(18),
             child: SingleChildScrollView(
                 child: Column(
               children: <Widget>[
-                Text(_supportPageText['supportPageSpreadTitle'],
+                Text(AppLocalizations.of(context).supportPageSpreadTitle,
                     style: defaultTheme.textTheme.headline4),
                 SizedBox(height: 20),
-                Text(_supportPageText['supportPageSpreadText1'],
+                Text(AppLocalizations.of(context).supportPageSpreadText1,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
-                Text(_supportPageText['supportPageSpreadText2'],
+                Text(AppLocalizations.of(context).supportPageSpreadText2,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
-                Text(_supportPageText['supportPageHeadline'],
+                Text(AppLocalizations.of(context).supportPageHeadline,
                     style: defaultTheme.textTheme.headline4),
                 SizedBox(height: 20),
-                Text(_supportPageText['supportPageText1'],
+                Text(AppLocalizations.of(context).supportPageText1,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
-                Text(_supportPageText['supportPageText2'],
+                Text(AppLocalizations.of(context).supportPageText2,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
                 RaisedButton(
-                  child: Text(_supportPageText['supportPageWebsiteLink']),
+                  child: Text(AppLocalizations.of(context).supportPageWebsiteLink),
                   onPressed: () async {
-                    final url = _links['websiteSupportPage'];
+                    final url = AppLocalizations.of(context).websiteSupportPage;
                     if (await canLaunch(url)) {
                       await launch(
                         url,

@@ -5,6 +5,7 @@ import 'package:swipe_gesture_recognizer/swipe_gesture_recognizer.dart';
 
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/theme/seasoncalendar_icons.dart';
+import 'package:seasoncalendar/helpers/text_selector.dart';
 
 class MonthSelector extends StatelessWidget {
   final FoodDisplayConfiguration _fdc;
@@ -42,7 +43,7 @@ class MonthSelector extends StatelessWidget {
                 margin: const EdgeInsets.all(2),
                 child: GestureDetector(
                     child: Text(
-                      _fdc.monthNames[_fdc.monthIndex],
+                      getMonthNameFromIndex(context, _fdc.monthIndex),
                       textAlign: TextAlign.center,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
@@ -55,12 +56,12 @@ class MonthSelector extends StatelessWidget {
                             width: double.minPositive,
                             child: ListView.builder(
                                 shrinkWrap: true,
-                                itemCount: _fdc.monthNames.length * 2 - 1,
+                                itemCount: 12 * 2 - 1, // 12 months in the gregorian calendar
                                 itemBuilder: (context, i) {
                                   if (i % 2 == 0) {
                                     return ListTile(
                                       title: Text(
-                                        _fdc.monthNames[(i / 2).round()],
+                                        getMonthNameFromIndex(context, (i / 2).round()),
                                         textAlign: TextAlign.center,
                                         style: const TextStyle(
                                             fontWeight: FontWeight.bold),

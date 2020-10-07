@@ -6,17 +6,15 @@ import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
-  final Map<String, dynamic> _settingsText;
   Map<String, dynamic> _settings;
   String _versionInfo = "...";
 
-  SettingsPage(
-      Map<String, dynamic> initialSettings, Map<String, dynamic> settingsText)
-      : _initialSettings = initialSettings,
-        _settingsText = settingsText;
+  SettingsPage(Map<String, dynamic> initialSettings)
+      : _initialSettings = initialSettings;
 
   @override
   SettingsPageState createState() => new SettingsPageState();
@@ -65,7 +63,7 @@ class SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(widget._settingsText['settingsPageTitle'])),
+        appBar: AppBar(title: Text(AppLocalizations.of(context).settingsPageTitle)),
         body: SingleChildScrollView(
             child: FutureBuilder(
                 future: Future.wait(
@@ -99,8 +97,8 @@ class SettingsPageState extends State<SettingsPage> {
               children: <Widget>[
                 SwitchListTile.adaptive(
                   secondary: const Icon(Icons.folder_special),
-                  title: Text(widget._settingsText['settingsUncommonTitle']),
-                  subtitle: Text(widget._settingsText['settingsUncommonText']),
+                  title: Text(AppLocalizations.of(context).settingsUncommonTitle),
+                  subtitle: Text(AppLocalizations.of(context).settingsUncommonText),
                   value: widget._settings["includeUncommon"],
                   dense: false,
                   onChanged: (newVal) {
@@ -110,7 +108,7 @@ class SettingsPageState extends State<SettingsPage> {
                 const Divider(),
                 SwitchListTile.adaptive(
                   secondary: const Icon(Icons.sort),
-                  title: Text(widget._settingsText['settingsSortingTitle']),
+                  title: Text(AppLocalizations.of(context).settingsSortingTitle),
                   value: widget._settings["foodSorting"],
                   dense: false,
                   onChanged: (newVal) {
@@ -120,7 +118,7 @@ class SettingsPageState extends State<SettingsPage> {
                 const Divider(),
                 ListTile(
                   leading: Icon(Icons.visibility),
-                  title: Text(widget._settingsText['settingsFilterTitle']),
+                  title: Text(AppLocalizations.of(context).settingsFilterTitle),
                   isThreeLine: false,
                   dense: false,
                   onTap: () =>
@@ -131,7 +129,7 @@ class SettingsPageState extends State<SettingsPage> {
                   selectedColor: Colors.lightGreen[700],
                   child: ListTile(
                     leading: Icon(Icons.account_balance),
-                    title: Text(widget._settingsText['imprintPageTitle']),
+                    title: Text(AppLocalizations.of(context).imprintPageTitle),
                     isThreeLine: false,
                     dense: false,
                     selected: true,

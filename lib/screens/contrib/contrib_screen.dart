@@ -4,31 +4,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 class ContribPage extends StatelessWidget {
-  final Map<String, dynamic> _contribPageText;
-  final Map<String, dynamic> _links;
-
-  ContribPage(Map<String, dynamic> contribPageText, Map<String, dynamic> links)
-      : _contribPageText = contribPageText,
-        _links = links;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(_contribPageText['contribPageTitle'])),
+        appBar: AppBar(title: Text(AppLocalizations.of(context).contribPageTitle)),
         body: Container(
             margin: EdgeInsets.all(18),
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  Text(_contribPageText['contribPageContactHeadline'],
+                  Text(AppLocalizations.of(context).contribPageContactHeadline,
                       style: defaultTheme.textTheme.headline4),
                   SizedBox(height: 20),
                   RichText(
                     textAlign: TextAlign.justify,
                     text: TextSpan(
-                      text: _contribPageText['contribPageContact'],
+                      text: AppLocalizations.of(context).contribPageContact,
                       style: defaultTheme.textTheme.bodyText1
                           .copyWith(color: Colors.black),
                     ),
@@ -36,9 +31,9 @@ class ContribPage extends StatelessWidget {
                   SizedBox(height: 10),
                   RaisedButton(
                     child:
-                        Text(_contribPageText['contribPageContactButtonText']),
+                        Text(AppLocalizations.of(context).contribPageContactButtonText),
                     onPressed: () async {
-                      final url = _links['websiteContactPage'];
+                      final url = AppLocalizations.of(context).websiteContactPage;
                       if (await canLaunch(url)) {
                         await launch(
                           url,
@@ -48,22 +43,22 @@ class ContribPage extends StatelessWidget {
                     },
                   ),
                   SizedBox(height: 10),
-                  Text(_contribPageText['contribPageCodeHeadline'],
+                  Text(AppLocalizations.of(context).contribPageCodeHeadline,
                       style: defaultTheme.textTheme.headline4),
                   SizedBox(height: 20),
                   RichText(
                     textAlign: TextAlign.justify,
                     text: TextSpan(
-                      text: _contribPageText['contribPageCode'],
+                      text: AppLocalizations.of(context).contribPageCode,
                       style: defaultTheme.textTheme.bodyText1
                           .copyWith(color: Colors.black),
                     ),
                   ),
                   SizedBox(height: 10),
                   RaisedButton(
-                    child: Text(_contribPageText['contribPageCodeButtonText']),
+                    child: Text(AppLocalizations.of(context).contribPageCodeButtonText),
                     onPressed: () async {
-                      final url = _links['seasonCalendarGithub'];
+                      final url = AppLocalizations.of(context).seasonCalendarGithub;
                       if (await canLaunch(url)) {
                         await launch(
                           url,

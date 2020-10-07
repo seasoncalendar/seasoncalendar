@@ -1,19 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/screens/settings/settings_screen.dart';
-import 'package:seasoncalendar/theme/themes.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:seasoncalendar/screens/settings/settings_screen.dart';
+import 'package:seasoncalendar/theme/themes.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/helpers/text_selector.dart';
+
+
 class SettingsFilterSettingPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
-  final Map<String, dynamic> _settingsText;
   Map<String, dynamic> _settings;
 
-  SettingsFilterSettingPage(
-      Map<String, dynamic> initialSettings, Map<String, dynamic> settingsText)
-      : _initialSettings = initialSettings,
-        _settingsText = settingsText;
+  SettingsFilterSettingPage(Map<String, dynamic> initialSettings)
+      : _initialSettings = initialSettings;
 
   @override
   SettingsFilterSettingPageState createState() =>
@@ -25,7 +26,7 @@ class SettingsFilterSettingPageState extends State<SettingsFilterSettingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar:
-            AppBar(title: Text(widget._settingsText['settingsFilterTitle'])),
+            AppBar(title: Text(AppLocalizations.of(context).settingsFilterTitle)),
         body: FutureBuilder(
             future: SettingsPageState.getSettingsI(widget._initialSettings),
             builder: (context, snapshot) {
@@ -36,8 +37,7 @@ class SettingsFilterSettingPageState extends State<SettingsFilterSettingPage> {
                 return Container(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   child: ListView.separated(
-                    itemCount:
-                        widget._settingsText['minAvailabilityIndicator'].length,
+                    itemCount: avTypeCount,
                     itemBuilder: (context, i) {
                       return RadioListTile(
                           dense: false,
@@ -45,9 +45,7 @@ class SettingsFilterSettingPageState extends State<SettingsFilterSettingPage> {
                           value: i,
                           groupValue:
                               widget._settings['foodMinAvailability'].round(),
-                          title: Text(
-                              widget._settingsText['minAvailabilityIndicator']
-                                  [i.toString()]),
+                          title: Text(getMinAvTextFromIndex(context, i)),
                           onChanged: (val) => setState(() {
                                 setFoodFiltering(val);
                               }));

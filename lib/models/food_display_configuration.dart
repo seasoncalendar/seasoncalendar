@@ -8,7 +8,6 @@ import 'package:seasoncalendar/components/favorite_foods.dart';
 
 class FoodDisplayConfiguration extends ChangeNotifier {
   final List<Food> allFoods;
-  final List<dynamic> monthNames;
   var favoriteFoodNames;
   var foodsToDisplay;
   bool favoritesSelected = false;
@@ -18,11 +17,9 @@ class FoodDisplayConfiguration extends ChangeNotifier {
 
   FoodDisplayConfiguration(
       List<Food> initialFoods,
-      List<dynamic> monthNames,
       Map<String, dynamic> initialSettings,
       List<String> initialFavoriteFoodNames)
-      : allFoods = initialFoods,
-        monthNames = monthNames {
+      : allFoods = initialFoods {
     favoriteFoodNames = initialFavoriteFoodNames;
     foodsToDisplay =
         _getFilteredAndSortedFoods(favoriteFoodNames, initialSettings);

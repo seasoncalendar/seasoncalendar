@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:seasoncalendar/routes.dart';
-import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/theme/themes.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
+
 
 void main() async {
   runApp(MyApp());
@@ -11,26 +12,15 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-        future: loadAssetFromJson("assets/text/apptext.json"),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final mainText = snapshot.data;
-            return getMaterialApp(context, mainText["appTitle"]);
-          } else {
-            return getMaterialApp(context, "NAME NOT FOUND");
-          }
-        });
-  }
-
-  Widget getMaterialApp(BuildContext context, String appTitle) {
     return MaterialApp(
       debugShowCheckedModeBanner: true,
-      title: appTitle,
+      title: "seasoncalendar",
       initialRoute: '/',
       routes: appRoutes,
       theme: defaultTheme,
       darkTheme: defaultTheme,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

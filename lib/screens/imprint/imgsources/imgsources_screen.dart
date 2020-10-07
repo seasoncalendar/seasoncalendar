@@ -5,13 +5,12 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/models/food.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 class ImgSourcesScreen extends StatelessWidget {
   List<Food> _allFoods;
-  final Map<String, dynamic> _imprintPageText;
 
-  ImgSourcesScreen(List<Food> allFoods, Map<String, dynamic> imprintPageText)
-      : this._imprintPageText = imprintPageText {
+  ImgSourcesScreen(List<Food> allFoods) {
     _allFoods = allFoods;
     _allFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
   }
@@ -20,7 +19,7 @@ class ImgSourcesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar:
-            AppBar(title: Text(_imprintPageText['imprintPageImagesHeadline'])),
+            AppBar(title: Text(AppLocalizations.of(context).imprintPageImagesHeadline)),
         body: Container(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
           child: ListView.separated(
@@ -32,9 +31,9 @@ class ImgSourcesScreen extends StatelessWidget {
                   _allFoods[i].displayName,
                   style: defaultTheme.textTheme.headline6,
                 ),
-                subtitle: Text('Lizenz: ' +
+                subtitle: Text(AppLocalizations.of(context).imprintImgSourcesLicense +
                     _allFoods[i].assetImgInfo.split("/")[0].trim() +
-                    "\nUrheber: " +
+                    AppLocalizations.of(context).imprintImgSourcesPublisher +
                     _allFoods[i].assetImgInfo.split("/")[1].trim()),
                 trailing: IconButton(
                   icon: Icon(Icons.open_in_new),

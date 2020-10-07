@@ -2,105 +2,102 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
+import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 class AboutPage extends StatelessWidget {
-  final Map<String, dynamic> _aboutPageText;
-
-  AboutPage(Map<String, dynamic> aboutPageText)
-      : _aboutPageText = aboutPageText;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(_aboutPageText['aboutPageTitle'])),
+        appBar: AppBar(title: Text(AppLocalizations.of(context).aboutPageTitle)),
         body: Container(
             margin: EdgeInsets.all(18),
             child: SingleChildScrollView(
                 child: Column(
               children: <Widget>[
-                Text(_aboutPageText['aboutPageExplanationHeadline'],
+                Text(AppLocalizations.of(context).aboutPageExplanationHeadline,
                     style: defaultTheme.textTheme.headline4),
                 SizedBox(height: 20),
-                Text(_aboutPageText['aboutPageExplanation'],
+                Text(AppLocalizations.of(context).aboutPageExplanation,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
                 ListTile(
                   dense: true,
                   leading: Icon(Icons.home, color: Colors.black),
-                  title: Text(_aboutPageText['aboutPageAvailabilities'][0],
+                  title: Text(AppLocalizations.of(context).aboutPageAvLocal,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
                   leading: Icon(Icons.local_shipping, color: Colors.black),
-                  title: Text(_aboutPageText['aboutPageAvailabilities'][1],
+                  title: Text(AppLocalizations.of(context).aboutPageAvLand,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
                   leading: Icon(Icons.directions_boat, color: Colors.black),
-                  title: Text(_aboutPageText['aboutPageAvailabilities'][2],
+                  title: Text(AppLocalizations.of(context).aboutPageAvSea,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
                   leading: Icon(Icons.airplanemode_active, color: Colors.black),
-                  title: Text(_aboutPageText['aboutPageAvailabilities'][3],
+                  title: Text(AppLocalizations.of(context).aboutPageAvAir,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 SizedBox(height: 10),
-                Text(_aboutPageText['aboutPageColors'],
+                Text(AppLocalizations.of(context).aboutPageColors,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
-                Text(_aboutPageText['aboutPageFavorites'],
+                Text(AppLocalizations.of(context).aboutPageFavorites,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
-                Text(_aboutPageText['aboutPageHeadline'],
+                Text(AppLocalizations.of(context).aboutPageHeadline,
                     style: defaultTheme.textTheme.headline4),
                 SizedBox(height: 20),
-                Text(_aboutPageText['aboutPageLeading'],
+                Text(AppLocalizations.of(context).aboutPageLeading,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
                 ListTile(
                   dense: true,
                   leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(_aboutPageText['aboutPageAdvantages'][0],
+                  title: Text(AppLocalizations.of(context).aboutPageAdvantage1,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
                   leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(_aboutPageText['aboutPageAdvantages'][1],
+                  title: Text(AppLocalizations.of(context).aboutPageAdvantage2,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
                   leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(_aboutPageText['aboutPageAdvantages'][2],
+                  title: Text(AppLocalizations.of(context).aboutPageAdvantage3,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
                   leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(_aboutPageText['aboutPageAdvantages'][3],
+                  title: Text(AppLocalizations.of(context).aboutPageAdvantage4,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
                   leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(_aboutPageText['aboutPageAdvantages'][4],
+                  title: Text(AppLocalizations.of(context).aboutPageAdvantage5,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 SizedBox(height: 20),
-                Text(_aboutPageText['aboutPageTrailing'],
+                Text(AppLocalizations.of(context).aboutPageTrailing,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 20),
-                Text(_aboutPageText['aboutPageDisclaimer'],
+                Text(AppLocalizations.of(context).aboutPageDisclaimer,
                     style: defaultTheme.textTheme.bodyText1
                         .copyWith(fontStyle: FontStyle.italic),
                     textAlign: TextAlign.justify),
