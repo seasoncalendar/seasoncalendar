@@ -8,14 +8,15 @@ import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/models/food.dart';
-import 'package:seasoncalendar/screens/about/about_screen.dart';
-import 'package:seasoncalendar/screens/contrib/contrib_screen.dart';
 import 'package:seasoncalendar/screens/home/home_screen.dart';
-import 'package:seasoncalendar/screens/imprint/imprint_screen.dart';
-import 'package:seasoncalendar/screens/imprint/imgsources/imgsources_screen.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/screens/settings/filterfoods/settings_filterfoods_screen.dart';
-import 'package:seasoncalendar/screens/support/support_screen.dart';
+import 'package:seasoncalendar/screens/etc/etc_screen.dart';
+import 'package:seasoncalendar/screens/etc/about/about_screen.dart';
+import 'package:seasoncalendar/screens/etc/contrib/contrib_screen.dart';
+import 'package:seasoncalendar/screens/etc/imprint/imprint_screen.dart';
+import 'package:seasoncalendar/screens/etc/imprint/imgsources/imgsources_screen.dart';
+import 'package:seasoncalendar/screens/etc/support/support_screen.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
   "/": (_) => FutureBuilder(
@@ -60,11 +61,12 @@ final Map<String, WidgetBuilder> appRoutes = {
           }
         },
       ),
-  "/about": (_) => AboutPage(),
-  "/contribute": (_) => ContribPage(),
-  "/support": (_) => SupportPage(),
-  "/imprint": (_) => ImprintPage(),
-  "/imprint/imgs": (_) => FutureBuilder(
+  "/etc": (_) => EtcPage(),
+  "/etc/about": (_) => AboutPage(),
+  "/etc/contrib": (_) => ContribPage(),
+  "/etc/support": (_) => SupportPage(),
+  "/etc/imprint": (_) => ImprintPage(),
+  "/etc/imprint/imgs": (_) => FutureBuilder(
         future: DBProvider.db.getFoods(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -75,11 +77,4 @@ final Map<String, WidgetBuilder> appRoutes = {
           }
         },
       ),
-};
-
-const Map<String, String> etcPages = {
-  "Erklärung": "/about",
-  "App verbessern": "/contribute",
-  "Unterstützen": "/support",
-  "Impressum": "/imprint",
 };

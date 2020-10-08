@@ -43,8 +43,8 @@
   "imprintPageButtonText": "Imprint",
   "@imprintPageButtonText": {"description": "'Imprint'"},
 
-  "aboutPageTitle": "About the app",
-  "@aboutPageTitle": {"description": "'About the app'"},
+  "aboutPageTitle": "Explanation",
+  "@aboutPageTitle": {"description": "'Explanation'"},
 
   "aboutPageExplanationHeadline": "How do I use the app?",
   "@aboutPageExplanationHeadline": {"description": "'How do I use the app?'"},
@@ -254,5 +254,8 @@
   "@emptySearchViewText": {"description": "A text shown when no food is displayed in the search result view."},
 
   "searchFieldLabel": "Search...",
-  "@searchFieldLabel": {"description": "The label used in the search bar"}
+  "@searchFieldLabel": {"description": "The label used in the search bar"},
+
+  "etcPageTitle": "About the app",
+  "@etcPageTitle": {"description": "Title of the etcPage"}
 }

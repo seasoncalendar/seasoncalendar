@@ -138,7 +138,7 @@ abstract class AppLocalizations {
   // 'Imprint'
   String get imprintPageButtonText;
 
-  // 'About the app'
+  // 'Explanation'
   String get aboutPageTitle;
 
   // 'How do I use the app?'
@@ -350,6 +350,9 @@ abstract class AppLocalizations {
 
   // The label used in the search bar
   String get searchFieldLabel;
+
+  // Title of the etcPage
+  String get etcPageTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -52,7 +52,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get imprintPageButtonText => 'Impressum';
 
   @override
-  String get aboutPageTitle => 'Über die App';
+  String get aboutPageTitle => 'Erklärung';
 
   @override
   String get aboutPageExplanationHeadline => 'Wie benutze ich diese App?';
@@ -106,7 +106,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get aboutPageDisclaimer => 'Bitte sei dir bewusst dass die hier angezeigten Verfügbarkeitsinformation lediglich der Orientierung dienen. Das letztendliche Angebot in deinem Supermarkt kann sich davon unterscheiden.';
 
   @override
-  String get contribPageTitle => 'Beitragen';
+  String get contribPageTitle => 'Verbessern';
 
   @override
   String get contribPageContactHeadline => 'Etwas fehlt dir oder ist falsch?';
@@ -263,4 +263,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get searchFieldLabel => 'Suche...';
+
+  @override
+  String get etcPageTitle => 'Über die App';
 }

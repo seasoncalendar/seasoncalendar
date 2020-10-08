@@ -126,14 +126,12 @@ class SettingsPageState extends State<SettingsPage> {
                 ),
                 const Divider(),
                 ListTileTheme(
-                  selectedColor: Colors.lightGreen[700],
                   child: ListTile(
                     leading: Icon(Icons.account_balance),
                     title: Text(AppLocalizations.of(context).imprintPageTitle),
                     isThreeLine: false,
                     dense: false,
-                    selected: true,
-                    onTap: () => {Navigator.of(context).pushNamed("/imprint")},
+                    onTap: () => {Navigator.of(context).pushNamed("/etc/imprint")},
                   ),
                 ),
                 const Divider(),

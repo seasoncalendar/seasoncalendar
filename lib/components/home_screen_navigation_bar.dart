@@ -5,7 +5,6 @@ import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/theme/seasoncalendar_icons.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/screens/search/search_screen.dart';
-import 'package:seasoncalendar/routes.dart';
 
 class HomeScreenNavigationBar extends StatelessWidget {
   final FoodDisplayConfiguration _fdc;
@@ -83,15 +82,9 @@ class HomeScreenNavigationBar extends StatelessWidget {
           ),
           Expanded(
             flex: 10,
-            child: PopupMenuButton(
-              icon: Icon(Icons.help),
-              offset: Offset(0, -205),
-              onSelected: (page) => _chooseEtcPage(page, context),
-              itemBuilder: (context) {
-                return etcPages.keys.map((String page) {
-                  return PopupMenuItem<String>(value: page, child: Text(page));
-                }).toList();
-              },
+            child: IconButton(
+              icon: Icon(Icons.more_horiz),
+              onPressed: () => Navigator.of(context).pushNamed("/etc"),
             ),
           ),
           Spacer(flex: 2)
@@ -104,9 +97,5 @@ class HomeScreenNavigationBar extends StatelessWidget {
     Navigator.of(context)
         .pushNamed("/settings")
         .then((_) => _fdc.updateFoodsAndNotify());
-  }
-
-  void _chooseEtcPage(String pageRoute, BuildContext context) {
-    Navigator.of(context).pushNamed(etcPages[pageRoute]);
   }
 }

@@ -52,7 +52,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get imprintPageButtonText => 'Imprint';
 
   @override
-  String get aboutPageTitle => 'About the app';
+  String get aboutPageTitle => 'Explanation';
 
   @override
   String get aboutPageExplanationHeadline => 'How do I use the app?';
@@ -263,4 +263,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get searchFieldLabel => 'Search...';
+
+  @override
+  String get etcPageTitle => 'About the app';
 }

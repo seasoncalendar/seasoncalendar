@@ -15,7 +15,7 @@
   "november": "November",
   "december": "Dezember",
   "imprintPageButtonText": "Impressum",
-  "aboutPageTitle": "\u00dcber die App",
+  "aboutPageTitle": "Erklärung",
   "aboutPageExplanationHeadline": "Wie benutze ich diese App?",
   "aboutPageExplanation": "Diese App zeigt dir auf einen Blick, welche Lebensmittel aktuell Saison haben:",
   "aboutPageAvLocal": "Regional/heimisch in Saison oder aus Lagerung verfügbar.",
@@ -33,7 +33,7 @@
   "aboutPageAdvantage5": "Lokale Arbeitsplätze werden gefördert.",
   "aboutPageTrailing": "Diese App hilft dir dabei, dass du g\u00fcnstiger und leckerer isst und ein Bewusstsein f\u00fcr die Herkunft deines Essens aufbaust.",
   "aboutPageDisclaimer": "Bitte sei dir bewusst dass die hier angezeigten Verf\u00fcgbarkeitsinformation lediglich der Orientierung dienen. Das letztendliche Angebot in deinem Supermarkt kann sich davon unterscheiden.",
-  "contribPageTitle": "Beitragen",
+  "contribPageTitle": "Verbessern",
   "contribPageContactHeadline": "Etwas fehlt dir oder ist falsch?",
   "contribPageContact": "Diese App ist noch sehr jung und kann noch Fehler enthalten bzw. in sehr viele Richtungen erweitert werden. Wenn du einen Fehler gefunden hast oder einen Verbesserungsvorschlag hast, kontaktiere mich gerne \u00fcber meine Website.",
   "contribPageContactButtonText": "Zur Website",
@@ -69,7 +69,6 @@
   "minAvSea": "Keine eingeflogenen Sorten",
   "minAvLand": "Keine eingeflogenen/-geschifften Sorten",
   "minAvLocal": "Nur heimische Sorten",
-  "imprintPageTitle": "Impressum",
   "supportPageTitle": "Unterst\u00fctzen",
   "supportPageSpreadTitle": "Dir gef\u00e4llt die App?",
   "supportPageSpreadText1": "Freut mich! Die effektivste Art, mich zu unterst\u00fctzen, ist gleichzeitig auch die einfachste: Zeige diese App deinen Freunden und Bekannten!",
@@ -86,5 +85,6 @@
   "emptyFavoritesViewText": "Keine Favoriten verfügbar!",
   "emptyFavoritesViewHint": "Füge deine Lieblingssorten durch\nTipp auf den jeweiligen Stern \u2606 hinzu.",
   "emptySearchViewText": "Keine Lebensmittel gefunden!",
-  "searchFieldLabel": "Suche..."
+  "searchFieldLabel": "Suche...",
+  "etcPageTitle": "Über die App"
 }
