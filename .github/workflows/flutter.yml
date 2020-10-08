@@ -19,6 +19,7 @@ jobs:
         with:
           flutter-version: '1.20'
       - run: flutter pub get
+      - run: flutter update-packages
       - run: flutter build apk --debug
        # Upload generated apk to the artifacts.
       - uses: actions/upload-artifact@v1
