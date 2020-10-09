@@ -81,8 +81,7 @@ class Food {
 
   Food(
       String id,
-      String displayName,
-      String synonymString,
+      String foodNamesString,
       String type,
       int isCommon,
       String avLocal,
@@ -94,15 +93,15 @@ class Food {
       String assetImgSourceUrl,
       String assetImgInfo)
       : this.id = id,
-        this.displayName = displayName,
         this.type = type,
         this.isCommon = isCommon == 1,
         this.infoUrl = infoUrl,
         this.assetImgPath = assetImgPath,
         this.assetImgSourceUrl = assetImgSourceUrl,
         this.assetImgInfo = assetImgInfo {
-    // handle synonyms
-    this.synonyms = splitByCommaAndTrim(synonymString);
+    // handle names and synonyms
+    this.synonyms = splitByCommaAndTrim(foodNamesString);
+    this.displayName = this.synonyms[0];
 
     // handle availabilities
     this.availabilities = LinkedHashMap<String, List<Availability>>();

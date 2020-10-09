@@ -19,19 +19,19 @@ import 'package:seasoncalendar/screens/etc/imprint/imgsources/imgsources_screen.
 import 'package:seasoncalendar/screens/etc/support/support_screen.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
-  "/": (_) => FutureBuilder(
+  "/": (context) => FutureBuilder(
       future: Future.wait([
         getFavoriteFoods(),
         SettingsPageState.getSettings(),
-        DBProvider.db.getFoods(),
+        DBProvider.db.getFoods(context),
       ]),
-      builder: (context, snapshot) {
+      builder: (_, snapshot) {
         if (snapshot.hasData) {
           final favoriteFoodNames = snapshot.data[0];
           final settings = snapshot.data[1];
           final allFoods = snapshot.data[2];
           return ChangeNotifierProvider(
-            create: (context) =>
+            create: (_) =>
                 FoodDisplayConfiguration(allFoods, settings, favoriteFoodNames),
             child: HomeScreen(),
           );
@@ -66,8 +66,8 @@ final Map<String, WidgetBuilder> appRoutes = {
   "/etc/contrib": (_) => ContribPage(),
   "/etc/support": (_) => SupportPage(),
   "/etc/imprint": (_) => ImprintPage(),
-  "/etc/imprint/imgs": (_) => FutureBuilder(
-        future: DBProvider.db.getFoods(),
+  "/etc/imprint/imgs": (context) => FutureBuilder(
+        future: DBProvider.db.getFoods(context),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final List<Food> allFoods = snapshot.data;

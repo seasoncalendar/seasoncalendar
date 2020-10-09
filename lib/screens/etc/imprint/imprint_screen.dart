@@ -88,7 +88,7 @@ class ImprintPage extends StatelessWidget {
                   style: defaultTheme.textTheme.headline6.copyWith(color: defaultTheme.accentColor),
                   textAlign: TextAlign.left,
                 ),
-                onTap: () => Navigator.of(context).pushNamed("/imprint/imgs"),
+                onTap: () => Navigator.of(context).pushNamed("/etc/imprint/imgs"),
               ),
 
               SizedBox(height: 10),

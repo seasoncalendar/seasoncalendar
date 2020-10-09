@@ -1,13 +1,17 @@
 import 'dart:typed_data';
 import 'dart:io';
 
+import 'package:path/path.dart';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+
+import 'package:package_info/package_info.dart';
 
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-import 'package:path/path.dart';
-
+import 'package:seasoncalendar/l10n/app_localizations.dart';
 import 'package:seasoncalendar/models/food.dart';
 
 class DBProvider {
@@ -17,22 +21,36 @@ class DBProvider {
   static Database _database;
 
   Future<Database> get database async {
-    if (_database == null) {
-      _database = await initDB();
+
+    PackageInfo pI = await PackageInfo.fromPlatform();
+    int buildNum = int.parse(pI.buildNumber);
+    print("got build number: " + buildNum.toString());
+
+    if (_database != null) {
+      int dbVersion = await _database.getVersion();
+      print("got db version: " + dbVersion.toString());
+
+      if (dbVersion == buildNum) {
+        return _database;
+      }
     }
+    _database = await initDB(buildNum);
     return _database;
   }
 
-  initDB() async {
+  initDB(int buildNum) async {
     var databasesPath = await getDatabasesPath();
     var path = join(databasesPath, "foods.db");
 
-    // Check if the database exists
-    var exists = await databaseExists(path);
+    print("initDB");
 
-    if (!exists) {
-      // Should happen only the first time you launch your application
-      print("Creating new copy from asset");
+    // Check if the database exists and has the right version
+    var exists = await databaseExists(path);
+    if (exists) {
+      print("Opening existing db");
+      return await openReadOnlyDatabase(path);
+    } else {
+      print("Creating new db copy from asset");
 
       // Make sure the parent directory exists
       try {
@@ -46,22 +64,21 @@ class DBProvider {
 
       // Write and flush the bytes written
       await File(path).writeAsBytes(bytes, flush: true);
-    } else {
-      print("Opening existing database");
+
+      // open and return the database
+      return await openDatabase(path, version: buildNum, readOnly: true);
     }
-    // open the database
-    var res = await openDatabase(path, readOnly: true);
-    return res;
   }
 
-  Future<dynamic> getFoods() async {
+  Future<dynamic> getFoods(BuildContext context) async {
     final Database db = await database;
     final List<Map<String, dynamic>> maps = await db.query('foods');
+    String foodNameKey = "names_" + AppLocalizations.of(context).localeName;
+    print(foodNameKey);
 
     return List.generate(maps.length, (i) {
       String foodId = maps[i]['id'];
-      String displayName = maps[i]['displayName'];
-      String synonymString = maps[i]['synonyms'];
+      String foodNamesString = maps[i][foodNameKey];
       String type = maps[i]['type'];
       int isCommon = maps[i]['isCommon'];
       String avLocal = maps[i]['avLocal'];
@@ -73,20 +90,8 @@ class DBProvider {
       String assetImgSourceUrl = maps[i]['assetImgSourceUrl'];
       String assetImgInfo = maps[i]['assetImgInfo'];
 
-      return Food(
-          foodId,
-          displayName,
-          synonymString,
-          type,
-          isCommon,
-          avLocal,
-          avLand,
-          avSea,
-          avAir,
-          infoUrl,
-          assetImgPath,
-          assetImgSourceUrl,
-          assetImgInfo);
+      return Food(foodId, foodNamesString, type, isCommon, avLocal, avLand,
+          avSea, avAir, infoUrl, assetImgPath, assetImgSourceUrl, assetImgInfo);
     });
   }
 }
