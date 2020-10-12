@@ -6,8 +6,6 @@ import 'package:path/path.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
-import 'package:package_info/package_info.dart';
-
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
@@ -21,60 +19,42 @@ class DBProvider {
   static Database _database;
 
   Future<Database> get database async {
-
-    PackageInfo pI = await PackageInfo.fromPlatform();
-    int buildNum = int.parse(pI.buildNumber);
-    print("got build number: " + buildNum.toString());
-
-    if (_database != null) {
-      int dbVersion = await _database.getVersion();
-      print("got db version: " + dbVersion.toString());
-
-      if (dbVersion == buildNum) {
-        return _database;
-      }
+    if (_database == null) {
+      _database = await initDB();
     }
-    _database = await initDB(buildNum);
+
     return _database;
   }
 
-  initDB(int buildNum) async {
+  initDB() async {
     var databasesPath = await getDatabasesPath();
     var path = join(databasesPath, "foods.db");
 
-    print("initDB");
+    // always get a fresh asset copy
+    await deleteDatabase(path);
 
-    // Check if the database exists and has the right version
-    var exists = await databaseExists(path);
-    if (exists) {
-      print("Opening existing db");
-      return await openReadOnlyDatabase(path);
-    } else {
-      print("Creating new db copy from asset");
+    // Make sure the parent directory exists
+    try {
+      await Directory(dirname(path)).create(recursive: true);
+    } catch (_) {}
 
-      // Make sure the parent directory exists
-      try {
-        await Directory(dirname(path)).create(recursive: true);
-      } catch (_) {}
+    // Copy from asset
+    ByteData data = await rootBundle.load(join("assets/db", "foods.db"));
+    List<int> bytes =
+        data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
 
-      // Copy from asset
-      ByteData data = await rootBundle.load(join("assets/db", "foods.db"));
-      List<int> bytes =
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+    // Write and flush the bytes written
+    await File(path).writeAsBytes(bytes, flush: true);
 
-      // Write and flush the bytes written
-      await File(path).writeAsBytes(bytes, flush: true);
-
-      // open and return the database
-      return await openDatabase(path, version: buildNum, readOnly: true);
-    }
+    // open and return the database
+    var res = await openDatabase(path, readOnly: true);
+    return res;
   }
 
   Future<dynamic> getFoods(BuildContext context) async {
     final Database db = await database;
     final List<Map<String, dynamic>> maps = await db.query('foods');
     String foodNameKey = "names_" + AppLocalizations.of(context).localeName;
-    print(foodNameKey);
 
     return List.generate(maps.length, (i) {
       String foodId = maps[i]['id'];

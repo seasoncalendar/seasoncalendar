@@ -1,42 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:seasoncalendar/components/loading_scaffold.dart';
 
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/components/food_tile.dart';
 import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/helpers/db_provider.dart';
 
 class FoodView extends StatelessWidget {
-  final List<Food> _foodsToDisplay;
+  List<Food> _selectedFoods;
   final int _monthIndex;
   final String _viewContext;
 
   FoodView(FoodDisplayConfiguration fdc)
-      : _foodsToDisplay = fdc.foodsToDisplay,
+      : _selectedFoods = fdc.foodsToDisplay,
         _monthIndex = fdc.monthIndex,
         _viewContext = fdc.favoritesSelected ? "fav" : "main";
 
-  FoodView.fromSearchResult(
-      List<Food> searchResultFoods, int monthIndex)
-      : _foodsToDisplay = searchResultFoods,
+  FoodView.fromSearchResult(List<Food> searchResultFoods, int monthIndex)
+      : _selectedFoods = searchResultFoods,
         _monthIndex = monthIndex,
         _viewContext = "search";
 
   @override
   Widget build(BuildContext context) {
-    if (_foodsToDisplay.length < 1) {
+    if (_selectedFoods.length < 1) {
       return _buildEmpty(context, _viewContext);
     }
-    return GridView.builder(
-      itemCount: _foodsToDisplay.length,
-      padding: const EdgeInsets.all(5.0),
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 300,
-      ),
-      itemBuilder: (context, i) {
-        return FoodTile(_foodsToDisplay[i], _monthIndex);
-      },
-    );
+    return FutureBuilder(
+        future: DBProvider.db.getFoods(context),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            // update food data on every build
+            List<Food> _newestFoodCatalog = snapshot.data;
+            _selectedFoods = _selectedFoods
+                .map((Food f) =>
+                    _newestFoodCatalog.firstWhere((Food nf) => nf.id == f.id))
+                .toList();
+
+            return GridView.builder(
+              itemCount: _selectedFoods.length,
+              padding: const EdgeInsets.all(5.0),
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 300,
+              ),
+              itemBuilder: (context, i) {
+                return FoodTile(_selectedFoods[i], _monthIndex);
+              },
+            );
+          } else {
+            return LoadingWidget();
+          }
+        });
   }
 
   Widget _buildEmpty(BuildContext context, String viewContext) {

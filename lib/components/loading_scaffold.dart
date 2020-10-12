@@ -5,14 +5,20 @@ class LoadingScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: SizedBox(
+      body: LoadingWidget(),
+    );
+  }
+}
+
+class LoadingWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
         height: double.infinity,
         width: double.infinity,
         child: Container(
           alignment: Alignment.center,
           child: CircularProgressIndicator(),
-        )
-      ),
-    );
+        ));
   }
 }
