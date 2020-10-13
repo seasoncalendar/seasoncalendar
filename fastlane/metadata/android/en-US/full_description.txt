@@ -1,4 +1,3 @@
-<p><b>PLEASE NOTE:</b> Currently only available in german. English translation coming soon!</p>
 <p>This App shows you which foods are in Season right now and are thus available from nearby produce. Not only are they cheaper and tastier, but also their transport is less harmful to our environment.</p>
 <p><br><b>Features:</b></p><ul>
 <li>Boasts the biggest collection of foods</li>

@@ -1,0 +1,4 @@
+Version 1.3.0+25:
+- Die App passt sich nun automatisch der Gerätesprache an, sofern diese unterstützt wird.
+- Englisch als Gerätesprache wurde hinzugefügt.
+Es fallen weiterhin keine personenbezogenen Daten an, für die Ermittlung der Gerätesprache wird aber ab sofort auf die Geräteeinstellungen zugegriffen.
