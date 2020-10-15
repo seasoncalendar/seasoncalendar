@@ -4,6 +4,8 @@ import 'package:edit_distance/edit_distance.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/components/loading_scaffold.dart';
+import 'package:seasoncalendar/helpers/db_provider.dart';
 
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/components/food_view.dart';
@@ -11,12 +13,10 @@ import 'package:seasoncalendar/components/food_view.dart';
 const maxEditDist = 3;
 
 class SearchScreen extends SearchDelegate<String> {
-  final List<Food> _allFoods;
   final int _monthIndex;
 
-  SearchScreen(List<Food> allFoods, int monthIndex, String searchFieldLabel)
-      : _allFoods = allFoods,
-        _monthIndex = monthIndex,
+  SearchScreen(int monthIndex, String searchFieldLabel)
+      : _monthIndex = monthIndex,
         super(searchFieldLabel: searchFieldLabel);
 
   @override
@@ -41,16 +41,35 @@ class SearchScreen extends SearchDelegate<String> {
   }
 
   @override
+  Widget buildSuggestions(BuildContext context) {
+    return buildResults(context);
+  }
+
+  @override
   Widget buildResults(BuildContext context) {
+    return FutureBuilder(
+      future: DBProvider.db.getFoods(context),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          List<Food> _newestFoodCatalog = snapshot.data;
+          return getMatchingFoodView(context, _newestFoodCatalog);
+        } else {
+          return LoadingWidget();
+        }
+      },
+    );
+  }
+
+  Widget getMatchingFoodView(BuildContext context, List<Food> dbFoods) {
     List<Food> resultList = List<Food>();
 
     if (query.length < 3) {
-      resultList = _allFoods;
+      resultList = dbFoods;
       resultList.sort((a, b) => a.displayName.compareTo(b.displayName));
       return FoodView.fromSearchResult(resultList, _monthIndex);
     }
 
-    var exactMatches = _allFoods
+    var exactMatches = dbFoods
         .where((food) => food.synonyms
             .map((s) => s.toLowerCase())
             .contains(query.toLowerCase()))
@@ -62,7 +81,7 @@ class SearchScreen extends SearchDelegate<String> {
       return FoodView.fromSearchResult(exactMatches, _monthIndex);
     }
 
-    var startsWith = _allFoods
+    var startsWith = dbFoods
         .where((food) => food.synonyms.any((synonym) =>
             synonym.toLowerCase().startsWith(query.toLowerCase()) &&
             query.length >= 4))
@@ -76,7 +95,7 @@ class SearchScreen extends SearchDelegate<String> {
 
     final Levenshtein lvs = new Levenshtein();
 
-    var lvsResults = _allFoods
+    var lvsResults = dbFoods
         .where((food) =>
             (food.synonyms.map((synonym) {
               return lvs.distance(synonym.toLowerCase(), query.toLowerCase()) /
@@ -88,10 +107,5 @@ class SearchScreen extends SearchDelegate<String> {
     print(lvsResults.length);
 
     return FoodView.fromSearchResult(lvsResults, _monthIndex);
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    return buildResults(context);
   }
 }

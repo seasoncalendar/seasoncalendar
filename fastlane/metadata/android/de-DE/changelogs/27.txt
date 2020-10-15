@@ -1,0 +1,3 @@
+Version 1.3.2+27:
+- Reguläre Zwiebel wurde hinzugefügt (Die ist mir wohl entgangen).
+- Fehlerbehebung: Suchfunktion funktioniert nun stets mit der aktuell eingestellten Sprache.
