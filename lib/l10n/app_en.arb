@@ -2,154 +2,154 @@
   "@@locale": "en",
 
   "appTitle": "Seasonal foods calendar",
-  "@appTitle": {"description": "The title of the app"},
+  "@appTitle": {"description": "The title of the app, e.g. 'Seasonal foods calendar'"},
 
   "january": "January",
-  "@january": {"description": "'January'"},
+  "@january": {"description": "The word 'January'"},
 
   "february": "February",
-  "@february": {"description": "'February'"},
+  "@february": {"description": "The word 'February'"},
 
   "march": "March",
-  "@march": {"description": "'March'"},
+  "@march": {"description": "The word 'March'"},
 
   "april": "April",
-  "@april": {"description": "'April'"},
+  "@april": {"description": "The word 'April'"},
 
   "may": "May",
-  "@may": {"description": "'May'"},
+  "@may": {"description": "The word 'May'"},
 
   "june": "June",
-  "@june": {"description": "'June'"},
+  "@june": {"description": "The word 'June'"},
 
   "july": "July",
-  "@july": {"description": "'July'"},
+  "@july": {"description": "The word 'July'"},
 
   "august": "August",
-  "@august": {"description": "'August'"},
+  "@august": {"description": "The word 'August'"},
 
   "september": "September",
-  "@september": {"description": "'September'"},
+  "@september": {"description": "The word 'September'"},
 
   "october": "October",
-  "@october": {"description": "'October'"},
+  "@october": {"description": "The word 'October'"},
 
   "november": "November",
-  "@november": {"description": "'November'"},
+  "@november": {"description": "The word 'November'"},
 
   "december": "December",
-  "@december": {"description": "'December'"},
+  "@december": {"description": "The word 'December'"},
 
   "imprintPageButtonText": "Imprint",
-  "@imprintPageButtonText": {"description": "'Imprint'"},
+  "@imprintPageButtonText": {"description": "The word 'Imprint'"},
 
   "aboutPageTitle": "Explanation",
-  "@aboutPageTitle": {"description": "'Explanation'"},
+  "@aboutPageTitle": {"description": "The word 'Explanation'"},
 
   "aboutPageExplanationHeadline": "How do I use the app?",
-  "@aboutPageExplanationHeadline": {"description": "'How do I use the app?'"},
+  "@aboutPageExplanationHeadline": {"description": "The phrase 'How do I use the app?'"},
 
   "aboutPageExplanation": "This app shows you at a glance, which foods are in season right now:",
   "@aboutPageExplanation": {"description": "A sentence explaining what the app does"},
 
   "aboutPageAvLocal": "In season/locally or regionally available.",
-  "@aboutPageAvLocal": {"description": "'In season/locally or regionally available.'"},
+  "@aboutPageAvLocal": {"description": "A sentence explaining what the house icon means."},
 
   "aboutPageAvLand": "Imported from not too far away, mostly via land transport.",
-  "@aboutPageAvLand": {"description": "'Imported from not too far away, mostly via land transport.'"},
+  "@aboutPageAvLand": {"description": "A sentence explaining what the truck icon means."},
 
   "aboutPageAvSea": "Imported from far away, mostly shipped.",
-  "@aboutPageAvSea": {"description": "'Imported from far away, mostly shipped.'"},
+  "@aboutPageAvSea": {"description": "A sentence explaining what the ship icon means."},
 
   "aboutPageAvAir": "Imported from far away, mostly by airplane.",
-  "@aboutPageAvAir": {"description": "'Imported from far away, mostly by airplane.'"},
+  "@aboutPageAvAir": {"description": "A sentence explaining what the airplane icon means."},
 
   "aboutPageColors": "The colour of a name field indicates corresponds to above classification. Green is better than red.",
-  "@aboutPageColors": {"description": "Describes what the food bg colors do"},
+  "@aboutPageColors": {"description": "Describes what the food background colors do"},
 
   "aboutPageFavorites": "By tapping a food's star \u2606, you add it to/remove it from your favorites list. Tapping on the menu bar's star lets you restrict the view to your favorites.",
   "@aboutPageFavorites": {"description": "Describes how to use the favorites function"},
 
   "aboutPageHeadline": "Why care about foods' seasons?",
-  "@aboutPageHeadline": {"description": "'Why care about foods' seasons?'"},
+  "@aboutPageHeadline": {"description": "The phrase 'Why care about foods' seasons?'"},
 
   "aboutPageLeading": "Nowadays, as almost all foods are available throughout the year, people have become unconscious of the season of their foods. However, buying seasonal and local foods often has striking advantages:",
   "@aboutPageLeading": {"description": "Justification for caring about food seasons"},
 
   "aboutPageAdvantage1": "Fresh produce tastes better and is healthier for your body.",
-  "@aboutPageAdvantage1": {"description": "'Fresh produce tastes better and is healthier for your body.'"},
+  "@aboutPageAdvantage1": {"description": "The phrase 'Fresh produce tastes better and is healthier for your body.'"},
 
   "aboutPageAdvantage2": "Fresh foods are generally cheaper.",
-  "@aboutPageAdvantage2": {"description": "'Fresh foods are generally cheaper.'"},
+  "@aboutPageAdvantage2": {"description": "The phrase 'Fresh foods are generally cheaper.'"},
 
   "aboutPageAdvantage3": "The efforts made for storing foods is reduced.",
-  "@aboutPageAdvantage3": {"description": "'The efforts made for storing foods is reduced.'"},
+  "@aboutPageAdvantage3": {"description": "The phrase 'The efforts made for storing foods is reduced.'"},
 
   "aboutPageAdvantage4": "The transport is less harmful to the environment.",
-  "@aboutPageAdvantage4": {"description": "'The transport is less harmful to the environment.'"},
+  "@aboutPageAdvantage4": {"description": "The phrase 'The transport is less harmful to the environment.'"},
 
   "aboutPageAdvantage5": "You support local businesses and jobs.",
-  "@aboutPageAdvantage5": {"description": "'You support local businesses and jobs.'"},
+  "@aboutPageAdvantage5": {"description": "The phrase 'You support local businesses and jobs.'"},
 
   "aboutPageTrailing": "This app lets you eat cheaper and tastier and raises the awareness for the origin of our food.",
-  "@aboutPageTrailing": {"description": "Benefits for the app user"},
+  "@aboutPageTrailing": {"description": "A sentence about benefits for the app user"},
 
   "aboutPageDisclaimer": "Please keep in mind that the actual availability of foods in your local supermarket can differ from the information shown here.",
   "@aboutPageDisclaimer": {"description": "A disclaimer for the availability data"},
 
   "contribPageTitle": "Contribute",
-  "@contribPageTitle": {"description": "'Contribute'"},
+  "@contribPageTitle": {"description": "The word 'Contribute'"},
 
   "contribPageContactHeadline": "Something is missing or wrong?",
-  "@contribPageContactHeadline": {"description": "'Something is missing or wrong?'"},
+  "@contribPageContactHeadline": {"description": "The phrase 'Something is missing or wrong?'"},
 
   "contribPageContact": "This app is still in its baby shoes and thus not perfect. However, it can be extended. If you've found an error or room for a concrete improvement, feel free to contact me via my webpage.",
   "@contribPageContact": {"description": "Justification for missing features/incorrectness by stating young age of app"},
 
   "contribPageContactButtonText": "To the webpage",
-  "@contribPageContactButtonText": {"description": "'To the webpage'"},
+  "@contribPageContactButtonText": {"description": "The phrase 'To the webpage'"},
 
   "contribPageCodeHeadline": "Show me the code!",
-  "@contribPageCodeHeadline": {"description": "'Show me the code!'"},
+  "@contribPageCodeHeadline": {"description": "The phrase 'Show me the code!'"},
 
   "contribPageCode": "The source code for the app is available on GitHub:",
-  "@contribPageCode": {"description": "'The source code for the app is available on GitHub:'"},
+  "@contribPageCode": {"description": "The phrase 'The source code for the app is available on GitHub:'"},
 
   "contribPageCodeButtonText": "To the GitHub repo",
-  "@contribPageCodeButtonText": {"description": "'To the GitHub repo'"},
+  "@contribPageCodeButtonText": {"description": "The phrase 'To the GitHub repo'"},
 
   "imprintPageTitle": "Imprint",
-  "@imprintPageTitle": {"description": "'Imprint'"},
+  "@imprintPageTitle": {"description": "The word 'Imprint'"},
 
   "imprintPagePublisher": "Publisher",
-  "@imprintPagePublisher": {"description": "'Publisher'"},
+  "@imprintPagePublisher": {"description": "The word 'Publisher'"},
 
   "imprintPageAddress": "Andreas Boltres\nInsterburger Str. 2\n76139 Karlsruhe",
   "@imprintPageAddress": {"description": "App publisher address"},
 
   "imprintPageDisclaimerHeadline": "Disclaimer",
-  "@imprintPageDisclaimerHeadline": {"description": "'Disclaimer'"},
+  "@imprintPageDisclaimerHeadline": {"description": "The phrase 'Disclaimer'"},
 
   "imprintPageDisclaimerText": "The contents of this app have been created and are provided with utmost care and in good faith. However, I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information displayed in this app.",
   "@imprintPageDisclaimerText": {"description": "The disclaimer for the app"},
 
   "imprintPageDataProtectionHeadline": "Privacy policy",
-  "@imprintPageDataProtectionHeadline": {"description": "'Privacy policy'"},
+  "@imprintPageDataProtectionHeadline": {"description": "The phrase 'Privacy policy'"},
 
   "imprintPageDataProtectionText": "Using this app, no personal data is collected. In order to save and load the app's settings, a permission to access the device's storage is needed.",
   "@imprintPageDataProtectionText": {"description": "The privacy policy for the app"},
 
   "imprintPageSourcesHeadline": "Sources",
-  "@imprintPageSourcesHeadline": {"description": "'Sources'"},
+  "@imprintPageSourcesHeadline": {"description": "The word 'Sources'"},
 
   "imprintPageTextHeadline": "App text",
-  "@imprintPageTextHeadline": {"description": "'App text'"},
+  "@imprintPageTextHeadline": {"description": "The word 'App text'"},
 
   "imprintPageMyName": "Andreas Boltres",
   "@imprintPageMyName": {"description": "App text author name"},
 
   "imprintPageDataHeadline": "Availability data",
-  "@imprintPageDataHeadline": {"description": "'Availability data'"},
+  "@imprintPageDataHeadline": {"description": "The phrase 'Availability data'"},
 
   "imprintPageDataText": "Lebensmittellexikon.de (major parts);\nAndreas Boltres (the rest).",
   "@imprintPageDataText": {"description": "Name of author(s) for availability data"},
@@ -158,58 +158,61 @@
   "@imprintPageDataText2": {"description": "Saying thanks to those that let their data be used here"},
 
   "imprintPageImagesHeadline": "Images",
-  "@imprintPageImagesHeadline": {"description": "'Images'"},
+  "@imprintPageImagesHeadline": {"description": "The word 'Images'"},
 
   "imprintPageFontsHeadline": "Font",
-  "@imprintPageFontsHeadline": {"description": "'Font'"},
+  "@imprintPageFontsHeadline": {"description": "The word 'Font'"},
+
+  "imprintPageTranslationsHeadline": "Translations",
+  "@imprintPageTranslationsHeadline": {"description": "The word 'Translations'"},
 
   "imprintPageFontsText": "Font Awesome 5 (apple logo, carrot logo)\n(License: fontawesome.com/license)",
   "@imprintPageFontsText": {"description": "Font information"},
 
   "imprintPageAppInfo": "App Information",
-  "@imprintPageAppInfo": {"description": "'App Information'"},
+  "@imprintPageAppInfo": {"description": "The word 'App Information'"},
 
   "websiteContactPage": "https://flunzmas.com/contact/",
-  "@websiteContactPage": {"description": "the contact webpage for the app"},
+  "@websiteContactPage": {"description": "The contact webpage for the app"},
 
   "websiteSupportPage": "https://flunzmas.com/support/",
-  "@websiteSupportPage": {"description": "the support webpage for the app"},
+  "@websiteSupportPage": {"description": "The support webpage for the app"},
 
   "seasonCalendarGithub": "https://github.com/Flunzmas/seasoncalendar",
-  "@seasonCalendarGithub": {"description": "the code webpage for the app"},
+  "@seasonCalendarGithub": {"description": "The code webpage for the app"},
 
   "settingsPageTitle": "Settings",
-  "@settingsPageTitle": {"description": "'Settings'"},
+  "@settingsPageTitle": {"description": "The word 'Settings'"},
 
   "settingsSortingTitle": "Sort by availability",
-  "@settingsSortingTitle": {"description": "'Sort by availability'"},
+  "@settingsSortingTitle": {"description": "The phrase 'Sort by availability'"},
 
   "settingsUncommonTitle": "Show special and unusual foods",
-  "@settingsUncommonTitle": {"description": "'Show special and unusual foods'"},
+  "@settingsUncommonTitle": {"description": "The phrase 'Show special and unusual foods'"},
 
   "settingsUncommonText": "e.g. quince, cloudberry",
-  "@settingsUncommonText": {"description": "'e.g. quince, cloudberry'"},
+  "@settingsUncommonText": {"description": "The phrase 'e.g. quince, cloudberry'"},
 
   "settingsFilterTitle": "Filter by availability",
-  "@settingsFilterTitle": {"description": "'Filter by availability'"},
+  "@settingsFilterTitle": {"description": "The phrase 'Filter by availability'"},
 
   "minAvAir": "All available foods",
-  "@minAvAir": {"description": "'All available foods'"},
+  "@minAvAir": {"description": "The phrase 'All available foods'"},
 
   "minAvSea": "No foods imported via airplane",
-  "@minAvSea": {"description": "'No foods imported via airplane'"},
+  "@minAvSea": {"description": "The phrase 'No foods imported via airplane'"},
 
   "minAvLand": "No foods imported from overseas/far away",
-  "@minAvLand": {"description": "'No foods imported from overseas/far away'"},
+  "@minAvLand": {"description": "The phrase 'No foods imported from overseas/far away'"},
 
   "minAvLocal": "Only local and regional foods",
-  "@minAvLocal": {"description": "'Only local and regional foods'"},
+  "@minAvLocal": {"description": "The phrase 'Only local and regional foods'"},
 
   "supportPageTitle": "Support",
-  "@supportPageTitle": {"description": "'Support'"},
+  "@supportPageTitle": {"description": "The word 'Support'"},
 
   "supportPageSpreadTitle": "Do you like the app?",
-  "@supportPageSpreadTitle": {"description": "'Do you like the app?'"},
+  "@supportPageSpreadTitle": {"description": "The phrase 'Do you like the app?'"},
 
   "supportPageSpreadText1": "Nice to hear that! The most effective way to support me is to simply spread the word: Let your friends and family know about the app!",
   "@supportPageSpreadText1": {"description": "A text motivating to spread the word about the app if the user likes it"},
@@ -218,28 +221,28 @@
   "@supportPageSpreadText2": {"description": "Continuation of the motivating text"},
 
   "supportPageHeadline": "Give alms",
-  "@supportPageHeadline": {"description": "'Give alms'"},
+  "@supportPageHeadline": {"description": "The word 'Give alms'"},
 
   "supportPageText1": "This app will remain fully free of charge and ad-free as long as I am developing it.",
-  "@supportPageText1": {"description": "'This app will remain fully free of charge and ad-free as long as I am developing it.'"},
+  "@supportPageText1": {"description": "The statement 'This app will remain fully free of charge and ad-free as long as I am developing it.'"},
 
   "supportPageText2": "But if you'd like to support my work, you can have a look at what I do in general at my webpage.",
-  "@supportPageText2": {"description": "User can go to webpage if they further want to support"},
+  "@supportPageText2": {"description": "Something like 'User can go to webpage if they further want to support'"},
 
   "supportPageWebsiteLink": "To the webpage",
-  "@supportPageWebsiteLink": {"description": "'To the webpage'"},
+  "@supportPageWebsiteLink": {"description": "The phrase 'To the webpage'"},
 
   "back": "Back",
-  "@back": {"description": "'Back'"},
+  "@back": {"description": "The word 'Back'"},
 
   "wikipedia": "Wikipedia",
-  "@wikipedia": {"description": "'Wikipedia'"},
+  "@wikipedia": {"description": "The word 'Wikipedia'"},
 
   "imprintImgSourcesLicense": "License: ",
-  "@imprintImgSourcesLicense": {"description": "'License: ' (trailing double dot and space!)"},
+  "@imprintImgSourcesLicense": {"description": "The word 'License: ' (with trailing double dot and space!)"},
 
   "imprintImgSourcesPublisher": "\nCreator: ",
-  "@imprintImgSourcesPublisher": {"description": "'Creator: ' (trailing double dot and space, leading newline!)"},
+  "@imprintImgSourcesPublisher": {"description": "The word 'Creator: ' (with trailing double dot and space, leading newline!)"},
 
   "emptyFoodsViewText": "No foods available!",
   "@emptyFoodsViewText": {"description": "A text shown when no food is displayed in the current foods view."},
@@ -257,5 +260,5 @@
   "@searchFieldLabel": {"description": "The label used in the search bar"},
 
   "etcPageTitle": "About the app",
-  "@etcPageTitle": {"description": "Title of the etcPage"}
+  "@etcPageTitle": {"description": "Title shown at the top of the 'more info' page (the one behind the icon with three dots)"}
 }
