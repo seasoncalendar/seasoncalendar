@@ -199,6 +199,9 @@
   "settingsLanguageTitle": "Language",
   "@settingsLanguageTitle": {"description": "The word 'Language'"},
 
+  "settingsLanguageSubtitle": "Changing the language restarts the app",
+  "@settingsLanguageSubtitle": {"description": "The phrase 'Changing the language restarts the app'"},
+
   "settingsLanguageUseLocale": "Use device language",
   "@settingsLanguageUseLocale": {"description": "The phrase 'Use device language'"},
 

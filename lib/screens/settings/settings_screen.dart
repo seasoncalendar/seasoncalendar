@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 import 'package:package_info/package_info.dart';
 
@@ -134,10 +135,19 @@ class SettingsPageState extends State<SettingsPage> {
                     leading: Icon(Icons.language),
                     title: Text(
                         AppLocalizations.of(context).settingsLanguageTitle),
+                    subtitle: Text(AppLocalizations.of(context).settingsLanguageSubtitle),
                     isThreeLine: false,
                     dense: false,
-                    onTap: () =>
-                        Navigator.of(context).pushNamed("/settings/language"),
+                    onTap: () {
+                      String prevLangCode = widget._settings["languageCode"];
+                      Navigator.of(context)
+                          .pushNamed("/settings/language")
+                          .then((_) {
+                        if (prevLangCode != widget._settings["languageCode"]) {
+                          Phoenix.rebirth(context); // restart application if language changed
+                        }
+                      });
+                    },
                   ),
                 ),
                 const Divider(),

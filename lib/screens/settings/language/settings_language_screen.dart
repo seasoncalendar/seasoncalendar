@@ -54,8 +54,6 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
   }
 
   setLanguage(String languageCode) async {
-    print("new lang code: ");
-    print(languageCode);
     widget._settings['languageCode'] = languageCode;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('languageCode', languageCode);
@@ -71,15 +69,17 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
   }
 
   getLanguageEntriesList(BuildContext context) {
-    List<ListTile> languageEntries = List<ListTile>();
+    List<RadioListTile> languageEntries = List<RadioListTile>();
 
-    ListTile defaultLocaleTile = ListTile(
+    RadioListTile defaultLocaleTile = RadioListTile(
+      activeColor: defaultTheme.accentColor,
       dense: false,
-      selected: widget._settings['languageCode'] == "null",
+      value: "null",
+      groupValue: widget._settings['languageCode'],
       title: Text(AppLocalizations.of(context).settingsLanguageUseLocale),
       subtitle: Text(AppLocalizations.of(context).settingsLanguageUseLocaleSub),
-      onTap: () => setState(() {
-        setLanguage("null");
+      onChanged: (val) => setState(() {
+        setLanguage(val);
       }),
     );
     languageEntries.add(defaultLocaleTile);
@@ -87,18 +87,20 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     var orderedLocales = List.from(AppLocalizations.supportedLocales);
     orderedLocales.sort((a, b) => a.languageCode.compareTo(b.languageCode));
     orderedLocales.forEach((locale) {
-      languageEntries.add(getLanguageListTile(locale.languageCode));
+      languageEntries.add(getLanguageRadioListTile(locale.languageCode));
     });
 
     return languageEntries;
   }
 
-  getLanguageListTile(String langCode) {
-    return ListTile(
+  getLanguageRadioListTile(String langCode) {
+    return RadioListTile(
+      activeColor: defaultTheme.accentColor,
       dense: false,
-      selected: widget._settings['languageCode'] == langCode,
+      value: langCode,
+      groupValue: widget._settings['languageCode'],
       title: Text(languageNameFromCode[langCode]),
-      onTap: () => setState(() {
+      onChanged: (val) => setState(() {
         setLanguage(langCode);
       }),
     );

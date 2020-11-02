@@ -294,6 +294,9 @@ abstract class AppLocalizations {
   // The word 'Language'
   String get settingsLanguageTitle;
 
+  // The phrase 'Changing the language restarts the app'
+  String get settingsLanguageSubtitle;
+
   // The phrase 'Use device language'
   String get settingsLanguageUseLocale;
 

@@ -208,6 +208,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsLanguageTitle => 'Language';
 
   @override
+  String get settingsLanguageSubtitle => 'Changing the language restarts the app';
+
+  @override
   String get settingsLanguageUseLocale => 'Use device language';
 
   @override

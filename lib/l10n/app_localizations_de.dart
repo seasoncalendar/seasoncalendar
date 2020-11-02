@@ -208,6 +208,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settingsLanguageTitle => 'Sprache';
 
   @override
+  String get settingsLanguageSubtitle => 'App startet bei veränderter Sprache neu';
+
+  @override
   String get settingsLanguageUseLocale => 'Benutze Gerätesprache';
 
   @override

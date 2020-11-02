@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/components/loading_scaffold.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:seasoncalendar/routes.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 void main() async {
-  runApp(MyApp());
+  runApp(
+    Phoenix(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -37,8 +41,6 @@ class MyAppState extends State<MyApp> {
         this.locale = locale;
       });
     });
-    print("FSLKDJFLKDSJFLKS");
-    print(this.locale);
   }
 
   _fetchLocale() async {
@@ -46,12 +48,10 @@ class MyAppState extends State<MyApp> {
 
     if (prefs.getString('languageCode') == null ||
         prefs.getString('languageCode') == "null") {
-      print("language code is not valid");
       return null;
     }
 
-    return Locale(
-        prefs.getString('languageCode'));
+    return Locale(prefs.getString('languageCode'));
   }
 
   @override
@@ -64,15 +64,14 @@ class MyAppState extends State<MyApp> {
       return MaterialApp(
         localeResolutionCallback: (deviceLocale, supportedLocales) {
           if (this.locale == null) {
-            print("set locale is null");
-            print(deviceLocale.languageCode);
-            if (supportedLocales.map((l) => l.languageCode).contains(deviceLocale.languageCode)) {
+            if (supportedLocales
+                .map((l) => l.languageCode)
+                .contains(deviceLocale.languageCode)) {
               this.locale = deviceLocale;
             } else {
               this.locale = Locale('en');
             }
           }
-          print(this.locale);
           return this.locale;
         },
         debugShowCheckedModeBanner: true,

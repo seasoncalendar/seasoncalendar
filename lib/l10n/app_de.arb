@@ -67,6 +67,7 @@
   "settingsUncommonText": "z.B. Quitten, Moltebeeren",
   "settingsFilterTitle": "Nach Verfügbarkeit filtern",
   "settingsLanguageTitle": "Sprache",
+  "settingsLanguageSubtitle": "App startet bei veränderter Sprache neu",
   "settingsLanguageUseLocale": "Benutze Gerätesprache",
   "settingsLanguageUseLocaleSub": "Verwendet Englisch bei nicht unterstützter Gerätesprache",
   "minAvAir": "Alle verfügbaren Sorten",
