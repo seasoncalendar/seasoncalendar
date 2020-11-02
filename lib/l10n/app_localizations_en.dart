@@ -172,6 +172,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get imprintPageFontsHeadline => 'Font';
 
   @override
+  String get imprintPageTranslationsHeadline => 'Translations';
+
+  @override
   String get imprintPageFontsText => 'Font Awesome 5 (apple logo, carrot logo)\n(License: fontawesome.com/license)';
 
   @override
@@ -200,6 +203,15 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsFilterTitle => 'Filter by availability';
+
+  @override
+  String get settingsLanguageTitle => 'Language';
+
+  @override
+  String get settingsLanguageUseLocale => 'Use device language';
+
+  @override
+  String get settingsLanguageUseLocaleSub => 'Uses English if device language is not supported';
 
   @override
   String get minAvAir => 'All available foods';

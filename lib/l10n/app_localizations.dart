@@ -96,154 +96,154 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
-  // The title of the app
+  // The title of the app, e.g. 'Seasonal foods calendar'
   String get appTitle;
 
-  // 'January'
+  // The word 'January'
   String get january;
 
-  // 'February'
+  // The word 'February'
   String get february;
 
-  // 'March'
+  // The word 'March'
   String get march;
 
-  // 'April'
+  // The word 'April'
   String get april;
 
-  // 'May'
+  // The word 'May'
   String get may;
 
-  // 'June'
+  // The word 'June'
   String get june;
 
-  // 'July'
+  // The word 'July'
   String get july;
 
-  // 'August'
+  // The word 'August'
   String get august;
 
-  // 'September'
+  // The word 'September'
   String get september;
 
-  // 'October'
+  // The word 'October'
   String get october;
 
-  // 'November'
+  // The word 'November'
   String get november;
 
-  // 'December'
+  // The word 'December'
   String get december;
 
-  // 'Imprint'
+  // The word 'Imprint'
   String get imprintPageButtonText;
 
-  // 'Explanation'
+  // The word 'Explanation'
   String get aboutPageTitle;
 
-  // 'How do I use the app?'
+  // The phrase 'How do I use the app?'
   String get aboutPageExplanationHeadline;
 
   // A sentence explaining what the app does
   String get aboutPageExplanation;
 
-  // 'In season/locally or regionally available.'
+  // A sentence explaining what the house icon means.
   String get aboutPageAvLocal;
 
-  // 'Imported from not too far away, mostly via land transport.'
+  // A sentence explaining what the truck icon means.
   String get aboutPageAvLand;
 
-  // 'Imported from far away, mostly shipped.'
+  // A sentence explaining what the ship icon means.
   String get aboutPageAvSea;
 
-  // 'Imported from far away, mostly by airplane.'
+  // A sentence explaining what the airplane icon means.
   String get aboutPageAvAir;
 
-  // Describes what the food bg colors do
+  // Describes what the food background colors do
   String get aboutPageColors;
 
   // Describes how to use the favorites function
   String get aboutPageFavorites;
 
-  // 'Why care about foods' seasons?'
+  // The phrase 'Why care about foods' seasons?'
   String get aboutPageHeadline;
 
   // Justification for caring about food seasons
   String get aboutPageLeading;
 
-  // 'Fresh produce tastes better and is healthier for your body.'
+  // The phrase 'Fresh produce tastes better and is healthier for your body.'
   String get aboutPageAdvantage1;
 
-  // 'Fresh foods are generally cheaper.'
+  // The phrase 'Fresh foods are generally cheaper.'
   String get aboutPageAdvantage2;
 
-  // 'The efforts made for storing foods is reduced.'
+  // The phrase 'The efforts made for storing foods is reduced.'
   String get aboutPageAdvantage3;
 
-  // 'The transport is less harmful to the environment.'
+  // The phrase 'The transport is less harmful to the environment.'
   String get aboutPageAdvantage4;
 
-  // 'You support local businesses and jobs.'
+  // The phrase 'You support local businesses and jobs.'
   String get aboutPageAdvantage5;
 
-  // Benefits for the app user
+  // A sentence about benefits for the app user
   String get aboutPageTrailing;
 
   // A disclaimer for the availability data
   String get aboutPageDisclaimer;
 
-  // 'Contribute'
+  // The word 'Contribute'
   String get contribPageTitle;
 
-  // 'Something is missing or wrong?'
+  // The phrase 'Something is missing or wrong?'
   String get contribPageContactHeadline;
 
   // Justification for missing features/incorrectness by stating young age of app
   String get contribPageContact;
 
-  // 'To the webpage'
+  // The phrase 'To the webpage'
   String get contribPageContactButtonText;
 
-  // 'Show me the code!'
+  // The phrase 'Show me the code!'
   String get contribPageCodeHeadline;
 
-  // 'The source code for the app is available on GitHub:'
+  // The phrase 'The source code for the app is available on GitHub:'
   String get contribPageCode;
 
-  // 'To the GitHub repo'
+  // The phrase 'To the GitHub repo'
   String get contribPageCodeButtonText;
 
-  // 'Imprint'
+  // The word 'Imprint'
   String get imprintPageTitle;
 
-  // 'Publisher'
+  // The word 'Publisher'
   String get imprintPagePublisher;
 
   // App publisher address
   String get imprintPageAddress;
 
-  // 'Disclaimer'
+  // The phrase 'Disclaimer'
   String get imprintPageDisclaimerHeadline;
 
   // The disclaimer for the app
   String get imprintPageDisclaimerText;
 
-  // 'Privacy policy'
+  // The phrase 'Privacy policy'
   String get imprintPageDataProtectionHeadline;
 
   // The privacy policy for the app
   String get imprintPageDataProtectionText;
 
-  // 'Sources'
+  // The word 'Sources'
   String get imprintPageSourcesHeadline;
 
-  // 'App text'
+  // The word 'App text'
   String get imprintPageTextHeadline;
 
   // App text author name
   String get imprintPageMyName;
 
-  // 'Availability data'
+  // The phrase 'Availability data'
   String get imprintPageDataHeadline;
 
   // Name of author(s) for availability data
@@ -252,58 +252,70 @@ abstract class AppLocalizations {
   // Saying thanks to those that let their data be used here
   String get imprintPageDataText2;
 
-  // 'Images'
+  // The word 'Images'
   String get imprintPageImagesHeadline;
 
-  // 'Font'
+  // The word 'Font'
   String get imprintPageFontsHeadline;
+
+  // The word 'Translations'
+  String get imprintPageTranslationsHeadline;
 
   // Font information
   String get imprintPageFontsText;
 
-  // 'App Information'
+  // The word 'App Information'
   String get imprintPageAppInfo;
 
-  // the contact webpage for the app
+  // The contact webpage for the app
   String get websiteContactPage;
 
-  // the support webpage for the app
+  // The support webpage for the app
   String get websiteSupportPage;
 
-  // the code webpage for the app
+  // The code webpage for the app
   String get seasonCalendarGithub;
 
-  // 'Settings'
+  // The word 'Settings'
   String get settingsPageTitle;
 
-  // 'Sort by availability'
+  // The phrase 'Sort by availability'
   String get settingsSortingTitle;
 
-  // 'Show special and unusual foods'
+  // The phrase 'Show special and unusual foods'
   String get settingsUncommonTitle;
 
-  // 'e.g. quince, cloudberry'
+  // The phrase 'e.g. quince, cloudberry'
   String get settingsUncommonText;
 
-  // 'Filter by availability'
+  // The phrase 'Filter by availability'
   String get settingsFilterTitle;
 
-  // 'All available foods'
+  // The word 'Language'
+  String get settingsLanguageTitle;
+
+  // The phrase 'Use device language'
+  String get settingsLanguageUseLocale;
+
+  // The phrase 'Uses English if device language is not supported'
+  String get settingsLanguageUseLocaleSub;
+
+  // The phrase 'All available foods'
   String get minAvAir;
 
-  // 'No foods imported via airplane'
+  // The phrase 'No foods imported via airplane'
   String get minAvSea;
 
-  // 'No foods imported from overseas/far away'
+  // The phrase 'No foods imported from overseas/far away'
   String get minAvLand;
 
-  // 'Only local and regional foods'
+  // The phrase 'Only local and regional foods'
   String get minAvLocal;
 
-  // 'Support'
+  // The word 'Support'
   String get supportPageTitle;
 
-  // 'Do you like the app?'
+  // The phrase 'Do you like the app?'
   String get supportPageSpreadTitle;
 
   // A text motivating to spread the word about the app if the user likes it
@@ -312,28 +324,28 @@ abstract class AppLocalizations {
   // Continuation of the motivating text
   String get supportPageSpreadText2;
 
-  // 'Give alms'
+  // The word 'Give alms'
   String get supportPageHeadline;
 
-  // 'This app will remain fully free of charge and ad-free as long as I am developing it.'
+  // The statement 'This app will remain fully free of charge and ad-free as long as I am developing it.'
   String get supportPageText1;
 
-  // User can go to webpage if they further want to support
+  // Something like 'User can go to webpage if they further want to support'
   String get supportPageText2;
 
-  // 'To the webpage'
+  // The phrase 'To the webpage'
   String get supportPageWebsiteLink;
 
-  // 'Back'
+  // The word 'Back'
   String get back;
 
-  // 'Wikipedia'
+  // The word 'Wikipedia'
   String get wikipedia;
 
-  // 'License: ' (trailing double dot and space!)
+  // The word 'License: ' (with trailing double dot and space!)
   String get imprintImgSourcesLicense;
 
-  // 'Creator: ' (trailing double dot and space, leading newline!)
+  // The word 'Creator: ' (with trailing double dot and space, leading newline!)
   String get imprintImgSourcesPublisher;
 
   // A text shown when no food is displayed in the current foods view.
@@ -351,7 +363,7 @@ abstract class AppLocalizations {
   // The label used in the search bar
   String get searchFieldLabel;
 
-  // Title of the etcPage
+  // Title shown at the top of the 'more info' page (the one behind the icon with three dots)
   String get etcPageTitle;
 }
 

@@ -196,6 +196,15 @@
   "settingsFilterTitle": "Filter by availability",
   "@settingsFilterTitle": {"description": "The phrase 'Filter by availability'"},
 
+  "settingsLanguageTitle": "Language",
+  "@settingsLanguageTitle": {"description": "The word 'Language'"},
+
+  "settingsLanguageUseLocale": "Use device language",
+  "@settingsLanguageUseLocale": {"description": "The phrase 'Use device language'"},
+
+  "settingsLanguageUseLocaleSub": "Uses English if device language is not supported",
+  "@settingsLanguageUseLocaleSub": {"description": "The phrase 'Uses English if device language is not supported'"},
+
   "minAvAir": "All available foods",
   "@minAvAir": {"description": "The phrase 'All available foods'"},
 

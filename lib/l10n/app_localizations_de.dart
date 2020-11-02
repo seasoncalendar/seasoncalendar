@@ -172,6 +172,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get imprintPageFontsHeadline => 'Schriftarten';
 
   @override
+  String get imprintPageTranslationsHeadline => 'Übersetzungen';
+
+  @override
   String get imprintPageFontsText => 'Font Awesome 5 (Apfel-logo, Karotten-logo)\n(Lizenz: fontawesome.com/license)';
 
   @override
@@ -200,6 +203,15 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get settingsFilterTitle => 'Nach Verfügbarkeit filtern';
+
+  @override
+  String get settingsLanguageTitle => 'Sprache';
+
+  @override
+  String get settingsLanguageUseLocale => 'Benutze Gerätesprache';
+
+  @override
+  String get settingsLanguageUseLocaleSub => 'Verwendet Englisch bei nicht unterstützter Gerätesprache';
 
   @override
   String get minAvAir => 'Alle verfügbaren Sorten';
