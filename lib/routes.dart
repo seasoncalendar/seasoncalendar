@@ -9,6 +9,7 @@ import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/screens/home/home_screen.dart';
+import 'package:seasoncalendar/screens/settings/language/settings_language_screen.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/screens/settings/filterfoods/settings_filterfoods_screen.dart';
 import 'package:seasoncalendar/screens/etc/etc_screen.dart';
@@ -55,12 +56,23 @@ final Map<String, WidgetBuilder> appRoutes = {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final initialSettings = snapshot.data;
-            return SettingsFilterSettingPage(initialSettings);
+            return SettingsFilterfoodsPage(initialSettings);
           } else {
             return LoadingScaffold();
           }
         },
       ),
+  "/settings/language": (_) => FutureBuilder(
+    future: loadAssetFromJson("assets/initialsettings.json"),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        final initialSettings = snapshot.data;
+        return SettingsLanguagePage(initialSettings);
+      } else {
+        return LoadingScaffold();
+      }
+    },
+  ),
   "/etc": (_) => EtcPage(),
   "/etc/about": (_) => AboutPage(),
   "/etc/contrib": (_) => ContribPage(),

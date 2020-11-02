@@ -63,7 +63,8 @@ class SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(AppLocalizations.of(context).settingsPageTitle)),
+        appBar:
+            AppBar(title: Text(AppLocalizations.of(context).settingsPageTitle)),
         body: SingleChildScrollView(
             child: FutureBuilder(
                 future: Future.wait(
@@ -97,8 +98,10 @@ class SettingsPageState extends State<SettingsPage> {
               children: <Widget>[
                 SwitchListTile.adaptive(
                   secondary: const Icon(Icons.folder_special),
-                  title: Text(AppLocalizations.of(context).settingsUncommonTitle),
-                  subtitle: Text(AppLocalizations.of(context).settingsUncommonText),
+                  title:
+                      Text(AppLocalizations.of(context).settingsUncommonTitle),
+                  subtitle:
+                      Text(AppLocalizations.of(context).settingsUncommonText),
                   value: widget._settings["includeUncommon"],
                   dense: false,
                   onChanged: (newVal) {
@@ -108,7 +111,8 @@ class SettingsPageState extends State<SettingsPage> {
                 const Divider(),
                 SwitchListTile.adaptive(
                   secondary: const Icon(Icons.sort),
-                  title: Text(AppLocalizations.of(context).settingsSortingTitle),
+                  title:
+                      Text(AppLocalizations.of(context).settingsSortingTitle),
                   value: widget._settings["foodSorting"],
                   dense: false,
                   onChanged: (newVal) {
@@ -127,11 +131,24 @@ class SettingsPageState extends State<SettingsPage> {
                 const Divider(),
                 ListTileTheme(
                   child: ListTile(
+                    leading: Icon(Icons.language),
+                    title: Text(
+                        AppLocalizations.of(context).settingsLanguageTitle),
+                    isThreeLine: false,
+                    dense: false,
+                    onTap: () =>
+                        Navigator.of(context).pushNamed("/settings/language"),
+                  ),
+                ),
+                const Divider(),
+                ListTileTheme(
+                  child: ListTile(
                     leading: Icon(Icons.account_balance),
                     title: Text(AppLocalizations.of(context).imprintPageTitle),
                     isThreeLine: false,
                     dense: false,
-                    onTap: () => {Navigator.of(context).pushNamed("/etc/imprint")},
+                    onTap: () =>
+                        {Navigator.of(context).pushNamed("/etc/imprint")},
                   ),
                 ),
                 const Divider(),

@@ -9,19 +9,19 @@ import 'package:seasoncalendar/l10n/app_localizations.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
 
 
-class SettingsFilterSettingPage extends StatefulWidget {
+class SettingsFilterfoodsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
   Map<String, dynamic> _settings;
 
-  SettingsFilterSettingPage(Map<String, dynamic> initialSettings)
+  SettingsFilterfoodsPage(Map<String, dynamic> initialSettings)
       : _initialSettings = initialSettings;
 
   @override
-  SettingsFilterSettingPageState createState() =>
-      new SettingsFilterSettingPageState();
+  SettingsFilterfoodsPageState createState() =>
+      new SettingsFilterfoodsPageState();
 }
 
-class SettingsFilterSettingPageState extends State<SettingsFilterSettingPage> {
+class SettingsFilterfoodsPageState extends State<SettingsFilterfoodsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
