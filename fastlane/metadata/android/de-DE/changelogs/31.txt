@@ -1,0 +1,3 @@
+Version 1.4.0+31:
+- Die App-Sprache kann nun im Einstellungsmenü manuell festgelegt werden.
+Es fallen weiterhin keine personenbezogenen Daten an und keine neuen Berechtigungen werden benötigt.
