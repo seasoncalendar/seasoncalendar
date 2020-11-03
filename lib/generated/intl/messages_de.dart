@@ -59,7 +59,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "february" : MessageLookupByLibrary.simpleMessage("Februar"),
     "imprintImgSourcesLicense" : MessageLookupByLibrary.simpleMessage("Lizenz: "),
     "imprintImgSourcesPublisher" : MessageLookupByLibrary.simpleMessage("\nUrheber: "),
-    "imprintPageAddress" : MessageLookupByLibrary.simpleMessage("Andreas Boltres\nInsterburger Str. 2\n76139 Karlsruhe"),
     "imprintPageAppInfo" : MessageLookupByLibrary.simpleMessage("App-Informationen"),
     "imprintPageButtonText" : MessageLookupByLibrary.simpleMessage("Impressum"),
     "imprintPageDataHeadline" : MessageLookupByLibrary.simpleMessage("Verfügbarkeitsdaten"),
@@ -81,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "january" : MessageLookupByLibrary.simpleMessage("Januar"),
     "july" : MessageLookupByLibrary.simpleMessage("Juli"),
     "june" : MessageLookupByLibrary.simpleMessage("Juni"),
+    "languageCode" : MessageLookupByLibrary.simpleMessage("de"),
     "march" : MessageLookupByLibrary.simpleMessage("März"),
     "may" : MessageLookupByLibrary.simpleMessage("Mai"),
     "minAvAir" : MessageLookupByLibrary.simpleMessage("Alle verfügbaren Sorten"),
@@ -90,9 +90,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "november" : MessageLookupByLibrary.simpleMessage("November"),
     "october" : MessageLookupByLibrary.simpleMessage("Oktober"),
     "searchFieldLabel" : MessageLookupByLibrary.simpleMessage("Suche..."),
-    "seasonCalendarGithub" : MessageLookupByLibrary.simpleMessage("https://github.com/Flunzmas/seasoncalendar"),
     "september" : MessageLookupByLibrary.simpleMessage("September"),
     "settingsFilterTitle" : MessageLookupByLibrary.simpleMessage("Nach Verfügbarkeit filtern"),
+    "settingsLanguageSubtitle" : MessageLookupByLibrary.simpleMessage("App startet bei veränderter Sprache neu"),
     "settingsLanguageTitle" : MessageLookupByLibrary.simpleMessage("Sprache"),
     "settingsLanguageUseLocale" : MessageLookupByLibrary.simpleMessage("Benutze Gerätesprache"),
     "settingsLanguageUseLocaleSub" : MessageLookupByLibrary.simpleMessage("Verwendet Englisch bei nicht unterstützter Gerätesprache"),
@@ -108,8 +108,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "supportPageText2" : MessageLookupByLibrary.simpleMessage("Du kannst aber gerne meine Arbeit unterstützen! Gehe hierzu auf meine Website, wenn du mir eine Zuwendung da lassen möchtest."),
     "supportPageTitle" : MessageLookupByLibrary.simpleMessage("Unterstützen"),
     "supportPageWebsiteLink" : MessageLookupByLibrary.simpleMessage("Zur Website"),
-    "websiteContactPage" : MessageLookupByLibrary.simpleMessage("https://flunzmas.com/contact/"),
-    "websiteSupportPage" : MessageLookupByLibrary.simpleMessage("https://flunzmas.com/support/"),
     "wikipedia" : MessageLookupByLibrary.simpleMessage("Wikipedia")
   };
 }

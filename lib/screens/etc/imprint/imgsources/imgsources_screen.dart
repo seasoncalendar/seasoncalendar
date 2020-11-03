@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/models/food.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 
 class ImgSourcesScreen extends StatelessWidget {
   List<Food> _allFoods;
@@ -19,7 +19,7 @@ class ImgSourcesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar:
-            AppBar(title: Text(AppLocalizations.of(context).imprintPageImagesHeadline)),
+            AppBar(title: Text(L10n.of(context).imprintPageImagesHeadline)),
         body: Container(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
           child: ListView.separated(
@@ -31,9 +31,9 @@ class ImgSourcesScreen extends StatelessWidget {
                   _allFoods[i].displayName,
                   style: defaultTheme.textTheme.headline6,
                 ),
-                subtitle: Text(AppLocalizations.of(context).imprintImgSourcesLicense +
+                subtitle: Text(L10n.of(context).imprintImgSourcesLicense +
                     _allFoods[i].assetImgInfo.split("/")[0].trim() +
-                    AppLocalizations.of(context).imprintImgSourcesPublisher +
+                    L10n.of(context).imprintImgSourcesPublisher +
                     _allFoods[i].assetImgInfo.split("/")[1].trim()),
                 trailing: IconButton(
                   icon: Icon(Icons.open_in_new),

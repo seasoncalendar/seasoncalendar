@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/theme/themes.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
 
 
@@ -26,7 +26,7 @@ class SettingsFilterfoodsPageState extends State<SettingsFilterfoodsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar:
-            AppBar(title: Text(AppLocalizations.of(context).settingsFilterTitle)),
+            AppBar(title: Text(L10n.of(context).settingsFilterTitle)),
         body: FutureBuilder(
             future: SettingsPageState.getSettingsI(widget._initialSettings),
             builder: (context, snapshot) {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/theme/seasoncalendar_icons.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/screens/search/search_screen.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 
 class HomeScreenNavigationBar extends StatelessWidget {
   final FoodDisplayConfiguration _fdc;
@@ -70,7 +70,7 @@ class HomeScreenNavigationBar extends StatelessWidget {
                 onPressed: () {
                   showSearch(
                       context: context,
-                      delegate: SearchScreen(_fdc.monthIndex, AppLocalizations.of(context).searchFieldLabel));
+                      delegate: SearchScreen(_fdc.monthIndex, L10n.of(context).searchFieldLabel));
                 }),
           ),
           Spacer(flex: 5),

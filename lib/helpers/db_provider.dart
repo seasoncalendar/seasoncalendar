@@ -9,7 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
-import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/models/food.dart';
 
 class DBProvider {
@@ -54,7 +54,7 @@ class DBProvider {
   Future<dynamic> getFoods(BuildContext context) async {
     final Database db = await database;
     final List<Map<String, dynamic>> maps = await db.query('foods');
-    String foodNameKey = "names_" + AppLocalizations.of(context).localeName;
+    String foodNameKey = "names_" + L10n.of(context).languageCode;
 
     return List.generate(maps.length, (i) {
       String foodId = maps[i]['id'];

@@ -1,6 +1,6 @@
 {
-    "foodSorting": true,
-    "includeUncommon": false,
-    "foodMinAvailability": 1,
-    "languageCode": "null"
+  "foodSorting": true,
+  "includeUncommon": false,
+  "foodMinAvailability": 1,
+  "languageCode": "null"
 }

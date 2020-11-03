@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 
 class FoodDetailsDialog extends StatelessWidget {
   final String _foodDisplayName;
@@ -83,13 +83,13 @@ class FoodDetailsDialog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               RaisedButton(
-                child: Text(AppLocalizations.of(context).back),
+                child: Text(L10n.of(context).back),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
               RaisedButton(
-                child: Text(AppLocalizations.of(context).wikipedia),
+                child: Text(L10n.of(context).wikipedia),
                 onPressed: () async {
                   final url = _foodInfoURL;
                   if (await canLaunch(url)) {

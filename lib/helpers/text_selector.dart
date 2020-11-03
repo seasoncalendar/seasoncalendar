@@ -1,35 +1,35 @@
 import 'package:flutter/cupertino.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 
 String getMonthNameFromIndex(BuildContext context, int monthIndex) {
   // indices start from 0
   switch (monthIndex) {
     case 0:
-      return AppLocalizations.of(context).january;
+      return L10n.of(context).january;
     case 1:
-      return AppLocalizations.of(context).february;
+      return L10n.of(context).february;
     case 2:
-      return AppLocalizations.of(context).march;
+      return L10n.of(context).march;
     case 3:
-      return AppLocalizations.of(context).april;
+      return L10n.of(context).april;
     case 4:
-      return AppLocalizations.of(context).may;
+      return L10n.of(context).may;
     case 5:
-      return AppLocalizations.of(context).june;
+      return L10n.of(context).june;
     case 6:
-      return AppLocalizations.of(context).july;
+      return L10n.of(context).july;
     case 7:
-      return AppLocalizations.of(context).august;
+      return L10n.of(context).august;
     case 8:
-      return AppLocalizations.of(context).september;
+      return L10n.of(context).september;
     case 9:
-      return AppLocalizations.of(context).october;
+      return L10n.of(context).october;
     case 10:
-      return AppLocalizations.of(context).november;
+      return L10n.of(context).november;
     case 11:
-      return AppLocalizations.of(context).december;
+      return L10n.of(context).december;
     default:
-      return AppLocalizations.of(context).december;
+      return L10n.of(context).december;
   }
 }
 
@@ -39,14 +39,14 @@ String getMinAvTextFromIndex(BuildContext context, int minAvIndex) {
   // 0 = all, 1 = no air transport, 2 = no air/sea transport, 3 = only local/regional
   switch (minAvIndex) {
     case 0:
-      return AppLocalizations.of(context).minAvAir;
+      return L10n.of(context).minAvAir;
     case 1:
-      return AppLocalizations.of(context).minAvSea;
+      return L10n.of(context).minAvSea;
     case 2:
-      return AppLocalizations.of(context).minAvLand;
+      return L10n.of(context).minAvLand;
     case 3:
-      return AppLocalizations.of(context).minAvLocal;
+      return L10n.of(context).minAvLocal;
     default:
-      return AppLocalizations.of(context).minAvLocal;
+      return L10n.of(context).minAvLocal;
   }
 }

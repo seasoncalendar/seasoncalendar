@@ -1,6 +1,9 @@
 {
   "@@locale": "en",
 
+  "languageCode": "en",
+  "@languageCode": {"description": "The two-character ISO language code of this language."},
+
   "appTitle": "Seasonal foods calendar",
   "@appTitle": {"description": "The title of the app, e.g. 'Seasonal foods calendar'"},
 
@@ -124,9 +127,6 @@
   "imprintPagePublisher": "Publisher",
   "@imprintPagePublisher": {"description": "The word 'Publisher'"},
 
-  "imprintPageAddress": "Andreas Boltres\nInsterburger Str. 2\n76139 Karlsruhe",
-  "@imprintPageAddress": {"description": "App publisher address"},
-
   "imprintPageDisclaimerHeadline": "Disclaimer",
   "@imprintPageDisclaimerHeadline": {"description": "The phrase 'Disclaimer'"},
 
@@ -171,15 +171,6 @@
 
   "imprintPageAppInfo": "App Information",
   "@imprintPageAppInfo": {"description": "The word 'App Information'"},
-
-  "websiteContactPage": "https://flunzmas.com/contact/",
-  "@websiteContactPage": {"description": "The contact webpage for the app"},
-
-  "websiteSupportPage": "https://flunzmas.com/support/",
-  "@websiteSupportPage": {"description": "The support webpage for the app"},
-
-  "seasonCalendarGithub": "https://github.com/Flunzmas/seasoncalendar",
-  "@seasonCalendarGithub": {"description": "The code webpage for the app"},
 
   "settingsPageTitle": "Settings",
   "@settingsPageTitle": {"description": "The word 'Settings'"},

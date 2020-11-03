@@ -1,6 +1,9 @@
 {
   "@@locale": "de",
 
+  "languageCode": "de",
+  "languageName": "Deutsch",
+
   "appTitle": "Saisonkalender",
   "january": "Januar",
   "february": "Februar",
@@ -42,7 +45,6 @@
   "contribPageCodeButtonText": "Zum GitHub-Repo",
   "imprintPageTitle": "Impressum",
   "imprintPagePublisher": "Herausgeber",
-  "imprintPageAddress": "Andreas Boltres\nInsterburger Str. 2\n76139 Karlsruhe",
   "imprintPageDisclaimerHeadline": "Haftungsausschluss",
   "imprintPageDisclaimerText": "Die Inhalte dieser App wurden mit gr\u00f6\u00dfter Sorgfalt erstellt, F\u00fcr die Richtigkeit, Vollst\u00e4ndigkeit und Aktualit\u00e4t kann ich jedoch keine Gew\u00e4hr \u00fcbernehmen.",
   "imprintPageDataProtectionHeadline": "Datenschutz",
@@ -58,9 +60,6 @@
   "imprintPageTranslationsHeadline": "Übersetzungen",
   "imprintPageFontsText": "Font Awesome 5 (Apfel-logo, Karotten-logo)\n(Lizenz: fontawesome.com/license)",
   "imprintPageAppInfo": "App-Informationen",
-  "websiteContactPage": "https://flunzmas.com/contact/",
-  "websiteSupportPage": "https://flunzmas.com/support/",
-  "seasonCalendarGithub": "https://github.com/Flunzmas/seasoncalendar",
   "settingsPageTitle": "Einstellungen",
   "settingsSortingTitle": "Nach Verfügbarkeit sortieren",
   "settingsUncommonTitle": "Spezielle Sorten anzeigen",

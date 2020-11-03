@@ -7,7 +7,7 @@ import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
@@ -65,7 +65,7 @@ class SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar:
-            AppBar(title: Text(AppLocalizations.of(context).settingsPageTitle)),
+            AppBar(title: Text(L10n.of(context).settingsPageTitle)),
         body: SingleChildScrollView(
             child: FutureBuilder(
                 future: Future.wait(
@@ -100,9 +100,9 @@ class SettingsPageState extends State<SettingsPage> {
                 SwitchListTile.adaptive(
                   secondary: const Icon(Icons.folder_special),
                   title:
-                      Text(AppLocalizations.of(context).settingsUncommonTitle),
+                      Text(L10n.of(context).settingsUncommonTitle),
                   subtitle:
-                      Text(AppLocalizations.of(context).settingsUncommonText),
+                      Text(L10n.of(context).settingsUncommonText),
                   value: widget._settings["includeUncommon"],
                   dense: false,
                   onChanged: (newVal) {
@@ -113,7 +113,7 @@ class SettingsPageState extends State<SettingsPage> {
                 SwitchListTile.adaptive(
                   secondary: const Icon(Icons.sort),
                   title:
-                      Text(AppLocalizations.of(context).settingsSortingTitle),
+                      Text(L10n.of(context).settingsSortingTitle),
                   value: widget._settings["foodSorting"],
                   dense: false,
                   onChanged: (newVal) {
@@ -123,7 +123,7 @@ class SettingsPageState extends State<SettingsPage> {
                 const Divider(),
                 ListTile(
                   leading: Icon(Icons.visibility),
-                  title: Text(AppLocalizations.of(context).settingsFilterTitle),
+                  title: Text(L10n.of(context).settingsFilterTitle),
                   isThreeLine: false,
                   dense: false,
                   onTap: () =>
@@ -134,8 +134,8 @@ class SettingsPageState extends State<SettingsPage> {
                   child: ListTile(
                     leading: Icon(Icons.language),
                     title: Text(
-                        AppLocalizations.of(context).settingsLanguageTitle),
-                    subtitle: Text(AppLocalizations.of(context).settingsLanguageSubtitle),
+                        L10n.of(context).settingsLanguageTitle),
+                    subtitle: Text(L10n.of(context).settingsLanguageSubtitle),
                     isThreeLine: false,
                     dense: false,
                     onTap: () {
@@ -154,7 +154,7 @@ class SettingsPageState extends State<SettingsPage> {
                 ListTileTheme(
                   child: ListTile(
                     leading: Icon(Icons.account_balance),
-                    title: Text(AppLocalizations.of(context).imprintPageTitle),
+                    title: Text(L10n.of(context).imprintPageTitle),
                     isThreeLine: false,
                     dense: false,
                     onTap: () =>

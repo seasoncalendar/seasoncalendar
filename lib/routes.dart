@@ -63,21 +63,51 @@ final Map<String, WidgetBuilder> appRoutes = {
         },
       ),
   "/settings/language": (_) => FutureBuilder(
-    future: loadAssetFromJson("assets/initialsettings.json"),
+        future: loadAssetFromJson("assets/initialsettings.json"),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final initialSettings = snapshot.data;
+            return SettingsLanguagePage(initialSettings);
+          } else {
+            return LoadingScaffold();
+          }
+        },
+      ),
+  "/etc": (_) => EtcPage(),
+  "/etc/about": (_) => AboutPage(),
+  "/etc/contrib": (_) => FutureBuilder(
+    future: loadAssetFromJson("assets/localization_independent_text.json"),
     builder: (context, snapshot) {
       if (snapshot.hasData) {
-        final initialSettings = snapshot.data;
-        return SettingsLanguagePage(initialSettings);
+        final l10nIndependentText = snapshot.data;
+        return ContribPage(l10nIndependentText);
       } else {
         return LoadingScaffold();
       }
     },
   ),
-  "/etc": (_) => EtcPage(),
-  "/etc/about": (_) => AboutPage(),
-  "/etc/contrib": (_) => ContribPage(),
-  "/etc/support": (_) => SupportPage(),
-  "/etc/imprint": (_) => ImprintPage(),
+  "/etc/support": (_) => FutureBuilder(
+    future: loadAssetFromJson("assets/localization_independent_text.json"),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        final l10nIndependentText = snapshot.data;
+        return SupportPage(l10nIndependentText);
+      } else {
+        return LoadingScaffold();
+      }
+    },
+  ),
+  "/etc/imprint": (_) => FutureBuilder(
+        future: loadAssetFromJson("assets/localization_independent_text.json"),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final l10nIndependentText = snapshot.data;
+            return ImprintPage(l10nIndependentText);
+          } else {
+            return LoadingScaffold();
+          }
+        },
+      ),
   "/etc/imprint/imgs": (context) => FutureBuilder(
         future: DBProvider.db.getFoods(context),
         builder: (context, snapshot) {

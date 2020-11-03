@@ -4,45 +4,50 @@ import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 
 class SupportPage extends StatelessWidget {
+
+  final Map<String, dynamic> _l10nIndependentText;
+
+  SupportPage(Map<String, dynamic> l10nIndependentText)
+      : _l10nIndependentText = l10nIndependentText;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(AppLocalizations.of(context).supportPageTitle)),
+        appBar: AppBar(title: Text(L10n.of(context).supportPageTitle)),
         body: Container(
             margin: EdgeInsets.all(18),
             child: SingleChildScrollView(
                 child: Column(
               children: <Widget>[
-                Text(AppLocalizations.of(context).supportPageSpreadTitle,
+                Text(L10n.of(context).supportPageSpreadTitle,
                     style: defaultTheme.textTheme.headline4),
                 SizedBox(height: 20),
-                Text(AppLocalizations.of(context).supportPageSpreadText1,
+                Text(L10n.of(context).supportPageSpreadText1,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
-                Text(AppLocalizations.of(context).supportPageSpreadText2,
+                Text(L10n.of(context).supportPageSpreadText2,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
-                Text(AppLocalizations.of(context).supportPageHeadline,
+                Text(L10n.of(context).supportPageHeadline,
                     style: defaultTheme.textTheme.headline4),
                 SizedBox(height: 20),
-                Text(AppLocalizations.of(context).supportPageText1,
+                Text(L10n.of(context).supportPageText1,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
-                Text(AppLocalizations.of(context).supportPageText2,
+                Text(L10n.of(context).supportPageText2,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
                 RaisedButton(
-                  child: Text(AppLocalizations.of(context).supportPageWebsiteLink),
+                  child: Text(L10n.of(context).supportPageWebsiteLink),
                   onPressed: () async {
-                    final url = AppLocalizations.of(context).websiteSupportPage;
+                    final url = _l10nIndependentText["websiteSupportPage"];
                     if (await canLaunch(url)) {
                       await launch(
                         url,

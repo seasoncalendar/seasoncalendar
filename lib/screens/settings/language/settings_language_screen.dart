@@ -5,7 +5,7 @@ import 'package:seasoncalendar/theme/themes.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/main.dart';
 
 class SettingsLanguagePage extends StatefulWidget {
@@ -24,7 +24,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text(AppLocalizations.of(context).settingsLanguageTitle)),
+            title: Text(L10n.of(context).settingsLanguageTitle)),
         body: FutureBuilder(
             future: SettingsPageState.getSettingsI(widget._initialSettings),
             builder: (context, snapshot) {
@@ -76,15 +76,15 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
       dense: false,
       value: "null",
       groupValue: widget._settings['languageCode'],
-      title: Text(AppLocalizations.of(context).settingsLanguageUseLocale),
-      subtitle: Text(AppLocalizations.of(context).settingsLanguageUseLocaleSub),
+      title: Text(L10n.of(context).settingsLanguageUseLocale),
+      subtitle: Text(L10n.of(context).settingsLanguageUseLocaleSub),
       onChanged: (val) => setState(() {
         setLanguage(val);
       }),
     );
     languageEntries.add(defaultLocaleTile);
 
-    var orderedLocales = List.from(AppLocalizations.supportedLocales);
+    var orderedLocales = List.from(L10n.delegate.supportedLocales);
     orderedLocales.sort((a, b) => a.languageCode.compareTo(b.languageCode));
     orderedLocales.forEach((locale) {
       languageEntries.add(getLanguageRadioListTile(locale.languageCode));

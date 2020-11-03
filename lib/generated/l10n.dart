@@ -10,27 +10,37 @@ import 'intl/messages_all.dart';
 
 // ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
 
-class S {
-  S();
+class L10n {
+  L10n();
   
-  static S current;
+  static L10n current;
   
   static const AppLocalizationDelegate delegate =
     AppLocalizationDelegate();
 
-  static Future<S> load(Locale locale) {
+  static Future<L10n> load(Locale locale) {
     final name = (locale.countryCode?.isEmpty ?? false) ? locale.languageCode : locale.toString();
     final localeName = Intl.canonicalizedLocale(name); 
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
-      S.current = S();
+      L10n.current = L10n();
       
-      return S.current;
+      return L10n.current;
     });
   } 
 
-  static S of(BuildContext context) {
-    return Localizations.of<S>(context, S);
+  static L10n of(BuildContext context) {
+    return Localizations.of<L10n>(context, L10n);
+  }
+
+  /// `en`
+  String get languageCode {
+    return Intl.message(
+      'en',
+      name: 'languageCode',
+      desc: 'The two-character ISO language code of this language.',
+      args: [],
+    );
   }
 
   /// `Seasonal foods calendar`
@@ -443,16 +453,6 @@ class S {
     );
   }
 
-  /// `Andreas Boltres\nInsterburger Str. 2\n76139 Karlsruhe`
-  String get imprintPageAddress {
-    return Intl.message(
-      'Andreas Boltres\nInsterburger Str. 2\n76139 Karlsruhe',
-      name: 'imprintPageAddress',
-      desc: 'App publisher address',
-      args: [],
-    );
-  }
-
   /// `Disclaimer`
   String get imprintPageDisclaimerHeadline {
     return Intl.message(
@@ -603,36 +603,6 @@ class S {
     );
   }
 
-  /// `https://flunzmas.com/contact/`
-  String get websiteContactPage {
-    return Intl.message(
-      'https://flunzmas.com/contact/',
-      name: 'websiteContactPage',
-      desc: 'The contact webpage for the app',
-      args: [],
-    );
-  }
-
-  /// `https://flunzmas.com/support/`
-  String get websiteSupportPage {
-    return Intl.message(
-      'https://flunzmas.com/support/',
-      name: 'websiteSupportPage',
-      desc: 'The support webpage for the app',
-      args: [],
-    );
-  }
-
-  /// `https://github.com/Flunzmas/seasoncalendar`
-  String get seasonCalendarGithub {
-    return Intl.message(
-      'https://github.com/Flunzmas/seasoncalendar',
-      name: 'seasonCalendarGithub',
-      desc: 'The code webpage for the app',
-      args: [],
-    );
-  }
-
   /// `Settings`
   String get settingsPageTitle {
     return Intl.message(
@@ -689,6 +659,16 @@ class S {
       'Language',
       name: 'settingsLanguageTitle',
       desc: 'The word \'Language\'',
+      args: [],
+    );
+  }
+
+  /// `Changing the language restarts the app`
+  String get settingsLanguageSubtitle {
+    return Intl.message(
+      'Changing the language restarts the app',
+      name: 'settingsLanguageSubtitle',
+      desc: 'The phrase \'Changing the language restarts the app\'',
       args: [],
     );
   }
@@ -934,7 +914,7 @@ class S {
   }
 }
 
-class AppLocalizationDelegate extends LocalizationsDelegate<S> {
+class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
   const AppLocalizationDelegate();
 
   List<Locale> get supportedLocales {
@@ -947,7 +927,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   @override
   bool isSupported(Locale locale) => _isSupported(locale);
   @override
-  Future<S> load(Locale locale) => S.load(locale);
+  Future<L10n> load(Locale locale) => L10n.load(locale);
   @override
   bool shouldReload(AppLocalizationDelegate old) => false;
 

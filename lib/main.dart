@@ -1,11 +1,12 @@
-import 'package:flutter/material.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:seasoncalendar/routes.dart';
 import 'package:seasoncalendar/theme/themes.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 
 void main() async {
   runApp(
@@ -80,8 +81,13 @@ class MyAppState extends State<MyApp> {
         routes: appRoutes,
         theme: defaultTheme,
         darkTheme: defaultTheme,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
+        localizationsDelegates: [
+          L10n.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales: L10n.delegate.supportedLocales,
       );
     }
   }

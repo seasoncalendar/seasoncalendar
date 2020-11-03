@@ -5,7 +5,7 @@ import 'package:seasoncalendar/components/loading_scaffold.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/components/food_tile.dart';
-import 'package:seasoncalendar/l10n/app_localizations.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
 
 class FoodView extends StatelessWidget {
@@ -57,20 +57,20 @@ class FoodView extends StatelessWidget {
 
   Widget _buildEmpty(BuildContext context, String viewContext) {
     IconData emptyIcon = Icons.spa;
-    String emptyText = AppLocalizations.of(context).emptyFoodsViewText;
+    String emptyText = L10n.of(context).emptyFoodsViewText;
     Widget favAddHint = Container();
 
     if (viewContext.startsWith("fav")) {
       emptyIcon = Icons.star_border;
-      emptyText = AppLocalizations.of(context).emptyFavoritesViewText;
+      emptyText = L10n.of(context).emptyFavoritesViewText;
       favAddHint = Text(
-        AppLocalizations.of(context).emptyFavoritesViewHint,
+        L10n.of(context).emptyFavoritesViewHint,
         style: const TextStyle(color: Colors.black54),
         textAlign: TextAlign.center,
       );
     } else if (viewContext == "search") {
       emptyIcon = Icons.search;
-      emptyText = AppLocalizations.of(context).emptySearchViewText;
+      emptyText = L10n.of(context).emptySearchViewText;
     }
     return SizedBox(
         height: double.infinity,
