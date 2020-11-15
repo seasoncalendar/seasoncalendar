@@ -129,15 +129,10 @@ class SettingsPageState extends State<SettingsPage> {
                   child: ListTile(
                     leading: Icon(Icons.language),
                     title: Text(L10n.of(context).settingsRegionTitle),
-                    subtitle: Text(L10n.of(context).settingsRegionSubtitle),
                     isThreeLine: false,
                     dense: false,
                     onTap: () {
-                      Navigator.of(context)
-                          .pushNamed("/settings/region")
-                          .then((_) {
-                        Phoenix.rebirth(context); // restart application if region changed
-                      });
+                      Navigator.of(context).pushNamed("/settings/region");
                     },
                   ),
                 ),

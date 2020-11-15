@@ -22,20 +22,22 @@ class DBProvider {
 
   Future<Database> get database async {
     var settings = await SettingsPageState.getSettings();
+    var langCode = settings['languageCode'];
+    if (langCode == "null") {
+      langCode = L10n.current.languageCode;
+    }
     String targetDBViewName =
-        "foods_" + settings['languageCode'] + "_" + settings['regionCode'];
+        "foods_" + langCode + "_" + settings['regionCode'];
+    _db_view_name = targetDBViewName;
 
-    if (_database == null ||
-        _db_view_name == "null" ||
-        _db_view_name != targetDBViewName) {
-      _database = await initDB(targetDBViewName);
-      _db_view_name = targetDBViewName;
+    if (_database == null) {
+      _database = await initDB();
     }
 
     return _database;
   }
 
-  initDB(String targetDBViewName) async {
+  initDB() async {
     var databasesPath = await getDatabasesPath();
     var path = join(databasesPath, "foods.db");
 
@@ -55,8 +57,6 @@ class DBProvider {
     // Write and flush the bytes written
     await File(path).writeAsBytes(bytes, flush: true);
 
-    // TODO open DB view with name targetDBViewName, not the whole database!
-
     // open and return the database
     var res = await openDatabase(path, readOnly: true);
     return res;
@@ -64,12 +64,11 @@ class DBProvider {
 
   Future<dynamic> getFoods(BuildContext context) async {
     final Database db = await database;
-    final List<Map<String, dynamic>> maps = await db.query('foods');
-    String foodNameKey = "names_" + L10n.of(context).languageCode;
+    final List<Map<String, dynamic>> maps = await db.query(_db_view_name);
 
     return List.generate(maps.length, (i) {
       String foodId = maps[i]['id'];
-      String foodNamesString = maps[i][foodNameKey];
+      String foodNamesString = maps[i]['foodnames'];
       String type = maps[i]['type'];
       int isCommon = maps[i]['isCommon'];
       String avLocal = maps[i]['avLocal'];
