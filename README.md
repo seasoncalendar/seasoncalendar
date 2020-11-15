@@ -31,7 +31,7 @@ Additional info can be fetched from my website: https://flunzmas.com/seasonal-fo
 
 ## Screenshots
 
-![scr1](assets/screenshots/Screenshot_20200818-192031.jpg) ![scr3](assets/screenshots/Screenshot_20200818-192041.jpg)
+![scr1](assets/screenshots/scr1.jpg) ![scr2](assets/screenshots/scr2.jpg)
 
 ## Asset Sources
 
