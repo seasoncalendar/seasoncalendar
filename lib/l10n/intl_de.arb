@@ -5,6 +5,9 @@
   "languageName": "Deutsch",
 
   "appTitle": "Saisonkalender",
+
+  "centralEurope": "Mitteleuropa",
+
   "january": "Januar",
   "february": "Februar",
   "march": "März",
@@ -65,6 +68,10 @@
   "settingsUncommonTitle": "Spezielle Sorten anzeigen",
   "settingsUncommonText": "z.B. Quitten, Moltebeeren",
   "settingsFilterTitle": "Nach Verfügbarkeit filtern",
+  "settingsRegionTitle": "Region",
+  "settingsRegionSubtitle": "App startet bei veränderter Region neu",
+  "settingsRegionUseLocale": "Benutze Geräteregion",
+  "settingsRegionUseLocaleSub": "Verwendet 'Mitteleuropa' bei nicht unterstützter Geräteregion",
   "settingsLanguageTitle": "Sprache",
   "settingsLanguageSubtitle": "App startet bei veränderter Sprache neu",
   "settingsLanguageUseLocale": "Benutze Gerätesprache",

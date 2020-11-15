@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:path/path.dart';
 
+import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
@@ -17,16 +18,24 @@ class DBProvider {
 
   static final DBProvider db = DBProvider._();
   static Database _database;
+  static String _db_view_name = "null";
 
   Future<Database> get database async {
-    if (_database == null) {
-      _database = await initDB();
+    var settings = await SettingsPageState.getSettings();
+    String targetDBViewName =
+        "foods_" + settings['languageCode'] + "_" + settings['regionCode'];
+
+    if (_database == null ||
+        _db_view_name == "null" ||
+        _db_view_name != targetDBViewName) {
+      _database = await initDB(targetDBViewName);
+      _db_view_name = targetDBViewName;
     }
 
     return _database;
   }
 
-  initDB() async {
+  initDB(String targetDBViewName) async {
     var databasesPath = await getDatabasesPath();
     var path = join(databasesPath, "foods.db");
 
@@ -45,6 +54,8 @@ class DBProvider {
 
     // Write and flush the bytes written
     await File(path).writeAsBytes(bytes, flush: true);
+
+    // TODO open DB view with name targetDBViewName, not the whole database!
 
     // open and return the database
     var res = await openDatabase(path, readOnly: true);

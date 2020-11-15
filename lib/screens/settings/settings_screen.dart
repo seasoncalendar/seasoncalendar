@@ -32,7 +32,6 @@ class SettingsPageState extends State<SettingsPage> {
       Map<String, dynamic> initialSettings) async {
     Map<String, dynamic> settings = {};
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
     initialSettings.keys.forEach((key) {
       settings[key] = prefs.get(key) ?? initialSettings[key];
     });
@@ -64,8 +63,7 @@ class SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            AppBar(title: Text(L10n.of(context).settingsPageTitle)),
+        appBar: AppBar(title: Text(L10n.of(context).settingsPageTitle)),
         body: SingleChildScrollView(
             child: FutureBuilder(
                 future: Future.wait(
@@ -99,10 +97,8 @@ class SettingsPageState extends State<SettingsPage> {
               children: <Widget>[
                 SwitchListTile.adaptive(
                   secondary: const Icon(Icons.folder_special),
-                  title:
-                      Text(L10n.of(context).settingsUncommonTitle),
-                  subtitle:
-                      Text(L10n.of(context).settingsUncommonText),
+                  title: Text(L10n.of(context).settingsUncommonTitle),
+                  subtitle: Text(L10n.of(context).settingsUncommonText),
                   value: widget._settings["includeUncommon"],
                   dense: false,
                   onChanged: (newVal) {
@@ -112,8 +108,7 @@ class SettingsPageState extends State<SettingsPage> {
                 const Divider(),
                 SwitchListTile.adaptive(
                   secondary: const Icon(Icons.sort),
-                  title:
-                      Text(L10n.of(context).settingsSortingTitle),
+                  title: Text(L10n.of(context).settingsSortingTitle),
                   value: widget._settings["foodSorting"],
                   dense: false,
                   onChanged: (newVal) {
@@ -133,8 +128,24 @@ class SettingsPageState extends State<SettingsPage> {
                 ListTileTheme(
                   child: ListTile(
                     leading: Icon(Icons.language),
-                    title: Text(
-                        L10n.of(context).settingsLanguageTitle),
+                    title: Text(L10n.of(context).settingsRegionTitle),
+                    subtitle: Text(L10n.of(context).settingsRegionSubtitle),
+                    isThreeLine: false,
+                    dense: false,
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed("/settings/region")
+                          .then((_) {
+                        Phoenix.rebirth(context); // restart application if region changed
+                      });
+                    },
+                  ),
+                ),
+                const Divider(),
+                ListTileTheme(
+                  child: ListTile(
+                    leading: Icon(Icons.translate),
+                    title: Text(L10n.of(context).settingsLanguageTitle),
                     subtitle: Text(L10n.of(context).settingsLanguageSubtitle),
                     isThreeLine: false,
                     dense: false,
@@ -144,7 +155,8 @@ class SettingsPageState extends State<SettingsPage> {
                           .pushNamed("/settings/language")
                           .then((_) {
                         if (prevLangCode != widget._settings["languageCode"]) {
-                          Phoenix.rebirth(context); // restart application if language changed
+                          Phoenix.rebirth(
+                              context); // restart application if language changed
                         }
                       });
                     },

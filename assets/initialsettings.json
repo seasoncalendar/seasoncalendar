@@ -2,5 +2,6 @@
   "foodSorting": true,
   "includeUncommon": false,
   "foodMinAvailability": 1,
-  "languageCode": "null"
+  "languageCode": "null",
+  "regionCode": "CE"
 }

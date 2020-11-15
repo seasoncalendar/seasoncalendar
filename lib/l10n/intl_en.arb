@@ -7,6 +7,13 @@
   "appTitle": "Seasonal foods calendar",
   "@appTitle": {"description": "The title of the app, e.g. 'Seasonal foods calendar'"},
 
+
+
+  "centralEurope": "Central Europe",
+  "@centralEurope": {"description": "The region of Central Europe."},
+
+
+
   "january": "January",
   "@january": {"description": "The word 'January'"},
 
@@ -186,6 +193,18 @@
 
   "settingsFilterTitle": "Filter by availability",
   "@settingsFilterTitle": {"description": "The phrase 'Filter by availability'"},
+
+  "settingsRegionTitle": "Region",
+  "@settingsRegionTitle": {"description": "The word 'Region'"},
+
+  "settingsRegionSubtitle": "Changing the region restarts the app",
+  "@settingsRegionSubtitle": {"description": "The phrase 'Changing the region restarts the app'"},
+
+  "settingsRegionUseLocale": "Use device region",
+  "@settingsRegionUseLocale": {"description": "The phrase 'Use device region'"},
+
+  "settingsRegionUseLocaleSub": "Uses 'Central Europe' if device region is not supported",
+  "@settingsRegionUseLocaleSub": {"description": "The phrase 'Uses 'Central Europe' if device region is not supported'"},
 
   "settingsLanguageTitle": "Language",
   "@settingsLanguageTitle": {"description": "The word 'Language'"},

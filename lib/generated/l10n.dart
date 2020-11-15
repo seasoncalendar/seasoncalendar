@@ -53,6 +53,16 @@ class L10n {
     );
   }
 
+  /// `Central Europe`
+  String get centralEurope {
+    return Intl.message(
+      'Central Europe',
+      name: 'centralEurope',
+      desc: 'The region of Central Europe.',
+      args: [],
+    );
+  }
+
   /// `January`
   String get january {
     return Intl.message(
@@ -649,6 +659,46 @@ class L10n {
       'Filter by availability',
       name: 'settingsFilterTitle',
       desc: 'The phrase \'Filter by availability\'',
+      args: [],
+    );
+  }
+
+  /// `Region`
+  String get settingsRegionTitle {
+    return Intl.message(
+      'Region',
+      name: 'settingsRegionTitle',
+      desc: 'The word \'Region\'',
+      args: [],
+    );
+  }
+
+  /// `Changing the region restarts the app`
+  String get settingsRegionSubtitle {
+    return Intl.message(
+      'Changing the region restarts the app',
+      name: 'settingsRegionSubtitle',
+      desc: 'The phrase \'Changing the region restarts the app\'',
+      args: [],
+    );
+  }
+
+  /// `Use device region`
+  String get settingsRegionUseLocale {
+    return Intl.message(
+      'Use device region',
+      name: 'settingsRegionUseLocale',
+      desc: 'The phrase \'Use device region\'',
+      args: [],
+    );
+  }
+
+  /// `Uses 'Central Europe' if device region is not supported`
+  String get settingsRegionUseLocaleSub {
+    return Intl.message(
+      'Uses \'Central Europe\' if device region is not supported',
+      name: 'settingsRegionUseLocaleSub',
+      desc: 'The phrase \'Uses \'Central Europe\' if device region is not supported\'',
       args: [],
     );
   }
