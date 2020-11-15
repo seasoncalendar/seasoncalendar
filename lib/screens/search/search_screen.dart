@@ -75,7 +75,7 @@ class SearchScreen extends SearchDelegate<String> {
             .contains(query.toLowerCase()))
         .toList();
 
-    print(exactMatches.length);
+    //print(exactMatches.length);
 
     if (exactMatches.length > 0) {
       return FoodView.fromSearchResult(exactMatches, _monthIndex);
@@ -87,7 +87,7 @@ class SearchScreen extends SearchDelegate<String> {
             query.length >= 4))
         .toList();
 
-    print(startsWith.length);
+    //print(startsWith.length);
 
     if (startsWith.length > 0) {
       return FoodView.fromSearchResult(startsWith, _monthIndex);
@@ -104,7 +104,7 @@ class SearchScreen extends SearchDelegate<String> {
             0.5)
         .toList();
 
-    print(lvsResults.length);
+    //print(lvsResults.length);
 
     return FoodView.fromSearchResult(lvsResults, _monthIndex);
   }

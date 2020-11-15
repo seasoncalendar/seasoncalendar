@@ -124,6 +124,7 @@ class SettingsPageState extends State<SettingsPage> {
                   onTap: () =>
                       Navigator.of(context).pushNamed("/settings/filter"),
                 ),
+                /* REGION SELECTION TILE WILL BE ENABLED WITH THE 2ND REGION
                 const Divider(),
                 ListTileTheme(
                   child: ListTile(
@@ -136,6 +137,7 @@ class SettingsPageState extends State<SettingsPage> {
                     },
                   ),
                 ),
+                */
                 const Divider(),
                 ListTileTheme(
                   child: ListTile(
