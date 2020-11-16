@@ -4,7 +4,7 @@ This app is a practical and easy to use tool showing you which kinds of fruit, v
 
 Foods that are produced regionally are often times cheaper, tastier and better for the environment due to a shorter and more convenient transport.
 
-I aim at continuously extending the languages and regions supported!
+**I aim at continuously extending the languages and regions supported!**
 
 - _Supported Languages: German, English_
 - _Supported Regions: Central Europe_
