@@ -23,7 +23,7 @@ Especially the open-source aspect is a main motivating factor for me to further 
 
 ## Get it!
 
-- **From here:** check out the "Releases" tab of this repo for a fresh APK.
+- **From here:** check out the [Releases](https://github.com/Flunzmas/seasoncalendar/releases) tab of this repo for a fresh APK.
 - **From Google Play**: https://play.google.com/store/apps/details?id=flunzmas.seasoncalendar
 - **From F-Droid**: *coming soon!*
 
