@@ -109,6 +109,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
   final Map<String, String> languageNameFromCode = {
     "en": "English",
     "de": "Deutsch",
+    "fr": "Français",
     "pl": "Polski"
   };
 }

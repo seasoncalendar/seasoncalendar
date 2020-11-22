@@ -393,10 +393,10 @@ class L10n {
     );
   }
 
-  /// `This app is still in its baby shoes and thus not perfect. However, it can be extended. If you've found an error or room for a concrete improvement, feel free to contact me via my webpage.`
+  /// `If you've found an error or room for a concrete improvement, feel free to contact me via my webpage.`
   String get contribPageContact {
     return Intl.message(
-      'This app is still in its baby shoes and thus not perfect. However, it can be extended. If you\'ve found an error or room for a concrete improvement, feel free to contact me via my webpage.',
+      'If you\'ve found an error or room for a concrete improvement, feel free to contact me via my webpage.',
       name: 'contribPageContact',
       desc: 'Justification for missing features/incorrectness by stating young age of app',
       args: [],
@@ -673,16 +673,6 @@ class L10n {
     );
   }
 
-  /// `Changing the region restarts the app`
-  String get settingsRegionSubtitle {
-    return Intl.message(
-      'Changing the region restarts the app',
-      name: 'settingsRegionSubtitle',
-      desc: 'The phrase \'Changing the region restarts the app\'',
-      args: [],
-    );
-  }
-
   /// `Use device region`
   String get settingsRegionUseLocale {
     return Intl.message(
@@ -739,6 +729,16 @@ class L10n {
       'Uses English if device language is not supported',
       name: 'settingsLanguageUseLocaleSub',
       desc: 'The phrase \'Uses English if device language is not supported\'',
+      args: [],
+    );
+  }
+
+  /// `Version`
+  String get settingsVersion {
+    return Intl.message(
+      'Version',
+      name: 'settingsVersion',
+      desc: 'The word \'Version\'',
       args: [],
     );
   }
@@ -971,6 +971,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'de'),
+      Locale.fromSubtags(languageCode: 'fr'),
     ];
   }
 

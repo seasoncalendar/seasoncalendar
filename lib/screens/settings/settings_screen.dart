@@ -174,7 +174,7 @@ class SettingsPageState extends State<SettingsPage> {
                 ListTile(
                   leading: Icon(Icons.info_outline),
                   enabled: false,
-                  title: Text('Version'),
+                  title: Text(L10n.of(context).settingsVersion),
                   trailing: Text(
                     widget._versionInfo,
                     style: const TextStyle(color: Colors.black38),

@@ -113,7 +113,7 @@
   "contribPageContactHeadline": "Something is missing or wrong?",
   "@contribPageContactHeadline": {"description": "The phrase 'Something is missing or wrong?'"},
 
-  "contribPageContact": "This app is still in its baby shoes and thus not perfect. However, it can be extended. If you've found an error or room for a concrete improvement, feel free to contact me via my webpage.",
+  "contribPageContact": "If you've found an error or room for a concrete improvement, feel free to contact me via my webpage.",
   "@contribPageContact": {"description": "Justification for missing features/incorrectness by stating young age of app"},
 
   "contribPageContactButtonText": "To the webpage",
@@ -197,9 +197,6 @@
   "settingsRegionTitle": "Region",
   "@settingsRegionTitle": {"description": "The word 'Region'"},
 
-  "settingsRegionSubtitle": "Changing the region restarts the app",
-  "@settingsRegionSubtitle": {"description": "The phrase 'Changing the region restarts the app'"},
-
   "settingsRegionUseLocale": "Use device region",
   "@settingsRegionUseLocale": {"description": "The phrase 'Use device region'"},
 
@@ -217,6 +214,9 @@
 
   "settingsLanguageUseLocaleSub": "Uses English if device language is not supported",
   "@settingsLanguageUseLocaleSub": {"description": "The phrase 'Uses English if device language is not supported'"},
+
+  "settingsVersion": "Version",
+  "@settingsVersion": {"description": "The word 'Version'"},
 
   "minAvAir": "All available foods",
   "@minAvAir": {"description": "The phrase 'All available foods'"},
