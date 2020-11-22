@@ -4,7 +4,7 @@ This app is a practical and easy to use tool showing you which kinds of fruit, v
 
 Foods that are produced regionally are often times cheaper, tastier and better for the environment due to a shorter and more convenient transport.
 
-I aim at continuously extending the languages and regions supported!
+**I aim at continuously extending the languages and regions supported!**
 
 - _Supported Languages: German, English_
 - _Supported Regions: Central Europe_
@@ -23,7 +23,7 @@ Especially the open-source aspect is a main motivating factor for me to further 
 
 ## Get it!
 
-- **From here:** check out the "Releases" tab of this repo for a fresh APK.
+- **From here:** check out the [Releases](https://github.com/Flunzmas/seasoncalendar/releases) tab of this repo for a fresh APK.
 - **From Google Play**: https://play.google.com/store/apps/details?id=flunzmas.seasoncalendar
 - **From F-Droid**: *coming soon!*
 
@@ -31,7 +31,7 @@ Additional info can be fetched from my website: https://flunzmas.com/seasonal-fo
 
 ## Screenshots
 
-![scr1](assets/screenshots/Screenshot_20200818-192031.jpg) ![scr3](assets/screenshots/Screenshot_20200818-192041.jpg)
+![scr1](assets/screenshots/scr1.jpg) ![scr2](assets/screenshots/scr2.jpg)
 
 ## Asset Sources
 
