@@ -2,6 +2,6 @@
 <p><br><b>Features:</b></p><ul>
 <li>Boasts the biggest collection of foods</li>
 <li>Lets you pick and view your favorites</li>
+<li>Open Source</li>
 <li>Can be run on a variety of android devices</li>
-<li>Looks and feels better than most competitor apps (my personal opinion)</li></ul>
 <p><br>(License note: this app is subject to the GNU GPL-3.0 license, with the exception of the database files in the assets folder 'assets/db'. Please contact me before re-using them.)</p>

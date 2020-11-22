@@ -1,0 +1,7 @@
+<p>Cette application te montre quels sont les aliments qui sont en saison en ce moment et qui sont donc disponibles dans les produits voisins. Non seulement ils sont moins chers et plus savoureux, mais leur transport est également moins nocif pour notre environnement.</p>
+<p><br><b>Avantages:</b></p><ul>
+<li>Un grand choix de fruits et légumes différents</li>
+<li>Marque tes favoris et accéde-les rapidement</li>
+<li>Open Source</li>
+<li>Prend en charge un large éventail d'appareils Android</li>
+<p><br>(License: GNU GPL-3.0, exclus: les bases de données dans 'assets/db'. Veuillez me contacter avant de réutiliser.)</p>
