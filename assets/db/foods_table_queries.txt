@@ -15,6 +15,6 @@ create table foods_lang_de as select id, infoUrl, names_de from foods
 create foods combined
 =====================
 
-create view foods_de_ce as select f.id, f.type, f.assetImgPath, f.assetImgInfo, f.assetImgSourceUrl, fl.infoUrl, fl.foodnames, fa.isCommon, fa.avLocal, fa.avLand, fa.avSea, fa.avAir from foods as f
+create view foods_de_CE as select f.id, f.type, f.assetImgPath, f.assetImgInfo, f.assetImgSourceUrl, fl.infoUrl, fl.foodnames, fa.isCommon, fa.avLocal, fa.avLand, fa.avSea, fa.avAir from foods as f
 	inner join foods_lang_de as fl on f.id == fl.id
 	inner join foods_av_ce as fa on f.id == fa.id
