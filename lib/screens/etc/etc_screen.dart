@@ -26,12 +26,14 @@ class EtcPage extends StatelessWidget {
                     onTap: () => Navigator.of(context).pushNamed("/etc/contrib"),
                   ),
                   const Divider(),
+                  /*
                   ListTile(
                     leading: Icon(Icons.favorite),
                     title: Text(L10n.of(context).supportPageTitle),
                     onTap: () => Navigator.of(context).pushNamed("/etc/support"),
                   ),
                   const Divider(),
+                   */
                   ListTile(
                     leading: Icon(Icons.account_balance),
                     title: Text(L10n.of(context).imprintPageTitle),
