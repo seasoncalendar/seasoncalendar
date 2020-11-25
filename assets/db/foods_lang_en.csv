@@ -1,0 +1,101 @@
+id,infoUrl,foodnames
+apple,https://en.wikipedia.org/wiki/Apple,Apple
+apricot,https://en.wikipedia.org/wiki/Prunus_armeniaca,Apricot
+pear,https://en.wikipedia.org/wiki/Pear,Pear
+blueberry,https://en.wikipedia.org/wiki/Bilberry,Blueberry
+blackberry,https://en.wikipedia.org/wiki/Blackberry,Blackberry
+strawberry,https://en.wikipedia.org/wiki/Strawberry,Strawberry
+raspberry,https://en.wikipedia.org/wiki/Raspberry,Raspberry
+elderberry,https://en.wikipedia.org/wiki/Sambucus_nigra,"Elderberry, sambucus, elder"
+gooseberry,https://en.wikipedia.org/wiki/Gooseberry,Gooseberry
+banana,https://en.wikipedia.org/wiki/Banana,Banana
+rhubarb,https://en.wikipedia.org/wiki/Rhubarb,Rhubarb
+paprika,https://en.wikipedia.org/wiki/Bell_pepper,"Paprika, Pepper, Sweet pepper, Bell pepper, Capsicum"
+pineapple,https://en.wikipedia.org/wiki/Pineapple,"Pineapple, Ananas"
+avocado,https://en.wikipedia.org/wiki/Avocado,"Avocado, Avocado Pear, Alligator pear"
+date,https://en.wikipedia.org/wiki/Date_palm,"Fresh date, Date"
+fig,https://en.wikipedia.org/wiki/Common_fig,Fig
+pomegranate,https://en.wikipedia.org/wiki/Pomegranate,Pomegranate
+grapefuit,https://en.wikipedia.org/wiki/Grapefruit,Grapefruit
+currant,https://en.wikipedia.org/wiki/Ribes,"Currant, Ribes"
+persimmon,https://en.wikipedia.org/wiki/Diospyros_kaki,"Persimmon, Diospyros Kaki, Kaki"
+pricklypear,https://en.wikipedia.org/wiki/Opuntia_ficus-indica,Prickly pear
+physalis,https://en.wikipedia.org/wiki/Physalis,"Physalis, Groundcherry, Inca berry, Cape gooseberry"
+starfuit,https://en.wikipedia.org/wiki/Carambola,"Carambola, Star fruit"
+kiwi,https://en.wikipedia.org/wiki/Kiwifruit,"Kiwi, Kiwifruit"
+coco,https://en.wikipedia.org/wiki/Coconut,"Coconut, Coco"
+lychee,https://en.wikipedia.org/wiki/Lychee,"Lychee, Longan, Litchi"
+mango,https://en.wikipedia.org/wiki/Mango,Mango
+watermelon,https://en.wikipedia.org/wiki/Watermelon,"Watermelon, Water melon"
+yellowplum,https://en.wikipedia.org/wiki/Mirabelle_plum,"Yellow plum, Mirabelle plum, Mirabelle prune, Cherry Plum"
+nectarine,https://en.wikipedia.org/wiki/Peach#Nectarines,Nectarine
+papaya,https://en.wikipedia.org/wiki/Papaya,"Papaya, Papaw, Pawpaw"
+passionfruit,https://en.wikipedia.org/wiki/Passiflora_edulis,"Passion fruit, Maracuja, Passiflora edulis"
+peach,https://en.wikipedia.org/wiki/Peach,Peach
+plum,https://en.wikipedia.org/wiki/Prunus_domestica,"Plum, European Plum"
+prune,https://en.wikipedia.org/wiki/Zwetschge,"Zwetschge, Sugar Plum, Prune"
+dragonfruit,https://en.wikipedia.org/wiki/Pitaya,"Dragonfruit, Pitaya, Pitahaya"
+quince,https://en.wikipedia.org/wiki/Quince,Quince
+cherry,https://en.wikipedia.org/wiki/Prunus_avium,"Cherry, Sweet Cherry, Wild Cherry, Gean"
+grapes,https://en.wikipedia.org/wiki/Grape,"Grapes, Wine grape"
+amla,https://en.wikipedia.org/wiki/Phyllanthus_emblica,"Amla, Emblic, Myrobalan, Indian gooseberry"
+orange,https://en.wikipedia.org/wiki/Orange_(fruit),"Orange, Sweet orange"
+lemon,https://en.wikipedia.org/wiki/Lemon,Lemon
+lime,https://en.wikipedia.org/wiki/Lime_(fruit),Lime
+clementine,https://en.wikipedia.org/wiki/Clementine,"Clementine, Mandarin orange, Tangor, Tangerine"
+honeymelon,https://en.wikipedia.org/wiki/Muskmelon,"Muskmelon, Honey melons, galia melon, cantaloupe melon"
+nashi,https://en.wikipedia.org/wiki/Pyrus_pyrifolia,"Nashi pear, Asian pear, Japanese pear, Chinese pear, Korean pear, Apple pear, Taiwanese pear, Papple"
+carob,https://en.wikipedia.org/wiki/Carob,Carob
+chestnut,https://en.wikipedia.org/wiki/Castanea_sativa,"Chestnut, Castanea sativa"
+rosehip,https://en.wikipedia.org/wiki/Rose_hip,"Rosehip, Rose hip, Rose haw, Rose hep"
+guava,https://en.wikipedia.org/wiki/Psidium_guajava,"Guava, Psidium Guajava"
+wildstrawberry,https://en.wikipedia.org/wiki/Fragaria_vesca,"Wild strawberry, Fraisier des bois, Woodland Strawberry"
+sorb,https://en.wikipedia.org/wiki/Sorbus_aucuparia,"Sorb, Rowan"
+cranberry,https://en.wikipedia.org/wiki/Cranberry,Cranberry
+cloudberry,https://en.wikipedia.org/wiki/Rubus_chamaemorus,"Cloudberry, Nordic berry, Bakeapple, Knotberry, Knoutberry, Aqpik, Averin, Evron"
+lingonberry,https://en.wikipedia.org/wiki/Vaccinium_vitis-idaea,"Lingonberry, Patridgeberry, Cowberry, Mountain cranberry"
+eggplant,https://en.wikipedia.org/wiki/Eggplant,"Eggplant, Aubergine, Brinjal"
+batavia,https://en.wikipedia.org/wiki/Lettuce,"Batavia, Salad, Lettuce"
+spinach,https://en.wikipedia.org/wiki/Spinach,Spinach
+celery-green,https://en.wikipedia.org/wiki/Celery,Celery
+cauliflower,https://en.wikipedia.org/wiki/Cauliflower,Cauliflower
+greenbeans,https://en.wikipedia.org/wiki/Phaseolus_vulgaris,"Common bean, Green beans, French bean"
+broccoli,https://en.wikipedia.org/wiki/Broccoli,Broccoli
+champignon,https://en.wikipedia.org/wiki/Agaricus_bisporus,"Champignon, Mushroom"
+chicory,https://en.wikipedia.org/wiki/Chicory#Cultivated,Chicory
+iceberg,https://en.wikipedia.org/wiki/Lettuce,"Iceberg salad, Crisphead, Salad, Lettuce"
+endive,https://en.wikipedia.org/wiki/Endive,"Endive, Salad"
+fieldsalad,https://en.wikipedia.org/wiki/Valerianella_locusta,"Field salad, Corn salad, Lamb's lettuce, Fetticus, Nut lettuce, Salad, Lettuce"
+headlettuce,https://en.wikipedia.org/wiki/Lettuce,"Head lettuce, Lettuce, Salad, Butterhead, Boston, Bibb lettuce"
+lollorossa,https://en.wikipedia.org/wiki/Lettuce,"Lollo rossa, Lettuce"
+radicchio,https://en.wikipedia.org/wiki/Radicchio,"Radicchio, Italian chicory"
+chinesecabbage,https://en.wikipedia.org/wiki/Napa_cabbage,"Chinese cabbage, Napa cabbage, Napa"
+peas,https://en.wikipedia.org/wiki/Pea,"Peas, Pea"
+fennel,https://en.wikipedia.org/wiki/Fennel,Fennel
+greenonion,https://en.wikipedia.org/wiki/Allium_fistulosum,"Green onions, Onion, Welsh onion, Bunching onion, spring onion"
+sweetcorn,https://en.wikipedia.org/wiki/Maize,"Corn, Sweet Corn, Maize"
+greencabbage,https://en.wikipedia.org/wiki/Kale,"Green cabbage, Cabbage, Leaf cabbage, Kale"
+cucumber,https://en.wikipedia.org/wiki/Cucumber,Cucumber
+potato,https://en.wikipedia.org/wiki/Potato,Potato
+carrot,https://en.wikipedia.org/wiki/Carrot,Carrot
+celery,https://en.wikipedia.org/wiki/Celeriac,"Celeriac, Knob celery, Celery root"
+kohlrabi,https://en.wikipedia.org/wiki/Kohlrabi,Kohlrabi
+leek,https://en.wikipedia.org/wiki/Leek,Leek
+chard,https://en.wikipedia.org/wiki/Chard,"Chard, swiss chard"
+parsnip,https://en.wikipedia.org/wiki/Parsnip,Parsnip
+smallradish,https://en.wikipedia.org/wiki/Radish,"Radish, small radish"
+radish,https://en.wikipedia.org/wiki/Raphanus,Raphanus
+brusselssprouts,https://en.wikipedia.org/wiki/Brussels_sprout,Brussels sprout
+beetroot,https://en.wikipedia.org/wiki/Beetroot,"Beetroot, beets, table beet, red beet"
+purplecabbage,https://en.wikipedia.org/wiki/Red_cabbage,"Red cabbage, purple cabbage, Blaukraut, Cabbage"
+asparagus,https://en.wikipedia.org/wiki/Asparagus,"Asparagus, Sparrow grass"
+pointedcabbage,https://en.wikipedia.org/wiki/Cabbage,"Pointed cabbage, Cabbage"
+tomato,https://en.wikipedia.org/wiki/Tomato,Tomato
+whitecabbage,https://en.wikipedia.org/wiki/Cabbage,"White cabbage, Cabbage"
+savoy,https://en.wikipedia.org/wiki/Savoy_cabbage,"Savoy, Savoy cabbage, Cabbage"
+zucchini,https://en.wikipedia.org/wiki/Zucchini,"Zucchini, Courgette, Baby marrow"
+sweetpotato,https://en.wikipedia.org/wiki/Sweet_potato,"Sweet potato, Sweetpotato"
+pakchoi,https://en.wikipedia.org/wiki/Bok_choy,"Bok Choy, pak choi, Pok choi"
+artichoke,https://en.wikipedia.org/wiki/Artichoke,Artichoke
+pumpkin,https://en.wikipedia.org/wiki/Pumpkin,Pumpkins
+onion,https://en.wikipedia.org/wiki/Onion,"Onion, Bulb onion, Common onion, Cepa, Shallot"
