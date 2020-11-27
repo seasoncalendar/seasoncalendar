@@ -37,7 +37,7 @@ Additional info can be fetched from my website: https://flunzmas.com/seasonal-fo
 
 The database file `assets/db/foods.db` contains all food information and their respective sources. You can open the file e.g. with ![the official SQLite DB Browser](https://sqlitebrowser.org/).
 
-Please note that the data concerning foods' availability partly stems from ![lebensmittellexikon.de](lebensmittellexikon.de) and thus is __not__ subject to the GPL license. I kindly ask you to contact me before re-using the availability data (columns starting with 'av' from the file `assets/db/foods.db`).
+Please note that the data concerning foods' availability partly stems from ![lebensmittellexikon.de](https://lebensmittellexikon.de/) and thus is __not__ subject to the GPL license. I kindly ask you to contact me before re-using the availability data (columns starting with 'av' from the file `assets/db/foods.db`).
 
 # Building it Yourself
 
