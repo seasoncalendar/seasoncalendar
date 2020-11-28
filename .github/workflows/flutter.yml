@@ -25,4 +25,4 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: debug-apk
-          path: build/app/outputs/apk/foss/debug/app-debug.apk
+          path: build/app/outputs/apk/foss/debug/app-foss-debug.apk
