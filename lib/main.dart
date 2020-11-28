@@ -1,19 +1,33 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:seasoncalendar/routes.dart';
+import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 void main() async {
-  runApp(
-    Phoenix(
-      child: MyApp(),
-    ),
+  var inferredFlavor = AppFlavor.googleplay;
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await const MethodChannel('flavor')
+      .invokeMethod<String>('getFlavor')
+      .then((String flavor) {
+        inferredFlavor = appFlavorFromString(flavor);
+      })
+      .catchError((error) {
+        print(error);
+    print('Failed to load flavor, defaulting to googleplay flavor!');
+  });
+
+  var configuredApp = Phoenix(
+    child: AppConfig(child: MyApp(), buildFlavor: inferredFlavor),
   );
+  return runApp(configuredApp);
 }
 
 class MyApp extends StatefulWidget {

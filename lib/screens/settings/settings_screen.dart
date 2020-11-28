@@ -8,6 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
+import 'package:seasoncalendar/app_config.dart';
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
@@ -176,7 +177,9 @@ class SettingsPageState extends State<SettingsPage> {
                   enabled: false,
                   title: Text(L10n.of(context).settingsVersion),
                   trailing: Text(
-                    widget._versionInfo,
+                    widget._versionInfo +
+                        versionCodeSuffixFromAppFlavor(
+                            AppConfig.of(context).buildFlavor),
                     style: const TextStyle(color: Colors.black38),
                   ),
                   isThreeLine: false,

@@ -65,6 +65,16 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+    flavorDimensions "app"
+    productFlavors {
+        googleplay {
+            dimension "app"
+        }
+        foss {
+            dimension "app"
+        }
+    }
 }
 
 flutter {
@@ -73,4 +83,5 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 }

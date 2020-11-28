@@ -1,47 +1,56 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
-
+import 'package:seasoncalendar/app_config.dart';
 
 class EtcPage extends StatelessWidget {
-
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-        AppBar(title: Text(L10n.of(context).etcPageTitle)),
+        appBar: AppBar(title: Text(L10n.of(context).etcPageTitle)),
         body: Container(
             margin: EdgeInsets.all(10),
             child: SingleChildScrollView(
               child: Column(
-                children: <Widget>[
-                  ListTile(
-                    leading: Icon(Icons.help),
-                    title: Text(L10n.of(context).aboutPageTitle),
-                    onTap: () => Navigator.of(context).pushNamed("/etc/about"),
-                  ),
-                  const Divider(),
-                  ListTile(
-                    leading: Icon(Icons.extension),
-                    title: Text(L10n.of(context).contribPageTitle),
-                    onTap: () => Navigator.of(context).pushNamed("/etc/contrib"),
-                  ),
-                  const Divider(),
-                  /*
-                  ListTile(
-                    leading: Icon(Icons.favorite),
-                    title: Text(L10n.of(context).supportPageTitle),
-                    onTap: () => Navigator.of(context).pushNamed("/etc/support"),
-                  ),
-                  const Divider(),
-                   */
-                  ListTile(
-                    leading: Icon(Icons.account_balance),
-                    title: Text(L10n.of(context).imprintPageTitle),
-                    onTap: () => Navigator.of(context).pushNamed("/etc/imprint"),
-                  ),
-                ],
+                children: getEtcPageItems(context),
               ),
-            ))
-    );
+            )));
+  }
+
+  List<Widget> getEtcPageItems(BuildContext context) {
+    bool isGooglePlay = AppConfig.of(context).buildFlavor == AppFlavor.googleplay;
+    List<Widget> etcPageItems = List<Widget>();
+
+    etcPageItems.add(ListTile(
+      leading: Icon(Icons.help),
+      title: Text(L10n.of(context).aboutPageTitle),
+      onTap: () => Navigator.of(context).pushNamed("/etc/about"),
+    ));
+    etcPageItems.add(const Divider());
+    etcPageItems.add(ListTile(
+      leading: Icon(Icons.extension),
+      title: Text(L10n.of(context).contribPageTitle),
+      onTap: () => Navigator.of(context).pushNamed("/etc/contrib"),
+    ));
+    etcPageItems.add(const Divider());
+
+    // leave out support page for compliance with Google Play
+    if (!isGooglePlay) {
+      etcPageItems.add(ListTile(
+        leading: Icon(Icons.favorite),
+        title: Text(L10n.of(context).supportPageTitle),
+        onTap: () =>
+            Navigator.of(context).pushNamed("/etc/support"),
+      ));
+      etcPageItems.add(const Divider());
+    }
+
+    etcPageItems.add(ListTile(
+      leading: Icon(Icons.account_balance),
+      title: Text(L10n.of(context).imprintPageTitle),
+      onTap: () =>
+          Navigator.of(context).pushNamed("/etc/imprint"),
+    ));
+
+    return etcPageItems;
   }
 }
