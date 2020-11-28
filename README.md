@@ -44,7 +44,9 @@ Please note that the data concerning foods' availability partly stems from ![leb
 0. Clone the repo
 1. `flutter pub get`
 2. `flutter update-packages`
-3. `flutter build apk --debug` **or** `flutter build apk --release`
+3. `flutter build apk --debug --flavor <flavor>` **or** `flutter build apk --release --flavor <flavor>`
+
+(replace `<flavor>` with `googleplay` for the Google Play version, `foss` for the full version) 
 
 _You need an own key to sign release versions of this app._
 
