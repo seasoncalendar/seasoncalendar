@@ -8,40 +8,65 @@ const Availability n = Availability.none;
 const Availability s = Availability.some;
 const Availability f = Availability.full;
 
-Availability fromDouble(double val) {
+Availability _fromDouble(double val) {
   if (val == 0.0) return n;
-  if (val == 1.0)
-    return f;
-  else
-    return s;
+  if (val == 1.0) return f;
+  return s;
 }
 
-const Map<String, IconData> availabilityModeIcons = {
-  "local": Icons.home,
-  "landTransport": Icons.local_shipping,
-  "seaTransport": Icons.directions_boat,
-  "flightTransport": Icons.airplanemode_active,
-  "notAvailable": Icons.remove,
+double _toDouble(Availability av) {
+  if (av == n) return 0.0;
+  if (av == f) return 1.0;
+  return 0.5;
+}
+
+int compareAvailabilities(List<Availability> av1, List<Availability> av2) {
+  // ASSUMING: av1.length == av2.length
+  for (int i = 0; i < av1.length; ++i) {
+    int comp = _toDouble(av2[i]).compareTo(_toDouble(av1[i]));
+    if (comp != 0) return comp;
+  }
+  return 0;
+}
+
+int getIconAlphaFromAvailability(Availability av) {
+  if (av == n) return 230;
+  if (av == f) return 200;
+  return 120;
+}
+
+const Map<Availability, double> availabilityToIconAlphaFactor = {
+  Availability.none: 1.0,
+  Availability.full: 1.0,
+  Availability.some: 0.5
 };
-Map<String, Color> availabilityModeColor = {
-  "local": Colors.lightGreenAccent[100],
-  "landTransport": Colors.lime[200],
-  "seaTransport": Colors.yellowAccent[100],
-  "flightTransport": Colors.orangeAccent[100],
-  "notAvailable": Colors.grey[200],
+
+const Map<int, IconData> availabilityModeIcons = {
+  0: Icons.home,
+  1: Icons.local_shipping,
+  2: Icons.directions_boat,
+  3: Icons.airplanemode_active,
+  -1: Icons.remove,
 };
-const Map<String, double> availabilityModeValues = {
-  "local": 3,
-  "landTransport": 2,
-  "seaTransport": 1,
-  "flightTransport": 0,
+Map<int, Color> availabilityModeColor = {
+  0: Colors.lightGreenAccent[100],
+  1: Colors.lime[200],
+  2: Colors.yellowAccent[100],
+  3: Colors.orangeAccent[100],
+  -1: Colors.grey[200],
+};
+const Map<String, int> availabilityModeValues = {
+  "local": 0,
+  "landTransport": 1,
+  "seaTransport": 2,
+  "flightTransport": 3,
   "notAvailable": -1,
 };
 
 List<Food> getFoodsFromIds(List<String> foodIds, List<Food> allFoods) {
   List<Food> matchingFoods = new List();
-  Map<String, Food> allFoodsMap = Map.fromIterable(allFoods,
-      key: (food) => food.id, value: (food) => food);
+  Map<String, Food> allFoodsMap =
+      Map.fromIterable(allFoods, key: (food) => food.id, value: (food) => food);
   foodIds.forEach((id) {
     if (allFoodsMap.containsKey(id)) {
       matchingFoods.add(allFoodsMap[id]);
@@ -62,7 +87,7 @@ List<Availability> availabilitiesFromStringList(List<String> avStringList) {
   List<Availability> availabilities = new List<Availability>();
   avStringList.forEach((av) {
     double avDouble = double.tryParse(av);
-    availabilities.add(fromDouble(avDouble ?? 0.0));
+    availabilities.add(_fromDouble(avDouble ?? 0.0));
   });
   return availabilities;
 }
@@ -115,28 +140,24 @@ class Food {
         availabilitiesFromStringList(splitByCommaAndTrim(avAir));
   }
 
-  List<String> getAvailabilityModes(int monthIndex) {
-    LinkedHashMap<String, Availability> availabilitiesThisMonth =
-        LinkedHashMap();
-    this.availabilities.keys.forEach((key) {
-      availabilitiesThisMonth[key] = this.availabilities[key][monthIndex];
-    });
+  List<Availability> getAvailabilitiesByMonth(int monthIndex) {
+    List<Availability> availabilitiesThisMonth = [
+      Availability.none,
+      Availability.none,
+      Availability.none,
+      Availability.none
+    ];
 
-    List<String> resultModes = new List();
-    for (var key in availabilitiesThisMonth.keys) {
-      Availability curModeAv = availabilitiesThisMonth[key];
-      if (curModeAv != Availability.none) {
-        resultModes.add(key);
-      }
-      if (curModeAv == Availability.full || resultModes.length >= 2) {
-        return resultModes;
-      }
+    var avKeys = this.availabilities.keys.toList();
+    for (int i = 0; i < avKeys.length; ++i) {
+      var curKey = avKeys[i];
+      var curAv = this.availabilities[curKey][monthIndex];
+      availabilitiesThisMonth[availabilityModeValues[curKey]] = curAv;
+
+      // lower av modes are disregarded if any mode is "full"
+      if (curAv == f) break;
     }
 
-    if (resultModes.length == 0) {
-      return ["notAvailable"];
-    } else {
-      return resultModes;
-    }
+    return availabilitiesThisMonth;
   }
 }

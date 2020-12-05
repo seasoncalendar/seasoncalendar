@@ -95,6 +95,7 @@
   "emptyFoodsViewText": "Keine Lebensmittel verfügbar!",
   "emptyFavoritesViewText": "Keine Favoriten verfügbar!",
   "emptyFavoritesViewHint": "Füge deine Lieblingssorten durch\nTipp auf den jeweiligen Stern \u2606 hinzu.",
+  "emptyDefaultViewHint": "Überprüfe deine Lebensmittel-Filtereinstellungen.",
   "emptySearchViewText": "Keine Lebensmittel gefunden!",
   "searchFieldLabel": "Suche...",
   "etcPageTitle": "Über die App"

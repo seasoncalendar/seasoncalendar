@@ -52,6 +52,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "contribPageContactHeadline" : MessageLookupByLibrary.simpleMessage("Etwas fehlt dir oder ist falsch?"),
     "contribPageTitle" : MessageLookupByLibrary.simpleMessage("Verbessern"),
     "december" : MessageLookupByLibrary.simpleMessage("Dezember"),
+    "emptyDefaultViewHint" : MessageLookupByLibrary.simpleMessage("Überprüfe deine Lebensmittel-Filtereinstellungen."),
     "emptyFavoritesViewHint" : MessageLookupByLibrary.simpleMessage("Füge deine Lieblingssorten durch\nTipp auf den jeweiligen Stern ☆ hinzu."),
     "emptyFavoritesViewText" : MessageLookupByLibrary.simpleMessage("Keine Favoriten verfügbar!"),
     "emptyFoodsViewText" : MessageLookupByLibrary.simpleMessage("Keine Lebensmittel verfügbar!"),

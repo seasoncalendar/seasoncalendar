@@ -58,12 +58,16 @@ class FoodView extends StatelessWidget {
   Widget _buildEmpty(BuildContext context, String viewContext) {
     IconData emptyIcon = Icons.spa;
     String emptyText = L10n.of(context).emptyFoodsViewText;
-    Widget favAddHint = Container();
+    Widget emptyHint = Text(
+      L10n.of(context).emptyDefaultViewHint,
+      style: const TextStyle(color: Colors.black54),
+      textAlign: TextAlign.center,
+    );
 
     if (viewContext.startsWith("fav")) {
       emptyIcon = Icons.star_border;
       emptyText = L10n.of(context).emptyFavoritesViewText;
-      favAddHint = Text(
+      emptyHint = Text(
         L10n.of(context).emptyFavoritesViewHint,
         style: const TextStyle(color: Colors.black54),
         textAlign: TextAlign.center,
@@ -71,6 +75,7 @@ class FoodView extends StatelessWidget {
     } else if (viewContext == "search") {
       emptyIcon = Icons.search;
       emptyText = L10n.of(context).emptySearchViewText;
+      emptyHint = Container();
     }
     return SizedBox(
         height: double.infinity,
@@ -125,7 +130,7 @@ class FoodView extends StatelessWidget {
                   flex: 20,
                   child: Align(
                     alignment: Alignment.bottomCenter,
-                    child: favAddHint,
+                    child: emptyHint,
                   )),
               Expanded(
                 flex: 2,

@@ -275,6 +275,9 @@
   "emptyFavoritesViewHint": "Add a favorite by tapping the food's star \u2606.",
   "@emptyFavoritesViewHint": {"description": "A hint shown when no favorites are displayed in the current foods view."},
 
+  "emptyDefaultViewHint": "Check your foods display filtering.",
+  "@emptyDefaultViewHint": {"description": "A hint shown when no foods are displayed in the current default foods view."},
+
   "emptySearchViewText": "No foods found!",
   "@emptySearchViewText": {"description": "A text shown when no food is displayed in the search result view."},
 

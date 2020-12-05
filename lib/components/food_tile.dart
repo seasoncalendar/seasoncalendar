@@ -12,8 +12,8 @@ class FoodTile extends StatefulWidget {
   final String _assetImgPath;
   final String _foodInfoURL;
   final int _curMonthIndex;
-  final List<List<String>> _allAvailabilities;
-  List<String> _curAvailabilities;
+  final List<List<Availability>> _allAvailabilities;
+  List<Availability> _curAvailabilities;
   Color _curAvailabilityColor = Colors.white70;
 
   FoodTile(Food foodToDisplay, int curMonthIndex)
@@ -23,9 +23,10 @@ class FoodTile extends StatefulWidget {
         _foodInfoURL = foodToDisplay.infoUrl,
         _curMonthIndex = curMonthIndex,
         _allAvailabilities = List.generate(12,
-                (monthIndex) => foodToDisplay.getAvailabilityModes(monthIndex)) {
+                (monthIndex) => foodToDisplay.getAvailabilitiesByMonth(monthIndex)) {
     _curAvailabilities = _allAvailabilities[_curMonthIndex];
-    _curAvailabilityColor = availabilityModeColor[_curAvailabilities[0]];
+    int fstModeIdx = _curAvailabilities.indexWhere((mode) => mode != Availability.none);
+    _curAvailabilityColor = availabilityModeColor[fstModeIdx];
   }
 
   @override
@@ -177,24 +178,36 @@ Icon getFavIcon(context, constraint, int isFavorite) {
 }
 
 Container getAvailabilityIconContainer(
-    BuildContext context, constraint, List<String> availabilities) {
-  Widget containerChild;
+    BuildContext context, constraint, List<Availability> availabilities) {
 
-  if (availabilities.length == 1) {
-    containerChild = Icon(availabilityModeIcons[availabilities[0]],
-        size: constraint.biggest.height, color: Colors.black.withAlpha(180));
+  Widget containerChild;
+  int fstModeIdx = availabilities.indexWhere((mode) => mode != Availability.none);
+  int sndModeIdx = availabilities.indexWhere((mode) => mode != Availability.none, fstModeIdx + 1);
+
+
+  if (fstModeIdx == -1) {
+    int iconAlpha = getIconAlphaFromAvailability(Availability.none);
+    containerChild = Icon(availabilityModeIcons[fstModeIdx],
+        size: constraint.biggest.height, color: Colors.black.withAlpha(iconAlpha));
+  }
+  else if (sndModeIdx == -1) {
+    int iconAlpha = getIconAlphaFromAvailability(availabilities[fstModeIdx]);
+    containerChild = Icon(availabilityModeIcons[fstModeIdx],
+        size: constraint.biggest.height, color: Colors.black.withAlpha(iconAlpha));
   } else {
+    int primaryIconAlpha = getIconAlphaFromAvailability(availabilities[fstModeIdx]);
+    int secondaryIconAlpha = getIconAlphaFromAvailability(availabilities[sndModeIdx]);
     containerChild = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Icon(availabilityModeIcons[availabilities[0]],
+        Icon(availabilityModeIcons[fstModeIdx],
             size: constraint.biggest.height,
-            color: Colors.black.withAlpha(180)),
+            color: Colors.black.withAlpha(primaryIconAlpha)),
         Text(" / "),
-        Icon(availabilityModeIcons[availabilities[1]],
+        Icon(availabilityModeIcons[sndModeIdx],
             size: constraint.biggest.height / 1.4,
-            color: Colors.black.withAlpha(140)),
+            color: Colors.black.withAlpha(secondaryIconAlpha)),
       ],
     );
   }

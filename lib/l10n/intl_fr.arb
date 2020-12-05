@@ -95,6 +95,7 @@
   "emptyFoodsViewText": "Aucun aliment disponible !",
   "emptyFavoritesViewText": "Pas de favoris disponibles !",
   "emptyFavoritesViewHint": "Ajoute tes variétés préférées en tapant sur l'étoile correspondante ☆.",
+  "emptyDefaultViewHint": "Vérifie le configuration du filtrage de l'affichage de tes aliments.",
   "emptySearchViewText": "Aucun aliment trouvé !",
   "searchFieldLabel": "Chercher...",
   "etcPageTitle": "À propos de l'application"

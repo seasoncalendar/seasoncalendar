@@ -1,7 +1,10 @@
 {
   "foodSorting": true,
   "includeUncommon": false,
-  "foodMinAvailability": 1,
+  "showAvLocal": true,
+  "showAvLand": true,
+  "showAvSea": true,
+  "showAvAir": true,
   "languageCode": "null",
   "regionCode": "CE"
 }

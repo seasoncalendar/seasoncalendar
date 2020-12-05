@@ -7,8 +7,10 @@ import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
+import 'package:seasoncalendar/helpers/availabilities.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
+import 'package:seasoncalendar/screens/settings/filterfoods/settings_filterfoods_dialog.dart';
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
@@ -91,6 +93,32 @@ class SettingsPageState extends State<SettingsPage> {
         child: CircularProgressIndicator(),
       );
     } else {
+      GestureTapCallback showFilterFoodsDialog = () {
+        showDialog(
+          context: context,
+          builder: (_) => AlertDialog(
+            backgroundColor: Colors.white,
+            content: FilterfoodsDialog(List.generate(
+                avTypeCount, (i) => widget._settings[avSettingsKeys[i]])),
+            elevation: 10,
+            actions: [
+              MaterialButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/etc/about");
+                },
+                child: Icon(Icons.help),
+              ),
+              MaterialButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text(L10n.of(context).back)),
+            ],
+          ),
+          barrierDismissible: true,
+        );
+      };
+
       return Container(
           margin: EdgeInsets.all(10),
           child: SingleChildScrollView(
@@ -122,8 +150,7 @@ class SettingsPageState extends State<SettingsPage> {
                   title: Text(L10n.of(context).settingsFilterTitle),
                   isThreeLine: false,
                   dense: false,
-                  onTap: () =>
-                      Navigator.of(context).pushNamed("/settings/filter"),
+                  onTap: showFilterFoodsDialog,
                 ),
                 /* REGION SELECTION TILE WILL BE ENABLED WITH THE 2ND REGION
                 const Divider(),

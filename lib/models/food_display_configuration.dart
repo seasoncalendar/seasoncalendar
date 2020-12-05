@@ -1,7 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 
+import 'package:seasoncalendar/helpers/availabilities.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/components/favorite_foods.dart';
@@ -41,24 +40,12 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   }
 
   void toggleFruitsSelected() async {
-    if (!fruitsSelected) {
-      fruitsSelected = true;
-    } else if (nonFruitsSelected) {
-      nonFruitsSelected = false;
-    } else {
-      nonFruitsSelected = true;
-    }
+    fruitsSelected = !fruitsSelected;
     updateFoodsAndNotify();
   }
 
   void toggleNonFruitsSelected() async {
-    if (!nonFruitsSelected) {
-      nonFruitsSelected = true;
-    } else if (fruitsSelected) {
-      fruitsSelected = false;
-    } else {
-      fruitsSelected = true;
-    }
+    nonFruitsSelected = !nonFruitsSelected;
     updateFoodsAndNotify();
   }
 
@@ -69,10 +56,8 @@ class FoodDisplayConfiguration extends ChangeNotifier {
     notifyListeners();
   }
 
-
   List<Food> _getFilteredAndSortedFoods(
       List<String> favFoodIds, Map<String, dynamic> settings) {
-
     // start with all possible foods...
     List<Food> filteredFoods = allFoods;
 
@@ -98,27 +83,23 @@ class FoodDisplayConfiguration extends ChangeNotifier {
           filteredFoods.where((food) => food.type != "nonFruit").toList();
     }
 
-    // meets min availability?
-    filteredFoods = filteredFoods
-        .where((food) =>
-            [
-              for (String av in food.getAvailabilityModes(monthIndex))
-                availabilityModeValues[av]
-            ].reduce(max) >=
-            settings['foodMinAvailability'])
-        .toList();
+    // meets selected availabilities?
+    List<bool> selectedAvs =
+        List.generate(avTypeCount, (i) => settings[avSettingsKeys[i]]);
+    filteredFoods = filteredFoods.where((food) {
+      List<bool> foodAvs = food.getAvailabilitiesByMonth(monthIndex).map((mode) => mode != Availability.none).toList();
+      return List.generate(foodAvs.length, (i) => selectedAvs[i] && foodAvs[i])
+          .contains(true);
+    }).toList();
 
-    // sort remaining foods
+    // sort remaining foods, first by display name.
     filteredFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
+
     if (settings['foodSorting'] == true) {
       filteredFoods.sort((a, b) {
-        int comp = [
-          for (String av in b.getAvailabilityModes(monthIndex))
-            availabilityModeValues[av]
-        ].reduce(max).compareTo([
-              for (String av in a.getAvailabilityModes(monthIndex))
-                availabilityModeValues[av]
-            ].reduce(max));
+        var av1 = a.getAvailabilitiesByMonth(monthIndex);
+        var av2 = b.getAvailabilitiesByMonth(monthIndex);
+        int comp = compareAvailabilities(av1, av2);
         if (comp != 0)
           return comp;
         else

@@ -12,7 +12,6 @@ import 'package:seasoncalendar/screens/home/home_screen.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/screens/settings/language/settings_language_screen.dart';
 import 'package:seasoncalendar/screens/settings/region/settings_region_screen.dart';
-import 'package:seasoncalendar/screens/settings/filterfoods/settings_filterfoods_screen.dart';
 import 'package:seasoncalendar/screens/etc/etc_screen.dart';
 import 'package:seasoncalendar/screens/etc/about/about_screen.dart';
 import 'package:seasoncalendar/screens/etc/contrib/contrib_screen.dart';
@@ -47,17 +46,6 @@ final Map<String, WidgetBuilder> appRoutes = {
           if (snapshot.hasData) {
             final initialSettings = snapshot.data;
             return SettingsPage(initialSettings);
-          } else {
-            return LoadingScaffold();
-          }
-        },
-      ),
-  "/settings/filter": (_) => FutureBuilder(
-        future: loadAssetFromJson("assets/initialsettings.json"),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final initialSettings = snapshot.data;
-            return SettingsFilterfoodsPage(initialSettings);
           } else {
             return LoadingScaffold();
           }

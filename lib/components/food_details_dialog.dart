@@ -12,10 +12,10 @@ class FoodDetailsDialog extends StatelessWidget {
   final String _foodDisplayName;
   final Image _foodImage;
   final String _foodInfoURL;
-  final List<List<String>> _allAvailabilities;
+  final List<List<Availability>> _allAvailabilities;
 
   FoodDetailsDialog(String foodDisplayName, String foodInfoURL, Image foodImage,
-      List<List<String>> allAvailabilities)
+      List<List<Availability>> allAvailabilities)
       : _foodDisplayName = foodDisplayName,
         _foodImage = foodImage,
         _foodInfoURL = foodInfoURL,
@@ -110,20 +110,30 @@ class FoodDetailsDialog extends StatelessWidget {
   Widget getAvailabilityInfoCard(BuildContext context, int monthIndex) {
     Widget containerChild;
 
-    if (_allAvailabilities[monthIndex].length == 1) {
+    int fstModeIdx = _allAvailabilities[monthIndex].indexWhere((mode) => mode != Availability.none);
+    int sndModeIdx = _allAvailabilities[monthIndex].indexWhere((mode) => mode != Availability.none, fstModeIdx + 1);
+
+    if (fstModeIdx == -1) {
+      int iconAlpha = getIconAlphaFromAvailability(Availability.none);
       containerChild = Icon(
-          availabilityModeIcons[_allAvailabilities[monthIndex][0]],
-          color: Colors.black.withAlpha(180));
+          availabilityModeIcons[fstModeIdx], color: Colors.black.withAlpha(iconAlpha));
+    }
+
+    else if (sndModeIdx == -1) {
+      int iconAlpha = getIconAlphaFromAvailability(_allAvailabilities[monthIndex][fstModeIdx]);
+      containerChild = Icon(
+          availabilityModeIcons[fstModeIdx], color: Colors.black.withAlpha(iconAlpha));
     } else {
+      int primaryIconAlpha = getIconAlphaFromAvailability(_allAvailabilities[monthIndex][fstModeIdx]);
+      int secondaryIconAlpha = getIconAlphaFromAvailability(_allAvailabilities[monthIndex][sndModeIdx]);
       containerChild = Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(availabilityModeIcons[_allAvailabilities[monthIndex][0]],
-              color: Colors.black.withAlpha(180)),
+          Icon(availabilityModeIcons[fstModeIdx],
+              color: Colors.black.withAlpha(primaryIconAlpha)),
           Text(" / "),
-          Icon(availabilityModeIcons[_allAvailabilities[monthIndex][1]],
-              color: Colors.black.withAlpha(110)),
+          Icon(availabilityModeIcons[sndModeIdx], color: Colors.black.withAlpha(secondaryIconAlpha)),
         ],
       );
     }
@@ -133,7 +143,7 @@ class FoodDetailsDialog extends StatelessWidget {
       child: Container(
         child: Card(
             elevation: 1,
-            color: availabilityModeColor[_allAvailabilities[monthIndex][0]],
+            color: availabilityModeColor[fstModeIdx],
             child: Container(
               padding: const EdgeInsets.all(2),
               child: Column(

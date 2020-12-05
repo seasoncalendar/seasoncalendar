@@ -933,6 +933,16 @@ class L10n {
     );
   }
 
+  /// `Check your foods display filtering.`
+  String get emptyDefaultViewHint {
+    return Intl.message(
+      'Check your foods display filtering.',
+      name: 'emptyDefaultViewHint',
+      desc: 'A hint shown when no foods are displayed in the current default foods view.',
+      args: [],
+    );
+  }
+
   /// `No foods found!`
   String get emptySearchViewText {
     return Intl.message(

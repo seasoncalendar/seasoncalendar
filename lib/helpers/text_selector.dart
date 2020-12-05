@@ -32,21 +32,3 @@ String getMonthNameFromIndex(BuildContext context, int monthIndex) {
       return L10n.of(context).december;
   }
 }
-
-final int avTypeCount = 4;
-
-String getMinAvTextFromIndex(BuildContext context, int minAvIndex) {
-  // 0 = all, 1 = no air transport, 2 = no air/sea transport, 3 = only local/regional
-  switch (minAvIndex) {
-    case 0:
-      return L10n.of(context).minAvAir;
-    case 1:
-      return L10n.of(context).minAvSea;
-    case 2:
-      return L10n.of(context).minAvLand;
-    case 3:
-      return L10n.of(context).minAvLocal;
-    default:
-      return L10n.of(context).minAvLocal;
-  }
-}
