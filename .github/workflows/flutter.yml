@@ -20,9 +20,9 @@ jobs:
           flutter-version: '1.22'
       - run: flutter pub get
       - run: flutter update-packages
-      - run: flutter build apk --debug
+      - run: flutter build apk --debug --flavor foss
        # Upload generated apk to the artifacts.
       - uses: actions/upload-artifact@v1
         with:
           name: debug-apk
-          path: build/app/outputs/apk/debug/app-debug.apk
+          path: build/app/outputs/apk/foss/debug/app-foss-debug.apk
