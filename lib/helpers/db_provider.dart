@@ -18,7 +18,7 @@ class DBProvider {
 
   static final DBProvider db = DBProvider._();
   static Database _database;
-  static String _db_view_name = "null";
+  static String dbViewName = "null";
 
   Future<Database> get database async {
     var settings = await SettingsPageState.getSettings();
@@ -28,7 +28,7 @@ class DBProvider {
     }
     String targetDBViewName =
         "foods_" + langCode + "_" + settings['regionCode'];
-    _db_view_name = targetDBViewName;
+    dbViewName = targetDBViewName;
 
     if (_database == null) {
       _database = await initDB();
@@ -64,7 +64,7 @@ class DBProvider {
 
   Future<dynamic> getFoods(BuildContext context) async {
     final Database db = await database;
-    final List<Map<String, dynamic>> maps = await db.query(_db_view_name);
+    final List<Map<String, dynamic>> maps = await db.query(dbViewName);
 
     return List.generate(maps.length, (i) {
       String foodId = maps[i]['id'];
