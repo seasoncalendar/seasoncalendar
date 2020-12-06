@@ -20,7 +20,6 @@ class FilterfoodsDialog extends StatefulWidget {
 class FilterfoodsDialogState extends State<FilterfoodsDialog> {
   @override
   Widget build(BuildContext context) {
-    print(widget._selectedAvailabilities);
 
     return SingleChildScrollView(
       child: Column(

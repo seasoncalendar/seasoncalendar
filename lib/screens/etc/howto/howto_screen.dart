@@ -4,63 +4,61 @@ import 'package:flutter/cupertino.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
-class AboutPage extends StatelessWidget {
+class HowToPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text(L10n.of(context).aboutPageTitle)),
+        appBar: AppBar(title: Text(L10n.of(context).howToPageTitle)),
         body: Container(
             margin: EdgeInsets.all(18),
             child: SingleChildScrollView(
                 child: Column(
               children: <Widget>[
-                Text(L10n.of(context).aboutPageHeadline,
+                Text(L10n.of(context).howToPageExplanationHeadline,
                     style: defaultTheme.textTheme.headline4),
                 SizedBox(height: 20),
-                Text(L10n.of(context).aboutPageLeading,
+                Text(L10n.of(context).howToPageExplanation,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
                 ListTile(
                   dense: true,
-                  leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(L10n.of(context).aboutPageAdvantage1,
+                  leading: Icon(Icons.home, color: Colors.black),
+                  title: Text(L10n.of(context).howToPageAvLocal,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
-                  leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(L10n.of(context).aboutPageAdvantage2,
+                  leading: Icon(Icons.local_shipping, color: Colors.black),
+                  title: Text(L10n.of(context).howToPageAvLand,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
-                  leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(L10n.of(context).aboutPageAdvantage3,
+                  leading: Icon(Icons.directions_boat, color: Colors.black),
+                  title: Text(L10n.of(context).howToPageAvSea,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
-                  leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(L10n.of(context).aboutPageAdvantage4,
+                  leading: Icon(Icons.airplanemode_active, color: Colors.black),
+                  title: Text(L10n.of(context).howToPageAvAir,
                       style: defaultTheme.textTheme.bodyText1),
                 ),
-                ListTile(
-                  dense: true,
-                  leading: Icon(Icons.check, color: Colors.green),
-                  title: Text(L10n.of(context).aboutPageAdvantage5,
-                      style: defaultTheme.textTheme.bodyText1),
-                ),
-                SizedBox(height: 20),
-                Text(L10n.of(context).aboutPageTrailing,
+                SizedBox(height: 10),
+                Text(L10n.of(context).howToPagePartial,
                     style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
-                SizedBox(height: 20),
-                Text(L10n.of(context).aboutPageDisclaimer,
-                    style: defaultTheme.textTheme.bodyText1
-                        .copyWith(fontStyle: FontStyle.italic),
+                SizedBox(height: 10),
+                Text(L10n.of(context).howToPageColors,
+                    style: defaultTheme.textTheme.bodyText1,
                     textAlign: TextAlign.justify),
+                SizedBox(height: 10),
+                Text(L10n.of(context).howToPageFavorites,
+                    style: defaultTheme.textTheme.bodyText1,
+                    textAlign: TextAlign.justify),
+                SizedBox(height: 10),
               ],
             ))));
   }

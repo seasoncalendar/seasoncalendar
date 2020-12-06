@@ -20,7 +20,6 @@ void main() async {
         inferredFlavor = appFlavorFromString(flavor);
       })
       .catchError((error) {
-        print(error);
     print('Failed to load flavor, defaulting to googleplay flavor!');
   });
 

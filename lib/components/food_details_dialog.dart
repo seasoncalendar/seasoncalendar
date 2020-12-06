@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:url_launcher/url_launcher.dart';
-
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
-import 'package:seasoncalendar/generated/l10n.dart';
 
 class FoodDetailsDialog extends StatelessWidget {
   final String _foodDisplayName;
   final Image _foodImage;
-  final String _foodInfoURL;
   final List<List<Availability>> _allAvailabilities;
 
-  FoodDetailsDialog(String foodDisplayName, String foodInfoURL, Image foodImage,
+  FoodDetailsDialog(String foodDisplayName, Image foodImage,
       List<List<Availability>> allAvailabilities)
       : _foodDisplayName = foodDisplayName,
         _foodImage = foodImage,
-        _foodInfoURL = foodInfoURL,
         _allAvailabilities = allAvailabilities;
 
   @override
@@ -78,30 +73,6 @@ class FoodDetailsDialog extends StatelessWidget {
           ),
           SizedBox(height: 10),
           imgAndAvailabilities,
-          SizedBox(height: 10),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              RaisedButton(
-                child: Text(L10n.of(context).back),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              RaisedButton(
-                child: Text(L10n.of(context).wikipedia),
-                onPressed: () async {
-                  final url = _foodInfoURL;
-                  if (await canLaunch(url)) {
-                    await launch(
-                      url,
-                      forceSafariVC: false,
-                    );
-                  }
-                },
-              ),
-            ],
-          )
         ],
       ),
     );

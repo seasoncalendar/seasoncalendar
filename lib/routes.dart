@@ -8,6 +8,7 @@ import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/models/food.dart';
+import 'package:seasoncalendar/screens/etc/howto/howto_screen.dart';
 import 'package:seasoncalendar/screens/home/home_screen.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/screens/settings/language/settings_language_screen.dart';
@@ -74,6 +75,7 @@ final Map<String, WidgetBuilder> appRoutes = {
     },
   ),
   "/etc": (_) => EtcPage(),
+  "/etc/howto": (_) => HowToPage(),
   "/etc/about": (_) => AboutPage(),
   "/etc/contrib": (_) => FutureBuilder(
     future: loadAssetFromJson("assets/localization_independent_text.json"),

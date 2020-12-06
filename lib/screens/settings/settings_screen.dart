@@ -104,7 +104,7 @@ class SettingsPageState extends State<SettingsPage> {
             actions: [
               MaterialButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed("/etc/about");
+                  Navigator.of(context).pushNamed("/etc/howto");
                 },
                 child: Icon(Icons.help),
               ),

@@ -67,7 +67,7 @@ class FoodView extends StatelessWidget {
     if (viewContext.startsWith("fav")) {
       emptyIcon = Icons.star_border;
       emptyText = L10n.of(context).emptyFavoritesViewText;
-      emptyHint = Text(
+      emptyHint = Text(L10n.of(context).emptyDefaultViewHint + '\n' +
         L10n.of(context).emptyFavoritesViewHint,
         style: const TextStyle(color: Colors.black54),
         textAlign: TextAlign.center,

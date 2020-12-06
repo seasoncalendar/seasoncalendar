@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/components/favorite_foods.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/components/food_details_dialog.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 
 class FoodTile extends StatefulWidget {
   final String _foodId;
@@ -90,10 +93,28 @@ class FoodTileState extends State<FoodTile> {
           backgroundColor: Colors.white,
           content: FoodDetailsDialog(
               widget._foodDisplayName,
-              widget._foodInfoURL,
               foodImage,
               widget._allAvailabilities),
           elevation: 10,
+          actions: [
+            MaterialButton(
+              onPressed: () async {
+                final url = widget._foodInfoURL;
+                if (await canLaunch(url)) {
+                  await launch(
+                    url,
+                    forceSafariVC: false,
+                  );
+                }
+              },
+              child: Text(L10n.of(context).wikipedia),
+            ),
+            MaterialButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(L10n.of(context).back)),
+          ],
         ),
         barrierDismissible: true,
       );

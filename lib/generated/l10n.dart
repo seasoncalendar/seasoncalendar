@@ -194,91 +194,111 @@ class L10n {
   }
 
   /// `Explanation`
-  String get aboutPageTitle {
+  String get howToPageTitle {
     return Intl.message(
       'Explanation',
-      name: 'aboutPageTitle',
+      name: 'howToPageTitle',
       desc: 'The word \'Explanation\'',
       args: [],
     );
   }
 
   /// `How do I use the app?`
-  String get aboutPageExplanationHeadline {
+  String get howToPageExplanationHeadline {
     return Intl.message(
       'How do I use the app?',
-      name: 'aboutPageExplanationHeadline',
+      name: 'howToPageExplanationHeadline',
       desc: 'The phrase \'How do I use the app?\'',
       args: [],
     );
   }
 
   /// `This app shows you at a glance, which foods are in season right now:`
-  String get aboutPageExplanation {
+  String get howToPageExplanation {
     return Intl.message(
       'This app shows you at a glance, which foods are in season right now:',
-      name: 'aboutPageExplanation',
+      name: 'howToPageExplanation',
       desc: 'A sentence explaining what the app does',
       args: [],
     );
   }
 
   /// `In season/locally or regionally available.`
-  String get aboutPageAvLocal {
+  String get howToPageAvLocal {
     return Intl.message(
       'In season/locally or regionally available.',
-      name: 'aboutPageAvLocal',
+      name: 'howToPageAvLocal',
       desc: 'A sentence explaining what the house icon means.',
       args: [],
     );
   }
 
   /// `Imported from not too far away, mostly via land transport.`
-  String get aboutPageAvLand {
+  String get howToPageAvLand {
     return Intl.message(
       'Imported from not too far away, mostly via land transport.',
-      name: 'aboutPageAvLand',
+      name: 'howToPageAvLand',
       desc: 'A sentence explaining what the truck icon means.',
       args: [],
     );
   }
 
   /// `Imported from far away, mostly shipped.`
-  String get aboutPageAvSea {
+  String get howToPageAvSea {
     return Intl.message(
       'Imported from far away, mostly shipped.',
-      name: 'aboutPageAvSea',
+      name: 'howToPageAvSea',
       desc: 'A sentence explaining what the ship icon means.',
       args: [],
     );
   }
 
   /// `Imported from far away, mostly by airplane.`
-  String get aboutPageAvAir {
+  String get howToPageAvAir {
     return Intl.message(
       'Imported from far away, mostly by airplane.',
-      name: 'aboutPageAvAir',
+      name: 'howToPageAvAir',
       desc: 'A sentence explaining what the airplane icon means.',
       args: [],
     );
   }
 
+  /// `A black icon indicates abundant availability, a gray icon limited availability from that specific category.`
+  String get howToPagePartial {
+    return Intl.message(
+      'A black icon indicates abundant availability, a gray icon limited availability from that specific category.',
+      name: 'howToPagePartial',
+      desc: 'Describes what the icon\'s color does.',
+      args: [],
+    );
+  }
+
   /// `The colour of a name field indicates corresponds to above classification. Green is better than red.`
-  String get aboutPageColors {
+  String get howToPageColors {
     return Intl.message(
       'The colour of a name field indicates corresponds to above classification. Green is better than red.',
-      name: 'aboutPageColors',
+      name: 'howToPageColors',
       desc: 'Describes what the food background colors do',
       args: [],
     );
   }
 
   /// `By tapping a food's star ☆, you add it to/remove it from your favorites list. Tapping on the menu bar's star lets you restrict the view to your favorites.`
-  String get aboutPageFavorites {
+  String get howToPageFavorites {
     return Intl.message(
       'By tapping a food\'s star ☆, you add it to/remove it from your favorites list. Tapping on the menu bar\'s star lets you restrict the view to your favorites.',
-      name: 'aboutPageFavorites',
+      name: 'howToPageFavorites',
       desc: 'Describes how to use the favorites function',
+      args: [],
+    );
+  }
+
+  /// `About the app`
+  String get aboutPageTitle {
+    return Intl.message(
+      'About the app',
+      name: 'aboutPageTitle',
+      desc: 'The phrase \'About the app\'',
       args: [],
     );
   }
