@@ -33,296 +33,6 @@ class L10n {
     return Localizations.of<L10n>(context, L10n);
   }
 
-  /// `en`
-  String get languageCode {
-    return Intl.message(
-      'en',
-      name: 'languageCode',
-      desc: 'The two-character ISO language code of this language.',
-      args: [],
-    );
-  }
-
-  /// `Seasonal foods calendar`
-  String get appTitle {
-    return Intl.message(
-      'Seasonal foods calendar',
-      name: 'appTitle',
-      desc: 'The title of the app, e.g. \'Seasonal foods calendar\'',
-      args: [],
-    );
-  }
-
-  /// `Central Europe`
-  String get centralEurope {
-    return Intl.message(
-      'Central Europe',
-      name: 'centralEurope',
-      desc: 'The region of Central Europe.',
-      args: [],
-    );
-  }
-
-  /// `January`
-  String get january {
-    return Intl.message(
-      'January',
-      name: 'january',
-      desc: 'The word \'January\'',
-      args: [],
-    );
-  }
-
-  /// `February`
-  String get february {
-    return Intl.message(
-      'February',
-      name: 'february',
-      desc: 'The word \'February\'',
-      args: [],
-    );
-  }
-
-  /// `March`
-  String get march {
-    return Intl.message(
-      'March',
-      name: 'march',
-      desc: 'The word \'March\'',
-      args: [],
-    );
-  }
-
-  /// `April`
-  String get april {
-    return Intl.message(
-      'April',
-      name: 'april',
-      desc: 'The word \'April\'',
-      args: [],
-    );
-  }
-
-  /// `May`
-  String get may {
-    return Intl.message(
-      'May',
-      name: 'may',
-      desc: 'The word \'May\'',
-      args: [],
-    );
-  }
-
-  /// `June`
-  String get june {
-    return Intl.message(
-      'June',
-      name: 'june',
-      desc: 'The word \'June\'',
-      args: [],
-    );
-  }
-
-  /// `July`
-  String get july {
-    return Intl.message(
-      'July',
-      name: 'july',
-      desc: 'The word \'July\'',
-      args: [],
-    );
-  }
-
-  /// `August`
-  String get august {
-    return Intl.message(
-      'August',
-      name: 'august',
-      desc: 'The word \'August\'',
-      args: [],
-    );
-  }
-
-  /// `September`
-  String get september {
-    return Intl.message(
-      'September',
-      name: 'september',
-      desc: 'The word \'September\'',
-      args: [],
-    );
-  }
-
-  /// `October`
-  String get october {
-    return Intl.message(
-      'October',
-      name: 'october',
-      desc: 'The word \'October\'',
-      args: [],
-    );
-  }
-
-  /// `November`
-  String get november {
-    return Intl.message(
-      'November',
-      name: 'november',
-      desc: 'The word \'November\'',
-      args: [],
-    );
-  }
-
-  /// `December`
-  String get december {
-    return Intl.message(
-      'December',
-      name: 'december',
-      desc: 'The word \'December\'',
-      args: [],
-    );
-  }
-
-  /// `Imprint`
-  String get imprintPageButtonText {
-    return Intl.message(
-      'Imprint',
-      name: 'imprintPageButtonText',
-      desc: 'The word \'Imprint\'',
-      args: [],
-    );
-  }
-
-  /// `Explanation`
-  String get howToPageTitle {
-    return Intl.message(
-      'Explanation',
-      name: 'howToPageTitle',
-      desc: 'The word \'Explanation\'',
-      args: [],
-    );
-  }
-
-  /// `How do I use the app?`
-  String get howToPageExplanationHeadline {
-    return Intl.message(
-      'How do I use the app?',
-      name: 'howToPageExplanationHeadline',
-      desc: 'The phrase \'How do I use the app?\'',
-      args: [],
-    );
-  }
-
-  /// `This app shows you at a glance, which foods are in season right now:`
-  String get howToPageExplanation {
-    return Intl.message(
-      'This app shows you at a glance, which foods are in season right now:',
-      name: 'howToPageExplanation',
-      desc: 'A sentence explaining what the app does',
-      args: [],
-    );
-  }
-
-  /// `In season/locally or regionally available.`
-  String get howToPageAvLocal {
-    return Intl.message(
-      'In season/locally or regionally available.',
-      name: 'howToPageAvLocal',
-      desc: 'A sentence explaining what the house icon means.',
-      args: [],
-    );
-  }
-
-  /// `Imported from not too far away, mostly via land transport.`
-  String get howToPageAvLand {
-    return Intl.message(
-      'Imported from not too far away, mostly via land transport.',
-      name: 'howToPageAvLand',
-      desc: 'A sentence explaining what the truck icon means.',
-      args: [],
-    );
-  }
-
-  /// `Imported from far away, mostly shipped.`
-  String get howToPageAvSea {
-    return Intl.message(
-      'Imported from far away, mostly shipped.',
-      name: 'howToPageAvSea',
-      desc: 'A sentence explaining what the ship icon means.',
-      args: [],
-    );
-  }
-
-  /// `Imported from far away, mostly by airplane.`
-  String get howToPageAvAir {
-    return Intl.message(
-      'Imported from far away, mostly by airplane.',
-      name: 'howToPageAvAir',
-      desc: 'A sentence explaining what the airplane icon means.',
-      args: [],
-    );
-  }
-
-  /// `A black icon indicates abundant availability, a gray icon limited availability from that specific category.`
-  String get howToPagePartial {
-    return Intl.message(
-      'A black icon indicates abundant availability, a gray icon limited availability from that specific category.',
-      name: 'howToPagePartial',
-      desc: 'Describes what the icon\'s color does.',
-      args: [],
-    );
-  }
-
-  /// `The colour of a name field indicates corresponds to above classification. Green is better than red.`
-  String get howToPageColors {
-    return Intl.message(
-      'The colour of a name field indicates corresponds to above classification. Green is better than red.',
-      name: 'howToPageColors',
-      desc: 'Describes what the food background colors do',
-      args: [],
-    );
-  }
-
-  /// `By tapping a food's star ☆, you add it to/remove it from your favorites list. Tapping on the menu bar's star lets you restrict the view to your favorites.`
-  String get howToPageFavorites {
-    return Intl.message(
-      'By tapping a food\'s star ☆, you add it to/remove it from your favorites list. Tapping on the menu bar\'s star lets you restrict the view to your favorites.',
-      name: 'howToPageFavorites',
-      desc: 'Describes how to use the favorites function',
-      args: [],
-    );
-  }
-
-  /// `About the app`
-  String get aboutPageTitle {
-    return Intl.message(
-      'About the app',
-      name: 'aboutPageTitle',
-      desc: 'The phrase \'About the app\'',
-      args: [],
-    );
-  }
-
-  /// `Why care about foods' seasons?`
-  String get aboutPageHeadline {
-    return Intl.message(
-      'Why care about foods\' seasons?',
-      name: 'aboutPageHeadline',
-      desc: 'The phrase \'Why care about foods\' seasons?\'',
-      args: [],
-    );
-  }
-
-  /// `Nowadays, as almost all foods are available throughout the year, people have become unconscious of the season of their foods. However, buying seasonal and local foods often has striking advantages:`
-  String get aboutPageLeading {
-    return Intl.message(
-      'Nowadays, as almost all foods are available throughout the year, people have become unconscious of the season of their foods. However, buying seasonal and local foods often has striking advantages:',
-      name: 'aboutPageLeading',
-      desc: 'Justification for caring about food seasons',
-      args: [],
-    );
-  }
-
   /// `Fresh produce tastes better and is healthier for your body.`
   String get aboutPageAdvantage1 {
     return Intl.message(
@@ -373,16 +83,6 @@ class L10n {
     );
   }
 
-  /// `This app lets you eat cheaper and tastier and raises the awareness for the origin of our food.`
-  String get aboutPageTrailing {
-    return Intl.message(
-      'This app lets you eat cheaper and tastier and raises the awareness for the origin of our food.',
-      name: 'aboutPageTrailing',
-      desc: 'A sentence about benefits for the app user',
-      args: [],
-    );
-  }
-
   /// `Please keep in mind that the actual availability of foods in your local supermarket can differ from the information shown here.`
   String get aboutPageDisclaimer {
     return Intl.message(
@@ -393,52 +93,92 @@ class L10n {
     );
   }
 
-  /// `Contribute`
-  String get contribPageTitle {
+  /// `Why care about foods' seasons?`
+  String get aboutPageHeadline {
     return Intl.message(
-      'Contribute',
-      name: 'contribPageTitle',
-      desc: 'The word \'Contribute\'',
+      'Why care about foods\' seasons?',
+      name: 'aboutPageHeadline',
+      desc: 'The phrase \'Why care about foods\' seasons?\'',
       args: [],
     );
   }
 
-  /// `Something is missing or wrong?`
-  String get contribPageContactHeadline {
+  /// `Nowadays, as almost all foods are available throughout the year, people have become unconscious of the season of their foods. However, buying seasonal and local foods often has striking advantages:`
+  String get aboutPageLeading {
     return Intl.message(
-      'Something is missing or wrong?',
-      name: 'contribPageContactHeadline',
-      desc: 'The phrase \'Something is missing or wrong?\'',
+      'Nowadays, as almost all foods are available throughout the year, people have become unconscious of the season of their foods. However, buying seasonal and local foods often has striking advantages:',
+      name: 'aboutPageLeading',
+      desc: 'Justification for caring about food seasons',
       args: [],
     );
   }
 
-  /// `If you've found an error or room for a concrete improvement, feel free to contact me via my webpage.`
-  String get contribPageContact {
+  /// `About the app`
+  String get aboutPageTitle {
     return Intl.message(
-      'If you\'ve found an error or room for a concrete improvement, feel free to contact me via my webpage.',
-      name: 'contribPageContact',
-      desc: 'Justification for missing features/incorrectness by stating young age of app',
+      'About the app',
+      name: 'aboutPageTitle',
+      desc: 'The phrase \'About the app\'',
       args: [],
     );
   }
 
-  /// `To the webpage`
-  String get contribPageContactButtonText {
+  /// `This app lets you eat cheaper and tastier and raises the awareness for the origin of our food.`
+  String get aboutPageTrailing {
     return Intl.message(
-      'To the webpage',
-      name: 'contribPageContactButtonText',
-      desc: 'The phrase \'To the webpage\'',
+      'This app lets you eat cheaper and tastier and raises the awareness for the origin of our food.',
+      name: 'aboutPageTrailing',
+      desc: 'A sentence about benefits for the app user',
       args: [],
     );
   }
 
-  /// `Show me the code!`
-  String get contribPageCodeHeadline {
+  /// `Seasonal foods calendar`
+  String get appTitle {
     return Intl.message(
-      'Show me the code!',
-      name: 'contribPageCodeHeadline',
-      desc: 'The phrase \'Show me the code!\'',
+      'Seasonal foods calendar',
+      name: 'appTitle',
+      desc: 'The title of the app, e.g. \'Seasonal foods calendar\'',
+      args: [],
+    );
+  }
+
+  /// `April`
+  String get april {
+    return Intl.message(
+      'April',
+      name: 'april',
+      desc: 'The word \'April\'',
+      args: [],
+    );
+  }
+
+  /// `August`
+  String get august {
+    return Intl.message(
+      'August',
+      name: 'august',
+      desc: 'The word \'August\'',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get back {
+    return Intl.message(
+      'Back',
+      name: 'back',
+      desc: 'The word \'Back\'',
+      args: [],
+    );
+  }
+
+  /// `Central Europe`
+  String get centralEurope {
+    return Intl.message(
+      'Central Europe',
+      name: 'centralEurope',
+      desc: 'The region of Central Europe.',
       args: [],
     );
   }
@@ -463,42 +203,282 @@ class L10n {
     );
   }
 
+  /// `Show me the code!`
+  String get contribPageCodeHeadline {
+    return Intl.message(
+      'Show me the code!',
+      name: 'contribPageCodeHeadline',
+      desc: 'The phrase \'Show me the code!\'',
+      args: [],
+    );
+  }
+
+  /// `If you've found an error or room for a concrete improvement, feel free to contact me via my webpage.`
+  String get contribPageContact {
+    return Intl.message(
+      'If you\'ve found an error or room for a concrete improvement, feel free to contact me via my webpage.',
+      name: 'contribPageContact',
+      desc: 'Justification for missing features/incorrectness by stating young age of app',
+      args: [],
+    );
+  }
+
+  /// `To the webpage`
+  String get contribPageContactButtonText {
+    return Intl.message(
+      'To the webpage',
+      name: 'contribPageContactButtonText',
+      desc: 'The phrase \'To the webpage\'',
+      args: [],
+    );
+  }
+
+  /// `Something is missing or wrong?`
+  String get contribPageContactHeadline {
+    return Intl.message(
+      'Something is missing or wrong?',
+      name: 'contribPageContactHeadline',
+      desc: 'The phrase \'Something is missing or wrong?\'',
+      args: [],
+    );
+  }
+
+  /// `Contribute`
+  String get contribPageTitle {
+    return Intl.message(
+      'Contribute',
+      name: 'contribPageTitle',
+      desc: 'The word \'Contribute\'',
+      args: [],
+    );
+  }
+
+  /// `December`
+  String get december {
+    return Intl.message(
+      'December',
+      name: 'december',
+      desc: 'The word \'December\'',
+      args: [],
+    );
+  }
+
+  /// `Check your foods display filtering.`
+  String get emptyDefaultViewHint {
+    return Intl.message(
+      'Check your foods display filtering.',
+      name: 'emptyDefaultViewHint',
+      desc: 'A hint shown when no foods are displayed in the current default foods view.',
+      args: [],
+    );
+  }
+
+  /// `Add a favorite by tapping the food's star ☆.`
+  String get emptyFavoritesViewHint {
+    return Intl.message(
+      'Add a favorite by tapping the food\'s star ☆.',
+      name: 'emptyFavoritesViewHint',
+      desc: 'A hint shown when no favorites are displayed in the current foods view.',
+      args: [],
+    );
+  }
+
+  /// `No favorites available!`
+  String get emptyFavoritesViewText {
+    return Intl.message(
+      'No favorites available!',
+      name: 'emptyFavoritesViewText',
+      desc: 'A text shown when no favorites are displayed in the current foods view.',
+      args: [],
+    );
+  }
+
+  /// `No foods available!`
+  String get emptyFoodsViewText {
+    return Intl.message(
+      'No foods available!',
+      name: 'emptyFoodsViewText',
+      desc: 'A text shown when no food is displayed in the current foods view.',
+      args: [],
+    );
+  }
+
+  /// `No foods found!`
+  String get emptySearchViewText {
+    return Intl.message(
+      'No foods found!',
+      name: 'emptySearchViewText',
+      desc: 'A text shown when no food is displayed in the search result view.',
+      args: [],
+    );
+  }
+
+  /// `About the app`
+  String get etcPageTitle {
+    return Intl.message(
+      'About the app',
+      name: 'etcPageTitle',
+      desc: 'Title shown at the top of the \'more info\' page (the one behind the icon with three dots)',
+      args: [],
+    );
+  }
+
+  /// `February`
+  String get february {
+    return Intl.message(
+      'February',
+      name: 'february',
+      desc: 'The word \'February\'',
+      args: [],
+    );
+  }
+
+  /// `Imported from far away, mostly by airplane.`
+  String get howToPageAvAir {
+    return Intl.message(
+      'Imported from far away, mostly by airplane.',
+      name: 'howToPageAvAir',
+      desc: 'A sentence explaining what the airplane icon means.',
+      args: [],
+    );
+  }
+
+  /// `Imported from not too far away, mostly via land transport.`
+  String get howToPageAvLand {
+    return Intl.message(
+      'Imported from not too far away, mostly via land transport.',
+      name: 'howToPageAvLand',
+      desc: 'A sentence explaining what the truck icon means.',
+      args: [],
+    );
+  }
+
+  /// `In season/locally or regionally available.`
+  String get howToPageAvLocal {
+    return Intl.message(
+      'In season/locally or regionally available.',
+      name: 'howToPageAvLocal',
+      desc: 'A sentence explaining what the house icon means.',
+      args: [],
+    );
+  }
+
+  /// `Imported from far away, mostly shipped.`
+  String get howToPageAvSea {
+    return Intl.message(
+      'Imported from far away, mostly shipped.',
+      name: 'howToPageAvSea',
+      desc: 'A sentence explaining what the ship icon means.',
+      args: [],
+    );
+  }
+
+  /// `The colour of a name field indicates corresponds to above classification. Green is better than red.`
+  String get howToPageColors {
+    return Intl.message(
+      'The colour of a name field indicates corresponds to above classification. Green is better than red.',
+      name: 'howToPageColors',
+      desc: 'Describes what the food background colors do',
+      args: [],
+    );
+  }
+
+  /// `This app shows you at a glance, which foods are in season right now:`
+  String get howToPageExplanation {
+    return Intl.message(
+      'This app shows you at a glance, which foods are in season right now:',
+      name: 'howToPageExplanation',
+      desc: 'A sentence explaining what the app does',
+      args: [],
+    );
+  }
+
+  /// `How do I use the app?`
+  String get howToPageExplanationHeadline {
+    return Intl.message(
+      'How do I use the app?',
+      name: 'howToPageExplanationHeadline',
+      desc: 'The phrase \'How do I use the app?\'',
+      args: [],
+    );
+  }
+
+  /// `By tapping a food's star ☆, you add it to/remove it from your favorites list. Tapping on the menu bar's star lets you restrict the view to your favorites.`
+  String get howToPageFavorites {
+    return Intl.message(
+      'By tapping a food\'s star ☆, you add it to/remove it from your favorites list. Tapping on the menu bar\'s star lets you restrict the view to your favorites.',
+      name: 'howToPageFavorites',
+      desc: 'Describes how to use the favorites function',
+      args: [],
+    );
+  }
+
+  /// `A black icon indicates abundant availability, a gray icon limited availability from that specific category.`
+  String get howToPagePartial {
+    return Intl.message(
+      'A black icon indicates abundant availability, a gray icon limited availability from that specific category.',
+      name: 'howToPagePartial',
+      desc: 'Describes what the icon\'s color does.',
+      args: [],
+    );
+  }
+
+  /// `Explanation`
+  String get howToPageTitle {
+    return Intl.message(
+      'Explanation',
+      name: 'howToPageTitle',
+      desc: 'The word \'Explanation\'',
+      args: [],
+    );
+  }
+
+  /// `License: `
+  String get imprintImgSourcesLicense {
+    return Intl.message(
+      'License: ',
+      name: 'imprintImgSourcesLicense',
+      desc: 'The word \'License: \' (with trailing double dot and space!)',
+      args: [],
+    );
+  }
+
+  /// `\nCreator: `
+  String get imprintImgSourcesPublisher {
+    return Intl.message(
+      '\nCreator: ',
+      name: 'imprintImgSourcesPublisher',
+      desc: 'The word \'Creator: \' (with trailing double dot and space, leading newline!)',
+      args: [],
+    );
+  }
+
+  /// `App Information`
+  String get imprintPageAppInfo {
+    return Intl.message(
+      'App Information',
+      name: 'imprintPageAppInfo',
+      desc: 'The word \'App Information\'',
+      args: [],
+    );
+  }
+
   /// `Imprint`
-  String get imprintPageTitle {
+  String get imprintPageButtonText {
     return Intl.message(
       'Imprint',
-      name: 'imprintPageTitle',
+      name: 'imprintPageButtonText',
       desc: 'The word \'Imprint\'',
       args: [],
     );
   }
 
-  /// `Publisher`
-  String get imprintPagePublisher {
+  /// `Availability data`
+  String get imprintPageDataHeadline {
     return Intl.message(
-      'Publisher',
-      name: 'imprintPagePublisher',
-      desc: 'The word \'Publisher\'',
-      args: [],
-    );
-  }
-
-  /// `Disclaimer`
-  String get imprintPageDisclaimerHeadline {
-    return Intl.message(
-      'Disclaimer',
-      name: 'imprintPageDisclaimerHeadline',
-      desc: 'The phrase \'Disclaimer\'',
-      args: [],
-    );
-  }
-
-  /// `The contents of this app have been created and are provided with utmost care and in good faith. However, I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information displayed in this app.`
-  String get imprintPageDisclaimerText {
-    return Intl.message(
-      'The contents of this app have been created and are provided with utmost care and in good faith. However, I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information displayed in this app.',
-      name: 'imprintPageDisclaimerText',
-      desc: 'The disclaimer for the app',
+      'Availability data',
+      name: 'imprintPageDataHeadline',
+      desc: 'The phrase \'Availability data\'',
       args: [],
     );
   }
@@ -523,46 +503,6 @@ class L10n {
     );
   }
 
-  /// `Sources`
-  String get imprintPageSourcesHeadline {
-    return Intl.message(
-      'Sources',
-      name: 'imprintPageSourcesHeadline',
-      desc: 'The word \'Sources\'',
-      args: [],
-    );
-  }
-
-  /// `App text`
-  String get imprintPageTextHeadline {
-    return Intl.message(
-      'App text',
-      name: 'imprintPageTextHeadline',
-      desc: 'The word \'App text\'',
-      args: [],
-    );
-  }
-
-  /// `Andreas Boltres`
-  String get imprintPageMyName {
-    return Intl.message(
-      'Andreas Boltres',
-      name: 'imprintPageMyName',
-      desc: 'App text author name',
-      args: [],
-    );
-  }
-
-  /// `Availability data`
-  String get imprintPageDataHeadline {
-    return Intl.message(
-      'Availability data',
-      name: 'imprintPageDataHeadline',
-      desc: 'The phrase \'Availability data\'',
-      args: [],
-    );
-  }
-
   /// `Lebensmittellexikon.de (major parts);\nAndreas Boltres (the rest).`
   String get imprintPageDataText {
     return Intl.message(
@@ -583,12 +523,22 @@ class L10n {
     );
   }
 
-  /// `Images`
-  String get imprintPageImagesHeadline {
+  /// `Disclaimer`
+  String get imprintPageDisclaimerHeadline {
     return Intl.message(
-      'Images',
-      name: 'imprintPageImagesHeadline',
-      desc: 'The word \'Images\'',
+      'Disclaimer',
+      name: 'imprintPageDisclaimerHeadline',
+      desc: 'The phrase \'Disclaimer\'',
+      args: [],
+    );
+  }
+
+  /// `The contents of this app have been created and are provided with utmost care and in good faith. However, I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information displayed in this app.`
+  String get imprintPageDisclaimerText {
+    return Intl.message(
+      'The contents of this app have been created and are provided with utmost care and in good faith. However, I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information displayed in this app.',
+      name: 'imprintPageDisclaimerText',
+      desc: 'The disclaimer for the app',
       args: [],
     );
   }
@@ -603,16 +553,6 @@ class L10n {
     );
   }
 
-  /// `Translations`
-  String get imprintPageTranslationsHeadline {
-    return Intl.message(
-      'Translations',
-      name: 'imprintPageTranslationsHeadline',
-      desc: 'The word \'Translations\'',
-      args: [],
-    );
-  }
-
   /// `Font Awesome 5 (apple logo, carrot logo)\n(License: fontawesome.com/license)`
   String get imprintPageFontsText {
     return Intl.message(
@@ -623,52 +563,222 @@ class L10n {
     );
   }
 
-  /// `App Information`
-  String get imprintPageAppInfo {
+  /// `Images`
+  String get imprintPageImagesHeadline {
     return Intl.message(
-      'App Information',
-      name: 'imprintPageAppInfo',
-      desc: 'The word \'App Information\'',
+      'Images',
+      name: 'imprintPageImagesHeadline',
+      desc: 'The word \'Images\'',
       args: [],
     );
   }
 
-  /// `Settings`
-  String get settingsPageTitle {
+  /// `Andreas Boltres`
+  String get imprintPageMyName {
     return Intl.message(
-      'Settings',
-      name: 'settingsPageTitle',
-      desc: 'The word \'Settings\'',
+      'Andreas Boltres',
+      name: 'imprintPageMyName',
+      desc: 'App text author name',
       args: [],
     );
   }
 
-  /// `Sort by availability`
-  String get settingsSortingTitle {
+  /// `Publisher`
+  String get imprintPagePublisher {
     return Intl.message(
-      'Sort by availability',
-      name: 'settingsSortingTitle',
-      desc: 'The phrase \'Sort by availability\'',
+      'Publisher',
+      name: 'imprintPagePublisher',
+      desc: 'The word \'Publisher\'',
       args: [],
     );
   }
 
-  /// `Show special and unusual foods`
-  String get settingsUncommonTitle {
+  /// `Sources`
+  String get imprintPageSourcesHeadline {
     return Intl.message(
-      'Show special and unusual foods',
-      name: 'settingsUncommonTitle',
-      desc: 'The phrase \'Show special and unusual foods\'',
+      'Sources',
+      name: 'imprintPageSourcesHeadline',
+      desc: 'The word \'Sources\'',
       args: [],
     );
   }
 
-  /// `e.g. quince, cloudberry`
-  String get settingsUncommonText {
+  /// `App text`
+  String get imprintPageTextHeadline {
     return Intl.message(
-      'e.g. quince, cloudberry',
-      name: 'settingsUncommonText',
-      desc: 'The phrase \'e.g. quince, cloudberry\'',
+      'App text',
+      name: 'imprintPageTextHeadline',
+      desc: 'The word \'App text\'',
+      args: [],
+    );
+  }
+
+  /// `Imprint`
+  String get imprintPageTitle {
+    return Intl.message(
+      'Imprint',
+      name: 'imprintPageTitle',
+      desc: 'The word \'Imprint\'',
+      args: [],
+    );
+  }
+
+  /// `Translations`
+  String get imprintPageTranslationsHeadline {
+    return Intl.message(
+      'Translations',
+      name: 'imprintPageTranslationsHeadline',
+      desc: 'The word \'Translations\'',
+      args: [],
+    );
+  }
+
+  /// `January`
+  String get january {
+    return Intl.message(
+      'January',
+      name: 'january',
+      desc: 'The word \'January\'',
+      args: [],
+    );
+  }
+
+  /// `July`
+  String get july {
+    return Intl.message(
+      'July',
+      name: 'july',
+      desc: 'The word \'July\'',
+      args: [],
+    );
+  }
+
+  /// `June`
+  String get june {
+    return Intl.message(
+      'June',
+      name: 'june',
+      desc: 'The word \'June\'',
+      args: [],
+    );
+  }
+
+  /// `en`
+  String get languageCode {
+    return Intl.message(
+      'en',
+      name: 'languageCode',
+      desc: 'The two-character ISO language code of this language.',
+      args: [],
+    );
+  }
+
+  /// `NONE`
+  String get languageName {
+    return Intl.message(
+      'NONE',
+      name: 'languageName',
+      desc: 'NONE',
+      args: [],
+    );
+  }
+
+  /// `March`
+  String get march {
+    return Intl.message(
+      'March',
+      name: 'march',
+      desc: 'The word \'March\'',
+      args: [],
+    );
+  }
+
+  /// `May`
+  String get may {
+    return Intl.message(
+      'May',
+      name: 'may',
+      desc: 'The word \'May\'',
+      args: [],
+    );
+  }
+
+  /// `All available foods`
+  String get minAvAir {
+    return Intl.message(
+      'All available foods',
+      name: 'minAvAir',
+      desc: 'The phrase \'All available foods\'',
+      args: [],
+    );
+  }
+
+  /// `No foods imported from overseas/far away`
+  String get minAvLand {
+    return Intl.message(
+      'No foods imported from overseas/far away',
+      name: 'minAvLand',
+      desc: 'The phrase \'No foods imported from overseas/far away\'',
+      args: [],
+    );
+  }
+
+  /// `Only local and regional foods`
+  String get minAvLocal {
+    return Intl.message(
+      'Only local and regional foods',
+      name: 'minAvLocal',
+      desc: 'The phrase \'Only local and regional foods\'',
+      args: [],
+    );
+  }
+
+  /// `No foods imported via airplane`
+  String get minAvSea {
+    return Intl.message(
+      'No foods imported via airplane',
+      name: 'minAvSea',
+      desc: 'The phrase \'No foods imported via airplane\'',
+      args: [],
+    );
+  }
+
+  /// `November`
+  String get november {
+    return Intl.message(
+      'November',
+      name: 'november',
+      desc: 'The word \'November\'',
+      args: [],
+    );
+  }
+
+  /// `October`
+  String get october {
+    return Intl.message(
+      'October',
+      name: 'october',
+      desc: 'The word \'October\'',
+      args: [],
+    );
+  }
+
+  /// `Search...`
+  String get searchFieldLabel {
+    return Intl.message(
+      'Search...',
+      name: 'searchFieldLabel',
+      desc: 'The label used in the search bar',
+      args: [],
+    );
+  }
+
+  /// `September`
+  String get september {
+    return Intl.message(
+      'September',
+      name: 'september',
+      desc: 'The word \'September\'',
       args: [],
     );
   }
@@ -679,6 +789,56 @@ class L10n {
       'Filter by availability',
       name: 'settingsFilterTitle',
       desc: 'The phrase \'Filter by availability\'',
+      args: [],
+    );
+  }
+
+  /// `Changing the language restarts the app`
+  String get settingsLanguageSubtitle {
+    return Intl.message(
+      'Changing the language restarts the app',
+      name: 'settingsLanguageSubtitle',
+      desc: 'The phrase \'Changing the language restarts the app\'',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get settingsLanguageTitle {
+    return Intl.message(
+      'Language',
+      name: 'settingsLanguageTitle',
+      desc: 'The word \'Language\'',
+      args: [],
+    );
+  }
+
+  /// `Use device language`
+  String get settingsLanguageUseLocale {
+    return Intl.message(
+      'Use device language',
+      name: 'settingsLanguageUseLocale',
+      desc: 'The phrase \'Use device language\'',
+      args: [],
+    );
+  }
+
+  /// `Uses English if device language is not supported`
+  String get settingsLanguageUseLocaleSub {
+    return Intl.message(
+      'Uses English if device language is not supported',
+      name: 'settingsLanguageUseLocaleSub',
+      desc: 'The phrase \'Uses English if device language is not supported\'',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settingsPageTitle {
+    return Intl.message(
+      'Settings',
+      name: 'settingsPageTitle',
+      desc: 'The word \'Settings\'',
       args: [],
     );
   }
@@ -713,42 +873,32 @@ class L10n {
     );
   }
 
-  /// `Language`
-  String get settingsLanguageTitle {
+  /// `Sort by availability`
+  String get settingsSortingTitle {
     return Intl.message(
-      'Language',
-      name: 'settingsLanguageTitle',
-      desc: 'The word \'Language\'',
+      'Sort by availability',
+      name: 'settingsSortingTitle',
+      desc: 'The phrase \'Sort by availability\'',
       args: [],
     );
   }
 
-  /// `Changing the language restarts the app`
-  String get settingsLanguageSubtitle {
+  /// `e.g. quince, cloudberry`
+  String get settingsUncommonText {
     return Intl.message(
-      'Changing the language restarts the app',
-      name: 'settingsLanguageSubtitle',
-      desc: 'The phrase \'Changing the language restarts the app\'',
+      'e.g. quince, cloudberry',
+      name: 'settingsUncommonText',
+      desc: 'The phrase \'e.g. quince, cloudberry\'',
       args: [],
     );
   }
 
-  /// `Use device language`
-  String get settingsLanguageUseLocale {
+  /// `Show special and unusual foods`
+  String get settingsUncommonTitle {
     return Intl.message(
-      'Use device language',
-      name: 'settingsLanguageUseLocale',
-      desc: 'The phrase \'Use device language\'',
-      args: [],
-    );
-  }
-
-  /// `Uses English if device language is not supported`
-  String get settingsLanguageUseLocaleSub {
-    return Intl.message(
-      'Uses English if device language is not supported',
-      name: 'settingsLanguageUseLocaleSub',
-      desc: 'The phrase \'Uses English if device language is not supported\'',
+      'Show special and unusual foods',
+      name: 'settingsUncommonTitle',
+      desc: 'The phrase \'Show special and unusual foods\'',
       args: [],
     );
   }
@@ -763,62 +913,12 @@ class L10n {
     );
   }
 
-  /// `All available foods`
-  String get minAvAir {
+  /// `Give alms`
+  String get supportPageHeadline {
     return Intl.message(
-      'All available foods',
-      name: 'minAvAir',
-      desc: 'The phrase \'All available foods\'',
-      args: [],
-    );
-  }
-
-  /// `No foods imported via airplane`
-  String get minAvSea {
-    return Intl.message(
-      'No foods imported via airplane',
-      name: 'minAvSea',
-      desc: 'The phrase \'No foods imported via airplane\'',
-      args: [],
-    );
-  }
-
-  /// `No foods imported from overseas/far away`
-  String get minAvLand {
-    return Intl.message(
-      'No foods imported from overseas/far away',
-      name: 'minAvLand',
-      desc: 'The phrase \'No foods imported from overseas/far away\'',
-      args: [],
-    );
-  }
-
-  /// `Only local and regional foods`
-  String get minAvLocal {
-    return Intl.message(
-      'Only local and regional foods',
-      name: 'minAvLocal',
-      desc: 'The phrase \'Only local and regional foods\'',
-      args: [],
-    );
-  }
-
-  /// `Support`
-  String get supportPageTitle {
-    return Intl.message(
-      'Support',
-      name: 'supportPageTitle',
-      desc: 'The word \'Support\'',
-      args: [],
-    );
-  }
-
-  /// `Do you like the app?`
-  String get supportPageSpreadTitle {
-    return Intl.message(
-      'Do you like the app?',
-      name: 'supportPageSpreadTitle',
-      desc: 'The phrase \'Do you like the app?\'',
+      'Give alms',
+      name: 'supportPageHeadline',
+      desc: 'The word \'Give alms\'',
       args: [],
     );
   }
@@ -843,12 +943,12 @@ class L10n {
     );
   }
 
-  /// `Give alms`
-  String get supportPageHeadline {
+  /// `Do you like the app?`
+  String get supportPageSpreadTitle {
     return Intl.message(
-      'Give alms',
-      name: 'supportPageHeadline',
-      desc: 'The word \'Give alms\'',
+      'Do you like the app?',
+      name: 'supportPageSpreadTitle',
+      desc: 'The phrase \'Do you like the app?\'',
       args: [],
     );
   }
@@ -873,6 +973,16 @@ class L10n {
     );
   }
 
+  /// `Support`
+  String get supportPageTitle {
+    return Intl.message(
+      'Support',
+      name: 'supportPageTitle',
+      desc: 'The word \'Support\'',
+      args: [],
+    );
+  }
+
   /// `To the webpage`
   String get supportPageWebsiteLink {
     return Intl.message(
@@ -883,112 +993,12 @@ class L10n {
     );
   }
 
-  /// `Back`
-  String get back {
-    return Intl.message(
-      'Back',
-      name: 'back',
-      desc: 'The word \'Back\'',
-      args: [],
-    );
-  }
-
   /// `Wikipedia`
   String get wikipedia {
     return Intl.message(
       'Wikipedia',
       name: 'wikipedia',
       desc: 'The word \'Wikipedia\'',
-      args: [],
-    );
-  }
-
-  /// `License: `
-  String get imprintImgSourcesLicense {
-    return Intl.message(
-      'License: ',
-      name: 'imprintImgSourcesLicense',
-      desc: 'The word \'License: \' (with trailing double dot and space!)',
-      args: [],
-    );
-  }
-
-  /// `\nCreator: `
-  String get imprintImgSourcesPublisher {
-    return Intl.message(
-      '\nCreator: ',
-      name: 'imprintImgSourcesPublisher',
-      desc: 'The word \'Creator: \' (with trailing double dot and space, leading newline!)',
-      args: [],
-    );
-  }
-
-  /// `No foods available!`
-  String get emptyFoodsViewText {
-    return Intl.message(
-      'No foods available!',
-      name: 'emptyFoodsViewText',
-      desc: 'A text shown when no food is displayed in the current foods view.',
-      args: [],
-    );
-  }
-
-  /// `No favorites available!`
-  String get emptyFavoritesViewText {
-    return Intl.message(
-      'No favorites available!',
-      name: 'emptyFavoritesViewText',
-      desc: 'A text shown when no favorites are displayed in the current foods view.',
-      args: [],
-    );
-  }
-
-  /// `Add a favorite by tapping the food's star ☆.`
-  String get emptyFavoritesViewHint {
-    return Intl.message(
-      'Add a favorite by tapping the food\'s star ☆.',
-      name: 'emptyFavoritesViewHint',
-      desc: 'A hint shown when no favorites are displayed in the current foods view.',
-      args: [],
-    );
-  }
-
-  /// `Check your foods display filtering.`
-  String get emptyDefaultViewHint {
-    return Intl.message(
-      'Check your foods display filtering.',
-      name: 'emptyDefaultViewHint',
-      desc: 'A hint shown when no foods are displayed in the current default foods view.',
-      args: [],
-    );
-  }
-
-  /// `No foods found!`
-  String get emptySearchViewText {
-    return Intl.message(
-      'No foods found!',
-      name: 'emptySearchViewText',
-      desc: 'A text shown when no food is displayed in the search result view.',
-      args: [],
-    );
-  }
-
-  /// `Search...`
-  String get searchFieldLabel {
-    return Intl.message(
-      'Search...',
-      name: 'searchFieldLabel',
-      desc: 'The label used in the search bar',
-      args: [],
-    );
-  }
-
-  /// `About the app`
-  String get etcPageTitle {
-    return Intl.message(
-      'About the app',
-      name: 'etcPageTitle',
-      desc: 'Title shown at the top of the \'more info\' page (the one behind the icon with three dots)',
       args: [],
     );
   }

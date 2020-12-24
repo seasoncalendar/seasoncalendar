@@ -85,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "july" : MessageLookupByLibrary.simpleMessage("Juli"),
     "june" : MessageLookupByLibrary.simpleMessage("Juni"),
     "languageCode" : MessageLookupByLibrary.simpleMessage("de"),
+    "languageName" : MessageLookupByLibrary.simpleMessage("Deutsch"),
     "march" : MessageLookupByLibrary.simpleMessage("März"),
     "may" : MessageLookupByLibrary.simpleMessage("Mai"),
     "minAvAir" : MessageLookupByLibrary.simpleMessage("Alle verfügbaren Sorten"),
