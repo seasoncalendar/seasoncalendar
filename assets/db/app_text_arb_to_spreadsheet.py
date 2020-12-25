@@ -34,19 +34,19 @@ if os.path.isfile(spreadsheet_file_name):
         time.strftime('%d-%b-%Y-%Hh-%Mm-%Ss')))
 
 with xlsxwriter.Workbook(spreadsheet_file_name) as workbook:
-    for j in range(len(all_lang_codes)):
+    for lang_code in all_lang_codes:
 
         # add new worksheet
-        cur_lang_code = all_lang_codes[j]
-        worksheet = workbook.add_worksheet(cur_lang_code)
+        worksheet = workbook.add_worksheet(lang_code)
 
         # add first row information
         worksheet.write(0, 1, "key")
         worksheet.write(0, 2, "description")
-        worksheet.write(0, 3, cur_lang_code)
+        worksheet.write(0, 3, lang_code)
 
         # add entries
         for i in range(len(all_keys)):
+
             # the key
             key = all_keys[i]
             worksheet.write(1 + i, 1, key)
@@ -57,5 +57,5 @@ with xlsxwriter.Workbook(spreadsheet_file_name) as workbook:
             worksheet.write(1 + i, 2, description)
 
             # the actual language entry for the key
-            entry_data = arb_dicts[cur_lang_code].get(key, "")
+            entry_data = arb_dicts[lang_code].get(key, "")
             worksheet.write(1 + i, 3, entry_data)
