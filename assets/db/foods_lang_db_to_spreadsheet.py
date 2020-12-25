@@ -36,6 +36,7 @@ for lang_code in all_lang_codes:
 # sort out duplicate keys
 all_food_ids = sorted(list(set(all_food_ids)))
 
+conn.close()
 
 # PART 2: XLSX WRITING
 # --------------------
