@@ -1,0 +1,7 @@
+<p>Ta aplikacja pokazuje, które produkty spożywcze są teraz w sezonie, a więc są dostępne od pobliskich dostawców. Produkty sezonowe są tylko tańsze i smaczniejsze, ale również ich transport jest mniej szkodliwy dla naszego środowiska.</p>
+<p><br><b>Funkcje:</b></p><ul>
+<li>Zawiera największy zbiór owoców i warzyw</li>
+<li>Pozwala wybierać i przeglądać ulubione produkty</li>
+<li>Open-source</li>
+<li>Może być używana na wielu urządzeniach z Androidem</li>
+<p><br>(Uwaga co do licencji: ta aplikacja podlega licencji GNU GPL-3.0, za wyjątkiem plików baz danych w folderze 'assets/db'. Skontaktuj się ze mną, zanim z nich skorzystasz.)</p>
