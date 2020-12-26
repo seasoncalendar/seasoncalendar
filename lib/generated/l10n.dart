@@ -673,12 +673,12 @@ class L10n {
     );
   }
 
-  /// `NONE`
+  /// `English`
   String get languageName {
     return Intl.message(
-      'NONE',
+      'English',
       name: 'languageName',
-      desc: 'NONE',
+      desc: 'The name of this language',
       args: [],
     );
   }
@@ -1011,7 +1011,9 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'de'),
+      Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'fr'),
+      Locale.fromSubtags(languageCode: 'pl'),
     ];
   }
 

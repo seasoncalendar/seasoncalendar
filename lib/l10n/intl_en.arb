@@ -256,9 +256,9 @@
     "@languageCode": {
         "description": "The two-character ISO language code of this language."
     },
-    "languageName": "NONE",
+    "languageName": "English",
     "@languageName": {
-        "description": "NONE"
+        "description": "The name of this language"
     },
     "march": "March",
     "@march": {

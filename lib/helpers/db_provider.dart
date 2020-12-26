@@ -1,6 +1,8 @@
 import 'dart:typed_data';
 import 'dart:io';
 
+import 'package:sprintf/sprintf.dart';
+
 import 'package:path/path.dart';
 
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
@@ -19,6 +21,10 @@ class DBProvider {
   static final DBProvider db = DBProvider._();
   static Database _database;
   static String dbViewName = "null";
+
+  // format with sprintf: (langCode, regionCode, langCode, regionCode)
+  static final String createViewQuery =
+      "create view if not exists foods_%s_%s as select f.id, f.type, f.assetImgPath, f.assetImgInfo, f.assetImgSourceUrl, fl.infoUrl, fl.foodnames, fa.isCommon, fa.avLocal, fa.avLand, fa.avSea, fa.avAir from foods as f inner join foods_lang_%s as fl on f.id == fl.id inner join foods_av_%s as fa on f.id == fa.id";
 
   Future<Database> get database async {
     var settings = await SettingsPageState.getSettings();
@@ -58,14 +64,25 @@ class DBProvider {
     await File(path).writeAsBytes(bytes, flush: true);
 
     // open and return the database
-    var res = await openDatabase(path, readOnly: true);
+    var res = await openDatabase(path);
     return res;
   }
 
   Future<dynamic> getFoods(BuildContext context) async {
     final Database db = await database;
-    final List<Map<String, dynamic>> maps = await db.query(dbViewName);
 
+    // create desired db view if it doesn't exist
+    var settings = await SettingsPageState.getSettings();
+    var langCode = settings['languageCode'];
+    if (langCode == "null") {
+      langCode = L10n.current.languageCode;
+    }
+    var regionCode = settings['regionCode'];
+    var curCreateViewQuery = sprintf(createViewQuery, [langCode, regionCode, langCode, regionCode]);
+    await db.execute(curCreateViewQuery);
+
+    // get the foods
+    final List<Map<String, dynamic>> maps = await db.query(dbViewName);
     return List.generate(maps.length, (i) {
       String foodId = maps[i]['id'];
       String foodNamesString = maps[i]['foodnames'];

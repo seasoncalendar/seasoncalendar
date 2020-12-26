@@ -110,6 +110,8 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     "en": "English",
     "de": "Deutsch",
     "fr": "Français",
-    "pl": "Polski"
+    "pl": "Polski",
+    "es": "Español",
+    "it": "Italiano"
   };
 }
