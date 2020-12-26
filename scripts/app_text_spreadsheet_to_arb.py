@@ -1,11 +1,13 @@
 import sys, glob, os
 import json
 import pandas as pd
+
+# IMPORTANT: execute this script from the seasoncalendar root diractory!
 sys.path.append(".")
 
 # prep
 arb_dicts = dict()
-sheets_dict = pd.read_excel("assets/db/app_text.xlsx", sheet_name=None, engine='openpyxl')
+sheets_dict = pd.read_excel("assets/i18n_data/app_text.xlsx", sheet_name=None, engine='openpyxl')
 lang_codes = list(sheets_dict.keys())
 
 # get ARB dict data for each language sheet

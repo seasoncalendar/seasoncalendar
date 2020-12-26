@@ -1,14 +1,16 @@
 import sqlite3
 import time, sys, os
 import xlsxwriter
+
+# IMPORTANT: execute this script from the seasoncalendar root diractory!
 sys.path.append(".")
 
 # PART 1: DB READING
 # ------------------
 
 # prep
-os.chdir("assets/db")
-conn = sqlite3.connect("foods.db")
+os.chdir("assets")
+conn = sqlite3.connect("db/foods.db")
 cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table';")
 all_food_ids = []
 lang_dicts = dict()
@@ -41,7 +43,7 @@ conn.close()
 # PART 2: XLSX WRITING
 # --------------------
 
-spreadsheet_file_name = "foods_lang.xlsx"
+spreadsheet_file_name = "i18n_data/foods_lang.xlsx"
 if os.path.isfile(spreadsheet_file_name):
     print("file \'{}\' already exists, marking it as old...".format(spreadsheet_file_name))
     os.rename(src=spreadsheet_file_name, dst=spreadsheet_file_name[:-5] + "_old_{}.xlsx".format(

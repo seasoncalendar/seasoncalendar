@@ -2,6 +2,7 @@ import sys, glob, os, time
 import json
 import xlsxwriter
 
+# IMPORTANT: execute this script from the seasoncalendar root diractory!
 sys.path.append(".")
 
 # prep
@@ -16,7 +17,8 @@ for arb_file in glob.glob("*.arb"):
     cur_arb_dict = dict()
     cur_keys = [key.replace("@", "") for key in json_result.keys()]
     cur_keys.remove("locale")  # @@locale is not included
-    all_keys.extend(cur_keys)
+    if "en" in arb_file:  # only consider those entries that are also present in the english resource
+        all_keys = cur_keys
 
     cur_lang_code = arb_file[-6:-4]  # the two letter ISO code
     arb_dicts[cur_lang_code] = json_result
@@ -27,7 +29,7 @@ all_lang_codes = sorted(list(arb_dicts.keys()))
 
 # create and write the worksheet from the fetched data
 os.chdir("../..")
-spreadsheet_file_name = "assets/db/app_text.xlsx"
+spreadsheet_file_name = "assets/i18n_data/app_text.xlsx"
 if os.path.isfile(spreadsheet_file_name):
     print("file \'{}\' already exists, marking it as old...".format(spreadsheet_file_name))
     os.rename(src=spreadsheet_file_name, dst=spreadsheet_file_name[:-5] + "_old_{}.xlsx".format(

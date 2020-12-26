@@ -1,16 +1,18 @@
-import sys, glob, os
+import sys, os
 import time
 import pandas as pd
 import sqlite3
 
+# IMPORTANT: execute this script from the seasoncalendar root diractory!
 sys.path.append(".")
 
 # PART 1: XLSX READING
 # --------------------
 
 # prep
+os.chdir("assets")
 lang_dicts = dict()
-sheets_dict = pd.read_excel("assets/db/foods_lang.xlsx", sheet_name=None, engine='openpyxl')
+sheets_dict = pd.read_excel("i18n_data/foods_lang.xlsx", sheet_name=None, engine='openpyxl')
 all_lang_codes = list(sheets_dict.keys())
 
 all_food_ids = []
@@ -34,7 +36,7 @@ all_food_ids = sorted(list(set(all_food_ids)))
 # PART 2: DB WRITING
 # ------------------
 
-conn = sqlite3.connect("assets/db/foods.db", isolation_level=None)  # auto-commit on
+conn = sqlite3.connect("db/foods.db", isolation_level=None)  # auto-commit on
 cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table';")
 db_lang_table_names = [table[0] for table in cursor.fetchall() if "foods_lang" in table[0] and not "old" in table[0]]
 
