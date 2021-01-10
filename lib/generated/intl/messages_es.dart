@@ -22,7 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "aboutPageAdvantage1" : MessageLookupByLibrary.simpleMessage("Los productos frescos saben mejor y son más saludables para su cuerpo."),
-    "aboutPageAdvantage2" : MessageLookupByLibrary.simpleMessage("Fresh foods are generally cheaper."),
+    "aboutPageAdvantage2" : MessageLookupByLibrary.simpleMessage("Los productos frescos son generalmente mas baratos."),
     "aboutPageAdvantage3" : MessageLookupByLibrary.simpleMessage("Los esfuerzos realizados para almacenarlos son menores"),
     "aboutPageAdvantage4" : MessageLookupByLibrary.simpleMessage("El transporte es menos dañino para el medio ambiente."),
     "aboutPageAdvantage5" : MessageLookupByLibrary.simpleMessage("Apoyas a los negocios y trabajos locales."),
