@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
+import 'package:seasoncalendar/components/food_av_dialog.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
 
 class FoodDetailsDialog extends StatelessWidget {
   final String _foodDisplayName;
@@ -24,12 +26,16 @@ class FoodDetailsDialog extends StatelessWidget {
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [for (var i = 0; i < 4; i += 1) getAvailabilityInfoCard(context, i)],
+          children: [
+            for (var i = 0; i < 4; i += 1) getAvailabilityInfoCard(context, i)
+          ],
         ),
         SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [for (var i = 4; i < 8; i += 1) getAvailabilityInfoCard(context, i)],
+          children: [
+            for (var i = 4; i < 8; i += 1) getAvailabilityInfoCard(context, i)
+          ],
         ),
         SizedBox(height: 5),
         Row(
@@ -81,22 +87,25 @@ class FoodDetailsDialog extends StatelessWidget {
   Widget getAvailabilityInfoCard(BuildContext context, int monthIndex) {
     Widget containerChild;
 
-    int fstModeIdx = _allAvailabilities[monthIndex].indexWhere((mode) => mode != Availability.none);
-    int sndModeIdx = _allAvailabilities[monthIndex].indexWhere((mode) => mode != Availability.none, fstModeIdx + 1);
+    int fstModeIdx = _allAvailabilities[monthIndex]
+        .indexWhere((mode) => mode != Availability.none);
+    int sndModeIdx = _allAvailabilities[monthIndex]
+        .indexWhere((mode) => mode != Availability.none, fstModeIdx + 1);
 
     if (fstModeIdx == -1) {
       int iconAlpha = getIconAlphaFromAvailability(Availability.none);
-      containerChild = Icon(
-          availabilityModeIcons[fstModeIdx], color: Colors.black.withAlpha(iconAlpha));
-    }
-
-    else if (sndModeIdx == -1) {
-      int iconAlpha = getIconAlphaFromAvailability(_allAvailabilities[monthIndex][fstModeIdx]);
-      containerChild = Icon(
-          availabilityModeIcons[fstModeIdx], color: Colors.black.withAlpha(iconAlpha));
+      containerChild = Icon(availabilityModeIcons[fstModeIdx],
+          color: Colors.black.withAlpha(iconAlpha));
+    } else if (sndModeIdx == -1) {
+      int iconAlpha = getIconAlphaFromAvailability(
+          _allAvailabilities[monthIndex][fstModeIdx]);
+      containerChild = Icon(availabilityModeIcons[fstModeIdx],
+          color: Colors.black.withAlpha(iconAlpha));
     } else {
-      int primaryIconAlpha = getIconAlphaFromAvailability(_allAvailabilities[monthIndex][fstModeIdx]);
-      int secondaryIconAlpha = getIconAlphaFromAvailability(_allAvailabilities[monthIndex][sndModeIdx]);
+      int primaryIconAlpha = getIconAlphaFromAvailability(
+          _allAvailabilities[monthIndex][fstModeIdx]);
+      int secondaryIconAlpha = getIconAlphaFromAvailability(
+          _allAvailabilities[monthIndex][sndModeIdx]);
       containerChild = Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -104,14 +113,15 @@ class FoodDetailsDialog extends StatelessWidget {
           Icon(availabilityModeIcons[fstModeIdx],
               color: Colors.black.withAlpha(primaryIconAlpha)),
           Text(" / "),
-          Icon(availabilityModeIcons[sndModeIdx], color: Colors.black.withAlpha(secondaryIconAlpha)),
+          Icon(availabilityModeIcons[sndModeIdx],
+              color: Colors.black.withAlpha(secondaryIconAlpha)),
         ],
       );
     }
 
     return Expanded(
       flex: 1,
-      child: Container(
+      child: GestureDetector(
         child: Card(
             elevation: 1,
             color: availabilityModeColor[fstModeIdx],
@@ -119,7 +129,9 @@ class FoodDetailsDialog extends StatelessWidget {
               padding: const EdgeInsets.all(2),
               child: Column(
                 children: <Widget>[
-                  Text(getMonthNameFromIndex(context, monthIndex).substring(0, 3),
+                  Text(
+                      getMonthNameFromIndex(context, monthIndex)
+                          .substring(0, 3),
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   FittedBox(
                     fit: BoxFit.contain,
@@ -128,6 +140,35 @@ class FoodDetailsDialog extends StatelessWidget {
                 ],
               ),
             )),
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (_) => AlertDialog(
+              backgroundColor: Colors.white,
+              content: FoodsAvDialog(List.generate(
+                      _allAvailabilities[monthIndex].length,
+                      (i) =>
+                          _allAvailabilities[monthIndex][i] !=
+                          Availability.none) //TODO
+                  ),
+              elevation: 10,
+              actions: [
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed("/etc/howto");
+                  },
+                  child: Icon(Icons.help),
+                ),
+                MaterialButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: /*Text(L10n.of(context).ok)*/ Text("NONE")),
+              ],
+            ),
+            barrierDismissible: true,
+          );
+        },
       ),
     );
   }

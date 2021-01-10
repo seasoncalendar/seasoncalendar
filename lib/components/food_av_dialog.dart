@@ -7,17 +7,17 @@ import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/helpers/availabilities.dart';
 
-class FilterfoodsDialog extends StatefulWidget {
+class FoodsAvDialog extends StatefulWidget {
   List<bool> _selectedAvailabilities;
 
-  FilterfoodsDialog(List<bool> selectedAvailabilities)
+  FoodsAvDialog(List<bool> selectedAvailabilities)
       : _selectedAvailabilities = selectedAvailabilities;
 
   @override
-  FilterfoodsDialogState createState() => new FilterfoodsDialogState();
+  FoodsAvDialogState createState() => new FoodsAvDialogState();
 }
 
-class FilterfoodsDialogState extends State<FilterfoodsDialog> {
+class FoodsAvDialogState extends State<FoodsAvDialog> {
   @override
   Widget build(BuildContext context) {
 

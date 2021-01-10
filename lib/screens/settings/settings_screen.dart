@@ -10,7 +10,7 @@ import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/helpers/availabilities.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
-import 'package:seasoncalendar/screens/settings/filterfoods/settings_filterfoods_dialog.dart';
+import 'package:seasoncalendar/components/food_av_dialog.dart';
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
@@ -98,8 +98,10 @@ class SettingsPageState extends State<SettingsPage> {
           context: context,
           builder: (_) => AlertDialog(
             backgroundColor: Colors.white,
-            content: FilterfoodsDialog(List.generate(
-                avTypeCount, (i) => widget._settings[avSettingsKeys[i]])),
+            content: FoodsAvDialog(
+                List.generate(
+                avTypeCount, (i) => widget._settings[avSettingsKeys[i]])
+            ),
             elevation: 10,
             actions: [
               MaterialButton(
@@ -152,7 +154,27 @@ class SettingsPageState extends State<SettingsPage> {
                   dense: false,
                   onTap: showFilterFoodsDialog,
                 ),
-                /* REGION SELECTION TILE WILL BE ENABLED WITH THE 2ND REGION
+                const Divider(),
+                SwitchListTile.adaptive(
+                  secondary: Icon(Icons.edit_attributes_outlined),
+                  title: /*Text(L10n.of(context).settingsUseCustomAvTitle)*/Text("NONE"),
+                  value: widget._settings["useCustomAv"],
+                  dense: false,
+                  onChanged: (newVal) {
+                    setSettingI("useCustomAv", newVal);
+                  },
+                ),
+                const Divider(),
+                ListTileTheme(
+                  child: ListTile(
+                    leading: Icon(Icons.delete_forever),
+                    title: /*Text(L10n.of(context).settingsResetCustomAvTitle)*/Text("NONE"),
+                    isThreeLine: false,
+                    dense: false,
+                    onTap: () {/*Display alert dialog then empty foods_av_custom*/
+                    },
+                  ),
+                ),
                 const Divider(),
                 ListTileTheme(
                   child: ListTile(
@@ -165,7 +187,6 @@ class SettingsPageState extends State<SettingsPage> {
                     },
                   ),
                 ),
-                */
                 const Divider(),
                 ListTileTheme(
                   child: ListTile(
