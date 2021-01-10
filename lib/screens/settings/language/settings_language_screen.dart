@@ -4,6 +4,7 @@ import 'package:seasoncalendar/theme/themes.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:seasoncalendar/helpers/lang_names.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/main.dart';
@@ -105,13 +106,4 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
       }),
     );
   }
-
-  final Map<String, String> languageNameFromCode = {
-    "en": "English",
-    "de": "Deutsch",
-    "fr": "Français",
-    "pl": "Polski",
-    "es": "Español",
-    "it": "Italiano"
-  };
 }

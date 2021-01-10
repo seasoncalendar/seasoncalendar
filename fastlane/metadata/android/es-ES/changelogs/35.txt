@@ -1,3 +1,0 @@
-Version 1.4.2+35:
-- Internal improvements and fixes.
-Privacy policy and app permissions remain unchanged.

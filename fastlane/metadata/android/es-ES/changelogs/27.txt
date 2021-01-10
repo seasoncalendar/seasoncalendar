@@ -1,3 +1,0 @@
-Version 1.3.2+27:
-- Added regular onions to the available foods (seems like I have accidentally forgotten them).
-- Bugfix: Foods searching is now always done using the currently selected locale.

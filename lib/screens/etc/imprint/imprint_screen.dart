@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import 'package:seasoncalendar/helpers/lang_names.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
@@ -63,7 +64,18 @@ class ImprintPage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                L10n.of(context).imprintPageMyName,
+                languageNameFromCode["de"] + ", "
+                    + languageNameFromCode["en"] + ", "
+                    + languageNameFromCode["fr"] + ": "
+                    + L10n.of(context).imprintPageMyName,
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                languageNameFromCode["es"] + ": Luciano Gardella",
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                languageNameFromCode["pl"] + ": Mateusz Bartczak (matebart)",
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 20),

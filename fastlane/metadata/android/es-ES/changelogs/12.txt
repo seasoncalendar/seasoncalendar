@@ -1,1 +1,0 @@
-New in v1.1: Improved foods search that now includes common german synonyms.

@@ -1,2 +1,0 @@
-Version 1.1.2+15: Internal changes (build mechanism and app metadata).
-Privacy policy and app permissions remain unchanged.

@@ -1,2 +1,0 @@
-Version 1.4.5+39:
-- Visual improvements and a better explanation.

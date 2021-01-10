@@ -1,4 +1,0 @@
-Version 1.3.0+25:
-- The app now automatically adjusts to the device language if it is supported.
-- Added english to the list of supported device languages.
-Privacy policy remains unchanged, however the device settings are consulted for determining the device language.

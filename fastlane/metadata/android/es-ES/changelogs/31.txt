@@ -1,3 +1,0 @@
-Version 1.4.0+31:
-- You can now manually select the app language in the settings menu.
-Privacy policy and app permissions remain unchanged.
