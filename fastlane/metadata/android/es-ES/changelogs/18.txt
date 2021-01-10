@@ -1,0 +1,2 @@
+Version 1.1.3+18: Internal changes (foods display now managed using flutter's provider package).
+Privacy policy and app permissions remain unchanged.

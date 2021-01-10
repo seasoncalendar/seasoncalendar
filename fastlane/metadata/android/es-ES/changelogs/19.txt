@@ -1,0 +1,2 @@
+Version 1.2.0+19: Autumn update! New foods: pumpkins, artichoke, pak choy and sweet potato.
+Privacy policy and app permissions remain unchanged.
