@@ -1,7 +1,7 @@
 # Seasonal Foods Calendar
 
 [<img src="https://img.shields.io/github/release/flunzmas/seasoncalendar.svg?logo=github">](https://github.com/Flunzmas/seasoncalendar/releases/latest)
-[<img src="https://img.shields.io/f-droid/v/flunzmas.seasoncalendar.svg">](https://f-droid.org/packages/flunzmas.seasoncalendar)
+[<img src="https://img.shields.io/f-droid/v/flunzmas.seasoncalendar.svg?logo=F-Droid">](https://f-droid.org/packages/flunzmas.seasoncalendar)
 [<img src="https://img.shields.io/github/license/flunzmas/seasoncalendar">](/LICENSE)
 
 A practical and easy to use app showing you which kinds of fruit, vegetables, salads etc. are in season right now.
