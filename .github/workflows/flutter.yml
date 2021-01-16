@@ -2,7 +2,7 @@ name: Flutter
 
 on:
   push:
-    branches: [ master, feature/flutter-ci ]
+    branches: [ master, feature/flutter-ci, fix/ci ]
   pull_request:
     branches: [ master ]
 
