@@ -2,7 +2,7 @@ name: Flutter
 
 on:
   push:
-    branches: [ master, feature/flutter-ci ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -18,6 +18,9 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: '1.22'
+      - name: Install NDK
+        # Simply install NDK as defined in android/app/build.gradle
+        run: echo "y" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --install "ndk;$(grep "ndk" android/app/build.gradle | awk '{print $2}' | sed 's/"//g')" --sdk_root=${ANDROID_SDK_ROOT} 
       - run: flutter pub get
       - run: flutter update-packages
       - run: flutter build apk --debug --flavor foss
