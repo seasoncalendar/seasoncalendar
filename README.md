@@ -28,23 +28,23 @@ There certainly are similar apps out there, especially within the German-speakin
 However some distinguishing features are:
 
 - Huge database
-  - Over 100 different kinds of foods and their availability [contribute and improve information](https://github.com/Flunzmas/seasoncalendar/issues/29))
+  - Over 100 different kinds of foods and their availability ([contribute and improve information](https://github.com/Flunzmas/seasoncalendar/issues/29))
 - Save favorite foods
 - Modern design
 - No Advertisement & No Tracking (never!)
 - Runs on a variety of android devices (Android 4.1 or newer)
-- [Multiple languages](https://github.com/Flunzmas/seasoncalendar/issues/36) (and comming soon [multiple regions](https://github.com/Flunzmas/seasoncalendar/issues/47))
-- Free Open Soure Software
+- [Multiple languages](https://github.com/Flunzmas/seasoncalendar/issues/36) (and coming soon [multiple regions](https://github.com/Flunzmas/seasoncalendar/issues/47))
+- Free Open Source Software
 
 Especially the open-source aspect is a main motivating factor for me to further develop this app.
 
-Additional info can be fetched from my website: https://flunzmas.com/seasonal-foods-calendar
+Additional info can be fetched from my website: [flunzmas.com/seasonal-foods-calendar](https://flunzmas.com/seasonal-foods-calendar)
 
 ## Asset Sources
 
-The database file `assets/db/foods.db` contains all food information and their respective sources. You can open the file e.g. with ![the official SQLite DB Browser](https://sqlitebrowser.org/).
+The database file `assets/db/foods.db` contains all food information and their respective sources. You can open the file e.g. with [the official SQLite DB Browser](https://sqlitebrowser.org/).
 
-Please note that the data concerning foods' availability partly stems from ![lebensmittellexikon.de](https://lebensmittellexikon.de/) and thus is __not__ subject to the GPL license. I kindly ask you to contact me before re-using the availability data (columns starting with 'av' from the file `assets/db/foods.db`).
+Please note that the data concerning foods' availability partly stems from [lebensmittellexikon.de](https://lebensmittellexikon.de/) and thus is __not__ subject to the GPL license. I kindly ask you to contact me before re-using the availability data (columns starting with 'av' from the file `assets/db/foods.db`).
 
 # Building it Yourself
 
