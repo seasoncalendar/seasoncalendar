@@ -1,0 +1,3 @@
+Version 1.4.7+42 :
+- Correction de quelques erreurs dans les noms et les images des aliments
+- La description de l'application et le menu des paramètres indiquent désormais que, pour l'instant, seules les données d'Europe centrale sont disponibles

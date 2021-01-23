@@ -1,0 +1,3 @@
+Version 1.4.7+42:
+- Fixing a few errors in food names and images
+- App description and settings menu now indicate that, currently, only data from central Europe is available

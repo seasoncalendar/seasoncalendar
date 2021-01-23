@@ -1,0 +1,3 @@
+Version 1.4.7+42:
+- Fehler bei Namen und Bildern korrigiert
+- Verbesserter Hinweis auf die Region der angezeigten Daten in der App-Beschreibung und dem Einstellungsmenü

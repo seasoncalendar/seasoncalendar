@@ -1,0 +1,3 @@
+Wersja 1.4.7+42:
+- Usunięcie kilku błędów w nazwach i obrazach potraw
+- Opis aplikacji i menu ustawień wskazują teraz, że obecnie dostępne są tylko dane z Europy Środkowej
