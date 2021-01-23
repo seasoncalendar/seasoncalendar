@@ -1,7 +1,11 @@
 <p>Diese App zeigt dir auf einen Blick an, welche Lebensmittel aktuell Saison haben und aus nächster Nähe verfügbar sind. Solche Lebensmittel sind oft nicht nur günstiger und leckerer, sondern schonen auch das Klima durch bessere klimatische Bedingungen und kürzeren Transportwegen.</p>
-<p><br><b>Features:</b></p><ul>
-<li>Eine große Auswahl an verschiedenen Obst- und Gemüsesorten</li>
-<li>Markiere deine Favoriten und greife schnell auf sie zu</li>
-<li>Open Source</li>
-<li>Unterstützt eine breite Palette an Android-Geräten</li>
-<p><br>(Lizenziert nach GNU GPL-3.0, mit Ausnahme der Datenbanken im Assets-Ordner 'assets/db'. Ich bitte um Kontaktaufnahme vor der Wiederverwendung.)</p>
+<p>
+<b>Features:</b>
+<br>* Eine große Auswahl an verschiedenen Obst- und Gemüsesorten
+<br>* Markiere deine Favoriten und greife schnell auf sie zu
+<br>* Open Source
+<br>* Unterstützt eine breite Palette an Android-Geräten
+<br>* Aktuell verfügbare Voreinstellungen für die Daten: Mitteleuropa
+</p>
+<p><i>Bitte sei dir bewusst dass die hier angezeigten Verfügbarkeitsinformation lediglich der Orientierung dienen. Das letztendliche Angebot in deinem Supermarkt kann sich davon unterscheiden.</i></p>
+<p>(Lizenziert nach GNU GPL-3.0, mit Ausnahme der Datenbanken im Assets-Ordner 'assets/db'. Ich bitte um Kontaktaufnahme vor der Wiederverwendung.)</p>

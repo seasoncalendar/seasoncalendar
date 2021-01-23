@@ -1,7 +1,11 @@
 <p>Esta App muestra los alimentos que están en temporada en este momento, y por lo tanto están disponibles en los productores cercanos. No sólo son más baratos y sabrosos, sino que su transporte es menos dañino para nuestro medio ambiente.</p>
-<p><br><b>Features:</b></p><ul>
-<li>Tiene la mayor colección de alimentos</li>
-<li>Te permite configurar tus favoritos</li>
-<li>Open Source</li>
-<li>Te permite configurar tus favoritos</li>
-<p><br>(Nota de licencia: esta aplicación está sujeta a la licencia GNU GPL-3.0, con la excepción de los archivos de la base de datos en la carpeta "assets/db". Por favor, contácteme antes de utilizarlos.)</p>
+<p>
+<b>Features:</b>
+<br>* Tiene la mayor colección de alimentos
+<br>* Te permite configurar tus favoritos
+<br>* Open Source
+<br>* Te permite configurar tus favoritos
+<br>* Preselecciones de datos disponibles actualmente: Europa Central
+</p>
+<p><i>Por favor, tenga en cuenta que la disponibilidad real de los alimentos en su supermercado local puede diferir de la información mostrada aquí.</i></p>
+<p>(Nota de licencia: esta aplicación está sujeta a la licencia GNU GPL-3.0, con la excepción de los archivos de la base de datos en la carpeta "assets/db". Por favor, contácteme antes de utilizarlos.)</p>

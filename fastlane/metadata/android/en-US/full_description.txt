@@ -1,7 +1,11 @@
 <p>This App shows you which foods are in Season right now and are thus available from nearby produce. Not only are they cheaper and tastier, but also their transport is less harmful to our environment.</p>
-<p><br><b>Features:</b></p><ul>
-<li>Boasts the biggest collection of foods</li>
-<li>Lets you pick and view your favorites</li>
-<li>Open Source</li>
-<li>Can be run on a variety of android devices</li>
-<p><br>(License note: this app is subject to the GNU GPL-3.0 license, with the exception of the database files in the assets folder 'assets/db'. Please contact me before re-using them.)</p>
+<p>
+<b>Features:</b>
+<br>* Boasts the biggest collection of foods
+<br>* Lets you pick and view your favorites
+<br>* Open Source
+<br>* Can be run on a variety of android devices
+<br>* Data presets currently available: Central Europe
+</p>
+<p><i>Please keep in mind that the actual availability of foods in your local supermarket can differ from the information shown here.</i></p>
+<p>(License note: this app is subject to the GNU GPL-3.0 license, with the exception of the database files in the assets folder 'assets/db'. Please contact me before re-using them.)</p>
