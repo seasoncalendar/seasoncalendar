@@ -29,7 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "aboutPageDisclaimer" : MessageLookupByLibrary.simpleMessage("Por favor, tenga en cuenta que la disponibilidad real de los alimentos en su supermercado local puede diferir de la información mostrada aquí."),
     "aboutPageHeadline" : MessageLookupByLibrary.simpleMessage("¿Por qué preocuparse por las estaciones de los alimentos?"),
     "aboutPageLeading" : MessageLookupByLibrary.simpleMessage("Hoy en día, casi todos los alimentos están disponibles durante todo el año, generando que la gente pierda la conciencia sobre la temporada de estos. Sin embargo, comprar alimentos locales y en temporada a menudo tiene ventajas sorprendentes:"),
-    "aboutPageTitle" : MessageLookupByLibrary.simpleMessage("Explicación"),
+    "aboutPageTitle" : MessageLookupByLibrary.simpleMessage("Sobre la aplicación"),
     "aboutPageTrailing" : MessageLookupByLibrary.simpleMessage("Esta aplicación te permite comer más barato y sabroso! a la vez, aumentar la conciencia sobre el origen de nuestra comida."),
     "appTitle" : MessageLookupByLibrary.simpleMessage("Calendario de alimentos de temporada"),
     "april" : MessageLookupByLibrary.simpleMessage("Abril"),
@@ -116,7 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "supportPageText1" : MessageLookupByLibrary.simpleMessage("Esta aplicación seguirá siendo totalmente gratuita y sin publicidad mientras esté en desarrollo."),
     "supportPageText2" : MessageLookupByLibrary.simpleMessage("Pero si desea apoyar mi trabajo, puede echar un vistazo a lo que hago en general en mi página web."),
     "supportPageTitle" : MessageLookupByLibrary.simpleMessage("Soporte"),
-    "supportPageWebsiteLink" : MessageLookupByLibrary.simpleMessage("Ir a la pagina web"),
+    "supportPageWebsiteLink" : MessageLookupByLibrary.simpleMessage("A la pagina web"),
     "wikipedia" : MessageLookupByLibrary.simpleMessage("Wikipedia")
   };
 }
