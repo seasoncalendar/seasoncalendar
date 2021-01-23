@@ -212,6 +212,17 @@ class SettingsPageState extends State<SettingsPage> {
                   isThreeLine: false,
                   dense: false,
                 ),
+                const Divider(),
+                ListTile(
+                  leading: Icon(Icons.location_on),
+                  enabled: false,
+                  title: Text(L10n.of(context).settingsRegionTitle),
+                  trailing: Text(L10n.of(context).centralEurope,
+                    style: const TextStyle(color: Colors.black38),
+                  ),
+                  isThreeLine: false,
+                  dense: false,
+                ),
               ],
             ),
           ));
