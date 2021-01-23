@@ -61,37 +61,44 @@ class SearchScreen extends SearchDelegate<String> {
   }
 
   Widget getMatchingFoodView(BuildContext context, List<Food> dbFoods) {
-    List<Food> resultList = List<Food>();
-
+    // show full list on small query
     if (query.length < 3) {
-      resultList = dbFoods;
-      resultList.sort((a, b) => a.displayName.compareTo(b.displayName));
-      return FoodView.fromSearchResult(resultList, _monthIndex);
+      dbFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
+      return FoodView.fromSearchResult(dbFoods, _monthIndex);
     }
 
+    // show exact, starting and inner matches
     var exactMatches = dbFoods
         .where((food) => food.synonyms
             .map((s) => s.toLowerCase())
             .contains(query.toLowerCase()))
         .toList();
 
-    //print(exactMatches.length);
-
-    if (exactMatches.length > 0) {
-      return FoodView.fromSearchResult(exactMatches, _monthIndex);
-    }
-
-    var startsWith = dbFoods
+    var startsWithMatches = dbFoods
         .where((food) => food.synonyms.any((synonym) =>
-            synonym.toLowerCase().startsWith(query.toLowerCase()) &&
-            query.length >= 4))
+            synonym.toLowerCase().startsWith(query.toLowerCase())))
         .toList();
 
-    //print(startsWith.length);
+    var innerMatches = dbFoods
+        .where((food) => food.synonyms.any((synonym) =>
+            !synonym.toLowerCase().startsWith(query.toLowerCase()) &&
+            synonym.toLowerCase().contains(query.toLowerCase())))
+        .toList();
 
-    if (startsWith.length > 0) {
-      return FoodView.fromSearchResult(startsWith, _monthIndex);
+    var matches = exactMatches;
+
+    startsWithMatches.concat(innerMatches).forEach((food) {
+      if (matches.contains(food)) { // O(n) but probably irrelevant
+        continue;
+      }
+
+      matches += food;
+    });
+
+    if (matches.length > 0) {
+      return FoodView.fromSearchResult(matches, _monthIndex);
     }
+
 
     final Levenshtein lvs = new Levenshtein();
 
@@ -103,8 +110,6 @@ class SearchScreen extends SearchDelegate<String> {
             })).reduce(min) <=
             0.5)
         .toList();
-
-    //print(lvsResults.length);
 
     return FoodView.fromSearchResult(lvsResults, _monthIndex);
   }
