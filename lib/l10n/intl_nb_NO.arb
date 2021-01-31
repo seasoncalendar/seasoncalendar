@@ -1,1 +1,354 @@
-{}
+{
+  "supportPageText2": "Hvis du ønsker å støtte mitt arbeide kan du ta en titt på hva jeg gjør samlet sett på nettsiden min.",
+  "@supportPageText2": {
+    "description": "Something like 'User can go to webpage if they further want to support'"
+  },
+  "supportPageSpreadText2": "På den måten øker vi oppmerksomheten for matens opprinnelse samtidig som vi sparer en slant og nyter bedre mat.",
+  "@supportPageSpreadText2": {
+    "description": "Continuation of the motivating text"
+  },
+  "supportPageSpreadText1": "Godt å høre. Den mest effektive måten å støtte meg i arbeidet er å fortelle andre om det: La det komme dine venner og familie for øret at programmet finnes.",
+  "@supportPageSpreadText1": {
+    "description": "A text motivating to spread the word about the app if the user likes it"
+  },
+  "supportPageHeadline": "Ha miskunn",
+  "@supportPageHeadline": {
+    "description": "The word 'Give alms'"
+  },
+  "settingsUncommonText": "f.eks. kvede, moltebær",
+  "@settingsUncommonText": {
+    "description": "The phrase 'e.g. quince, cloudberry'"
+  },
+  "aboutPageTrailing": "Dette programmet lar deg spise billigere og mer smakriks mat, samtidig som det hjelper deg å bli den bevisst.",
+  "@aboutPageTrailing": {
+    "description": "A sentence about benefits for the app user"
+  },
+  "aboutPageLeading": "Nå til dags er de fleste matvarer tilgjengelige året rundt, og folk har blitt ubevisst sesongens innvirkning. Dog utgjør sesongbetont og lokal mat ofte store forskjeller:",
+  "@aboutPageLeading": {
+    "description": "Justification for caring about food seasons"
+  },
+  "aboutPageAdvantage3": "Tiltak rundt lagring av mat reduseres.",
+  "@aboutPageAdvantage3": {
+    "description": "The phrase 'The efforts made for storing foods is reduced.'"
+  },
+  "supportPageText1": "Programmet vil forbli gratis og reklamefritt så lenge jeg utvikler det.",
+  "@supportPageText1": {
+    "description": "The statement 'This app will remain fully free of charge and ad-free as long as I am developing it.'"
+  },
+  "settingsUncommonTitle": "Vis spesiell og uvanlig mat",
+  "@settingsUncommonTitle": {
+    "description": "The phrase 'Show special and unusual foods'"
+  },
+  "settingsRegionUseLocale": "Bruk enhetsregion",
+  "@settingsRegionUseLocale": {
+    "description": "The phrase 'Use device region'"
+  },
+  "settingsRegionTitle": "Region",
+  "@settingsRegionTitle": {
+    "description": "The word 'Region'"
+  },
+  "settingsLanguageUseLocaleSub": "Bruker engelsk hvis valgt språk ikke støttes",
+  "@settingsLanguageUseLocaleSub": {
+    "description": "The phrase 'Uses English if device language is not supported'"
+  },
+  "settingsLanguageSubtitle": "Endring språk utfører omstart av programmet",
+  "@settingsLanguageSubtitle": {
+    "description": "The phrase 'Changing the language restarts the app'"
+  },
+  "settingsFilterTitle": "Filtrer etter tilgjengelighet",
+  "@settingsFilterTitle": {
+    "description": "The phrase 'Filter by availability'"
+  },
+  "imprintPageFontsText": "Font Awesome 5 (eplelogo, gulrotlogo)\n(Lisens: fontawesome.com/license)",
+  "@imprintPageFontsText": {
+    "description": "Font information"
+  },
+  "imprintPageDataText2": "Takk rettes til laget bak Lebensmittellexikon.de for bruk av deres tilgjengeligehetsdata.",
+  "@imprintPageDataText2": {
+    "description": "Saying thanks to those that let their data be used here"
+  },
+  "imprintPageDataText": "Lebensmittellexikon.de (store deler);\nAndreas Boltres (resten).",
+  "@imprintPageDataText": {
+    "description": "Name of author(s) for availability data"
+  },
+  "imprintPageDataHeadline": "Tilgjengelighetsdata",
+  "@imprintPageDataHeadline": {
+    "description": "The phrase 'Availability data'"
+  },
+  "howToPageExplanation": "Dette programmet viser i et overblikk hvilke matvarer som er i sesong akkurat nå:",
+  "@howToPageExplanation": {
+    "description": "A sentence explaining what the app does"
+  },
+  "howToPageColors": "Et felts farge indikerer klassifiseringen ovenfor. Grønn er bedre enn rød.",
+  "@howToPageColors": {
+    "description": "Describes what the food background colors do"
+  },
+  "howToPageAvSea": "Importert over store avstander, for det meste til vanns.",
+  "@howToPageAvSea": {
+    "description": "A sentence explaining what the ship icon means."
+  },
+  "howToPageAvLocal": "I sesong/lokalt eller regionalt tilgjengelig.",
+  "@howToPageAvLocal": {
+    "description": "A sentence explaining what the house icon means."
+  },
+  "howToPageAvLand": "Importer fra ikke så langt unna, for det meste til lands.",
+  "@howToPageAvLand": {
+    "description": "A sentence explaining what the truck icon means."
+  },
+  "howToPageAvAir": "Importert over store avstander, for det meste flybåret.",
+  "@howToPageAvAir": {
+    "description": "A sentence explaining what the airplane icon means."
+  },
+  "emptySearchViewText": "Fant ikke noen matvarer.",
+  "@emptySearchViewText": {
+    "description": "A text shown when no food is displayed in the search result view."
+  },
+  "emptyFoodsViewText": "Ingen tilgjengelige matvarer.",
+  "@emptyFoodsViewText": {
+    "description": "A text shown when no food is displayed in the current foods view."
+  },
+  "emptyFavoritesViewText": "Ingen favoritter tilgjengelige.",
+  "@emptyFavoritesViewText": {
+    "description": "A text shown when no favorites are displayed in the current foods view."
+  },
+  "emptyFavoritesViewHint": "Legg til favorittkategori ved å trykke på matens ☆.",
+  "@emptyFavoritesViewHint": {
+    "description": "A hint shown when no favorites are displayed in the current foods view."
+  },
+  "emptyDefaultViewHint": "Sjekk dine valg for visning av mat.",
+  "@emptyDefaultViewHint": {
+    "description": "A hint shown when no foods are displayed in the current default foods view."
+  },
+  "contribPageContact": "Hvis du har funnet en feil eller har konkrete forbedringer kan du kontakte meg via nettsiden min.",
+  "@contribPageContact": {
+    "description": "Justification for missing features/incorrectness by stating young age of app"
+  },
+  "contribPageCode": "Kildekoden for programmet er å finne på GitHub:",
+  "@contribPageCode": {
+    "description": "The phrase 'The source code for the app is available on GitHub:'"
+  },
+  "appTitle": "Sesongmatkalender",
+  "@appTitle": {
+    "description": "The title of the app, e.g. 'Seasonal foods calendar'"
+  },
+  "aboutPageHeadline": "Hvorfor skal man bry seg om sesongbetont mat?",
+  "@aboutPageHeadline": {
+    "description": "The phrase 'Why care about foods' seasons?'"
+  },
+  "aboutPageAdvantage4": "Transporten er mindre skadelig for miljøet.",
+  "@aboutPageAdvantage4": {
+    "description": "The phrase 'The transport is less harmful to the environment.'"
+  },
+  "aboutPageAdvantage2": "Fersk mat er generelt billigere.",
+  "@aboutPageAdvantage2": {
+    "description": "The phrase 'Fresh foods are generally cheaper.'"
+  },
+  "aboutPageAdvantage1": "Ferske produkter smaker bedre og er sunnere for kroppen din.",
+  "@aboutPageAdvantage1": {
+    "description": "The phrase 'Fresh produce tastes better and is healthier for your body.'"
+  },
+  "wikipedia": "Wikipedia",
+  "@wikipedia": {
+    "description": "The word 'Wikipedia'"
+  },
+  "supportPageWebsiteLink": "Til nettsiden",
+  "@supportPageWebsiteLink": {
+    "description": "The phrase 'To the webpage'"
+  },
+  "supportPageTitle": "Brukerstøtte",
+  "@supportPageTitle": {
+    "description": "The word 'Support'"
+  },
+  "supportPageSpreadTitle": "Liker du programmet?",
+  "@supportPageSpreadTitle": {
+    "description": "The phrase 'Do you like the app?'"
+  },
+  "settingsVersion": "Versjon",
+  "@settingsVersion": {
+    "description": "The word 'Version'"
+  },
+  "settingsSortingTitle": "Sorter etter tilgjengelighet",
+  "@settingsSortingTitle": {
+    "description": "The phrase 'Sort by availability'"
+  },
+  "settingsPageTitle": "Innstillinger",
+  "@settingsPageTitle": {
+    "description": "The word 'Settings'"
+  },
+  "settingsLanguageUseLocale": "Bruk enhetsspråk",
+  "@settingsLanguageUseLocale": {
+    "description": "The phrase 'Use device language'"
+  },
+  "settingsLanguageTitle": "Språk",
+  "@settingsLanguageTitle": {
+    "description": "The word 'Language'"
+  },
+  "searchFieldLabel": "Søk …",
+  "@searchFieldLabel": {
+    "description": "The label used in the search bar"
+  },
+  "september": "September",
+  "@september": {
+    "description": "The word 'September'"
+  },
+  "october": "Oktober",
+  "@october": {
+    "description": "The word 'October'"
+  },
+  "november": "November",
+  "@november": {
+    "description": "The word 'November'"
+  },
+  "minAvSea": "Ingen flyimportert mat",
+  "@minAvSea": {
+    "description": "The phrase 'No foods imported via airplane'"
+  },
+  "minAvLocal": "Kun lokal or regional mat",
+  "@minAvLocal": {
+    "description": "The phrase 'Only local and regional foods'"
+  },
+  "minAvAir": "Alle tilgjengelige",
+  "@minAvAir": {
+    "description": "The phrase 'All available foods'"
+  },
+  "may": "Mai",
+  "@may": {
+    "description": "The word 'May'"
+  },
+  "march": "Mars",
+  "@march": {
+    "description": "The word 'March'"
+  },
+  "languageName": "Bokmål",
+  "@languageName": {
+    "description": "The name of this language"
+  },
+  "languageCode": "nb",
+  "@languageCode": {
+    "description": "The two-character ISO language code of this language."
+  },
+  "june": "Juni",
+  "@june": {
+    "description": "The word 'June'"
+  },
+  "july": "Juli",
+  "@july": {
+    "description": "The word 'July'"
+  },
+  "january": "Januar",
+  "@january": {
+    "description": "The word 'January'"
+  },
+  "imprintPageTranslationsHeadline": "Oversettelser",
+  "@imprintPageTranslationsHeadline": {
+    "description": "The word 'Translations'"
+  },
+  "imprintPageTextHeadline": "Programtekst",
+  "@imprintPageTextHeadline": {
+    "description": "The word 'App text'"
+  },
+  "imprintPageSourcesHeadline": "Kilder",
+  "@imprintPageSourcesHeadline": {
+    "description": "The word 'Sources'"
+  },
+  "imprintPageMyName": "Andreas Boltres",
+  "@imprintPageMyName": {
+    "description": "App text author name"
+  },
+  "imprintPageImagesHeadline": "Bilder",
+  "@imprintPageImagesHeadline": {
+    "description": "The word 'Images'"
+  },
+  "imprintPageFontsHeadline": "Skrift",
+  "@imprintPageFontsHeadline": {
+    "description": "The word 'Font'"
+  },
+  "imprintPageDisclaimerHeadline": "Ansvarsfraskrivelse",
+  "@imprintPageDisclaimerHeadline": {
+    "description": "The phrase 'Disclaimer'"
+  },
+  "imprintPageDataProtectionHeadline": "Personvernspraksis",
+  "@imprintPageDataProtectionHeadline": {
+    "description": "The phrase 'Privacy policy'"
+  },
+  "imprintPageAppInfo": "Programinfo",
+  "@imprintPageAppInfo": {
+    "description": "The word 'App Information'"
+  },
+  "imprintImgSourcesPublisher": "\nSkaper: ",
+  "@imprintImgSourcesPublisher": {
+    "description": "The word 'Creator: ' (with trailing double dot and space, leading newline!)"
+  },
+  "imprintImgSourcesLicense": "Lisens: ",
+  "@imprintImgSourcesLicense": {
+    "description": "The word 'License: ' (with trailing double dot and space!)"
+  },
+  "howToPageTitle": "Forklaring",
+  "@howToPageTitle": {
+    "description": "The word 'Explanation'"
+  },
+  "howToPageExplanationHeadline": "Hvordan bruker jeg programmet?",
+  "@howToPageExplanationHeadline": {
+    "description": "The phrase 'How do I use the app?'"
+  },
+  "february": "Februar",
+  "@february": {
+    "description": "The word 'February'"
+  },
+  "etcPageTitle": "Om",
+  "@etcPageTitle": {
+    "description": "Title shown at the top of the 'more info' page (the one behind the icon with three dots)"
+  },
+  "december": "Desember",
+  "@december": {
+    "description": "The word 'December'"
+  },
+  "contribPageTitle": "Bidra",
+  "@contribPageTitle": {
+    "description": "The word 'Contribute'"
+  },
+  "contribPageContactHeadline": "Mangler eller feil?",
+  "@contribPageContactHeadline": {
+    "description": "The phrase 'Something is missing or wrong?'"
+  },
+  "contribPageContactButtonText": "Til nettsiden",
+  "@contribPageContactButtonText": {
+    "description": "The phrase 'To the webpage'"
+  },
+  "contribPageCodeHeadline": "Vis meg koden!",
+  "@contribPageCodeHeadline": {
+    "description": "The phrase 'Show me the code!'"
+  },
+  "contribPageCodeButtonText": "Til GitHub-kodelageret",
+  "@contribPageCodeButtonText": {
+    "description": "The phrase 'To the GitHub repo'"
+  },
+  "centralEurope": "Sentraleuropa",
+  "@centralEurope": {
+    "description": "The region of Central Europe."
+  },
+  "back": "Tilbake",
+  "@back": {
+    "description": "The word 'Back'"
+  },
+  "august": "August",
+  "@august": {
+    "description": "The word 'August'"
+  },
+  "april": "April",
+  "@april": {
+    "description": "The word 'April'"
+  },
+  "aboutPageTitle": "Om programmet",
+  "@aboutPageTitle": {
+    "description": "The phrase 'About the app'"
+  },
+  "aboutPageDisclaimer": "Ha i minne at den faktiske tilgjengeligheten av mat i ditt lokale supermarked kan avvike fra det som vises her.",
+  "@aboutPageDisclaimer": {
+    "description": "A disclaimer for the availability data"
+  },
+  "aboutPageAdvantage5": "Du støtter lokalt næringsliv og arbeidsfolk.",
+  "@aboutPageAdvantage5": {
+    "description": "The phrase 'You support local businesses and jobs.'"
+  }
+}
