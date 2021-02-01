@@ -1,5 +1,6 @@
 import sqlite3
 import sys, os, glob, json
+from collections import OrderedDict
 
 # IMPORTANT: execute this script from the seasoncalendar root directory!
 sys.path.append(".")
@@ -44,23 +45,23 @@ conn.close()
 
 # prep
 os.chdir("../lib/l10n")
-arb_dicts = dict()
 all_keys = []
 
 arb_lang_dicts = dict()
 
 # get dicts of existing ARB files
-for lang_code in arb_dicts.keys():
-    with open("intl_{}.arb".format(lang_code), "w") as arb_file:
+for lang_code in db_lang_dicts.keys():
+    with open(os.path.join(os.getcwd(), "intl_{}.arb".format(lang_code))) as arb_file:
         arb_lang_dicts[lang_code] = json.load(arb_file)
 
 # retrieve and remove old ARB files
 for arb_fp in glob.glob("*.arb"):
     print("file \'{}\' already exists, replacing it...".format(arb_fp))
-    os.remove(arb_fp)
+    #os.remove(arb_fp)
 
 # merge existing ARB file dicts with corresponding DB dicts
-for lang_code in arb_dicts.keys():
+for lang_code in db_lang_dicts.keys():
     with open("intl_{}.arb".format(lang_code), "w") as arb_file:
-        json.dump(db_lang_dicts[lang_code] | arb_lang_dicts[lang_code],
+        merged_dict = db_lang_dicts[lang_code] | arb_lang_dicts[lang_code]
+        json.dump(dict(sorted(merged_dict.items(), key=lambda item: item[0])),
                   arb_file, indent=4)

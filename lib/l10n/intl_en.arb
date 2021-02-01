@@ -1,391 +1,591 @@
 {
     "@@locale": "en",
-    "aboutPageAdvantage1": "Fresh produce tastes better and is healthier for your body.",
     "@aboutPageAdvantage1": {
         "description": "The phrase 'Fresh produce tastes better and is healthier for your body.'"
     },
-    "aboutPageAdvantage2": "Fresh foods are generally cheaper.",
     "@aboutPageAdvantage2": {
         "description": "The phrase 'Fresh foods are generally cheaper.'"
     },
-    "aboutPageAdvantage3": "The efforts made for storing foods is reduced.",
     "@aboutPageAdvantage3": {
         "description": "The phrase 'The efforts made for storing foods is reduced.'"
     },
-    "aboutPageAdvantage4": "The transport is less harmful to the environment.",
     "@aboutPageAdvantage4": {
         "description": "The phrase 'The transport is less harmful to the environment.'"
     },
-    "aboutPageAdvantage5": "You support local businesses and jobs.",
     "@aboutPageAdvantage5": {
         "description": "The phrase 'You support local businesses and jobs.'"
     },
-    "aboutPageDisclaimer": "Please keep in mind that the actual availability of foods in your local supermarket can differ from the information shown here.",
     "@aboutPageDisclaimer": {
         "description": "A disclaimer for the availability data"
     },
-    "aboutPageHeadline": "Why care about foods' seasons?",
     "@aboutPageHeadline": {
         "description": "The phrase 'Why care about foods' seasons?'"
     },
-    "aboutPageLeading": "Nowadays, as almost all foods are available throughout the year, people have become unconscious of the season of their foods. However, buying seasonal and local foods often has striking advantages:",
     "@aboutPageLeading": {
         "description": "Justification for caring about food seasons"
     },
-    "aboutPageTitle": "About the app",
     "@aboutPageTitle": {
         "description": "The phrase 'About the app'"
     },
-    "aboutPageTrailing": "This app lets you eat cheaper and tastier and raises the awareness for the origin of our food.",
     "@aboutPageTrailing": {
         "description": "A sentence about benefits for the app user"
     },
-    "appTitle": "Seasonal foods calendar",
     "@appTitle": {
         "description": "The title of the app, e.g. 'Seasonal foods calendar'"
     },
-    "april": "April",
     "@april": {
         "description": "The word 'April'"
     },
-    "august": "August",
     "@august": {
         "description": "The word 'August'"
     },
-    "back": "Back",
     "@back": {
         "description": "The word 'Back'"
     },
-    "centralEurope": "Central Europe",
     "@centralEurope": {
         "description": "The region of Central Europe."
     },
-    "contribPageCode": "The source code for the app is available on GitHub:",
     "@contribPageCode": {
         "description": "The phrase 'The source code for the app is available on GitHub:'"
     },
-    "contribPageCodeButtonText": "To the GitHub repo",
     "@contribPageCodeButtonText": {
         "description": "The phrase 'To the GitHub repo'"
     },
-    "contribPageCodeHeadline": "Show me the code!",
     "@contribPageCodeHeadline": {
         "description": "The phrase 'Show me the code!'"
     },
-    "contribPageContact": "If you've found an error or room for a concrete improvement, feel free to contact me via my webpage.",
     "@contribPageContact": {
         "description": "Justification for missing features/incorrectness by stating young age of app"
     },
-    "contribPageContactButtonText": "To the webpage",
     "@contribPageContactButtonText": {
         "description": "The phrase 'To the webpage'"
     },
-    "contribPageContactHeadline": "Something is missing or wrong?",
     "@contribPageContactHeadline": {
         "description": "The phrase 'Something is missing or wrong?'"
     },
-    "contribPageTitle": "Contribute",
     "@contribPageTitle": {
         "description": "The word 'Contribute'"
     },
-    "december": "December",
     "@december": {
         "description": "The word 'December'"
     },
-    "emptyDefaultViewHint": "Check your foods display filtering.",
     "@emptyDefaultViewHint": {
         "description": "A hint shown when no foods are displayed in the current default foods view."
     },
-    "emptyFavoritesViewHint": "Add a favorite by tapping the food's star \u2606.",
     "@emptyFavoritesViewHint": {
         "description": "A hint shown when no favorites are displayed in the current foods view."
     },
-    "emptyFavoritesViewText": "No favorites available!",
     "@emptyFavoritesViewText": {
         "description": "A text shown when no favorites are displayed in the current foods view."
     },
-    "emptyFoodsViewText": "No foods available!",
     "@emptyFoodsViewText": {
         "description": "A text shown when no food is displayed in the current foods view."
     },
-    "emptySearchViewText": "No foods found!",
     "@emptySearchViewText": {
         "description": "A text shown when no food is displayed in the search result view."
     },
-    "etcPageTitle": "About the app",
     "@etcPageTitle": {
         "description": "Title shown at the top of the 'more info' page (the one behind the icon with three dots)"
     },
-    "february": "February",
     "@february": {
         "description": "The word 'February'"
     },
-    "howToPageAvAir": "Imported from far away, mostly by airplane.",
     "@howToPageAvAir": {
         "description": "A sentence explaining what the airplane icon means."
     },
-    "howToPageAvLand": "Imported from not too far away, mostly via land transport.",
     "@howToPageAvLand": {
         "description": "A sentence explaining what the truck icon means."
     },
-    "howToPageAvLocal": "In season/locally or regionally available.",
     "@howToPageAvLocal": {
         "description": "A sentence explaining what the house icon means."
     },
-    "howToPageAvSea": "Imported from far away, mostly shipped.",
     "@howToPageAvSea": {
         "description": "A sentence explaining what the ship icon means."
     },
-    "howToPageColors": "The colour of a name field indicates corresponds to above classification. Green is better than red.",
     "@howToPageColors": {
         "description": "Describes what the food background colors do"
     },
-    "howToPageExplanation": "This app shows you at a glance, which foods are in season right now:",
     "@howToPageExplanation": {
         "description": "A sentence explaining what the app does"
     },
-    "howToPageExplanationHeadline": "How do I use the app?",
     "@howToPageExplanationHeadline": {
         "description": "The phrase 'How do I use the app?'"
     },
-    "howToPageFavorites": "By tapping a food's star \u2606, you add it to/remove it from your favorites list. Tapping on the menu bar's star lets you restrict the view to your favorites.",
     "@howToPageFavorites": {
         "description": "Describes how to use the favorites function"
     },
-    "howToPagePartial": "A black icon indicates abundant availability, a gray icon limited availability from that specific category.",
     "@howToPagePartial": {
         "description": "Describes what the icon's color does."
     },
-    "howToPageTitle": "Explanation",
     "@howToPageTitle": {
         "description": "The word 'Explanation'"
     },
-    "imprintImgSourcesLicense": "License: ",
     "@imprintImgSourcesLicense": {
         "description": "The word 'License: ' (with trailing double dot and space!)"
     },
-    "imprintImgSourcesPublisher": "\nCreator: ",
     "@imprintImgSourcesPublisher": {
         "description": "The word 'Creator: ' (with trailing double dot and space, leading newline!)"
     },
-    "imprintPageAppInfo": "App Information",
     "@imprintPageAppInfo": {
         "description": "The word 'App Information'"
     },
-    "imprintPageButtonText": "Imprint",
     "@imprintPageButtonText": {
         "description": "The word 'Imprint'"
     },
-    "imprintPageDataHeadline": "Availability data",
     "@imprintPageDataHeadline": {
         "description": "The phrase 'Availability data'"
     },
-    "imprintPageDataProtectionHeadline": "Privacy policy",
     "@imprintPageDataProtectionHeadline": {
         "description": "The phrase 'Privacy policy'"
     },
-    "imprintPageDataProtectionText": "Using this app, no personal data is collected. In order to save and load the app's settings, a permission to access the device's storage is needed.",
     "@imprintPageDataProtectionText": {
         "description": "The privacy policy for the app"
     },
-    "imprintPageDataText": "Lebensmittellexikon.de (major parts);\nAndreas Boltres (the rest).",
     "@imprintPageDataText": {
         "description": "Name of author(s) for availability data"
     },
-    "imprintPageDataText2": "Credits to the team of Lebensmittellexikon.de, thanks for letting me use your availability data!",
     "@imprintPageDataText2": {
         "description": "Saying thanks to those that let their data be used here"
     },
-    "imprintPageDisclaimerHeadline": "Disclaimer",
     "@imprintPageDisclaimerHeadline": {
         "description": "The phrase 'Disclaimer'"
     },
-    "imprintPageDisclaimerText": "The contents of this app have been created and are provided with utmost care and in good faith. However, I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information displayed in this app.",
     "@imprintPageDisclaimerText": {
         "description": "The disclaimer for the app"
     },
-    "imprintPageFontsHeadline": "Font",
     "@imprintPageFontsHeadline": {
         "description": "The word 'Font'"
     },
-    "imprintPageFontsText": "Font Awesome 5 (apple logo, carrot logo)\n(License: fontawesome.com/license)",
     "@imprintPageFontsText": {
         "description": "Font information"
     },
-    "imprintPageImagesHeadline": "Images",
     "@imprintPageImagesHeadline": {
         "description": "The word 'Images'"
     },
-    "imprintPageMyName": "Andreas Boltres",
     "@imprintPageMyName": {
         "description": "App text author name"
     },
-    "imprintPagePublisher": "Publisher",
     "@imprintPagePublisher": {
         "description": "The word 'Publisher'"
     },
-    "imprintPageSourcesHeadline": "Sources",
     "@imprintPageSourcesHeadline": {
         "description": "The word 'Sources'"
     },
-    "imprintPageTextHeadline": "App text",
     "@imprintPageTextHeadline": {
         "description": "The word 'App text'"
     },
-    "imprintPageTitle": "Imprint",
     "@imprintPageTitle": {
         "description": "The word 'Imprint'"
     },
-    "imprintPageTranslationsHeadline": "Translations",
     "@imprintPageTranslationsHeadline": {
         "description": "The word 'Translations'"
     },
-    "january": "January",
     "@january": {
         "description": "The word 'January'"
     },
-    "july": "July",
     "@july": {
         "description": "The word 'July'"
     },
-    "june": "June",
     "@june": {
         "description": "The word 'June'"
     },
-    "languageCode": "en",
     "@languageCode": {
         "description": "The two-character ISO language code of this language."
     },
-    "languageName": "English",
     "@languageName": {
         "description": "The name of this language"
     },
-    "march": "March",
     "@march": {
         "description": "The word 'March'"
     },
-    "may": "May",
     "@may": {
         "description": "The word 'May'"
     },
-    "minAvAir": "All available foods",
     "@minAvAir": {
         "description": "The phrase 'All available foods'"
     },
-    "minAvLand": "No foods imported from overseas/far away",
     "@minAvLand": {
         "description": "The phrase 'No foods imported from overseas/far away'"
     },
-    "minAvLocal": "Only local and regional foods",
     "@minAvLocal": {
         "description": "The phrase 'Only local and regional foods'"
     },
-    "minAvSea": "No foods imported via airplane",
     "@minAvSea": {
         "description": "The phrase 'No foods imported via airplane'"
     },
-    "november": "November",
     "@november": {
         "description": "The word 'November'"
     },
-    "october": "October",
     "@october": {
         "description": "The word 'October'"
     },
-    "searchFieldLabel": "Search...",
     "@searchFieldLabel": {
         "description": "The label used in the search bar"
     },
-    "september": "September",
     "@september": {
         "description": "The word 'September'"
     },
-    "settingsFilterTitle": "Filter by availability",
     "@settingsFilterTitle": {
         "description": "The phrase 'Filter by availability'"
     },
-    "settingsLanguageSubtitle": "Changing the language restarts the app",
     "@settingsLanguageSubtitle": {
         "description": "The phrase 'Changing the language restarts the app'"
     },
-    "settingsLanguageTitle": "Language",
     "@settingsLanguageTitle": {
         "description": "The word 'Language'"
     },
-    "settingsLanguageUseLocale": "Use device language",
     "@settingsLanguageUseLocale": {
         "description": "The phrase 'Use device language'"
     },
-    "settingsLanguageUseLocaleSub": "Uses English if device language is not supported",
     "@settingsLanguageUseLocaleSub": {
         "description": "The phrase 'Uses English if device language is not supported'"
     },
-    "settingsPageTitle": "Settings",
     "@settingsPageTitle": {
         "description": "The word 'Settings'"
     },
-    "settingsRegionTitle": "Region",
     "@settingsRegionTitle": {
         "description": "The word 'Region'"
     },
-    "settingsRegionUseLocale": "Use device region",
     "@settingsRegionUseLocale": {
         "description": "The phrase 'Use device region'"
     },
-    "settingsRegionUseLocaleSub": "Uses 'Central Europe' if device region is not supported",
     "@settingsRegionUseLocaleSub": {
         "description": "The phrase 'Uses 'Central Europe' if device region is not supported'"
     },
-    "settingsSortingTitle": "Sort by availability",
     "@settingsSortingTitle": {
         "description": "The phrase 'Sort by availability'"
     },
-    "settingsUncommonText": "e.g. quince, cloudberry",
     "@settingsUncommonText": {
         "description": "The phrase 'e.g. quince, cloudberry'"
     },
-    "settingsUncommonTitle": "Show special and unusual foods",
     "@settingsUncommonTitle": {
         "description": "The phrase 'Show special and unusual foods'"
     },
-    "settingsVersion": "Version",
     "@settingsVersion": {
         "description": "The word 'Version'"
     },
-    "supportPageHeadline": "Give alms",
     "@supportPageHeadline": {
         "description": "The word 'Give alms'"
     },
-    "supportPageSpreadText1": "Nice to hear that! The most effective way to support me is to simply spread the word: Let your friends and family know about the app!",
     "@supportPageSpreadText1": {
         "description": "A text motivating to spread the word about the app if the user likes it"
     },
-    "supportPageSpreadText2": "That way, we can raise the awareness for the origin of our foods together while also saving money and eating tastier.",
     "@supportPageSpreadText2": {
         "description": "Continuation of the motivating text"
     },
-    "supportPageSpreadTitle": "Do you like the app?",
     "@supportPageSpreadTitle": {
         "description": "The phrase 'Do you like the app?'"
     },
-    "supportPageText1": "This app will remain fully free of charge and ad-free as long as I am developing it.",
     "@supportPageText1": {
         "description": "The statement 'This app will remain fully free of charge and ad-free as long as I am developing it.'"
     },
-    "supportPageText2": "But if you'd like to support my work, you can have a look at what I do in general at my webpage.",
     "@supportPageText2": {
         "description": "Something like 'User can go to webpage if they further want to support'"
     },
-    "supportPageTitle": "Support",
     "@supportPageTitle": {
         "description": "The word 'Support'"
     },
-    "supportPageWebsiteLink": "To the webpage",
     "@supportPageWebsiteLink": {
         "description": "The phrase 'To the webpage'"
     },
-    "wikipedia": "Wikipedia",
     "@wikipedia": {
         "description": "The word 'Wikipedia'"
-    }
+    },
+    "aboutPageAdvantage1": "Fresh produce tastes better and is healthier for your body.",
+    "aboutPageAdvantage2": "Fresh foods are generally cheaper.",
+    "aboutPageAdvantage3": "The efforts made for storing foods is reduced.",
+    "aboutPageAdvantage4": "The transport is less harmful to the environment.",
+    "aboutPageAdvantage5": "You support local businesses and jobs.",
+    "aboutPageDisclaimer": "Please keep in mind that the actual availability of foods in your local supermarket can differ from the information shown here.",
+    "aboutPageHeadline": "Why care about foods' seasons?",
+    "aboutPageLeading": "Nowadays, as almost all foods are available throughout the year, people have become unconscious of the season of their foods. However, buying seasonal and local foods often has striking advantages:",
+    "aboutPageTitle": "About the app",
+    "aboutPageTrailing": "This app lets you eat cheaper and tastier and raises the awareness for the origin of our food.",
+    "amla_infoUrl": "https://en.wikipedia.org/wiki/Phyllanthus_emblica",
+    "amla_names": "Amla, Emblic, Myrobalan, Indian gooseberry",
+    "appTitle": "Seasonal foods calendar",
+    "apple_infoUrl": "https://en.wikipedia.org/wiki/Apple",
+    "apple_names": "Apple",
+    "apricot_infoUrl": "https://en.wikipedia.org/wiki/Prunus_armeniaca",
+    "apricot_names": "Apricot",
+    "april": "April",
+    "artichoke_infoUrl": "https://en.wikipedia.org/wiki/Artichoke",
+    "artichoke_names": "Artichoke",
+    "asparagus_infoUrl": "https://en.wikipedia.org/wiki/Asparagus",
+    "asparagus_names": "Asparagus, Sparrow grass",
+    "august": "August",
+    "avocado_infoUrl": "https://en.wikipedia.org/wiki/Avocado",
+    "avocado_names": "Avocado, Avocado Pear, Alligator pear",
+    "back": "Back",
+    "banana_infoUrl": "https://en.wikipedia.org/wiki/Banana",
+    "banana_names": "Banana",
+    "batavia_infoUrl": "https://en.wikipedia.org/wiki/Lettuce",
+    "batavia_names": "Batavia, Salad, Lettuce",
+    "beetroot_infoUrl": "https://en.wikipedia.org/wiki/Beetroot",
+    "beetroot_names": "Beetroot, beets, table beet, red beet",
+    "blackberry_infoUrl": "https://en.wikipedia.org/wiki/Blackberry",
+    "blackberry_names": "Blackberry",
+    "blueberry_infoUrl": "https://en.wikipedia.org/wiki/Bilberry",
+    "blueberry_names": "Blueberry",
+    "broccoli_infoUrl": "https://en.wikipedia.org/wiki/Broccoli",
+    "broccoli_names": "Broccoli",
+    "brusselssprouts_infoUrl": "https://en.wikipedia.org/wiki/Brussels_sprout",
+    "brusselssprouts_names": "Brussels sprout",
+    "carob_infoUrl": "https://en.wikipedia.org/wiki/Carob",
+    "carob_names": "Carob",
+    "carrot_infoUrl": "https://en.wikipedia.org/wiki/Carrot",
+    "carrot_names": "Carrot",
+    "cauliflower_infoUrl": "https://en.wikipedia.org/wiki/Cauliflower",
+    "cauliflower_names": "Cauliflower",
+    "celery-green_infoUrl": "https://en.wikipedia.org/wiki/Celery",
+    "celery-green_names": "Celery",
+    "celery_infoUrl": "https://en.wikipedia.org/wiki/Celeriac",
+    "celery_names": "Celeriac, Knob celery, Celery root",
+    "centralEurope": "Central Europe",
+    "champignon_infoUrl": "https://en.wikipedia.org/wiki/Agaricus_bisporus",
+    "champignon_names": "Champignon, Mushroom",
+    "chard_infoUrl": "https://en.wikipedia.org/wiki/Chard",
+    "chard_names": "Chard, swiss chard",
+    "cherry_infoUrl": "https://en.wikipedia.org/wiki/Prunus_avium",
+    "cherry_names": "Cherry, Sweet Cherry, Wild Cherry, Gean",
+    "chestnut_infoUrl": "https://en.wikipedia.org/wiki/Castanea_sativa",
+    "chestnut_names": "Chestnut, Castanea sativa",
+    "chicory_infoUrl": "https://en.wikipedia.org/wiki/Chicory#Cultivated",
+    "chicory_names": "Chicory",
+    "chinesecabbage_infoUrl": "https://en.wikipedia.org/wiki/Napa_cabbage",
+    "chinesecabbage_names": "Chinese cabbage, Napa cabbage, Napa",
+    "clementine_infoUrl": "https://en.wikipedia.org/wiki/Clementine",
+    "clementine_names": "Clementine, Mandarin orange, Tangor, Tangerine",
+    "cloudberry_infoUrl": "https://en.wikipedia.org/wiki/Rubus_chamaemorus",
+    "cloudberry_names": "Cloudberry, Nordic berry, Bakeapple, Knotberry, Knoutberry, Aqpik, Averin, Evron",
+    "coco_infoUrl": "https://en.wikipedia.org/wiki/Coconut",
+    "coco_names": "Coconut, Coco",
+    "contribPageCode": "The source code for the app is available on GitHub:",
+    "contribPageCodeButtonText": "To the GitHub repo",
+    "contribPageCodeHeadline": "Show me the code!",
+    "contribPageContact": "If you've found an error or room for a concrete improvement, feel free to contact me via my webpage.",
+    "contribPageContactButtonText": "To the webpage",
+    "contribPageContactHeadline": "Something is missing or wrong?",
+    "contribPageTitle": "Contribute",
+    "cranberry_infoUrl": "https://en.wikipedia.org/wiki/Cranberry",
+    "cranberry_names": "Cranberry",
+    "cucumber_infoUrl": "https://en.wikipedia.org/wiki/Cucumber",
+    "cucumber_names": "Cucumber",
+    "currant_infoUrl": "https://en.wikipedia.org/wiki/Ribes",
+    "currant_names": "Currant, Ribes",
+    "date_infoUrl": "https://en.wikipedia.org/wiki/Date_palm",
+    "date_names": "Fresh date, Date",
+    "december": "December",
+    "dragonfruit_infoUrl": "https://en.wikipedia.org/wiki/Pitaya",
+    "dragonfruit_names": "Dragonfruit, Pitaya, Pitahaya",
+    "eggplant_infoUrl": "https://en.wikipedia.org/wiki/Eggplant",
+    "eggplant_names": "Eggplant, Aubergine, Brinjal",
+    "elderberry_infoUrl": "https://en.wikipedia.org/wiki/Sambucus_nigra",
+    "elderberry_names": "Elderberry, sambucus, elder",
+    "emptyDefaultViewHint": "Check your foods display filtering.",
+    "emptyFavoritesViewHint": "Add a favorite by tapping the food's star \u2606.",
+    "emptyFavoritesViewText": "No favorites available!",
+    "emptyFoodsViewText": "No foods available!",
+    "emptySearchViewText": "No foods found!",
+    "endive_infoUrl": "https://en.wikipedia.org/wiki/Endive",
+    "endive_names": "Endive, Salad",
+    "etcPageTitle": "About the app",
+    "february": "February",
+    "fennel_infoUrl": "https://en.wikipedia.org/wiki/Fennel",
+    "fennel_names": "Fennel",
+    "fieldsalad_infoUrl": "https://en.wikipedia.org/wiki/Valerianella_locusta",
+    "fieldsalad_names": "Field salad, Corn salad, Lamb's lettuce, Fetticus, Nut lettuce, Salad, Lettuce",
+    "fig_infoUrl": "https://en.wikipedia.org/wiki/Common_fig",
+    "fig_names": "Fig",
+    "gooseberry_infoUrl": "https://en.wikipedia.org/wiki/Gooseberry",
+    "gooseberry_names": "Gooseberry",
+    "grapefuit_infoUrl": "https://en.wikipedia.org/wiki/Grapefruit",
+    "grapefuit_names": "Grapefruit",
+    "grapes_infoUrl": "https://en.wikipedia.org/wiki/Grape",
+    "grapes_names": "Grapes, Wine grape",
+    "greenbeans_infoUrl": "https://en.wikipedia.org/wiki/Phaseolus_vulgaris",
+    "greenbeans_names": "Common bean, Green beans, French bean",
+    "greencabbage_infoUrl": "https://en.wikipedia.org/wiki/Kale",
+    "greencabbage_names": "Kale, Green cabbage, Cabbage, Leaf cabbage",
+    "greenonion_infoUrl": "https://en.wikipedia.org/wiki/Allium_fistulosum",
+    "greenonion_names": "Green onions, Onion, Welsh onion, Bunching onion, spring onion",
+    "guava_infoUrl": "https://en.wikipedia.org/wiki/Psidium_guajava",
+    "guava_names": "Guava, Psidium Guajava",
+    "headlettuce_infoUrl": "https://en.wikipedia.org/wiki/Lettuce",
+    "headlettuce_names": "Head lettuce, Lettuce, Salad, Butterhead, Boston, Bibb lettuce",
+    "honeymelon_infoUrl": "https://en.wikipedia.org/wiki/Muskmelon",
+    "honeymelon_names": "Muskmelon, Honey melons, galia melon, cantaloupe melon",
+    "howToPageAvAir": "Imported from far away, mostly by airplane.",
+    "howToPageAvLand": "Imported from not too far away, mostly via land transport.",
+    "howToPageAvLocal": "In season/locally or regionally available.",
+    "howToPageAvSea": "Imported from far away, mostly shipped.",
+    "howToPageColors": "The colour of a name field indicates corresponds to above classification. Green is better than red.",
+    "howToPageExplanation": "This app shows you at a glance, which foods are in season right now:",
+    "howToPageExplanationHeadline": "How do I use the app?",
+    "howToPageFavorites": "By tapping a food's star \u2606, you add it to/remove it from your favorites list. Tapping on the menu bar's star lets you restrict the view to your favorites.",
+    "howToPagePartial": "A black icon indicates abundant availability, a gray icon limited availability from that specific category.",
+    "howToPageTitle": "Explanation",
+    "iceberg_infoUrl": "https://en.wikipedia.org/wiki/Lettuce",
+    "iceberg_names": "Iceberg salad, Crisphead, Salad, Lettuce",
+    "imprintImgSourcesLicense": "License: ",
+    "imprintImgSourcesPublisher": "\nCreator: ",
+    "imprintPageAppInfo": "App Information",
+    "imprintPageButtonText": "Imprint",
+    "imprintPageDataHeadline": "Availability data",
+    "imprintPageDataProtectionHeadline": "Privacy policy",
+    "imprintPageDataProtectionText": "Using this app, no personal data is collected. In order to save and load the app's settings, a permission to access the device's storage is needed.",
+    "imprintPageDataText": "Lebensmittellexikon.de (major parts);\nAndreas Boltres (the rest).",
+    "imprintPageDataText2": "Credits to the team of Lebensmittellexikon.de, thanks for letting me use your availability data!",
+    "imprintPageDisclaimerHeadline": "Disclaimer",
+    "imprintPageDisclaimerText": "The contents of this app have been created and are provided with utmost care and in good faith. However, I make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information displayed in this app.",
+    "imprintPageFontsHeadline": "Font",
+    "imprintPageFontsText": "Font Awesome 5 (apple logo, carrot logo)\n(License: fontawesome.com/license)",
+    "imprintPageImagesHeadline": "Images",
+    "imprintPageMyName": "Andreas Boltres",
+    "imprintPagePublisher": "Publisher",
+    "imprintPageSourcesHeadline": "Sources",
+    "imprintPageTextHeadline": "App text",
+    "imprintPageTitle": "Imprint",
+    "imprintPageTranslationsHeadline": "Translations",
+    "january": "January",
+    "july": "July",
+    "june": "June",
+    "kiwi_infoUrl": "https://en.wikipedia.org/wiki/Kiwifruit",
+    "kiwi_names": "Kiwi, Kiwifruit",
+    "kohlrabi_infoUrl": "https://en.wikipedia.org/wiki/Kohlrabi",
+    "kohlrabi_names": "Kohlrabi",
+    "languageCode": "en",
+    "languageName": "English",
+    "leek_infoUrl": "https://en.wikipedia.org/wiki/Leek",
+    "leek_names": "Leek",
+    "lemon_infoUrl": "https://en.wikipedia.org/wiki/Lemon",
+    "lemon_names": "Lemon",
+    "lime_infoUrl": "https://en.wikipedia.org/wiki/Lime_(fruit)",
+    "lime_names": "Lime",
+    "lingonberry_infoUrl": "https://en.wikipedia.org/wiki/Vaccinium_vitis-idaea",
+    "lingonberry_names": "Lingonberry, Patridgeberry, Cowberry, Mountain cranberry",
+    "lollorossa_infoUrl": "https://en.wikipedia.org/wiki/Lettuce",
+    "lollorossa_names": "Lollo rossa, Lettuce",
+    "lychee_infoUrl": "https://en.wikipedia.org/wiki/Lychee",
+    "lychee_names": "Lychee, Longan, Litchi",
+    "mango_infoUrl": "https://en.wikipedia.org/wiki/Mango",
+    "mango_names": "Mango",
+    "march": "March",
+    "may": "May",
+    "minAvAir": "All available foods",
+    "minAvLand": "No foods imported from overseas/far away",
+    "minAvLocal": "Only local and regional foods",
+    "minAvSea": "No foods imported via airplane",
+    "nashi_infoUrl": "https://en.wikipedia.org/wiki/Pyrus_pyrifolia",
+    "nashi_names": "Nashi pear, Asian pear, Japanese pear, Chinese pear, Korean pear, Apple pear, Taiwanese pear, Papple",
+    "nectarine_infoUrl": "https://en.wikipedia.org/wiki/Peach#Nectarines",
+    "nectarine_names": "Nectarine",
+    "november": "November",
+    "october": "October",
+    "onion_infoUrl": "https://en.wikipedia.org/wiki/Onion",
+    "onion_names": "Onion, Bulb onion, Common onion, Cepa, Shallot",
+    "orange_infoUrl": "https://en.wikipedia.org/wiki/Orange_(fruit)",
+    "orange_names": "Orange, Sweet orange",
+    "pakchoi_infoUrl": "https://en.wikipedia.org/wiki/Bok_choy",
+    "pakchoi_names": "Bok Choy, pak choi, Pok choi",
+    "papaya_infoUrl": "https://en.wikipedia.org/wiki/Papaya",
+    "papaya_names": "Papaya, Papaw, Pawpaw",
+    "paprika_infoUrl": "https://en.wikipedia.org/wiki/Bell_pepper",
+    "paprika_names": "Paprika, Pepper, Sweet pepper, Bell pepper, Capsicum",
+    "parsnip_infoUrl": "https://en.wikipedia.org/wiki/Parsnip",
+    "parsnip_names": "Parsnip",
+    "passionfruit_infoUrl": "https://en.wikipedia.org/wiki/Passiflora_edulis",
+    "passionfruit_names": "Passion fruit, Maracuja, Passiflora edulis",
+    "peach_infoUrl": "https://en.wikipedia.org/wiki/Peach",
+    "peach_names": "Peach",
+    "pear_infoUrl": "https://en.wikipedia.org/wiki/Pear",
+    "pear_names": "Pear",
+    "peas_infoUrl": "https://en.wikipedia.org/wiki/Pea",
+    "peas_names": "Peas, Pea",
+    "persimmon_infoUrl": "https://en.wikipedia.org/wiki/Diospyros_kaki",
+    "persimmon_names": "Persimmon, Diospyros Kaki, Kaki",
+    "physalis_infoUrl": "https://en.wikipedia.org/wiki/Physalis",
+    "physalis_names": "Physalis, Groundcherry, Inca berry, Cape gooseberry",
+    "pineapple_infoUrl": "https://en.wikipedia.org/wiki/Pineapple",
+    "pineapple_names": "Pineapple, Ananas",
+    "plum_infoUrl": "https://en.wikipedia.org/wiki/Prunus_domestica",
+    "plum_names": "Plum, European Plum",
+    "pointedcabbage_infoUrl": "https://en.wikipedia.org/wiki/Cabbage",
+    "pointedcabbage_names": "Pointed cabbage, Cabbage",
+    "pomegranate_infoUrl": "https://en.wikipedia.org/wiki/Pomegranate",
+    "pomegranate_names": "Pomegranate",
+    "potato_infoUrl": "https://en.wikipedia.org/wiki/Potato",
+    "potato_names": "Potato",
+    "pricklypear_infoUrl": "https://en.wikipedia.org/wiki/Opuntia_ficus-indica",
+    "pricklypear_names": "Prickly pear",
+    "prune_infoUrl": "https://en.wikipedia.org/wiki/Zwetschge",
+    "prune_names": "Zwetschge, Sugar Plum, Prune",
+    "pumpkin_infoUrl": "https://en.wikipedia.org/wiki/Pumpkin",
+    "pumpkin_names": "Pumpkins",
+    "purplecabbage_infoUrl": "https://en.wikipedia.org/wiki/Red_cabbage",
+    "purplecabbage_names": "Red cabbage, purple cabbage, Blaukraut, Cabbage",
+    "quince_infoUrl": "https://en.wikipedia.org/wiki/Quince",
+    "quince_names": "Quince",
+    "radicchio_infoUrl": "https://en.wikipedia.org/wiki/Radicchio",
+    "radicchio_names": "Radicchio, Italian chicory",
+    "radish_infoUrl": "https://en.wikipedia.org/wiki/Raphanus",
+    "radish_names": "Raphanus",
+    "raspberry_infoUrl": "https://en.wikipedia.org/wiki/Raspberry",
+    "raspberry_names": "Raspberry",
+    "rhubarb_infoUrl": "https://en.wikipedia.org/wiki/Rhubarb",
+    "rhubarb_names": "Rhubarb",
+    "rosehip_infoUrl": "https://en.wikipedia.org/wiki/Rose_hip",
+    "rosehip_names": "Rosehip, Rose hip, Rose haw, Rose hep",
+    "savoy_infoUrl": "https://en.wikipedia.org/wiki/Savoy_cabbage",
+    "savoy_names": "Savoy, Savoy cabbage, Cabbage",
+    "searchFieldLabel": "Search...",
+    "september": "September",
+    "settingsFilterTitle": "Filter by availability",
+    "settingsLanguageSubtitle": "Changing the language restarts the app",
+    "settingsLanguageTitle": "Language",
+    "settingsLanguageUseLocale": "Use device language",
+    "settingsLanguageUseLocaleSub": "Uses English if device language is not supported",
+    "settingsPageTitle": "Settings",
+    "settingsRegionTitle": "Region",
+    "settingsRegionUseLocale": "Use device region",
+    "settingsRegionUseLocaleSub": "Uses 'Central Europe' if device region is not supported",
+    "settingsSortingTitle": "Sort by availability",
+    "settingsUncommonText": "e.g. quince, cloudberry",
+    "settingsUncommonTitle": "Show special and unusual foods",
+    "settingsVersion": "Version",
+    "smallradish_infoUrl": "https://en.wikipedia.org/wiki/Radish",
+    "smallradish_names": "Radish, small radish",
+    "sorb_infoUrl": "https://en.wikipedia.org/wiki/Sorbus_aucuparia",
+    "sorb_names": "Sorb, Rowan",
+    "spinach_infoUrl": "https://en.wikipedia.org/wiki/Spinach",
+    "spinach_names": "Spinach",
+    "starfuit_infoUrl": "https://en.wikipedia.org/wiki/Carambola",
+    "starfuit_names": "Carambola, Star fruit",
+    "strawberry_infoUrl": "https://en.wikipedia.org/wiki/Strawberry",
+    "strawberry_names": "Strawberry",
+    "supportPageHeadline": "Give alms",
+    "supportPageSpreadText1": "Nice to hear that! The most effective way to support me is to simply spread the word: Let your friends and family know about the app!",
+    "supportPageSpreadText2": "That way, we can raise the awareness for the origin of our foods together while also saving money and eating tastier.",
+    "supportPageSpreadTitle": "Do you like the app?",
+    "supportPageText1": "This app will remain fully free of charge and ad-free as long as I am developing it.",
+    "supportPageText2": "But if you'd like to support my work, you can have a look at what I do in general at my webpage.",
+    "supportPageTitle": "Support",
+    "supportPageWebsiteLink": "To the webpage",
+    "sweetcorn_infoUrl": "https://en.wikipedia.org/wiki/Maize",
+    "sweetcorn_names": "Corn, Sweet Corn, Maize",
+    "sweetpotato_infoUrl": "https://en.wikipedia.org/wiki/Sweet_potato",
+    "sweetpotato_names": "Sweet potato, Sweetpotato",
+    "tomato_infoUrl": "https://en.wikipedia.org/wiki/Tomato",
+    "tomato_names": "Tomato",
+    "watermelon_infoUrl": "https://en.wikipedia.org/wiki/Watermelon",
+    "watermelon_names": "Watermelon, Water melon",
+    "whitecabbage_infoUrl": "https://en.wikipedia.org/wiki/Cabbage",
+    "whitecabbage_names": "White cabbage, Cabbage",
+    "wikipedia": "Wikipedia",
+    "wildstrawberry_infoUrl": "https://en.wikipedia.org/wiki/Fragaria_vesca",
+    "wildstrawberry_names": "Wild strawberry, Fraisier des bois, Woodland Strawberry",
+    "yellowplum_infoUrl": "https://en.wikipedia.org/wiki/Mirabelle_plum",
+    "yellowplum_names": "Yellow plum, Mirabelle plum, Mirabelle prune, Cherry Plum",
+    "zucchini_infoUrl": "https://en.wikipedia.org/wiki/Zucchini",
+    "zucchini_names": "Zucchini, Courgette, Baby marrow"
 }
