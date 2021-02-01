@@ -2,7 +2,7 @@ import sqlite3
 import time, sys, os
 import xlsxwriter
 
-# IMPORTANT: execute this script from the seasoncalendar root diractory!
+# IMPORTANT: execute this script from the seasoncalendar root directory!
 sys.path.append(".")
 
 # PART 1: DB READING

@@ -3,7 +3,7 @@ import time
 import pandas as pd
 import sqlite3
 
-# IMPORTANT: execute this script from the seasoncalendar root diractory!
+# IMPORTANT: execute this script from the seasoncalendar root directory!
 sys.path.append(".")
 
 # PART 1: XLSX READING

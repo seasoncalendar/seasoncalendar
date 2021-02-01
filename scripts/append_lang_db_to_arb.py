@@ -1,0 +1,59 @@
+import sqlite3
+import sys, os, glob, json
+
+# IMPORTANT: execute this script from the seasoncalendar root directory!
+sys.path.append(".")
+
+# PART 1: DB READING
+# ------------------
+
+# prep
+os.chdir("assets")
+conn = sqlite3.connect("db/foods.db")
+cursor = conn.execute("SELECT name FROM sqlite_master WHERE type='table';")
+all_food_ids = []
+db_lang_dicts = dict()
+
+# iterate over all languages
+all_lang_codes = [table[0][-2:] for table in cursor.fetchall() if "foods_lang" in table[0]]
+for lang_code in all_lang_codes:
+
+    # get cur language data
+    cursor = conn.execute("SELECT * from foods_lang_{}".format(lang_code))
+    cur_lang_data = cursor.fetchall()
+    cur_lang_dict = dict()
+
+    # add keys to big list (duplicates are sorted out later)
+    all_food_ids.extend([entry[0] for entry in cur_lang_data])
+
+    # fill current data dict with names and info URLs
+    for entry in cur_lang_data:
+        cur_lang_dict[entry[0] + "_infoUrl"] = entry[1]
+        cur_lang_dict[entry[0] + "_names"] = entry[2]
+
+    # add cur dict to dict dict
+    db_lang_dicts[lang_code] = cur_lang_dict
+
+# sort out duplicate keys
+all_food_ids = sorted(list(set(all_food_ids)))
+
+conn.close()
+
+# PART 2: ARB APPENDING
+# ---------------------
+
+# prep
+os.chdir("../lib/l10n")
+arb_dicts = dict()
+all_keys = []
+
+# retrieve and remove old ARB files
+for arb_fp in glob.glob("*.arb"):
+    print("file \'{}\' already exists, replacing it...".format(arb_fp))
+    os.remove(arb_fp)
+
+# merge existing ARB file dicts with corresponding DB dicts
+for lang_code in arb_dicts.keys():
+    with open("intl_{}.arb".format(lang_code), "w") as arb_file:
+        json_result = json.load(arb_file)
+        json.dump(db_lang_dicts[lang_code] | json_result, arb_file, indent=4)

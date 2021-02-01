@@ -2,7 +2,7 @@ import sys, glob, os
 import json
 import pandas as pd
 
-# IMPORTANT: execute this script from the seasoncalendar root diractory!
+# IMPORTANT: execute this script from the seasoncalendar root directory!
 sys.path.append(".")
 
 # prep
