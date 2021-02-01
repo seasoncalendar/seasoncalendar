@@ -47,6 +47,13 @@ os.chdir("../lib/l10n")
 arb_dicts = dict()
 all_keys = []
 
+arb_lang_dicts = dict()
+
+# get dicts of existing ARB files
+for lang_code in arb_dicts.keys():
+    with open("intl_{}.arb".format(lang_code), "w") as arb_file:
+        arb_lang_dicts[lang_code] = json.load(arb_file)
+
 # retrieve and remove old ARB files
 for arb_fp in glob.glob("*.arb"):
     print("file \'{}\' already exists, replacing it...".format(arb_fp))
@@ -55,5 +62,5 @@ for arb_fp in glob.glob("*.arb"):
 # merge existing ARB file dicts with corresponding DB dicts
 for lang_code in arb_dicts.keys():
     with open("intl_{}.arb".format(lang_code), "w") as arb_file:
-        json_result = json.load(arb_file)
-        json.dump(db_lang_dicts[lang_code] | json_result, arb_file, indent=4)
+        json.dump(db_lang_dicts[lang_code] | arb_lang_dicts[lang_code],
+                  arb_file, indent=4)
