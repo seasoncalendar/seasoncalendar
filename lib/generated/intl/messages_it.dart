@@ -69,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "cauliflower_names" : MessageLookupByLibrary.simpleMessage("Cavolfiore"),
     "celery_infoUrl" : MessageLookupByLibrary.simpleMessage("https://it.wikipedia.org/wiki/Apium_graveolens#Sedano_rapa"),
     "celery_names" : MessageLookupByLibrary.simpleMessage("Sedano rapa"),
+    "celerygreen_infoUrl" : MessageLookupByLibrary.simpleMessage("https://it.wikipedia.org/wiki/Apium_graveolens"),
+    "celerygreen_names" : MessageLookupByLibrary.simpleMessage("Sedano"),
     "centralEurope" : MessageLookupByLibrary.simpleMessage("Europa centrale"),
     "champignon_infoUrl" : MessageLookupByLibrary.simpleMessage("https://it.wikipedia.org/wiki/Agaricus_bisporus"),
     "champignon_names" : MessageLookupByLibrary.simpleMessage("Champignon, Prataiolo"),

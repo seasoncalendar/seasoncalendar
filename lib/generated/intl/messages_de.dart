@@ -69,6 +69,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "cauliflower_names" : MessageLookupByLibrary.simpleMessage("Blumenkohl, Karfiol, Käsekohl, Blütenkohl, Traubenkohl, Minarett-Kohl, Italienischer Kohl"),
     "celery_infoUrl" : MessageLookupByLibrary.simpleMessage("https://de.wikipedia.org/wiki/Echter_Sellerie#Knollensellerie"),
     "celery_names" : MessageLookupByLibrary.simpleMessage("Knollensellerie, Wurzelsellerie, Zeller"),
+    "celerygreen_infoUrl" : MessageLookupByLibrary.simpleMessage("https://de.wikipedia.org/wiki/Echter_Sellerie#Staudensellerie"),
+    "celerygreen_names" : MessageLookupByLibrary.simpleMessage("Staudensellerie, Sellerie, Eppich, Zeller, Stielsellerie, Stangensellerie, Bleichsellerie"),
     "centralEurope" : MessageLookupByLibrary.simpleMessage("Mitteleuropa"),
     "champignon_infoUrl" : MessageLookupByLibrary.simpleMessage("https://de.wikipedia.org/wiki/Champignons"),
     "champignon_names" : MessageLookupByLibrary.simpleMessage("Champignons, Egerlinge, Angerlinge, Schwammerl, Pilz"),

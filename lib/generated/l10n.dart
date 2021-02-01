@@ -495,9 +495,25 @@ class L10n {
     );
   }
 
-  // skipped getter for the 'celery-green_infoUrl' key
+  /// `https://en.wikipedia.org/wiki/Celery`
+  String get celerygreen_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Celery',
+      name: 'celerygreen_infoUrl',
+      desc: '',
+      args: [],
+    );
+  }
 
-  // skipped getter for the 'celery-green_names' key
+  /// `Celery`
+  String get celerygreen_names {
+    return Intl.message(
+      'Celery',
+      name: 'celerygreen_names',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `https://en.wikipedia.org/wiki/Celeriac`
   String get celery_infoUrl {
@@ -3001,6 +3017,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
       Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'it'),
+      Locale.fromSubtags(languageCode: 'nb', countryCode: 'NO'),
       Locale.fromSubtags(languageCode: 'pl'),
     ];
   }
