@@ -30,7 +30,11 @@ for lang_code in all_lang_codes:
     # fill current data dict with names and info URLs
     for entry in cur_lang_data:
         cur_lang_dict[entry[0] + "_infoUrl"] = entry[1]
+        if lang_code == "en":
+            cur_lang_dict["@" + entry[0] + "_infoUrl"] = {"description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."}
         cur_lang_dict[entry[0] + "_names"] = entry[2]
+        if lang_code == "en":
+            cur_lang_dict["@" + entry[0] + "_names"] = {"description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."}
 
     # add cur dict to dict dict
     db_lang_dicts[lang_code] = cur_lang_dict
