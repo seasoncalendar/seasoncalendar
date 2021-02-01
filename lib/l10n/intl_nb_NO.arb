@@ -350,5 +350,41 @@
   "aboutPageAdvantage5": "Du støtter lokalt næringsliv og arbeidsfolk.",
   "@aboutPageAdvantage5": {
     "description": "The phrase 'You support local businesses and jobs.'"
+  },
+  "potato_names": "Potet",
+  "@potato_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "potato_infoUrl": "https://no.wikipedia.org/wiki/Potet",
+  "@potato_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "cauliflower_names": "Blomkål",
+  "@cauliflower_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cauliflower_infoUrl": "https://no.wikipedia.org/wiki/Blomk%C3%A5l",
+  "@cauliflower_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "carrot_names": "Gulrot",
+  "@carrot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "carrot_infoUrl": "https://no.wikipedia.org/wiki/Gulrot",
+  "@carrot_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "carob_names": "Johannesbrødtre",
+  "@carob_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "carob_infoUrl": "https://no.wikipedia.org/wiki/Johannesbr%C3%B8dtre",
+  "@carob_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "amla_infoUrl": "https://no.wikipedia.org/wiki/Amla",
+  "@amla_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   }
 }
