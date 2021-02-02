@@ -140,7 +140,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Phyllanthus_emblica',
       name: 'amla_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -150,7 +150,7 @@ class L10n {
     return Intl.message(
       'Amla, Emblic, Myrobalan, Indian gooseberry',
       name: 'amla_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -170,7 +170,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Apple',
       name: 'apple_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -180,7 +180,7 @@ class L10n {
     return Intl.message(
       'Apple',
       name: 'apple_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -190,7 +190,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Prunus_armeniaca',
       name: 'apricot_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -200,7 +200,7 @@ class L10n {
     return Intl.message(
       'Apricot',
       name: 'apricot_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -220,7 +220,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Artichoke',
       name: 'artichoke_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -230,7 +230,7 @@ class L10n {
     return Intl.message(
       'Artichoke',
       name: 'artichoke_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -240,7 +240,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Asparagus',
       name: 'asparagus_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -250,7 +250,7 @@ class L10n {
     return Intl.message(
       'Asparagus, Sparrow grass',
       name: 'asparagus_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -270,7 +270,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Avocado',
       name: 'avocado_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -280,7 +280,7 @@ class L10n {
     return Intl.message(
       'Avocado, Avocado Pear, Alligator pear',
       name: 'avocado_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -300,7 +300,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Banana',
       name: 'banana_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -310,7 +310,7 @@ class L10n {
     return Intl.message(
       'Banana',
       name: 'banana_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -320,7 +320,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Lettuce',
       name: 'batavia_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -330,7 +330,7 @@ class L10n {
     return Intl.message(
       'Batavia, Salad, Lettuce',
       name: 'batavia_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -340,7 +340,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Beetroot',
       name: 'beetroot_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -350,7 +350,7 @@ class L10n {
     return Intl.message(
       'Beetroot, beets, table beet, red beet',
       name: 'beetroot_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -360,7 +360,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Blackberry',
       name: 'blackberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -370,7 +370,7 @@ class L10n {
     return Intl.message(
       'Blackberry',
       name: 'blackberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -380,7 +380,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Bilberry',
       name: 'blueberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -390,7 +390,7 @@ class L10n {
     return Intl.message(
       'Blueberry',
       name: 'blueberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -400,7 +400,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Broccoli',
       name: 'broccoli_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -410,7 +410,7 @@ class L10n {
     return Intl.message(
       'Broccoli',
       name: 'broccoli_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -420,7 +420,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Brussels_sprout',
       name: 'brusselssprouts_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -430,7 +430,7 @@ class L10n {
     return Intl.message(
       'Brussels sprout',
       name: 'brusselssprouts_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -440,7 +440,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Carob',
       name: 'carob_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -450,7 +450,7 @@ class L10n {
     return Intl.message(
       'Carob',
       name: 'carob_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -460,7 +460,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Carrot',
       name: 'carrot_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -470,7 +470,7 @@ class L10n {
     return Intl.message(
       'Carrot',
       name: 'carrot_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -480,7 +480,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Cauliflower',
       name: 'cauliflower_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -490,27 +490,7 @@ class L10n {
     return Intl.message(
       'Cauliflower',
       name: 'cauliflower_names',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `https://en.wikipedia.org/wiki/Celery`
-  String get celerygreen_infoUrl {
-    return Intl.message(
-      'https://en.wikipedia.org/wiki/Celery',
-      name: 'celerygreen_infoUrl',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Celery`
-  String get celerygreen_names {
-    return Intl.message(
-      'Celery',
-      name: 'celerygreen_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -520,7 +500,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Celeriac',
       name: 'celery_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -530,7 +510,27 @@ class L10n {
     return Intl.message(
       'Celeriac, Knob celery, Celery root',
       name: 'celery_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Celery`
+  String get celerygreen_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Celery',
+      name: 'celerygreen_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Celery`
+  String get celerygreen_names {
+    return Intl.message(
+      'Celery',
+      name: 'celerygreen_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -550,7 +550,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Agaricus_bisporus',
       name: 'champignon_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -560,7 +560,7 @@ class L10n {
     return Intl.message(
       'Champignon, Mushroom',
       name: 'champignon_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -570,7 +570,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Chard',
       name: 'chard_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -580,7 +580,7 @@ class L10n {
     return Intl.message(
       'Chard, swiss chard',
       name: 'chard_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -590,7 +590,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Prunus_avium',
       name: 'cherry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -600,7 +600,7 @@ class L10n {
     return Intl.message(
       'Cherry, Sweet Cherry, Wild Cherry, Gean',
       name: 'cherry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -610,7 +610,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Castanea_sativa',
       name: 'chestnut_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -620,7 +620,7 @@ class L10n {
     return Intl.message(
       'Chestnut, Castanea sativa',
       name: 'chestnut_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -630,7 +630,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Chicory#Cultivated',
       name: 'chicory_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -640,7 +640,7 @@ class L10n {
     return Intl.message(
       'Chicory',
       name: 'chicory_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -650,7 +650,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Napa_cabbage',
       name: 'chinesecabbage_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -660,7 +660,7 @@ class L10n {
     return Intl.message(
       'Chinese cabbage, Napa cabbage, Napa',
       name: 'chinesecabbage_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -670,7 +670,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Clementine',
       name: 'clementine_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -680,7 +680,7 @@ class L10n {
     return Intl.message(
       'Clementine, Mandarin orange, Tangor, Tangerine',
       name: 'clementine_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -690,7 +690,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Rubus_chamaemorus',
       name: 'cloudberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -700,7 +700,7 @@ class L10n {
     return Intl.message(
       'Cloudberry, Nordic berry, Bakeapple, Knotberry, Knoutberry, Aqpik, Averin, Evron',
       name: 'cloudberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -710,7 +710,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Coconut',
       name: 'coco_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -720,7 +720,7 @@ class L10n {
     return Intl.message(
       'Coconut, Coco',
       name: 'coco_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -800,7 +800,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Cranberry',
       name: 'cranberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -810,7 +810,7 @@ class L10n {
     return Intl.message(
       'Cranberry',
       name: 'cranberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -820,7 +820,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Cucumber',
       name: 'cucumber_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -830,7 +830,7 @@ class L10n {
     return Intl.message(
       'Cucumber',
       name: 'cucumber_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -840,7 +840,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Ribes',
       name: 'currant_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -850,7 +850,7 @@ class L10n {
     return Intl.message(
       'Currant, Ribes',
       name: 'currant_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -860,7 +860,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Date_palm',
       name: 'date_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -870,7 +870,7 @@ class L10n {
     return Intl.message(
       'Fresh date, Date',
       name: 'date_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -890,7 +890,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Pitaya',
       name: 'dragonfruit_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -900,7 +900,7 @@ class L10n {
     return Intl.message(
       'Dragonfruit, Pitaya, Pitahaya',
       name: 'dragonfruit_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -910,7 +910,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Eggplant',
       name: 'eggplant_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -920,7 +920,7 @@ class L10n {
     return Intl.message(
       'Eggplant, Aubergine, Brinjal',
       name: 'eggplant_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -930,7 +930,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Sambucus_nigra',
       name: 'elderberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -940,7 +940,7 @@ class L10n {
     return Intl.message(
       'Elderberry, sambucus, elder',
       name: 'elderberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1000,7 +1000,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Endive',
       name: 'endive_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1010,7 +1010,7 @@ class L10n {
     return Intl.message(
       'Endive, Salad',
       name: 'endive_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1040,7 +1040,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Fennel',
       name: 'fennel_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1050,7 +1050,7 @@ class L10n {
     return Intl.message(
       'Fennel',
       name: 'fennel_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1060,7 +1060,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Valerianella_locusta',
       name: 'fieldsalad_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1070,7 +1070,7 @@ class L10n {
     return Intl.message(
       'Field salad, Corn salad, Lamb\'s lettuce, Fetticus, Nut lettuce, Salad, Lettuce',
       name: 'fieldsalad_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1080,7 +1080,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Common_fig',
       name: 'fig_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1090,7 +1090,7 @@ class L10n {
     return Intl.message(
       'Fig',
       name: 'fig_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1100,7 +1100,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Gooseberry',
       name: 'gooseberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1110,7 +1110,7 @@ class L10n {
     return Intl.message(
       'Gooseberry',
       name: 'gooseberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1120,7 +1120,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Grapefruit',
       name: 'grapefuit_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1130,7 +1130,7 @@ class L10n {
     return Intl.message(
       'Grapefruit',
       name: 'grapefuit_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1140,7 +1140,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Grape',
       name: 'grapes_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1150,7 +1150,7 @@ class L10n {
     return Intl.message(
       'Grapes, Wine grape',
       name: 'grapes_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1160,7 +1160,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Phaseolus_vulgaris',
       name: 'greenbeans_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1170,7 +1170,7 @@ class L10n {
     return Intl.message(
       'Common bean, Green beans, French bean',
       name: 'greenbeans_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1180,7 +1180,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Kale',
       name: 'greencabbage_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1190,7 +1190,7 @@ class L10n {
     return Intl.message(
       'Kale, Green cabbage, Cabbage, Leaf cabbage',
       name: 'greencabbage_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1200,7 +1200,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Allium_fistulosum',
       name: 'greenonion_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1210,7 +1210,7 @@ class L10n {
     return Intl.message(
       'Green onions, Onion, Welsh onion, Bunching onion, spring onion',
       name: 'greenonion_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1220,7 +1220,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Psidium_guajava',
       name: 'guava_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1230,7 +1230,7 @@ class L10n {
     return Intl.message(
       'Guava, Psidium Guajava',
       name: 'guava_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1240,7 +1240,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Lettuce',
       name: 'headlettuce_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1250,7 +1250,7 @@ class L10n {
     return Intl.message(
       'Head lettuce, Lettuce, Salad, Butterhead, Boston, Bibb lettuce',
       name: 'headlettuce_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1260,7 +1260,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Muskmelon',
       name: 'honeymelon_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1270,7 +1270,7 @@ class L10n {
     return Intl.message(
       'Muskmelon, Honey melons, galia melon, cantaloupe melon',
       name: 'honeymelon_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1380,7 +1380,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Lettuce',
       name: 'iceberg_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1390,7 +1390,7 @@ class L10n {
     return Intl.message(
       'Iceberg salad, Crisphead, Salad, Lettuce',
       name: 'iceberg_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1630,7 +1630,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Kiwifruit',
       name: 'kiwi_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1640,7 +1640,7 @@ class L10n {
     return Intl.message(
       'Kiwi, Kiwifruit',
       name: 'kiwi_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1650,7 +1650,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Kohlrabi',
       name: 'kohlrabi_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1660,7 +1660,7 @@ class L10n {
     return Intl.message(
       'Kohlrabi',
       name: 'kohlrabi_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1690,7 +1690,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Leek',
       name: 'leek_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1700,7 +1700,7 @@ class L10n {
     return Intl.message(
       'Leek',
       name: 'leek_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1710,7 +1710,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Lemon',
       name: 'lemon_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1720,7 +1720,7 @@ class L10n {
     return Intl.message(
       'Lemon',
       name: 'lemon_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1730,7 +1730,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Lime_(fruit)',
       name: 'lime_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1740,7 +1740,7 @@ class L10n {
     return Intl.message(
       'Lime',
       name: 'lime_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1750,7 +1750,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Vaccinium_vitis-idaea',
       name: 'lingonberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1760,7 +1760,7 @@ class L10n {
     return Intl.message(
       'Lingonberry, Patridgeberry, Cowberry, Mountain cranberry',
       name: 'lingonberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1770,7 +1770,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Lettuce',
       name: 'lollorossa_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1780,7 +1780,7 @@ class L10n {
     return Intl.message(
       'Lollo rossa, Lettuce',
       name: 'lollorossa_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1790,7 +1790,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Lychee',
       name: 'lychee_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1800,7 +1800,7 @@ class L10n {
     return Intl.message(
       'Lychee, Longan, Litchi',
       name: 'lychee_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1810,7 +1810,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Mango',
       name: 'mango_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1820,7 +1820,7 @@ class L10n {
     return Intl.message(
       'Mango',
       name: 'mango_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1890,7 +1890,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Pyrus_pyrifolia',
       name: 'nashi_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1900,7 +1900,7 @@ class L10n {
     return Intl.message(
       'Nashi pear, Asian pear, Japanese pear, Chinese pear, Korean pear, Apple pear, Taiwanese pear, Papple',
       name: 'nashi_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1910,7 +1910,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Peach#Nectarines',
       name: 'nectarine_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1920,7 +1920,7 @@ class L10n {
     return Intl.message(
       'Nectarine',
       name: 'nectarine_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1950,7 +1950,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Onion',
       name: 'onion_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1960,7 +1960,7 @@ class L10n {
     return Intl.message(
       'Onion, Bulb onion, Common onion, Cepa, Shallot',
       name: 'onion_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1970,7 +1970,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Orange_(fruit)',
       name: 'orange_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -1980,7 +1980,7 @@ class L10n {
     return Intl.message(
       'Orange, Sweet orange',
       name: 'orange_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1990,7 +1990,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Bok_choy',
       name: 'pakchoi_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2000,7 +2000,7 @@ class L10n {
     return Intl.message(
       'Bok Choy, pak choi, Pok choi',
       name: 'pakchoi_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2010,7 +2010,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Papaya',
       name: 'papaya_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2020,7 +2020,7 @@ class L10n {
     return Intl.message(
       'Papaya, Papaw, Pawpaw',
       name: 'papaya_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2030,7 +2030,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Bell_pepper',
       name: 'paprika_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2040,7 +2040,7 @@ class L10n {
     return Intl.message(
       'Paprika, Pepper, Sweet pepper, Bell pepper, Capsicum',
       name: 'paprika_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2050,7 +2050,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Parsnip',
       name: 'parsnip_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2060,7 +2060,7 @@ class L10n {
     return Intl.message(
       'Parsnip',
       name: 'parsnip_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2070,7 +2070,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Passiflora_edulis',
       name: 'passionfruit_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2080,7 +2080,7 @@ class L10n {
     return Intl.message(
       'Passion fruit, Maracuja, Passiflora edulis',
       name: 'passionfruit_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2090,7 +2090,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Peach',
       name: 'peach_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2100,7 +2100,7 @@ class L10n {
     return Intl.message(
       'Peach',
       name: 'peach_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2110,7 +2110,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Pear',
       name: 'pear_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2120,7 +2120,7 @@ class L10n {
     return Intl.message(
       'Pear',
       name: 'pear_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2130,7 +2130,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Pea',
       name: 'peas_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2140,7 +2140,7 @@ class L10n {
     return Intl.message(
       'Peas, Pea',
       name: 'peas_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2150,7 +2150,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Diospyros_kaki',
       name: 'persimmon_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2160,7 +2160,7 @@ class L10n {
     return Intl.message(
       'Persimmon, Diospyros Kaki, Kaki',
       name: 'persimmon_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2170,7 +2170,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Physalis',
       name: 'physalis_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2180,7 +2180,7 @@ class L10n {
     return Intl.message(
       'Physalis, Groundcherry, Inca berry, Cape gooseberry',
       name: 'physalis_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2190,7 +2190,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Pineapple',
       name: 'pineapple_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2200,7 +2200,7 @@ class L10n {
     return Intl.message(
       'Pineapple, Ananas',
       name: 'pineapple_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2210,7 +2210,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Prunus_domestica',
       name: 'plum_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2220,7 +2220,7 @@ class L10n {
     return Intl.message(
       'Plum, European Plum',
       name: 'plum_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2230,7 +2230,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Cabbage',
       name: 'pointedcabbage_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2240,7 +2240,7 @@ class L10n {
     return Intl.message(
       'Pointed cabbage, Cabbage',
       name: 'pointedcabbage_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2250,7 +2250,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Pomegranate',
       name: 'pomegranate_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2260,7 +2260,7 @@ class L10n {
     return Intl.message(
       'Pomegranate',
       name: 'pomegranate_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2270,7 +2270,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Potato',
       name: 'potato_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2280,7 +2280,7 @@ class L10n {
     return Intl.message(
       'Potato',
       name: 'potato_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2290,7 +2290,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Opuntia_ficus-indica',
       name: 'pricklypear_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2300,7 +2300,7 @@ class L10n {
     return Intl.message(
       'Prickly pear',
       name: 'pricklypear_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2310,7 +2310,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Zwetschge',
       name: 'prune_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2320,7 +2320,7 @@ class L10n {
     return Intl.message(
       'Zwetschge, Sugar Plum, Prune',
       name: 'prune_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2330,7 +2330,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Pumpkin',
       name: 'pumpkin_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2340,7 +2340,7 @@ class L10n {
     return Intl.message(
       'Pumpkins',
       name: 'pumpkin_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2350,7 +2350,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Red_cabbage',
       name: 'purplecabbage_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2360,7 +2360,7 @@ class L10n {
     return Intl.message(
       'Red cabbage, purple cabbage, Blaukraut, Cabbage',
       name: 'purplecabbage_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2370,7 +2370,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Quince',
       name: 'quince_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2380,7 +2380,7 @@ class L10n {
     return Intl.message(
       'Quince',
       name: 'quince_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2390,7 +2390,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Radicchio',
       name: 'radicchio_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2400,7 +2400,7 @@ class L10n {
     return Intl.message(
       'Radicchio, Italian chicory',
       name: 'radicchio_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2410,7 +2410,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Raphanus',
       name: 'radish_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2420,7 +2420,7 @@ class L10n {
     return Intl.message(
       'Raphanus',
       name: 'radish_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2430,7 +2430,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Raspberry',
       name: 'raspberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2440,7 +2440,7 @@ class L10n {
     return Intl.message(
       'Raspberry',
       name: 'raspberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2450,7 +2450,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Rhubarb',
       name: 'rhubarb_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2460,7 +2460,7 @@ class L10n {
     return Intl.message(
       'Rhubarb',
       name: 'rhubarb_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2470,7 +2470,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Rose_hip',
       name: 'rosehip_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2480,7 +2480,7 @@ class L10n {
     return Intl.message(
       'Rosehip, Rose hip, Rose haw, Rose hep',
       name: 'rosehip_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2490,7 +2490,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Savoy_cabbage',
       name: 'savoy_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2500,7 +2500,7 @@ class L10n {
     return Intl.message(
       'Savoy, Savoy cabbage, Cabbage',
       name: 'savoy_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2660,7 +2660,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Radish',
       name: 'smallradish_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2670,7 +2670,7 @@ class L10n {
     return Intl.message(
       'Radish, small radish',
       name: 'smallradish_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2680,7 +2680,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Sorbus_aucuparia',
       name: 'sorb_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2690,7 +2690,7 @@ class L10n {
     return Intl.message(
       'Sorb, Rowan',
       name: 'sorb_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2700,7 +2700,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Spinach',
       name: 'spinach_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2710,7 +2710,7 @@ class L10n {
     return Intl.message(
       'Spinach',
       name: 'spinach_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2720,7 +2720,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Carambola',
       name: 'starfuit_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2730,7 +2730,7 @@ class L10n {
     return Intl.message(
       'Carambola, Star fruit',
       name: 'starfuit_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2740,7 +2740,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Strawberry',
       name: 'strawberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2750,7 +2750,7 @@ class L10n {
     return Intl.message(
       'Strawberry',
       name: 'strawberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2840,7 +2840,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Maize',
       name: 'sweetcorn_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2850,7 +2850,7 @@ class L10n {
     return Intl.message(
       'Corn, Sweet Corn, Maize',
       name: 'sweetcorn_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2860,7 +2860,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Sweet_potato',
       name: 'sweetpotato_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2870,7 +2870,7 @@ class L10n {
     return Intl.message(
       'Sweet potato, Sweetpotato',
       name: 'sweetpotato_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2880,7 +2880,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Tomato',
       name: 'tomato_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2890,7 +2890,7 @@ class L10n {
     return Intl.message(
       'Tomato',
       name: 'tomato_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2900,7 +2900,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Watermelon',
       name: 'watermelon_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2910,7 +2910,7 @@ class L10n {
     return Intl.message(
       'Watermelon, Water melon',
       name: 'watermelon_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2920,7 +2920,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Cabbage',
       name: 'whitecabbage_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2930,7 +2930,7 @@ class L10n {
     return Intl.message(
       'White cabbage, Cabbage',
       name: 'whitecabbage_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2950,7 +2950,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Fragaria_vesca',
       name: 'wildstrawberry_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2960,7 +2960,7 @@ class L10n {
     return Intl.message(
       'Wild strawberry, Fraisier des bois, Woodland Strawberry',
       name: 'wildstrawberry_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2970,7 +2970,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Mirabelle_plum',
       name: 'yellowplum_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -2980,7 +2980,7 @@ class L10n {
     return Intl.message(
       'Yellow plum, Mirabelle plum, Mirabelle prune, Cherry Plum',
       name: 'yellowplum_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -2990,7 +2990,7 @@ class L10n {
     return Intl.message(
       'https://en.wikipedia.org/wiki/Zucchini',
       name: 'zucchini_infoUrl',
-      desc: '',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
       args: [],
     );
   }
@@ -3000,7 +3000,7 @@ class L10n {
     return Intl.message(
       'Zucchini, Courgette, Baby marrow',
       name: 'zucchini_names',
-      desc: '',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
