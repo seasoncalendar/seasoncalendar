@@ -454,5 +454,133 @@
   "aboutPageAdvantage1": "Verse producten zijn gezonder en smaken beter.",
   "@aboutPageAdvantage1": {
     "description": "The phrase 'Fresh produce tastes better and is healthier for your body.'"
+  },
+  "imprintPageDisclaimerHeadline": "Disclaimer",
+  "@imprintPageDisclaimerHeadline": {
+    "description": "The phrase 'Disclaimer'"
+  },
+  "imprintPageDataText2": "Hartelijk dank aan het team van Lebensmittellexikon.de voor de toestemming om uw seizoensgegevens te gebruiken!",
+  "@imprintPageDataText2": {
+    "description": "Saying thanks to those that let their data be used here"
+  },
+  "imprintPageDataText": "Lebensmittellexikon.de (het grootste deel);\nAndreas Boltres (de rest).",
+  "@imprintPageDataText": {
+    "description": "Name of author(s) for availability data"
+  },
+  "imprintPageDataProtectionText": "Er worden geen persoonlijke gegevens verzameld bij het gebruik van deze app. Alleen de in de app gemaakte instellingen worden lokaal opgeslagen en opgehaald; de app heeft hiervoor toegang tot het toestelgeheugen nodig.",
+  "@imprintPageDataProtectionText": {
+    "description": "The privacy policy for the app"
+  },
+  "imprintPageDataProtectionHeadline": "Gegevensbescherming",
+  "@imprintPageDataProtectionHeadline": {
+    "description": "The phrase 'Privacy policy'"
+  },
+  "imprintPageDataHeadline": "Beschikbaarheidsgegevens",
+  "@imprintPageDataHeadline": {
+    "description": "The phrase 'Availability data'"
+  },
+  "imprintPageButtonText": "Imprint",
+  "@imprintPageButtonText": {
+    "description": "The word 'Imprint'"
+  },
+  "imprintPageAppInfo": "App-Informatie",
+  "@imprintPageAppInfo": {
+    "description": "The word 'App Information'"
+  },
+  "imprintImgSourcesPublisher": "\nAuteur: ",
+  "@imprintImgSourcesPublisher": {
+    "description": "The word 'Creator: ' (with trailing double dot and space, leading newline!)"
+  },
+  "imprintImgSourcesLicense": "Licentie: ",
+  "@imprintImgSourcesLicense": {
+    "description": "The word 'License: ' (with trailing double dot and space!)"
+  },
+  "iceberg_names": "IJsbergsla, IJssla",
+  "@iceberg_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "iceberg_infoUrl": "https://nl.wikipedia.org/wiki/IJsbergsla",
+  "@iceberg_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "howToPageTitle": "Uitleg",
+  "@howToPageTitle": {
+    "description": "The word 'Explanation'"
+  },
+  "howToPagePartial": "Een zwart symbool betekent volledige beschikbaarheid, een grijs symbool betekent beperkte beschikbaarheid.",
+  "@howToPagePartial": {
+    "description": "Describes what the icon's color does."
+  },
+  "howToPageFavorites": "Door op de betreffende ster ☆ te tikken voegt u het voedsel toe aan uw favorietenlijst of verwijdert u het. Door op de ster in de menubalk te tikken, kunt u schakelen tussen de algemene weergave en de favorieten.",
+  "@howToPageFavorites": {
+    "description": "Describes how to use the favorites function"
+  },
+  "howToPageExplanationHeadline": "Hoe gebruik ik deze app?",
+  "@howToPageExplanationHeadline": {
+    "description": "The phrase 'How do I use the app?'"
+  },
+  "howToPageExplanation": "Deze app laat u in één oogopslag zien welke levensmiddelen momenteel in het seizoen zijn:",
+  "@howToPageExplanation": {
+    "description": "A sentence explaining what the app does"
+  },
+  "howToPageColors": "De kleur van het naam-veld geeft aan welk product je aan de hand van de andere indeling vaker of minder vaak zou moeten kopen. Groen is beter dan rood.",
+  "@howToPageColors": {
+    "description": "Describes what the food background colors do"
+  },
+  "howToPageAvSea": "Geïmporteerd van ver, meestal per schip.",
+  "@howToPageAvSea": {
+    "description": "A sentence explaining what the ship icon means."
+  },
+  "howToPageAvLocal": "Regionaal/binnenlands in het seizoen of beschikbaar uit opslag.",
+  "@howToPageAvLocal": {
+    "description": "A sentence explaining what the house icon means."
+  },
+  "howToPageAvLand": "Geïmporteerd van overwegend middellange afstand over land.",
+  "@howToPageAvLand": {
+    "description": "A sentence explaining what the truck icon means."
+  },
+  "howToPageAvAir": "Geïmporteerd van erg ver, meestal per vliegtuig.",
+  "@howToPageAvAir": {
+    "description": "A sentence explaining what the airplane icon means."
+  },
+  "honeymelon_names": "Suikermeloen, Honingmeloen, Netmeloen, Galiameloen, Kanteloepmeloen, Kantaloepmeloen, Ogenmeloen, Oranje Ananasmeloen",
+  "@honeymelon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "honeymelon_infoUrl": "https://nl.wikipedia.org/wiki/Suikermeloen",
+  "@honeymelon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "headlettuce_names": "Kropsla, Botersla, Sla",
+  "@headlettuce_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "headlettuce_infoUrl": "https://nl.wikipedia.org/wiki/Sla",
+  "@headlettuce_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "guava_names": "Guave",
+  "@guava_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "guava_infoUrl": "https://nl.wikipedia.org/wiki/Guave",
+  "@guava_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "greenonion_names": "Bosui, Lente-ui, Sla-ui, Pijpajuin, Schalulleke",
+  "@greenonion_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "greenonion_infoUrl": "https://nl.wikipedia.org/wiki/Bosui",
+  "@greenonion_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "greencabbage_names": "Boerenkool, Krulkool, Krolkool",
+  "@greencabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "greencabbage_infoUrl": "https://nl.wikipedia.org/wiki/Boerenkool_(groente)",
+  "@greencabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   }
 }
