@@ -87,12 +87,11 @@ class SearchScreen extends SearchDelegate<String> {
 
     var matches = exactMatches;
 
-    startsWithMatches.concat(innerMatches).forEach((food) {
-      if (matches.contains(food)) { // O(n) but probably irrelevant
-        continue;
+    var tmp = []..addAll(startsWithMatches)..addAll(innerMatches);
+    tmp.forEach((food) {
+      if (!matches.contains(food)) {
+        matches.add(food);
       }
-
-      matches += food;
     });
 
     if (matches.length > 0) {
