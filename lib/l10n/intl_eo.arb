@@ -1,1 +1,86 @@
-{}
+{
+  "blackberry_names": "Rubuso",
+  "@blackberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "blackberry_infoUrl": "https://eo.wikipedia.org/wiki/Kultivitaj_rubusoj",
+  "@blackberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "beetroot_names": "Ruĝa beto",
+  "@beetroot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "beetroot_infoUrl": "https://eo.wikipedia.org/wiki/Ru%C4%9Da_beto",
+  "@beetroot_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "batavia_names": "Laktuko, Kultiva laktuko, Ĝardena laktuko",
+  "@batavia_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "batavia_infoUrl": "https://eo.wikipedia.org/wiki/Kultiva_laktuko",
+  "@batavia_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "banana_names": "Banano",
+  "@banana_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "banana_infoUrl": "https://eo.wikipedia.org/wiki/Banano",
+  "@banana_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "back": "Reveni",
+  "@back": {
+    "description": "The word 'Back'"
+  },
+  "avocado_names": "Avokado",
+  "@avocado_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "avocado_infoUrl": "https://eo.wikipedia.org/wiki/Avokado",
+  "@avocado_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "august": "Aŭgusto",
+  "@august": {
+    "description": "The word 'August'"
+  },
+  "asparagus_names": "Asparago",
+  "@asparagus_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "asparagus_infoUrl": "https://eo.wikipedia.org/wiki/Asparago",
+  "@asparagus_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "artichoke_names": "Artiŝoko",
+  "@artichoke_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "artichoke_infoUrl": "https://eo.wikipedia.org/wiki/Arti%C5%9Doko",
+  "@artichoke_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "april": "Aprilo",
+  "@april": {
+    "description": "The word 'April'"
+  },
+  "apricot_names": "Abrikoto",
+  "@apricot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "apricot_infoUrl": "https://eo.wikipedia.org/wiki/Abrikoto",
+  "@apricot_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "apple_infoUrl": "https://eo.wikipedia.org/wiki/Pomo",
+  "@apple_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "apple_names": "Pomo",
+  "@apple_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  }
+}
