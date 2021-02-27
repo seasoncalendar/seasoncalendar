@@ -25,7 +25,6 @@ install:
   - git clone https://github.com/flutter/flutter.git -b stable
   - export PATH=$PWD/flutter/bin:$PWD/flutter/bin/cache/dart-sdk/bin:$PATH
   - flutter doctor
-  - flutter doctor --android-licenses
 
 script:
   - flutter pub get
