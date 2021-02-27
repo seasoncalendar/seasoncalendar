@@ -30,7 +30,7 @@ install:
 script:
   - flutter pub get
   - flutter update-packages
-  - flutter pub global run intl_utils:generate
+  - flutter pub run intl_utils:generate
   - flutter build apk --debug --flavor foss
 
 cache:
