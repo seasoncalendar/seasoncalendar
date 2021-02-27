@@ -28,9 +28,9 @@ install:
   - flutter doctor --android-licenses
 
 script:
-  - pwd
   - flutter pub get
   - flutter update-packages
+  - flutter pub global run intl_utils:generate
   - flutter build apk --debug --flavor foss
 
 cache:
