@@ -593,5 +593,9 @@
   "zucchini_infoUrl": "https://fr.wikipedia.org/wiki/Courgette",
   "@zucchini_infoUrl": {},
   "zucchini_names": "Courgette, Zucchini",
-  "@zucchini_names": {}
+  "@zucchini_names": {},
+  "reunion": "Réunion (France)",
+  "@reunion": {},
+  "northAmerica": "Amérique du Nord",
+  "@northAmerica": {}
 }
