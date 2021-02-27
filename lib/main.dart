@@ -9,6 +9,7 @@ import 'package:seasoncalendar/routes.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
+import 'package:seasoncalendar/l10n/localizationsDelegates/material_localization_eo.dart';
 
 void main() async {
   var inferredFlavor = AppFlavor.googleplay;
@@ -97,6 +98,7 @@ class MyAppState extends State<MyApp> {
         localizationsDelegates: [
           L10n.delegate,
           GlobalMaterialLocalizations.delegate,
+          MaterialLocalizationEoDelegate(),
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
