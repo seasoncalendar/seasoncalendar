@@ -1,5 +1,6 @@
 # Seasonal Foods Calendar
 
+[![Build Status](https://travis-ci.com/Flunzmas/seasoncalendar.svg?branch=develop)](https://travis-ci.com/Flunzmas/seasoncalendar)
 [<img src="https://img.shields.io/github/release/flunzmas/seasoncalendar.svg?logo=github">](https://github.com/Flunzmas/seasoncalendar/releases/latest)
 [<img src="https://img.shields.io/f-droid/v/flunzmas.seasoncalendar.svg?logo=F-Droid">](https://f-droid.org/packages/flunzmas.seasoncalendar)
 [<img src="https://img.shields.io/github/license/flunzmas/seasoncalendar">](/LICENSE)
