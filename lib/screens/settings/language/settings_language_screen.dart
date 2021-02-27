@@ -63,10 +63,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     if (languageNameFromCode.keys.contains(languageCode)) {
       newLocale = Locale(languageCode);
     }
-    MyAppState state = context.findAncestorStateOfType<MyAppState>();
-    state.setState(() {
-      state.locale = newLocale;
-    });
+    MyApp.setLocale(context, newLocale);
   }
 
   getLanguageEntriesList(BuildContext context) {

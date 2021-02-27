@@ -9,6 +9,7 @@ import 'package:seasoncalendar/routes.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
+import 'package:intl/intl.dart';
 import 'package:seasoncalendar/l10n/localizationsDelegates/material_localization_eo.dart';
 
 void main() async {
@@ -39,6 +40,8 @@ class MyApp extends StatefulWidget {
 
     state.setState(() {
       state.locale = newLocale;
+      Intl.defaultLocale = state.locale.languageCode;
+      L10n.load(state.locale);
     });
   }
 }
@@ -50,6 +53,7 @@ class MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    L10n.load(Locale("en"));
     this._fetchLocale().then((locale) {
       setState(() {
         this.localeLoaded = true;

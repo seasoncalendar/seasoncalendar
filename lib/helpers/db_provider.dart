@@ -95,16 +95,16 @@ class DBProvider {
       String avSea = maps[i]['avSea'];
       String avAir = maps[i]['avAir'];
 
-      String foodNamesString = Intl.message('NONE', name: foodId + "_names");
-      String infoUrl = Intl.message('NONE', name: foodId + "_infoUrl");
+      String foodNamesString = Intl.message('', name: foodId + "_names");
+      String infoUrl = Intl.message('', name: foodId + "_infoUrl");
 
       // fallback in english for incompletely translated languages
-      if (foodNamesString == 'NONE')
+      if (foodNamesString == '')
         {
-          foodNamesString = Intl.message('NONE', name: foodId + "_names", locale: "en");
+          foodNamesString = Intl.message('', name: foodId + "_names", locale: "en");
         }
-      if (infoUrl == 'NONE') {
-        infoUrl = Intl.message('NONE', name: foodId + "_infoUrl", locale: "en");
+      if (infoUrl == '') {
+        infoUrl = Intl.message('', name: foodId + "_infoUrl", locale: "en");
       }
 
       return Food(foodId, foodNamesString, type, isCommon, avLocal, avLand,

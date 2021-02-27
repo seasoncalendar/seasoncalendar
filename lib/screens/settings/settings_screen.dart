@@ -175,15 +175,7 @@ class SettingsPageState extends State<SettingsPage> {
                     isThreeLine: false,
                     dense: false,
                     onTap: () {
-                      String prevLangCode = widget._settings["languageCode"];
-                      Navigator.of(context)
-                          .pushNamed("/settings/language")
-                          .then((_) {
-                        if (prevLangCode != widget._settings["languageCode"]) {
-                          Phoenix.rebirth(
-                              context); // restart application if language changed
-                        }
-                      });
+                      Navigator.of(context).pushNamed("/settings/language");
                     },
                   ),
                 ),
