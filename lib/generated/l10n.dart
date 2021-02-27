@@ -135,12 +135,72 @@ class L10n {
     );
   }
 
+  /// `https://en.wikipedia.org/wiki/Phyllanthus_emblica`
+  String get amla_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Phyllanthus_emblica',
+      name: 'amla_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Amla, Emblic, Myrobalan, Indian gooseberry`
+  String get amla_names {
+    return Intl.message(
+      'Amla, Emblic, Myrobalan, Indian gooseberry',
+      name: 'amla_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
   /// `Seasonal foods calendar`
   String get appTitle {
     return Intl.message(
       'Seasonal foods calendar',
       name: 'appTitle',
       desc: 'The title of the app, e.g. \'Seasonal foods calendar\'',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Apple`
+  String get apple_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Apple',
+      name: 'apple_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Apple`
+  String get apple_names {
+    return Intl.message(
+      'Apple',
+      name: 'apple_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Prunus_armeniaca`
+  String get apricot_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Prunus_armeniaca',
+      name: 'apricot_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Apricot`
+  String get apricot_names {
+    return Intl.message(
+      'Apricot',
+      name: 'apricot_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -155,12 +215,72 @@ class L10n {
     );
   }
 
+  /// `https://en.wikipedia.org/wiki/Artichoke`
+  String get artichoke_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Artichoke',
+      name: 'artichoke_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Artichoke`
+  String get artichoke_names {
+    return Intl.message(
+      'Artichoke',
+      name: 'artichoke_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Asparagus`
+  String get asparagus_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Asparagus',
+      name: 'asparagus_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Asparagus, Sparrow grass`
+  String get asparagus_names {
+    return Intl.message(
+      'Asparagus, Sparrow grass',
+      name: 'asparagus_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
   /// `August`
   String get august {
     return Intl.message(
       'August',
       name: 'august',
       desc: 'The word \'August\'',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Avocado`
+  String get avocado_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Avocado',
+      name: 'avocado_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Avocado, Avocado Pear, Alligator pear`
+  String get avocado_names {
+    return Intl.message(
+      'Avocado, Avocado Pear, Alligator pear',
+      name: 'avocado_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -175,12 +295,432 @@ class L10n {
     );
   }
 
+  /// `https://en.wikipedia.org/wiki/Banana`
+  String get banana_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Banana',
+      name: 'banana_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Banana`
+  String get banana_names {
+    return Intl.message(
+      'Banana',
+      name: 'banana_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Lettuce`
+  String get batavia_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Lettuce',
+      name: 'batavia_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Batavia, Salad, Lettuce`
+  String get batavia_names {
+    return Intl.message(
+      'Batavia, Salad, Lettuce',
+      name: 'batavia_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Beetroot`
+  String get beetroot_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Beetroot',
+      name: 'beetroot_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Beetroot, beets, table beet, red beet`
+  String get beetroot_names {
+    return Intl.message(
+      'Beetroot, beets, table beet, red beet',
+      name: 'beetroot_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Blackberry`
+  String get blackberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Blackberry',
+      name: 'blackberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Blackberry`
+  String get blackberry_names {
+    return Intl.message(
+      'Blackberry',
+      name: 'blackberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Bilberry`
+  String get blueberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Bilberry',
+      name: 'blueberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Blueberry`
+  String get blueberry_names {
+    return Intl.message(
+      'Blueberry',
+      name: 'blueberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Broccoli`
+  String get broccoli_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Broccoli',
+      name: 'broccoli_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Broccoli`
+  String get broccoli_names {
+    return Intl.message(
+      'Broccoli',
+      name: 'broccoli_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Brussels_sprout`
+  String get brusselssprouts_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Brussels_sprout',
+      name: 'brusselssprouts_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Brussels sprout`
+  String get brusselssprouts_names {
+    return Intl.message(
+      'Brussels sprout',
+      name: 'brusselssprouts_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Carob`
+  String get carob_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Carob',
+      name: 'carob_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Carob`
+  String get carob_names {
+    return Intl.message(
+      'Carob',
+      name: 'carob_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Carrot`
+  String get carrot_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Carrot',
+      name: 'carrot_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Carrot`
+  String get carrot_names {
+    return Intl.message(
+      'Carrot',
+      name: 'carrot_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Cauliflower`
+  String get cauliflower_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Cauliflower',
+      name: 'cauliflower_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Cauliflower`
+  String get cauliflower_names {
+    return Intl.message(
+      'Cauliflower',
+      name: 'cauliflower_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Celeriac`
+  String get celery_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Celeriac',
+      name: 'celery_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Celeriac, Knob celery, Celery root`
+  String get celery_names {
+    return Intl.message(
+      'Celeriac, Knob celery, Celery root',
+      name: 'celery_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Celery`
+  String get celerygreen_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Celery',
+      name: 'celerygreen_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Celery`
+  String get celerygreen_names {
+    return Intl.message(
+      'Celery',
+      name: 'celerygreen_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
   /// `Central Europe`
   String get centralEurope {
     return Intl.message(
       'Central Europe',
       name: 'centralEurope',
       desc: 'The region of Central Europe.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Agaricus_bisporus`
+  String get champignon_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Agaricus_bisporus',
+      name: 'champignon_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Champignon, Mushroom`
+  String get champignon_names {
+    return Intl.message(
+      'Champignon, Mushroom',
+      name: 'champignon_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Chard`
+  String get chard_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Chard',
+      name: 'chard_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Chard, swiss chard`
+  String get chard_names {
+    return Intl.message(
+      'Chard, swiss chard',
+      name: 'chard_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Prunus_avium`
+  String get cherry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Prunus_avium',
+      name: 'cherry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Cherry, Sweet Cherry, Wild Cherry, Gean`
+  String get cherry_names {
+    return Intl.message(
+      'Cherry, Sweet Cherry, Wild Cherry, Gean',
+      name: 'cherry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Castanea_sativa`
+  String get chestnut_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Castanea_sativa',
+      name: 'chestnut_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Chestnut, Castanea sativa`
+  String get chestnut_names {
+    return Intl.message(
+      'Chestnut, Castanea sativa',
+      name: 'chestnut_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Chicory#Cultivated`
+  String get chicory_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Chicory#Cultivated',
+      name: 'chicory_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Chicory`
+  String get chicory_names {
+    return Intl.message(
+      'Chicory',
+      name: 'chicory_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Napa_cabbage`
+  String get chinesecabbage_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Napa_cabbage',
+      name: 'chinesecabbage_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Chinese cabbage, Napa cabbage, Napa`
+  String get chinesecabbage_names {
+    return Intl.message(
+      'Chinese cabbage, Napa cabbage, Napa',
+      name: 'chinesecabbage_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Clementine`
+  String get clementine_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Clementine',
+      name: 'clementine_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Clementine, Mandarin orange, Tangor, Tangerine`
+  String get clementine_names {
+    return Intl.message(
+      'Clementine, Mandarin orange, Tangor, Tangerine',
+      name: 'clementine_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Rubus_chamaemorus`
+  String get cloudberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Rubus_chamaemorus',
+      name: 'cloudberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Cloudberry, Nordic berry, Bakeapple, Knotberry, Knoutberry, Aqpik, Averin, Evron`
+  String get cloudberry_names {
+    return Intl.message(
+      'Cloudberry, Nordic berry, Bakeapple, Knotberry, Knoutberry, Aqpik, Averin, Evron',
+      name: 'cloudberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Coconut`
+  String get coco_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Coconut',
+      name: 'coco_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Coconut, Coco`
+  String get coco_names {
+    return Intl.message(
+      'Coconut, Coco',
+      name: 'coco_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -255,12 +795,152 @@ class L10n {
     );
   }
 
+  /// `https://en.wikipedia.org/wiki/Cranberry`
+  String get cranberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Cranberry',
+      name: 'cranberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Cranberry`
+  String get cranberry_names {
+    return Intl.message(
+      'Cranberry',
+      name: 'cranberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Cucumber`
+  String get cucumber_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Cucumber',
+      name: 'cucumber_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Cucumber`
+  String get cucumber_names {
+    return Intl.message(
+      'Cucumber',
+      name: 'cucumber_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Ribes`
+  String get currant_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Ribes',
+      name: 'currant_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Currant, Ribes`
+  String get currant_names {
+    return Intl.message(
+      'Currant, Ribes',
+      name: 'currant_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Date_palm`
+  String get date_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Date_palm',
+      name: 'date_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Fresh date, Date`
+  String get date_names {
+    return Intl.message(
+      'Fresh date, Date',
+      name: 'date_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
   /// `December`
   String get december {
     return Intl.message(
       'December',
       name: 'december',
       desc: 'The word \'December\'',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Pitaya`
+  String get dragonfruit_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Pitaya',
+      name: 'dragonfruit_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Dragonfruit, Pitaya, Pitahaya`
+  String get dragonfruit_names {
+    return Intl.message(
+      'Dragonfruit, Pitaya, Pitahaya',
+      name: 'dragonfruit_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Eggplant`
+  String get eggplant_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Eggplant',
+      name: 'eggplant_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Eggplant, Aubergine, Brinjal`
+  String get eggplant_names {
+    return Intl.message(
+      'Eggplant, Aubergine, Brinjal',
+      name: 'eggplant_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Sambucus_nigra`
+  String get elderberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Sambucus_nigra',
+      name: 'elderberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Elderberry, sambucus, elder`
+  String get elderberry_names {
+    return Intl.message(
+      'Elderberry, sambucus, elder',
+      name: 'elderberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -315,6 +995,26 @@ class L10n {
     );
   }
 
+  /// `https://en.wikipedia.org/wiki/Endive`
+  String get endive_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Endive',
+      name: 'endive_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Endive, Salad`
+  String get endive_names {
+    return Intl.message(
+      'Endive, Salad',
+      name: 'endive_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
   /// `About the app`
   String get etcPageTitle {
     return Intl.message(
@@ -331,6 +1031,246 @@ class L10n {
       'February',
       name: 'february',
       desc: 'The word \'February\'',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Fennel`
+  String get fennel_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Fennel',
+      name: 'fennel_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Fennel`
+  String get fennel_names {
+    return Intl.message(
+      'Fennel',
+      name: 'fennel_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Valerianella_locusta`
+  String get fieldsalad_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Valerianella_locusta',
+      name: 'fieldsalad_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Field salad, Corn salad, Lamb's lettuce, Fetticus, Nut lettuce, Salad, Lettuce`
+  String get fieldsalad_names {
+    return Intl.message(
+      'Field salad, Corn salad, Lamb\'s lettuce, Fetticus, Nut lettuce, Salad, Lettuce',
+      name: 'fieldsalad_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Common_fig`
+  String get fig_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Common_fig',
+      name: 'fig_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Fig`
+  String get fig_names {
+    return Intl.message(
+      'Fig',
+      name: 'fig_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Gooseberry`
+  String get gooseberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Gooseberry',
+      name: 'gooseberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Gooseberry`
+  String get gooseberry_names {
+    return Intl.message(
+      'Gooseberry',
+      name: 'gooseberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Grapefruit`
+  String get grapefuit_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Grapefruit',
+      name: 'grapefuit_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Grapefruit`
+  String get grapefuit_names {
+    return Intl.message(
+      'Grapefruit',
+      name: 'grapefuit_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Grape`
+  String get grapes_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Grape',
+      name: 'grapes_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Grapes, Wine grape`
+  String get grapes_names {
+    return Intl.message(
+      'Grapes, Wine grape',
+      name: 'grapes_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Phaseolus_vulgaris`
+  String get greenbeans_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Phaseolus_vulgaris',
+      name: 'greenbeans_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Common bean, Green beans, French bean`
+  String get greenbeans_names {
+    return Intl.message(
+      'Common bean, Green beans, French bean',
+      name: 'greenbeans_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Kale`
+  String get greencabbage_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Kale',
+      name: 'greencabbage_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Kale, Green cabbage, Cabbage, Leaf cabbage`
+  String get greencabbage_names {
+    return Intl.message(
+      'Kale, Green cabbage, Cabbage, Leaf cabbage',
+      name: 'greencabbage_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Allium_fistulosum`
+  String get greenonion_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Allium_fistulosum',
+      name: 'greenonion_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Green onions, Onion, Welsh onion, Bunching onion, spring onion`
+  String get greenonion_names {
+    return Intl.message(
+      'Green onions, Onion, Welsh onion, Bunching onion, spring onion',
+      name: 'greenonion_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Psidium_guajava`
+  String get guava_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Psidium_guajava',
+      name: 'guava_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Guava, Psidium Guajava`
+  String get guava_names {
+    return Intl.message(
+      'Guava, Psidium Guajava',
+      name: 'guava_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Lettuce`
+  String get headlettuce_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Lettuce',
+      name: 'headlettuce_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Head lettuce, Lettuce, Salad, Butterhead, Boston, Bibb lettuce`
+  String get headlettuce_names {
+    return Intl.message(
+      'Head lettuce, Lettuce, Salad, Butterhead, Boston, Bibb lettuce',
+      name: 'headlettuce_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Muskmelon`
+  String get honeymelon_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Muskmelon',
+      name: 'honeymelon_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Muskmelon, Honey melons, galia melon, cantaloupe melon`
+  String get honeymelon_names {
+    return Intl.message(
+      'Muskmelon, Honey melons, galia melon, cantaloupe melon',
+      name: 'honeymelon_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -431,6 +1371,26 @@ class L10n {
       'Explanation',
       name: 'howToPageTitle',
       desc: 'The word \'Explanation\'',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Lettuce`
+  String get iceberg_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Lettuce',
+      name: 'iceberg_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Iceberg salad, Crisphead, Salad, Lettuce`
+  String get iceberg_names {
+    return Intl.message(
+      'Iceberg salad, Crisphead, Salad, Lettuce',
+      name: 'iceberg_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -665,6 +1625,46 @@ class L10n {
     );
   }
 
+  /// `https://en.wikipedia.org/wiki/Kiwifruit`
+  String get kiwi_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Kiwifruit',
+      name: 'kiwi_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Kiwi, Kiwifruit`
+  String get kiwi_names {
+    return Intl.message(
+      'Kiwi, Kiwifruit',
+      name: 'kiwi_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Kohlrabi`
+  String get kohlrabi_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Kohlrabi',
+      name: 'kohlrabi_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Kohlrabi`
+  String get kohlrabi_names {
+    return Intl.message(
+      'Kohlrabi',
+      name: 'kohlrabi_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
   /// `en`
   String get languageCode {
     return Intl.message(
@@ -681,6 +1681,146 @@ class L10n {
       'English',
       name: 'languageName',
       desc: 'The name of this language',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Leek`
+  String get leek_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Leek',
+      name: 'leek_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Leek`
+  String get leek_names {
+    return Intl.message(
+      'Leek',
+      name: 'leek_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Lemon`
+  String get lemon_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Lemon',
+      name: 'lemon_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Lemon`
+  String get lemon_names {
+    return Intl.message(
+      'Lemon',
+      name: 'lemon_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Lime_(fruit)`
+  String get lime_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Lime_(fruit)',
+      name: 'lime_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Lime`
+  String get lime_names {
+    return Intl.message(
+      'Lime',
+      name: 'lime_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Vaccinium_vitis-idaea`
+  String get lingonberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Vaccinium_vitis-idaea',
+      name: 'lingonberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Lingonberry, Patridgeberry, Cowberry, Mountain cranberry`
+  String get lingonberry_names {
+    return Intl.message(
+      'Lingonberry, Patridgeberry, Cowberry, Mountain cranberry',
+      name: 'lingonberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Lettuce`
+  String get lollorossa_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Lettuce',
+      name: 'lollorossa_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Lollo rossa, Lettuce`
+  String get lollorossa_names {
+    return Intl.message(
+      'Lollo rossa, Lettuce',
+      name: 'lollorossa_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Lychee`
+  String get lychee_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Lychee',
+      name: 'lychee_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Lychee, Longan, Litchi`
+  String get lychee_names {
+    return Intl.message(
+      'Lychee, Longan, Litchi',
+      name: 'lychee_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Mango`
+  String get mango_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Mango',
+      name: 'mango_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Mango`
+  String get mango_names {
+    return Intl.message(
+      'Mango',
+      name: 'mango_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -745,6 +1885,46 @@ class L10n {
     );
   }
 
+  /// `https://en.wikipedia.org/wiki/Pyrus_pyrifolia`
+  String get nashi_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Pyrus_pyrifolia',
+      name: 'nashi_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Nashi pear, Asian pear, Japanese pear, Chinese pear, Korean pear, Apple pear, Taiwanese pear, Papple`
+  String get nashi_names {
+    return Intl.message(
+      'Nashi pear, Asian pear, Japanese pear, Chinese pear, Korean pear, Apple pear, Taiwanese pear, Papple',
+      name: 'nashi_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Peach#Nectarines`
+  String get nectarine_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Peach#Nectarines',
+      name: 'nectarine_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Nectarine`
+  String get nectarine_names {
+    return Intl.message(
+      'Nectarine',
+      name: 'nectarine_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
   /// `November`
   String get november {
     return Intl.message(
@@ -761,6 +1941,566 @@ class L10n {
       'October',
       name: 'october',
       desc: 'The word \'October\'',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Onion`
+  String get onion_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Onion',
+      name: 'onion_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Onion, Bulb onion, Common onion, Cepa, Shallot`
+  String get onion_names {
+    return Intl.message(
+      'Onion, Bulb onion, Common onion, Cepa, Shallot',
+      name: 'onion_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Orange_(fruit)`
+  String get orange_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Orange_(fruit)',
+      name: 'orange_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Orange, Sweet orange`
+  String get orange_names {
+    return Intl.message(
+      'Orange, Sweet orange',
+      name: 'orange_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Bok_choy`
+  String get pakchoi_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Bok_choy',
+      name: 'pakchoi_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Bok Choy, pak choi, Pok choi`
+  String get pakchoi_names {
+    return Intl.message(
+      'Bok Choy, pak choi, Pok choi',
+      name: 'pakchoi_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Papaya`
+  String get papaya_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Papaya',
+      name: 'papaya_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Papaya, Papaw, Pawpaw`
+  String get papaya_names {
+    return Intl.message(
+      'Papaya, Papaw, Pawpaw',
+      name: 'papaya_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Bell_pepper`
+  String get paprika_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Bell_pepper',
+      name: 'paprika_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Paprika, Pepper, Sweet pepper, Bell pepper, Capsicum`
+  String get paprika_names {
+    return Intl.message(
+      'Paprika, Pepper, Sweet pepper, Bell pepper, Capsicum',
+      name: 'paprika_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Parsnip`
+  String get parsnip_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Parsnip',
+      name: 'parsnip_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Parsnip`
+  String get parsnip_names {
+    return Intl.message(
+      'Parsnip',
+      name: 'parsnip_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Passiflora_edulis`
+  String get passionfruit_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Passiflora_edulis',
+      name: 'passionfruit_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Passion fruit, Maracuja, Passiflora edulis`
+  String get passionfruit_names {
+    return Intl.message(
+      'Passion fruit, Maracuja, Passiflora edulis',
+      name: 'passionfruit_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Peach`
+  String get peach_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Peach',
+      name: 'peach_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Peach`
+  String get peach_names {
+    return Intl.message(
+      'Peach',
+      name: 'peach_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Pear`
+  String get pear_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Pear',
+      name: 'pear_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Pear`
+  String get pear_names {
+    return Intl.message(
+      'Pear',
+      name: 'pear_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Pea`
+  String get peas_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Pea',
+      name: 'peas_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Peas, Pea`
+  String get peas_names {
+    return Intl.message(
+      'Peas, Pea',
+      name: 'peas_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Diospyros_kaki`
+  String get persimmon_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Diospyros_kaki',
+      name: 'persimmon_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Persimmon, Diospyros Kaki, Kaki`
+  String get persimmon_names {
+    return Intl.message(
+      'Persimmon, Diospyros Kaki, Kaki',
+      name: 'persimmon_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Physalis`
+  String get physalis_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Physalis',
+      name: 'physalis_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Physalis, Groundcherry, Inca berry, Cape gooseberry`
+  String get physalis_names {
+    return Intl.message(
+      'Physalis, Groundcherry, Inca berry, Cape gooseberry',
+      name: 'physalis_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Pineapple`
+  String get pineapple_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Pineapple',
+      name: 'pineapple_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Pineapple, Ananas`
+  String get pineapple_names {
+    return Intl.message(
+      'Pineapple, Ananas',
+      name: 'pineapple_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Prunus_domestica`
+  String get plum_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Prunus_domestica',
+      name: 'plum_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Plum, European Plum`
+  String get plum_names {
+    return Intl.message(
+      'Plum, European Plum',
+      name: 'plum_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Cabbage`
+  String get pointedcabbage_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Cabbage',
+      name: 'pointedcabbage_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Pointed cabbage, Cabbage`
+  String get pointedcabbage_names {
+    return Intl.message(
+      'Pointed cabbage, Cabbage',
+      name: 'pointedcabbage_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Pomegranate`
+  String get pomegranate_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Pomegranate',
+      name: 'pomegranate_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Pomegranate`
+  String get pomegranate_names {
+    return Intl.message(
+      'Pomegranate',
+      name: 'pomegranate_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Potato`
+  String get potato_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Potato',
+      name: 'potato_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Potato`
+  String get potato_names {
+    return Intl.message(
+      'Potato',
+      name: 'potato_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Opuntia_ficus-indica`
+  String get pricklypear_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Opuntia_ficus-indica',
+      name: 'pricklypear_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Prickly pear`
+  String get pricklypear_names {
+    return Intl.message(
+      'Prickly pear',
+      name: 'pricklypear_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Zwetschge`
+  String get prune_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Zwetschge',
+      name: 'prune_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Zwetschge, Sugar Plum, Prune`
+  String get prune_names {
+    return Intl.message(
+      'Zwetschge, Sugar Plum, Prune',
+      name: 'prune_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Pumpkin`
+  String get pumpkin_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Pumpkin',
+      name: 'pumpkin_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Pumpkins`
+  String get pumpkin_names {
+    return Intl.message(
+      'Pumpkins',
+      name: 'pumpkin_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Red_cabbage`
+  String get purplecabbage_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Red_cabbage',
+      name: 'purplecabbage_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Red cabbage, purple cabbage, Blaukraut, Cabbage`
+  String get purplecabbage_names {
+    return Intl.message(
+      'Red cabbage, purple cabbage, Blaukraut, Cabbage',
+      name: 'purplecabbage_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Quince`
+  String get quince_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Quince',
+      name: 'quince_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Quince`
+  String get quince_names {
+    return Intl.message(
+      'Quince',
+      name: 'quince_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Radicchio`
+  String get radicchio_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Radicchio',
+      name: 'radicchio_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Radicchio, Italian chicory`
+  String get radicchio_names {
+    return Intl.message(
+      'Radicchio, Italian chicory',
+      name: 'radicchio_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Raphanus`
+  String get radish_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Raphanus',
+      name: 'radish_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Raphanus`
+  String get radish_names {
+    return Intl.message(
+      'Raphanus',
+      name: 'radish_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Raspberry`
+  String get raspberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Raspberry',
+      name: 'raspberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Raspberry`
+  String get raspberry_names {
+    return Intl.message(
+      'Raspberry',
+      name: 'raspberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Rhubarb`
+  String get rhubarb_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Rhubarb',
+      name: 'rhubarb_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Rhubarb`
+  String get rhubarb_names {
+    return Intl.message(
+      'Rhubarb',
+      name: 'rhubarb_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Rose_hip`
+  String get rosehip_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Rose_hip',
+      name: 'rosehip_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Rosehip, Rose hip, Rose haw, Rose hep`
+  String get rosehip_names {
+    return Intl.message(
+      'Rosehip, Rose hip, Rose haw, Rose hep',
+      name: 'rosehip_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Savoy_cabbage`
+  String get savoy_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Savoy_cabbage',
+      name: 'savoy_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Savoy, Savoy cabbage, Cabbage`
+  String get savoy_names {
+    return Intl.message(
+      'Savoy, Savoy cabbage, Cabbage',
+      name: 'savoy_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -915,6 +2655,106 @@ class L10n {
     );
   }
 
+  /// `https://en.wikipedia.org/wiki/Radish`
+  String get smallradish_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Radish',
+      name: 'smallradish_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Radish, small radish`
+  String get smallradish_names {
+    return Intl.message(
+      'Radish, small radish',
+      name: 'smallradish_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Sorbus_aucuparia`
+  String get sorb_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Sorbus_aucuparia',
+      name: 'sorb_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Sorb, Rowan`
+  String get sorb_names {
+    return Intl.message(
+      'Sorb, Rowan',
+      name: 'sorb_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Spinach`
+  String get spinach_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Spinach',
+      name: 'spinach_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Spinach`
+  String get spinach_names {
+    return Intl.message(
+      'Spinach',
+      name: 'spinach_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Carambola`
+  String get starfuit_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Carambola',
+      name: 'starfuit_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Carambola, Star fruit`
+  String get starfuit_names {
+    return Intl.message(
+      'Carambola, Star fruit',
+      name: 'starfuit_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Strawberry`
+  String get strawberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Strawberry',
+      name: 'strawberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Strawberry`
+  String get strawberry_names {
+    return Intl.message(
+      'Strawberry',
+      name: 'strawberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
   /// `Give alms`
   String get supportPageHeadline {
     return Intl.message(
@@ -995,12 +2835,172 @@ class L10n {
     );
   }
 
+  /// `https://en.wikipedia.org/wiki/Maize`
+  String get sweetcorn_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Maize',
+      name: 'sweetcorn_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Corn, Sweet Corn, Maize`
+  String get sweetcorn_names {
+    return Intl.message(
+      'Corn, Sweet Corn, Maize',
+      name: 'sweetcorn_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Sweet_potato`
+  String get sweetpotato_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Sweet_potato',
+      name: 'sweetpotato_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Sweet potato, Sweetpotato`
+  String get sweetpotato_names {
+    return Intl.message(
+      'Sweet potato, Sweetpotato',
+      name: 'sweetpotato_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Tomato`
+  String get tomato_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Tomato',
+      name: 'tomato_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Tomato`
+  String get tomato_names {
+    return Intl.message(
+      'Tomato',
+      name: 'tomato_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Watermelon`
+  String get watermelon_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Watermelon',
+      name: 'watermelon_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Watermelon, Water melon`
+  String get watermelon_names {
+    return Intl.message(
+      'Watermelon, Water melon',
+      name: 'watermelon_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Cabbage`
+  String get whitecabbage_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Cabbage',
+      name: 'whitecabbage_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `White cabbage, Cabbage`
+  String get whitecabbage_names {
+    return Intl.message(
+      'White cabbage, Cabbage',
+      name: 'whitecabbage_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
   /// `Wikipedia`
   String get wikipedia {
     return Intl.message(
       'Wikipedia',
       name: 'wikipedia',
       desc: 'The word \'Wikipedia\'',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Fragaria_vesca`
+  String get wildstrawberry_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Fragaria_vesca',
+      name: 'wildstrawberry_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Wild strawberry, Fraisier des bois, Woodland Strawberry`
+  String get wildstrawberry_names {
+    return Intl.message(
+      'Wild strawberry, Fraisier des bois, Woodland Strawberry',
+      name: 'wildstrawberry_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Mirabelle_plum`
+  String get yellowplum_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Mirabelle_plum',
+      name: 'yellowplum_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Yellow plum, Mirabelle plum, Mirabelle prune, Cherry Plum`
+  String get yellowplum_names {
+    return Intl.message(
+      'Yellow plum, Mirabelle plum, Mirabelle prune, Cherry Plum',
+      name: 'yellowplum_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
+      args: [],
+    );
+  }
+
+  /// `https://en.wikipedia.org/wiki/Zucchini`
+  String get zucchini_infoUrl {
+    return Intl.message(
+      'https://en.wikipedia.org/wiki/Zucchini',
+      name: 'zucchini_infoUrl',
+      desc: 'a URL referring to an information webpage (e.g. Wikipedia) for the food.',
+      args: [],
+    );
+  }
+
+  /// `Zucchini, Courgette, Baby marrow`
+  String get zucchini_names {
+    return Intl.message(
+      'Zucchini, Courgette, Baby marrow',
+      name: 'zucchini_names',
+      desc: 'Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app\'s search feature.',
       args: [],
     );
   }
@@ -1012,9 +3012,12 @@ class AppLocalizationDelegate extends LocalizationsDelegate<L10n> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'bg'),
       Locale.fromSubtags(languageCode: 'de'),
       Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'fr'),
+      Locale.fromSubtags(languageCode: 'it'),
+      Locale.fromSubtags(languageCode: 'nb', countryCode: 'NO'),
       Locale.fromSubtags(languageCode: 'pl'),
     ];
   }
