@@ -78,7 +78,7 @@ class DBProvider {
     final List<Map<String, dynamic>> maps = await db.rawQuery("""
       SELECT f.id, f.type, f.assetImgPath, f.assetImgInfo, f.assetImgSourceUrl, fr.region_id, fr.is_common, fr.avLocal, fr.avLand, fr.avSea, fr.avAir
       FROM foods AS f
-      INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id AND fr.region_id = ?)
+      INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
       WHERE fr.region_id = ?
       """, [regionCode]);
 
@@ -95,8 +95,17 @@ class DBProvider {
       String avSea = maps[i]['avSea'];
       String avAir = maps[i]['avAir'];
 
-      String foodNamesString = Intl.message('', name: foodId+"_names");
-      String infoUrl = Intl.message('', name: foodId+"_infoUrl");
+      String foodNamesString = Intl.message('NONE', name: foodId + "_names");
+      String infoUrl = Intl.message('NONE', name: foodId + "_infoUrl");
+
+      // fallback in english for incompletely translated languages
+      if (foodNamesString == 'NONE')
+        {
+          foodNamesString = Intl.message('NONE', name: foodId + "_names", locale: "en");
+        }
+      if (infoUrl == 'NONE') {
+        infoUrl = Intl.message('NONE', name: foodId + "_infoUrl", locale: "en");
+      }
 
       return Food(foodId, foodNamesString, type, isCommon, avLocal, avLand,
           avSea, avAir, infoUrl, assetImgPath, assetImgSourceUrl, assetImgInfo);
