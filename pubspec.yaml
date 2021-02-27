@@ -37,6 +37,7 @@ dependencies:
   flutter_phoenix: ^0.1.0
   flutter_map: ^0.10.1+1
   sprintf: ^5.0.0
+  flutter_device_locale: ^0.4.0
 
 dev_dependencies:
   flutter_test:

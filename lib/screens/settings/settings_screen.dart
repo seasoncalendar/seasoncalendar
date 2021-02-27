@@ -171,7 +171,6 @@ class SettingsPageState extends State<SettingsPage> {
                   child: ListTile(
                     leading: Icon(Icons.translate),
                     title: Text(L10n.of(context).settingsLanguageTitle),
-                    subtitle: Text(L10n.of(context).settingsLanguageSubtitle),
                     isThreeLine: false,
                     dense: false,
                     onTap: () {

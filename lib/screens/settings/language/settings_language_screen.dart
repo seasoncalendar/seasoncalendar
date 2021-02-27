@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/theme/themes.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_device_locale/flutter_device_locale.dart';
 
+import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/helpers/lang_names.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
@@ -24,8 +25,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            title: Text(L10n.of(context).settingsLanguageTitle)),
+        appBar: AppBar(title: Text(L10n.of(context).settingsLanguageTitle)),
         body: FutureBuilder(
             future: SettingsPageState.getSettingsI(widget._initialSettings),
             builder: (context, snapshot) {
@@ -59,9 +59,18 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('languageCode', languageCode);
 
+    // consider device language code if device language setting is activated
+    if (languageCode == "null") {
+      Locale locale = await DeviceLocale.getCurrentLocale();
+      languageCode = locale.languageCode;
+    }
+
+    // default to english locale of language code is not supported
     Locale newLocale;
     if (languageNameFromCode.keys.contains(languageCode)) {
       newLocale = Locale(languageCode);
+    } else {
+      newLocale = Locale("en");
     }
     MyApp.setLocale(context, newLocale);
   }
