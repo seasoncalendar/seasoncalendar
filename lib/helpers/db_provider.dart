@@ -12,8 +12,11 @@ import 'package:flutter/services.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
 
+import 'package:intl/intl.dart';
+
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/models/food.dart';
+
 
 class DBProvider {
   DBProvider._();
@@ -21,10 +24,6 @@ class DBProvider {
   static final DBProvider db = DBProvider._();
   static Database _database;
   static String dbViewName = "null";
-
-  // format with sprintf: (langCode, regionCode, langCode, regionCode)
-  static final String createViewQuery =
-      "create view if not exists foods_%s_%s as select f.id, f.type, f.assetImgPath, f.assetImgInfo, f.assetImgSourceUrl, fl.infoUrl, fl.foodnames, fa.isCommon, fa.avLocal, fa.avLand, fa.avSea, fa.avAir from foods as f inner join foods_lang_%s as fl on f.id == fl.id inner join foods_av_%s as fa on f.id == fa.id";
 
   Future<Database> get database async {
     var settings = await SettingsPageState.getSettings();
@@ -73,29 +72,31 @@ class DBProvider {
 
     // create desired db view if it doesn't exist
     var settings = await SettingsPageState.getSettings();
-    var langCode = settings['languageCode'];
-    if (langCode == "null") {
-      langCode = L10n.current.languageCode;
-    }
     var regionCode = settings['regionCode'];
-    var curCreateViewQuery = sprintf(createViewQuery, [langCode, regionCode, langCode, regionCode]);
-    await db.execute(curCreateViewQuery);
 
     // get the foods
-    final List<Map<String, dynamic>> maps = await db.query(dbViewName);
+    final List<Map<String, dynamic>> maps = await db.rawQuery("""
+      SELECT f.id, f.type, f.assetImgPath, f.assetImgInfo, f.assetImgSourceUrl, fr.region_id, fr.is_common, fr.avLocal, fr.avLand, fr.avSea, fr.avAir
+      FROM foods AS f
+      INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id AND fr.region_id = ?)
+      WHERE fr.region_id = ?
+      """, [regionCode]);
+
     return List.generate(maps.length, (i) {
       String foodId = maps[i]['id'];
-      String foodNamesString = maps[i]['foodnames'];
       String type = maps[i]['type'];
-      int isCommon = maps[i]['isCommon'];
+      String assetImgPath = maps[i]['assetImgPath'];
+      String assetImgSourceUrl = maps[i]['assetImgSourceUrl'];
+      String assetImgInfo = maps[i]['assetImgInfo'];
+
+      int isCommon = maps[i]['is_common'];
       String avLocal = maps[i]['avLocal'];
       String avLand = maps[i]['avLand'];
       String avSea = maps[i]['avSea'];
       String avAir = maps[i]['avAir'];
-      String infoUrl = maps[i]['infoUrl'];
-      String assetImgPath = maps[i]['assetImgPath'];
-      String assetImgSourceUrl = maps[i]['assetImgSourceUrl'];
-      String assetImgInfo = maps[i]['assetImgInfo'];
+
+      String foodNamesString = Intl.message('', name: foodId+"_names");
+      String infoUrl = Intl.message('', name: foodId+"_infoUrl");
 
       return Food(foodId, foodNamesString, type, isCommon, avLocal, avLand,
           avSea, avAir, infoUrl, assetImgPath, assetImgSourceUrl, assetImgInfo);
