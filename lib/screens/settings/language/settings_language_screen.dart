@@ -103,7 +103,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     if (languageNameFromCode.containsKey(langCode)) {
       languageName = languageNameFromCode[langCode];
     }
-    if (incompleteLanguages.contains(langCode)) {
+    if (!completeLanguages.contains(langCode)) {
       languageName += " (Beta)";
     }
     return RadioListTile(
@@ -111,7 +111,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
       dense: false,
       value: langCode,
       groupValue: widget._settings['languageCode'],
-      title: Text(languageName),
+      title: Text("${langCode.toUpperCase()} - $languageName"),
       onChanged: (val) => setState(() {
         setLanguage(langCode);
       }),
