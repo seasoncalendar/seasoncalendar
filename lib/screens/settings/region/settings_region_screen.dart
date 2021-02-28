@@ -26,7 +26,7 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
         body: FutureBuilder(
             future: Future.wait([
               SettingsPageState.getSettingsI(widget._initialSettings),
-              DBProvider.db.getRegions(context)
+              DBProvider.db.getRegions()
             ]),
             builder: (context, snapshot) {
               if (snapshot.hasData) {

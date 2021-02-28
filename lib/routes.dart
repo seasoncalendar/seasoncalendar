@@ -25,7 +25,7 @@ final Map<String, WidgetBuilder> appRoutes = {
       future: Future.wait([
         getFavoriteFoods(),
         SettingsPageState.getSettings(),
-        DBProvider.db.getFoods(context),
+        DBProvider.db.getFoods(),
       ]),
       builder: (_, snapshot) {
         if (snapshot.hasData) {
@@ -111,7 +111,7 @@ final Map<String, WidgetBuilder> appRoutes = {
         },
       ),
   "/etc/imprint/imgs": (context) => FutureBuilder(
-        future: DBProvider.db.getFoods(context),
+        future: DBProvider.db.getFoods(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final List<Food> allFoods = snapshot.data;

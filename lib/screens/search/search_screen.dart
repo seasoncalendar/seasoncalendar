@@ -48,7 +48,7 @@ class SearchScreen extends SearchDelegate<String> {
   @override
   Widget buildResults(BuildContext context) {
     return FutureBuilder(
-      future: DBProvider.db.getFoods(context),
+      future: DBProvider.db.getFoods(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           List<Food> _newestFoodCatalog = snapshot.data;

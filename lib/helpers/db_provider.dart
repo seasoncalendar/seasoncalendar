@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart';
@@ -61,7 +60,7 @@ class DBProvider {
     return res;
   }
 
-  Future<Iterable<Region>> getRegions(BuildContext context) async {
+  Future<Iterable<Region>> getRegions() async {
     final Database db = await database;
 
     final List<Map<String, dynamic>> results = await db.rawQuery("""
@@ -85,7 +84,7 @@ class DBProvider {
     }).toList();
   }
 
-  Future<Iterable<Food>> getFoods(BuildContext context) async {
+  Future<Iterable<Food>> getFoods() async {
     final Database db = await database;
 
     // create desired db view if it doesn't exist
