@@ -26,8 +26,8 @@ final Map<String, WidgetBuilder> appRoutes = {
       future: Future.wait([
         getFavoriteFoods(),
         SettingsPageState.getSettings(),
-        DBProvider.db.getFoods(),
-        UserDBProvider.db.getCustomFoods()
+        DBProvider.db.getFoods()
+        //UserDBProvider.db.getCustomFoods()
       ]),
       builder: (_, snapshot) {
         if (snapshot.hasData) {
