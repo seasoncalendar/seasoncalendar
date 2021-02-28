@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:mutex/mutex.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart';
@@ -15,6 +16,7 @@ class DBProvider {
   DBProvider._();
 
   static final DBProvider db = DBProvider._();
+  static final Mutex _db_file_mutex = Mutex();
   static Database _database;
   static String dbViewName = "null";
 
@@ -29,7 +31,12 @@ class DBProvider {
     dbViewName = targetDBViewName;
 
     if (_database == null) {
-      _database = await initDB();
+      await _db_file_mutex.acquire();
+      try {
+        if (_database == null) _database = await initDB();
+      } finally {
+        _db_file_mutex.release();
+      }
     }
 
     return _database;
