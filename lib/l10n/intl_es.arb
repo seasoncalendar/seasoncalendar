@@ -593,5 +593,11 @@
   "zucchini_infoUrl": "https://es.wikipedia.org/wiki/Calabaza",
   "@zucchini_infoUrl": {},
   "zucchini_names": "Calabacín, Tuétano de bebé",
-  "@zucchini_names": {}
+  "@zucchini_names": {},
+  "incompleteLanguageNotice": "Los idiomas incompletos se muestran con un aviso \"Beta\". Para ellos, las traducciones que faltan se muestran en inglés.",
+  "@incompleteLanguageNotice": {},
+  "reunion": "Reunión (Francia)",
+  "@reunion": {},
+  "northAmerica": "América del Norte",
+  "@northAmerica": {}
 }
