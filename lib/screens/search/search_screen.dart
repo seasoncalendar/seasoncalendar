@@ -61,8 +61,9 @@ class SearchScreen extends SearchDelegate<String> {
   }
 
   Widget getMatchingFoodView(BuildContext context, List<Food> dbFoods) {
+    var query = this.query.trim(); //clean search input
+
     // show full list on small query
-    query = query.trimLeft();
     if (query.length < 3) {
       dbFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
       return FoodView.fromSearchResult(dbFoods, _monthIndex);

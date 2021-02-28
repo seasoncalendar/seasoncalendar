@@ -1,14 +1,15 @@
 import 'dart:async';
 
+import 'package:seasoncalendar/models/food.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<bool> isFavoriteFood(String foodId) async {
+Future<bool> isFavoriteFood(Food food) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   List<String> foods = prefs.getStringList("favoriteFoods");
   if (foods == null) {
     return false;
   } else {
-    return foods.contains(foodId);
+    return foods.contains(food.id);
   }
 }
 

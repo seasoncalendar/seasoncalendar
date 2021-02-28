@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -10,20 +11,14 @@ import 'package:seasoncalendar/components/food_details_dialog.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 class FoodTile extends StatefulWidget {
-  final String _foodId;
-  final String _foodDisplayName;
-  final String _assetImgPath;
-  final String _foodInfoURL;
+  final Food _food;
   final int _curMonthIndex;
   final List<List<Availability>> _allAvailabilities;
   List<Availability> _curAvailabilities;
   Color _curAvailabilityColor = Colors.white70;
 
   FoodTile(Food foodToDisplay, int curMonthIndex)
-      : _foodId = foodToDisplay.id,
-        _foodDisplayName = foodToDisplay.displayName,
-        _assetImgPath = foodToDisplay.assetImgPath,
-        _foodInfoURL = foodToDisplay.infoUrl,
+      : _food = foodToDisplay,
         _curMonthIndex = curMonthIndex,
         _allAvailabilities = List.generate(12,
                 (monthIndex) => foodToDisplay.getAvailabilitiesByMonth(monthIndex)) {
@@ -43,7 +38,7 @@ class FoodTileState extends State<FoodTile> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-      future: isFavoriteFood(widget._foodId),
+      future: isFavoriteFood(widget._food),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           _isFavorite =
@@ -58,14 +53,14 @@ class FoodTileState extends State<FoodTile> {
     GestureTapCallback tapCallback = () {};
     if (_isFavorite == 1) {
       tapCallback = () {
-        removeFavoriteFood(widget._foodId);
+        removeFavoriteFood(widget._food.id);
         setState(() {
           _isFavorite = -1;
         });
       };
     } else if (_isFavorite == -1) {
       tapCallback = () {
-        addFavoriteFood(widget._foodId);
+        addFavoriteFood(widget._food.id);
         setState(() {
           _isFavorite = 1;
         });
@@ -73,7 +68,7 @@ class FoodTileState extends State<FoodTile> {
     }
 
     Image foodImage = Image(
-      image: AssetImage(widget._assetImgPath),
+      image: AssetImage(widget._food.assetImgPath),
       filterQuality: FilterQuality.low,
     );
 
@@ -86,35 +81,48 @@ class FoodTileState extends State<FoodTile> {
       }),
     );
 
+    List<Widget> actions = [];
+
+    if (true) {
+      actions.add(MaterialButton(
+        onPressed: () async {
+        },
+        child: Text("Edit"), // TODO l10n
+      ));
+    }
+
+    actions += [
+      MaterialButton(
+        onPressed: () async {
+          final url = widget._food.infoUrl;
+          if (await canLaunch(url)) {
+            await launch(
+              url,
+              forceSafariVC: false,
+            );
+          }
+        },
+        child: Text(L10n.of(context).wikipedia),
+      ),
+      MaterialButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(L10n.of(context).back)),
+    ];
+
     GestureTapCallback showFoodInfo = () {
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
           backgroundColor: Colors.white,
           content: FoodDetailsDialog(
-              widget._foodDisplayName,
+              widget._food,
               foodImage,
               widget._allAvailabilities),
           elevation: 10,
-          actions: [
-            MaterialButton(
-              onPressed: () async {
-                final url = widget._foodInfoURL;
-                if (await canLaunch(url)) {
-                  await launch(
-                    url,
-                    forceSafariVC: false,
-                  );
-                }
-              },
-              child: Text(L10n.of(context).wikipedia),
-            ),
-            MaterialButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text(L10n.of(context).back)),
-          ],
+          actions: actions,
+         // actionsPadding: EdgeInsets.symmetric(horizontal: 4),
         ),
         barrierDismissible: true,
       );
@@ -175,7 +183,7 @@ class FoodTileState extends State<FoodTile> {
                             child: FittedBox(
                               fit: BoxFit.contain,
                               child: Text(
-                                widget._foodDisplayName,
+                                widget._food.displayName,
                                 style: foodText,
                               ),
                             ),
