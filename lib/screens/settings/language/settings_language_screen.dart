@@ -48,11 +48,12 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
                           padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           child: Text(L10n.of(context).incompleteLanguageNotice,
                               textAlign: TextAlign.left,
-                              style: defaultTheme.textTheme.bodyText1
-                                  .copyWith(fontStyle: FontStyle.italic)),
+                              style: defaultTheme.textTheme.bodyText1.copyWith(
+                                  fontStyle: FontStyle.italic,
+                                  color: Colors.grey[600])),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 20,
                         ),
                         Expanded(
                           child: ListView.separated(
@@ -121,6 +122,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     List<RadioListTile> languageEntries = [getDeviceLanguageEntry()];
     List<String> localeLangCodes = L10n.delegate.supportedLocales
         .map((locale) => locale.languageCode)
+        .where((langCode) => !nonDisplayableLanguages.contains(langCode))
         .toList();
     localeLangCodes.sort();
     languageEntries.addAll(

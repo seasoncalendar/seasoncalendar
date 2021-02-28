@@ -11,4 +11,5 @@ final Map<String, String> languageNameFromCode = {
   "nl": "Nederlands"
 };
 
-final List<String> incompleteLanguages = ["eo", "nb", "nl"];
+final List<String> incompleteLanguages = ["nl", "nb"];
+final List<String> nonDisplayableLanguages = ["eo"];
