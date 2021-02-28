@@ -97,7 +97,7 @@ class Food {
   String id;
   String displayName;
   List<String> synonyms;
-  String type;
+  String typeInfo;
   bool isCommon;
   LinkedHashMap<String, List<Availability>> availabilities;
   String infoUrl;
@@ -121,7 +121,7 @@ class Food {
       String assetImgInfo,
       Region region)
       : this.id = id,
-        this.type = type,
+        this.typeInfo = type,
         this.isCommon = isCommon == 1,
         this.infoUrl = infoUrl,
         this.assetImgPath = assetImgPath,
@@ -164,4 +164,8 @@ class Food {
 
     return availabilitiesThisMonth;
   }
+
+  bool isFruit() => this.typeInfo.toLowerCase().contains("fruit");
+  bool isVegetable() => this.typeInfo.toLowerCase().contains("vegetable");
+
 }

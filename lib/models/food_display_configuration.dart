@@ -39,16 +39,20 @@ class FoodDisplayConfiguration extends ChangeNotifier {
 
   void toggleFruitsSelected() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    final initialSettings = await loadAssetFromJson("assets/initialsettings.json");
-    bool fruitsSelected = prefs.getBool("showFruits") ?? initialSettings["showFruits"];
+    final initialSettings =
+        await loadAssetFromJson("assets/initialsettings.json");
+    bool fruitsSelected =
+        prefs.getBool("showFruits") ?? initialSettings["showFruits"];
     prefs.setBool("showFruits", !fruitsSelected);
     updateFoodsAndNotify();
   }
 
   void toggleVegetablesSelected() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    final initialSettings = await loadAssetFromJson("assets/initialsettings.json");
-    bool vegetablesSelected = prefs.getBool("showVegetables") ?? initialSettings["showVegetables"];
+    final initialSettings =
+        await loadAssetFromJson("assets/initialsettings.json");
+    bool vegetablesSelected =
+        prefs.getBool("showVegetables") ?? initialSettings["showVegetables"];
     prefs.setBool("showVegetables", !vegetablesSelected);
     updateFoodsAndNotify();
   }
@@ -75,17 +79,12 @@ class FoodDisplayConfiguration extends ChangeNotifier {
       filteredFoods = filteredFoods.where((food) => food.isCommon).toList();
     }
 
-    // filter out fruits?
-    if (settings["showFruits"] == false) {
-      filteredFoods =
-          filteredFoods.where((food) => food.type != "fruit").toList();
-    }
-
-    // filter out non-fruits?
-    if (settings["showVegetables"] == false) {
-      filteredFoods =
-          filteredFoods.where((food) => food.type != "nonFruit").toList();
-    }
+    // filter out food types that shall not be displayed
+    filteredFoods = filteredFoods
+        .where((food) =>
+            food.isFruit() && settings["showFruits"] ||
+            food.isVegetable() && settings["showVegetables"])
+        .toList();
 
     // meets selected availabilities?
     List<bool> selectedAvs =

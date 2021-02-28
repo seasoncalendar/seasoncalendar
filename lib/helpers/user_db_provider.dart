@@ -76,7 +76,7 @@ class UserDBProvider {
       if (dbFood == null)
         return null;
 
-      String type = dbFood.type;
+      String type = dbFood.typeInfo;
       String assetImgPath = dbFood.assetImgPath;
       String assetImgSourceUrl = dbFood.assetImgSourceUrl;
       String assetImgInfo = dbFood.assetImgInfo;
