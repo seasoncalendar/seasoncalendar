@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:seasoncalendar/models/region.dart';
@@ -55,10 +56,14 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
             }));
   }
 
-  setRegion(String regionCode) async {
+  setRegion(BuildContext context, String regionCode) async {
     widget._settings['regionCode'] = regionCode;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString('regionCode', regionCode);
+
+    Navigator.of(context).pushNamed("/settings").then((_) {
+      Phoenix.rebirth(context); // restart application if new region
+    });
   }
 
   getRegionEntriesList(BuildContext context, Iterable<Region> regions) {
@@ -71,7 +76,7 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
         groupValue: widget._settings['regionCode'],
         title: Text(region.name),
         onChanged: (val) => setState(() {
-          setRegion(region.id);
+          setRegion(context, region.id);
         }),
       );
     }).toList();
