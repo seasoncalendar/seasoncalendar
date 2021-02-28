@@ -29,7 +29,7 @@ class FoodView extends StatelessWidget {
       return _buildEmpty(context, _viewContext);
     }
     return FutureBuilder(
-        future: DBProvider.db.getFoods(context),
+        future: DBProvider.db.getFoods(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             // update food data on every build

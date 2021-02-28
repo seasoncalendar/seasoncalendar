@@ -1,22 +1,15 @@
-import 'dart:typed_data';
 import 'dart:io';
+import 'dart:typed_data';
 
-import 'package:sprintf/sprintf.dart';
-
-import 'package:path/path.dart';
-
-import 'package:seasoncalendar/screens/settings/settings_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-
-import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
-
 import 'package:intl/intl.dart';
-
+import 'package:path/path.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/models/food.dart';
-
+import 'package:seasoncalendar/models/region.dart';
+import 'package:seasoncalendar/screens/settings/settings_screen.dart';
+import 'package:sqflite/sqflite.dart';
+import 'package:sqflite/sqlite_api.dart';
 
 class DBProvider {
   DBProvider._();
@@ -67,7 +60,31 @@ class DBProvider {
     return res;
   }
 
-  Future<dynamic> getFoods(BuildContext context) async {
+  Future<Iterable<Region>> getRegions() async {
+    final Database db = await database;
+
+    final List<Map<String, dynamic>> results = await db.rawQuery("""
+        SELECT id, fallbackRegion, assetPath
+        FROM regions 
+        """, []);
+
+    return results.map((item) {
+      Region region = Region();
+      region.id = item['id'];
+      region.fallbackRegion = item['fallbackRegion'];
+      region.assetPath = item['assetPath'];
+
+      region.name = Intl.message('', name: region.assetPath);
+      if (region.name == '') {
+        region.name =
+            Intl.message('UNKNOWN', name: region.assetPath, locale: 'en');
+      }
+
+      return region;
+    }).toList();
+  }
+
+  Future<Iterable<Food>> getFoods() async {
     final Database db = await database;
 
     // create desired db view if it doesn't exist
@@ -75,40 +92,40 @@ class DBProvider {
     var regionCode = settings['regionCode'];
 
     // get the foods
-    final List<Map<String, dynamic>> maps = await db.rawQuery("""
-      SELECT f.id, f.type, f.assetImgPath, f.assetImgInfo, f.assetImgSourceUrl, fr.region_id, fr.is_common, fr.avLocal, fr.avLand, fr.avSea, fr.avAir
-      FROM foods AS f
-      INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
-      WHERE fr.region_id = ?
-      """, [regionCode]);
+    final List<Map<String, dynamic>> results = await db.rawQuery("""
+        SELECT f.id, f.type, f.assetImgPath, f.assetImgInfo, f.assetImgSourceUrl, fr.region_id, fr.is_common, fr.avLocal, fr.avLand, fr.avSea, fr.avAir
+        FROM foods AS f
+        INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
+        WHERE fr.region_id = ?
+        """, [regionCode]);
 
-    return List.generate(maps.length, (i) {
-      String foodId = maps[i]['id'];
-      String type = maps[i]['type'];
-      String assetImgPath = maps[i]['assetImgPath'];
-      String assetImgSourceUrl = maps[i]['assetImgSourceUrl'];
-      String assetImgInfo = maps[i]['assetImgInfo'];
+    return results.map((item) {
+      String foodId = item['id'];
+      String type = item['type'];
+      String assetImgPath = item['assetImgPath'];
+      String assetImgSourceUrl = item['assetImgSourceUrl'];
+      String assetImgInfo = item['assetImgInfo'];
 
-      int isCommon = maps[i]['is_common'];
-      String avLocal = maps[i]['avLocal'];
-      String avLand = maps[i]['avLand'];
-      String avSea = maps[i]['avSea'];
-      String avAir = maps[i]['avAir'];
+      int isCommon = item['is_common'];
+      String avLocal = item['avLocal'];
+      String avLand = item['avLand'];
+      String avSea = item['avSea'];
+      String avAir = item['avAir'];
 
       String foodNamesString = Intl.message('', name: foodId + "_names");
       String infoUrl = Intl.message('', name: foodId + "_infoUrl");
 
       // fallback in english for incompletely translated languages
-      if (foodNamesString == '')
-        {
-          foodNamesString = Intl.message('', name: foodId + "_names", locale: "en");
-        }
+      if (foodNamesString == '') {
+        foodNamesString =
+            Intl.message('', name: foodId + "_names", locale: "en");
+      }
       if (infoUrl == '') {
         infoUrl = Intl.message('', name: foodId + "_infoUrl", locale: "en");
       }
 
       return Food(foodId, foodNamesString, type, isCommon, avLocal, avLand,
           avSea, avAir, infoUrl, assetImgPath, assetImgSourceUrl, assetImgInfo);
-    });
+    }).toList();
   }
 }

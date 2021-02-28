@@ -6,6 +6,7 @@ import 'package:seasoncalendar/components/favorite_foods.dart';
 import 'package:seasoncalendar/components/loading_scaffold.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
+import 'package:seasoncalendar/helpers/user_db_provider.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/screens/etc/howto/howto_screen.dart';
@@ -25,13 +26,15 @@ final Map<String, WidgetBuilder> appRoutes = {
       future: Future.wait([
         getFavoriteFoods(),
         SettingsPageState.getSettings(),
-        DBProvider.db.getFoods(context),
+        DBProvider.db.getFoods(),
+        UserDBProvider.db.getCustomFoods()
       ]),
       builder: (_, snapshot) {
         if (snapshot.hasData) {
           final favoriteFoodNames = snapshot.data[0];
           final settings = snapshot.data[1];
           final allFoods = snapshot.data[2];
+          // TODO Data[3] for custom foods
           return ChangeNotifierProvider(
             create: (_) =>
                 FoodDisplayConfiguration(allFoods, settings, favoriteFoodNames),
@@ -111,7 +114,7 @@ final Map<String, WidgetBuilder> appRoutes = {
         },
       ),
   "/etc/imprint/imgs": (context) => FutureBuilder(
-        future: DBProvider.db.getFoods(context),
+        future: DBProvider.db.getFoods(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             final List<Food> allFoods = snapshot.data;
