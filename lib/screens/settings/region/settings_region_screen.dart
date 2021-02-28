@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/theme/themes.dart';
-
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
+import 'package:seasoncalendar/helpers/db_provider.dart';
+import 'package:seasoncalendar/models/region.dart';
+import 'package:seasoncalendar/screens/settings/settings_screen.dart';
+import 'package:seasoncalendar/theme/themes.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsRegionPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
@@ -24,12 +24,16 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
     return Scaffold(
         appBar: AppBar(title: Text(L10n.of(context).settingsRegionTitle)),
         body: FutureBuilder(
-            future: SettingsPageState.getSettingsI(widget._initialSettings),
+            future: Future.wait([
+              SettingsPageState.getSettingsI(widget._initialSettings),
+              DBProvider.db.getRegions(context)
+            ]),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                Map<String, dynamic> settings = snapshot.data;
+                Map<String, dynamic> settings = snapshot.data[0];
                 widget._settings = settings;
-                var regionListTiles = getRegionEntriesList(context);
+                var regionListTiles =
+                    getRegionEntriesList(context, snapshot.data[1]);
 
                 return Container(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -57,41 +61,19 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
     prefs.setString('regionCode', regionCode);
   }
 
-  getRegionEntriesList(BuildContext context) {
-    List<RadioListTile> regionEntries = List<RadioListTile>();
-
-    var orderedRegions = supportedRegionCodes;
-    orderedRegions.sort();
-    orderedRegions.forEach((regionCode) {
-      regionEntries.add(getRegionRadioListTile(context, regionCode));
-    });
-
-    return regionEntries;
+  getRegionEntriesList(BuildContext context, Iterable<Region> regions) {
+    // regions.sort();
+    return regions.map((region) {
+      return RadioListTile(
+        activeColor: defaultTheme.accentColor,
+        dense: false,
+        value: region.id,
+        groupValue: widget._settings['regionCode'],
+        title: Text(region.name),
+        onChanged: (val) => setState(() {
+          setRegion(region.id);
+        }),
+      );
+    }).toList();
   }
-
-  getRegionRadioListTile(BuildContext context, String regionCode) {
-    return RadioListTile(
-      activeColor: defaultTheme.accentColor,
-      dense: false,
-      value: regionCode,
-      groupValue: widget._settings['regionCode'],
-      title: Text(getRegionNameFromCode(context, regionCode)),
-      onChanged: (val) => setState(() {
-        setRegion(regionCode);
-      }),
-    );
-  }
-
-  String getRegionNameFromCode(BuildContext context, String regionCode) {
-    switch (regionCode) {
-      case "CE":
-        return L10n.of(context).centralEurope;
-      case "DE":
-        return L10n.of(context).centralEurope;
-      default:
-        return L10n.of(context).centralEurope;
-    }
-  }
-
-  final List<String> supportedRegionCodes = ["CE"];
 }
