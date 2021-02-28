@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 final Map<String, String> languageNameFromCode = {
   "aa": "Qafaraf",
   "ab": "Аҧсуа бызшәа Aƥsua bızšwa",
@@ -167,5 +169,21 @@ final Map<String, String> languageNameFromCode = {
   "zu": "isiZulu"
 };
 
-final List<String> completeLanguages = ["en", "de", "fr","pl", "es","it","bg"];
+final List<String> completeLanguages = [
+  "en",
+  "de",
+  "fr",
+  "pl",
+  "es",
+  "it",
+  "bg"
+];
 final List<String> nonDisplayableLanguages = ["eo"];
+
+String getTranslationByKey(String key, {String fallbackLocale = "en"}) {
+  String res = Intl.message('', name: key);
+  if (res == '') {
+    res = Intl.message('UNKNOWN', name: key, locale: fallbackLocale);
+  }
+  return res;
+}

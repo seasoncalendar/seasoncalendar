@@ -3,7 +3,6 @@ import 'dart:typed_data';
 
 import 'package:mutex/mutex.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 import 'package:path/path.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/models/food.dart';
@@ -11,6 +10,8 @@ import 'package:seasoncalendar/models/region.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite/sqlite_api.dart';
+
+import 'lang_helper.dart';
 
 class DBProvider {
   DBProvider._();
@@ -80,23 +81,38 @@ class DBProvider {
       region.id = item['id'];
       region.fallbackRegion = item['fallbackRegion'];
       region.assetPath = item['assetPath'];
-
-      region.name = Intl.message('', name: region.assetPath);
-      if (region.name == '') {
-        region.name =
-            Intl.message('UNKNOWN', name: region.assetPath, locale: 'en');
-      }
-
+      region.name = getTranslationByKey(region.assetPath);
       return region;
     }).toList();
+  }
+
+  Future<Region> getCurrentRegion() async {
+    final Database db = await database;
+    var settings = await SettingsPageState.getSettings();
+    var regionCode = settings['regionCode'];
+
+    final List<Map<String, dynamic>> results = await db.rawQuery("""
+        SELECT id, fallbackRegion, assetPath
+        FROM regions 
+        WHERE id = ?
+        """, [regionCode]);
+
+    if (results.length != 1) {
+      throw "current Region not in Database";
+    }
+
+    Region region = Region();
+    region.id = results[0]['id'];
+    region.fallbackRegion = results[0]['fallbackRegion'];
+    region.assetPath = results[0]['assetPath'];
+    region.name = getTranslationByKey(region.assetPath);
+    return region;
   }
 
   Future<Iterable<Food>> getFoods() async {
     final Database db = await database;
 
-    // create desired db view if it doesn't exist
-    var settings = await SettingsPageState.getSettings();
-    var regionCode = settings['regionCode'];
+    var region = await getCurrentRegion();
 
     // get the foods
     final List<Map<String, dynamic>> results = await db.rawQuery("""
@@ -104,7 +120,7 @@ class DBProvider {
         FROM foods AS f
         INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
         WHERE fr.region_id = ?
-        """, [regionCode]);
+        """, [region.id]);
 
     return results.map((item) {
       String foodId = item['id'];
@@ -119,17 +135,8 @@ class DBProvider {
       String avSea = item['avSea'];
       String avAir = item['avAir'];
 
-      String foodNamesString = Intl.message('', name: foodId + "_names");
-      String infoUrl = Intl.message('', name: foodId + "_infoUrl");
-
-      // fallback in english for incompletely translated languages
-      if (foodNamesString == '') {
-        foodNamesString =
-            Intl.message('', name: foodId + "_names", locale: "en");
-      }
-      if (infoUrl == '') {
-        infoUrl = Intl.message('', name: foodId + "_infoUrl", locale: "en");
-      }
+      String foodNamesString = getTranslationByKey(foodId + "_names");
+      String infoUrl = getTranslationByKey(foodId + "_infoUrl");
 
       return Food(foodId, foodNamesString, type, isCommon, avLocal, avLand,
           avSea, avAir, infoUrl, assetImgPath, assetImgSourceUrl, assetImgInfo);
