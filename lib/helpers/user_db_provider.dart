@@ -123,7 +123,7 @@ class UserDBProvider {
 
 
     await db.rawQuery(
-        """INSERT INTO food_region_availability (food_id, avLocal, avLand, avSea, avAir, region_id) VALUES (?,?,?,?,?,?) ON CONFLICT (food_id, region_id)""",
+        """INSERT OR REPLACE INTO food_region_availability (food_id, avLocal, avLand, avSea, avAir, region_id) VALUES (?,?,?,?,?,?)""",
         [f.id, avLocal, avLand, avSea, avAir, regionCode]);
   }
 }
