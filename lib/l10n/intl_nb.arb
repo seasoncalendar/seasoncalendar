@@ -386,5 +386,441 @@
   "amla_infoUrl": "https://no.wikipedia.org/wiki/Amla",
   "@amla_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pricklypear_infoUrl": "pe",
+  "@pricklypear_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pomegranate_names": "Granateple",
+  "@pomegranate_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pomegranate_infoUrl": "https://no.wikipedia.org/wiki/Granateple",
+  "@pomegranate_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "plum_names": "Plomme",
+  "@plum_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "plum_infoUrl": "https://no.wikipedia.org/wiki/Plomme",
+  "@plum_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pineapple_names": "Ananas",
+  "@pineapple_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pineapple_infoUrl": "https://nn.wikipedia.org/wiki/Ananas",
+  "@pineapple_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "physalis_names": "Japanske lykter",
+  "@physalis_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "physalis_infoUrl": "https://no.wikipedia.org/wiki/Lyktslekta",
+  "@physalis_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "peas_names": "Erter, Ert",
+  "@peas_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "peas_infoUrl": "https://no.wikipedia.org/wiki/Erteslekta",
+  "@peas_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pear_names": "Pære",
+  "@pear_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pear_infoUrl": "https://no.wikipedia.org/wiki/P%C3%A6reslekta",
+  "@pear_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "peach_names": "Fersken",
+  "@peach_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "peach_infoUrl": "https://no.wikipedia.org/wiki/Fersken",
+  "@peach_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "passionfruit_names": "Pasjonsfrukt",
+  "@passionfruit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "passionfruit_infoUrl": "https://no.wikipedia.org/wiki/Pasjonsfrukt",
+  "@passionfruit_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pakchoi_names": "Bak choy, Pak choy, Paksoi, Tai tsai",
+  "@pakchoi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pakchoi_infoUrl": "https://no.wikipedia.org/wiki/Bak_choy",
+  "@pakchoi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "orange_names": "Appelsin",
+  "@orange_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "orange_infoUrl": "https://no.wikipedia.org/wiki/Appelsin",
+  "@orange_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "onion_names": "Vanlig løk, Matløk, Kepaløk",
+  "@onion_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "onion_infoUrl": "https://no.wikipedia.org/wiki/Vanlig_l%C3%B8k",
+  "@onion_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "minAvLand": "Ingen mat importert langveis fra",
+  "@minAvLand": {
+    "description": "The phrase 'No foods imported from overseas/far away'"
+  },
+  "lychee_names": "Litchi, Lychee, Laichi",
+  "@lychee_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lychee_infoUrl": "https://no.wikipedia.org/wiki/Litchi",
+  "@lychee_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lollorossa_names": "Hagesalat, Salat",
+  "@lollorossa_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lollorossa_infoUrl": "https://no.wikipedia.org/wiki/Hagesalat",
+  "@lollorossa_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lingonberry_names": "Tyttebær",
+  "@lingonberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lingonberry_infoUrl": "https://no.wikipedia.org/wiki/Tytteb%C3%A6r",
+  "@lingonberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lime_names": "Lime",
+  "@lime_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lime_infoUrl": "https://no.wikipedia.org/wiki/Lime",
+  "@lime_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "leek_names": "Purreløk, Purre",
+  "@leek_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "leek_infoUrl": "https://no.wikipedia.org/wiki/Purrel%C3%B8k",
+  "@leek_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "kohlrabi_names": "Knutekål, Kålrabi",
+  "@kohlrabi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "kohlrabi_infoUrl": "https://no.wikipedia.org/wiki/Knutek%C3%A5l",
+  "@kohlrabi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "kiwi_names": "Kiwi, Kiwifrukt, Kinesiske stikkelsbær",
+  "@kiwi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "kiwi_infoUrl": "https://no.wikipedia.org/wiki/Kiwi_(frukt)",
+  "@kiwi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "imprintPageButtonText": "Imprint",
+  "@imprintPageButtonText": {
+    "description": "The word 'Imprint'"
+  },
+  "fig_names": "Ekte fiken",
+  "@fig_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "fig_infoUrl": "https://no.wikipedia.org/wiki/Ekte_fiken",
+  "@fig_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "fennel_names": "Fennikel",
+  "@fennel_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "fennel_infoUrl": "https://no.wikipedia.org/wiki/Fennikel",
+  "@fennel_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "elderberry_names": "Svarthyll",
+  "@elderberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "elderberry_infoUrl": "https://no.wikipedia.org/wiki/Svarthyll",
+  "@elderberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "eggplant_names": "Aubergine",
+  "@eggplant_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "eggplant_infoUrl": "https://no.wikipedia.org/wiki/Aubergine",
+  "@eggplant_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "dragonfruit_names": "Pitahaya, Dragefrukt",
+  "@dragonfruit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "dragonfruit_infoUrl": "https://no.wikipedia.org/wiki/Pitahaya",
+  "@dragonfruit_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "date_names": "Daddel",
+  "@date_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "date_infoUrl": "https://no.wikipedia.org/wiki/Daddelpalme",
+  "@date_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "reunion": "Réunion (Frankrike)",
+  "@reunion": {},
+  "northAmerica": "Nord-Amerika",
+  "@northAmerica": {},
+  "zucchini_names": "Squash, Skvåsj, Zucchini, Courgette",
+  "@zucchini_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "zucchini_infoUrl": "https://no.wikipedia.org/wiki/Squash_(frukt)",
+  "@zucchini_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "whitecabbage_names": "Hodekål, Hvitkål, Spisskål, Rødkål, Savoykål",
+  "@whitecabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "whitecabbage_infoUrl": "https://no.wikipedia.org/wiki/Hodek%C3%A5l",
+  "@whitecabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "watermelon_names": "Vannmelon",
+  "@watermelon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "watermelon_infoUrl": "https://no.wikipedia.org/wiki/Vannmelon",
+  "@watermelon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "sweetpotato_names": "Søtpotet",
+  "@sweetpotato_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "sweetpotato_infoUrl": "https://no.wikipedia.org/wiki/S%C3%B8tpotet",
+  "@sweetpotato_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "spinach_names": "Spinat",
+  "@spinach_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "spinach_infoUrl": "https://no.wikipedia.org/wiki/Spinat",
+  "@spinach_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "parsnip_names": "Pastinakk",
+  "@parsnip_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "parsnip_infoUrl": "https://no.wikipedia.org/wiki/Pastinakk",
+  "@parsnip_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "paprika_names": "Paprika",
+  "@paprika_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "paprika_infoUrl": "https://no.wikipedia.org/wiki/Paprika",
+  "@paprika_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "papaya_names": "Papaya",
+  "@papaya_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "papaya_infoUrl": "https://no.wikipedia.org/wiki/Papaya",
+  "@papaya_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "nectarine_names": "Nektarin",
+  "@nectarine_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "nectarine_infoUrl": "https://no.wikipedia.org/wiki/Nektarin",
+  "@nectarine_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "mango_infoUrl": "https://no.wikipedia.org/wiki/Mango",
+  "@mango_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "mango_names": "Mango",
+  "@mango_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lemon_names": "Sitron",
+  "@lemon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lemon_infoUrl": "https://no.wikipedia.org/wiki/Sitron",
+  "@lemon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "imprintPageTitle": "Imprint",
+  "@imprintPageTitle": {
+    "description": "The word 'Imprint'"
+  },
+  "imprintPagePublisher": "Forlag",
+  "@imprintPagePublisher": {
+    "description": "The word 'Publisher'"
+  },
+  "honeymelon_names": "Melon",
+  "@honeymelon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "honeymelon_infoUrl": "https://no.wikipedia.org/wiki/Melon",
+  "@honeymelon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "greencabbage_names": "Grønnkål",
+  "@greencabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "greencabbage_infoUrl": "https://no.wikipedia.org/wiki/Gr%C3%B8nnk%C3%A5l",
+  "@greencabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "greenbeans_names": "Hagebønne",
+  "@greenbeans_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "greenbeans_infoUrl": "https://no.wikipedia.org/wiki/Hageb%C3%B8nne",
+  "@greenbeans_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "grapes_names": "Drue, Druer",
+  "@grapes_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "grapes_infoUrl": "https://no.wikipedia.org/wiki/Drue",
+  "@grapes_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "grapefuit_names": "Grapefrukt",
+  "@grapefuit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "grapefuit_infoUrl": "https://no.wikipedia.org/wiki/Grapefrukt",
+  "@grapefuit_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "cucumber_names": "Agurk",
+  "@cucumber_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cucumber_infoUrl": "https://no.wikipedia.org/wiki/Agurk",
+  "@cucumber_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "cranberry_names": "Tranebær",
+  "@cranberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cranberry_infoUrl": "https://no.wikipedia.org/wiki/Traneb%C3%A6r",
+  "@cranberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "coco_infoUrl": "https://no.wikipedia.org/wiki/Kokospalme",
+  "@coco_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "coco_names": "Kokosnøtt",
+  "@coco_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "clementine_names": "Klementin",
+  "@clementine_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "clementine_infoUrl": "https://no.wikipedia.org/wiki/Klementin",
+  "@clementine_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "broccoli_names": "Brokkoli",
+  "@broccoli_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "beetroot_names": "Rødbete",
+  "@beetroot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "beetroot_infoUrl": "https://no.wikipedia.org/wiki/R%C3%B8dbete",
+  "@beetroot_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "batavia_names": "Salat, Hagesalat",
+  "@batavia_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "batavia_infoUrl": "https://no.wikipedia.org/wiki/Hagesalat",
+  "@batavia_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "banana_names": "Banan",
+  "@banana_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "banana_infoUrl": "https://no.wikipedia.org/wiki/Banan",
+  "@banana_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "avocado_names": "Avokado",
+  "@avocado_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "avocado_infoUrl": "https://no.wikipedia.org/wiki/Avokado",
+  "@avocado_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "asparagus_names": "Asparges",
+  "@asparagus_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "asparagus_infoUrl": "https://no.wikipedia.org/wiki/Asparges",
+  "@asparagus_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "artichoke_names": "Artisjokk, Artiskokk",
+  "@artichoke_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "apricot_names": "Aprikos",
+  "@apricot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "apricot_infoUrl": "https://no.wikipedia.org/wiki/Aprikos",
+  "@apricot_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "apple_names": "Eple",
+  "@apple_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   }
 }
