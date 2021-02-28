@@ -1,6 +1,8 @@
 {
   "foodSorting": true,
   "includeUncommon": false,
+  "showFruits": true,
+  "showVegetables": true,
   "showAvLocal": true,
   "showAvLand": true,
   "showAvSea": true,

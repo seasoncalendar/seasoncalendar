@@ -4,24 +4,21 @@ import 'package:seasoncalendar/helpers/availabilities.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/components/favorite_foods.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 
 class FoodDisplayConfiguration extends ChangeNotifier {
   final List<Food> allFoods;
   var favoriteFoodNames;
   var foodsToDisplay;
   bool favoritesSelected = false;
-  bool fruitsSelected = true;
-  bool nonFruitsSelected = true;
   int monthIndex = DateTime.now().toLocal().month - 1;
 
-  FoodDisplayConfiguration(
-      List<Food> initialFoods,
-      Map<String, dynamic> initialSettings,
-      List<String> initialFavoriteFoodNames)
+  FoodDisplayConfiguration(List<Food> initialFoods,
+      Map<String, dynamic> settings, List<String> initialFavoriteFoodNames)
       : allFoods = initialFoods {
     favoriteFoodNames = initialFavoriteFoodNames;
-    foodsToDisplay =
-        _getFilteredAndSortedFoods(favoriteFoodNames, initialSettings);
+    foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodNames, settings);
   }
 
   setMonth(int value) {
@@ -40,12 +37,18 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   }
 
   void toggleFruitsSelected() async {
-    fruitsSelected = !fruitsSelected;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final initialSettings = await loadAssetFromJson("assets/initialsettings.json");
+    bool fruitsSelected = prefs.getBool("showFruits") ?? initialSettings["showFruits"];
+    prefs.setBool("showFruits", !fruitsSelected);
     updateFoodsAndNotify();
   }
 
-  void toggleNonFruitsSelected() async {
-    nonFruitsSelected = !nonFruitsSelected;
+  void toggleVegetablesSelected() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final initialSettings = await loadAssetFromJson("assets/initialsettings.json");
+    bool vegetablesSelected = prefs.getBool("showVegetables") ?? initialSettings["showVegetables"];
+    prefs.setBool("showVegetables", !vegetablesSelected);
     updateFoodsAndNotify();
   }
 
@@ -72,13 +75,13 @@ class FoodDisplayConfiguration extends ChangeNotifier {
     }
 
     // filter out fruits?
-    if (!fruitsSelected) {
+    if (settings["showFruits"] == false) {
       filteredFoods =
           filteredFoods.where((food) => food.type != "fruit").toList();
     }
 
     // filter out non-fruits?
-    if (!nonFruitsSelected) {
+    if (settings["showVegetables"] == false) {
       filteredFoods =
           filteredFoods.where((food) => food.type != "nonFruit").toList();
     }
@@ -87,7 +90,10 @@ class FoodDisplayConfiguration extends ChangeNotifier {
     List<bool> selectedAvs =
         List.generate(avTypeCount, (i) => settings[avSettingsKeys[i]]);
     filteredFoods = filteredFoods.where((food) {
-      List<bool> foodAvs = food.getAvailabilitiesByMonth(monthIndex).map((mode) => mode != Availability.none).toList();
+      List<bool> foodAvs = food
+          .getAvailabilitiesByMonth(monthIndex)
+          .map((mode) => mode != Availability.none)
+          .toList();
       return List.generate(foodAvs.length, (i) => selectedAvs[i] && foodAvs[i])
           .contains(true);
     }).toList();

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:seasoncalendar/components/loading_scaffold.dart';
 
 import 'package:seasoncalendar/models/food.dart';
@@ -126,7 +125,6 @@ class FoodView extends StatelessWidget {
                     Expanded(
                       flex: 1,
                       child: new LayoutBuilder(builder: (context, constraint) {
-                        print(constraint.runtimeType);
                         var cst =
                             constraint.biggest.width < constraint.biggest.height
                                 ? constraint.biggest.width
