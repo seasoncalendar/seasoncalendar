@@ -115,6 +115,8 @@ class DBProvider {
     var region = await getCurrentRegion();
     var allRegions = await getRegions();
 
+    var fallbackRegion = region.fallbackRegion ?? "NULL";
+
     // get the foods
     final List<Map<String, dynamic>> results = await db.rawQuery("""
         SELECT f.id AS id, f.type AS type, f.assetImgPath AS assetImgPath, f.assetImgInfo AS assetImgInfo, f.assetImgSourceUrl as assetImgSourceUrl, 
@@ -134,7 +136,7 @@ class DBProvider {
         FROM foods AS f
         INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
         WHERE fr.region_id = ?)
-        """, [region.id, region.fallbackRegion, region.id]);
+        """, [region.id, fallbackRegion, region.id ]);
 
     return results.map((item) {
       String foodId = item['id'];
