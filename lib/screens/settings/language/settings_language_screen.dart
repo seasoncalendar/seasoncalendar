@@ -6,9 +6,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_device_locale/flutter_device_locale.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
-import 'package:seasoncalendar/helpers/lang_names.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
+import 'package:seasoncalendar/helpers/lang_helper.dart';
 import 'package:seasoncalendar/main.dart';
 
 class SettingsLanguagePage extends StatefulWidget {

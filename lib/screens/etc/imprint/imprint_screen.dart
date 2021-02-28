@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:seasoncalendar/helpers/lang_names.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
+import 'package:seasoncalendar/helpers/lang_helper.dart';
 
 class ImprintPage extends StatelessWidget {
 
