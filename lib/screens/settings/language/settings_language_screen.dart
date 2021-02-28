@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -32,22 +33,43 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
               if (snapshot.hasData) {
                 Map<String, dynamic> settings = snapshot.data;
                 widget._settings = settings;
-                var languageListTiles = getLanguageEntriesList(context);
+
+                var languageListTiles = getLanguageEntries();
 
                 return Container(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  child: ListView.separated(
-                    itemCount: languageListTiles.length,
-                    itemBuilder: (context, i) {
-                      return ListTileTheme(
-                          selectedColor: defaultListTileTheme.selectedColor,
-                          child: languageListTiles[i]);
-                    },
-                    separatorBuilder: (context, i) => const Divider(
-                      height: 10,
-                    ),
-                  ),
-                );
+                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          child: Text(L10n.of(context).incompleteLanguageNotice,
+                              textAlign: TextAlign.left,
+                              style: defaultTheme.textTheme.bodyText1
+                                  .copyWith(fontStyle: FontStyle.italic)),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Expanded(
+                          child: ListView.separated(
+                            itemCount: languageListTiles.length,
+                            itemBuilder: (context, i) {
+                              return ListTileTheme(
+                                  selectedColor:
+                                      defaultListTileTheme.selectedColor,
+                                  child: languageListTiles[i]);
+                            },
+                            separatorBuilder: (context, i) => const Divider(
+                              height: 10,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ));
               } else {
                 return Container();
               }
@@ -75,10 +97,39 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     MyApp.setLocale(context, newLocale);
   }
 
-  getLanguageEntriesList(BuildContext context) {
-    List<RadioListTile> languageEntries = List<RadioListTile>();
+  getLanguageRadioListTile(String langCode) {
+    String languageName = "NONE";
+    if (languageNameFromCode.containsKey(langCode)) {
+      languageName = languageNameFromCode[langCode];
+    }
+    if (incompleteLanguages.contains(langCode)) {
+      languageName += " (Beta)";
+    }
+    return RadioListTile(
+      activeColor: defaultTheme.accentColor,
+      dense: false,
+      value: langCode,
+      groupValue: widget._settings['languageCode'],
+      title: Text(languageName),
+      onChanged: (val) => setState(() {
+        setLanguage(langCode);
+      }),
+    );
+  }
 
-    RadioListTile defaultLocaleTile = RadioListTile(
+  getLanguageEntries() {
+    List<RadioListTile> languageEntries = [getDeviceLanguageEntry()];
+    List<String> localeLangCodes = L10n.delegate.supportedLocales
+        .map((locale) => locale.languageCode)
+        .toList();
+    localeLangCodes.sort();
+    languageEntries.addAll(
+        localeLangCodes.map((langCode) => getLanguageRadioListTile(langCode)));
+    return languageEntries;
+  }
+
+  getDeviceLanguageEntry() {
+    return RadioListTile(
       activeColor: defaultTheme.accentColor,
       dense: false,
       value: "null",
@@ -87,28 +138,6 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
       subtitle: Text(L10n.of(context).settingsLanguageUseLocaleSub),
       onChanged: (val) => setState(() {
         setLanguage(val);
-      }),
-    );
-    languageEntries.add(defaultLocaleTile);
-
-    var orderedLocales = List.from(L10n.delegate.supportedLocales);
-    orderedLocales.sort((a, b) => a.languageCode.compareTo(b.languageCode));
-    orderedLocales.forEach((locale) {
-      languageEntries.add(getLanguageRadioListTile(locale.languageCode));
-    });
-
-    return languageEntries;
-  }
-
-  getLanguageRadioListTile(String langCode) {
-    return RadioListTile(
-      activeColor: defaultTheme.accentColor,
-      dense: false,
-      value: langCode,
-      groupValue: widget._settings['languageCode'],
-      title: Text(languageNameFromCode[langCode]),
-      onChanged: (val) => setState(() {
-        setLanguage(langCode);
       }),
     );
   }

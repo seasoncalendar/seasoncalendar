@@ -7,6 +7,8 @@ final Map<String, String> languageNameFromCode = {
   "it": "Italiano",
   "eo": "Esperanto",
   "bg": "\u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438",
-  "nb": "Bokmål",
+  "nb": "Norsk (Bokmål)",
   "nl": "Nederlands"
 };
+
+final List<String> incompleteLanguages = ["eo", "nb", "nl"];
