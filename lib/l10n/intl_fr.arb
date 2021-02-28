@@ -597,5 +597,7 @@
   "reunion": "Réunion (France)",
   "@reunion": {},
   "northAmerica": "Amérique du Nord",
-  "@northAmerica": {}
+  "@northAmerica": {},
+  "incompleteLanguageNotice": "Les langues incomplètes sont affichées avec un avis \"Beta\". Pour ces langues, les traductions manquantes sont affichées en anglais.",
+  "@incompleteLanguageNotice": {}
 }
