@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:seasoncalendar/models/region.dart';
 
 enum Availability { none, some, full }
 
@@ -104,6 +104,7 @@ class Food {
   String assetImgPath;
   String assetImgSourceUrl;
   String assetImgInfo;
+  Region region;
 
   Food(
       String id,
@@ -117,14 +118,16 @@ class Food {
       String infoUrl,
       String assetImgPath,
       String assetImgSourceUrl,
-      String assetImgInfo)
+      String assetImgInfo,
+      Region region)
       : this.id = id,
         this.type = type,
         this.isCommon = isCommon == 1,
         this.infoUrl = infoUrl,
         this.assetImgPath = assetImgPath,
         this.assetImgSourceUrl = assetImgSourceUrl,
-        this.assetImgInfo = assetImgInfo {
+        this.assetImgInfo = assetImgInfo,
+        this.region = region {
     // handle names and synonyms
     this.synonyms = splitByCommaAndTrim(foodNamesString);
     this.displayName = this.synonyms[0];

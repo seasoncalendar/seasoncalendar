@@ -1,3 +1,4 @@
+import 'package:seasoncalendar/models/region.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'dart:io';
@@ -58,13 +59,12 @@ class UserDBProvider {
 
   Future<List<Food>> getCustomFoods() async {
     final Database db = await userdatabase;
-    var settings = await SettingsPageState.getSettings();
-    var regionCode = settings['regionCode'];
+    Region region = await DBProvider.db.getCurrentRegion();
 
     final List<Map<String, dynamic>> results = await db.rawQuery("""
       SELECT food_id, avLocal, avLand, avSea, avAir
       FROM food_region_availability WHERE region_id = ?
-      """, [regionCode]);
+      """, [region.id]);
 
     Iterable<Food> allFoods = await DBProvider.db.getFoods();
 
@@ -105,7 +105,8 @@ class UserDBProvider {
           infoUrl,
           assetImgPath,
           assetImgSourceUrl,
-          assetImgInfo);
+          assetImgInfo,
+          region);
     }).where((element) => element != null).toList();
   }
 

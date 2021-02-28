@@ -113,14 +113,28 @@ class DBProvider {
     final Database db = await database;
 
     var region = await getCurrentRegion();
+    var allRegions = await getRegions();
 
     // get the foods
     final List<Map<String, dynamic>> results = await db.rawQuery("""
-        SELECT f.id, f.type, f.assetImgPath, f.assetImgInfo, f.assetImgSourceUrl, fr.region_id, fr.is_common, fr.avLocal, fr.avLand, fr.avSea, fr.avAir
+        SELECT f.id AS id, f.type AS type, f.assetImgPath AS assetImgPath, f.assetImgInfo AS assetImgInfo, f.assetImgSourceUrl as assetImgSourceUrl, 
+               fr.region_id as region_id, fr.is_common as is_common, fr.avLocal as avLocal, fr.avLand as avLand, fr.avSea as avSea, fr.avAir as avAir
         FROM foods AS f
         INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
         WHERE fr.region_id = ?
-        """, [region.id]);
+        
+        UNION
+        
+        SELECT f.id AS id, f.type AS type, f.assetImgPath AS assetImgPath, f.assetImgInfo AS assetImgInfo, f.assetImgSourceUrl as assetImgSourceUrl, 
+               fr.region_id as region_id, fr.is_common as is_common, fr.avLocal as avLocal, fr.avLand as avLand, fr.avSea as avSea, fr.avAir as avAir
+        FROM foods AS f
+        INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
+        WHERE fr.region_id = ?
+        AND f.id NOT IN (SELECT f.id
+        FROM foods AS f
+        INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
+        WHERE fr.region_id = ?)
+        """, [region.id, region.fallbackRegion, region.id]);
 
     return results.map((item) {
       String foodId = item['id'];
@@ -129,6 +143,7 @@ class DBProvider {
       String assetImgSourceUrl = item['assetImgSourceUrl'];
       String assetImgInfo = item['assetImgInfo'];
 
+      Region region = allRegions.firstWhere((region) => region.id == item['region_id']);
       int isCommon = item['is_common'];
       String avLocal = item['avLocal'];
       String avLand = item['avLand'];
@@ -139,7 +154,7 @@ class DBProvider {
       String infoUrl = getTranslationByKey(foodId + "_infoUrl");
 
       return Food(foodId, foodNamesString, type, isCommon, avLocal, avLand,
-          avSea, avAir, infoUrl, assetImgPath, assetImgSourceUrl, assetImgInfo);
+          avSea, avAir, infoUrl, assetImgPath, assetImgSourceUrl, assetImgInfo, region);
     }).toList();
   }
 }
