@@ -582,5 +582,9 @@
   "greencabbage_infoUrl": "https://nl.wikipedia.org/wiki/Boerenkool_(groente)",
   "@greencabbage_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "languageCode": "nl",
+  "@languageCode": {
+    "description": "The two-character ISO language code of this language."
   }
 }
