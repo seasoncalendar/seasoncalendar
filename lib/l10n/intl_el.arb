@@ -194,5 +194,23 @@
   "broccoli_names": "Μπρόκολο",
   "@broccoli_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "incompleteLanguageNotice": "Οι ελλιπείς γλώσσες εμφανίζονται με μια ειδοποίηση \"Beta\". Για αυτές, οι μεταφράσεις που λείπουν εμφανίζονται στα Αγγλικά.",
+  "@incompleteLanguageNotice": {},
+  "reunion": "Ρεϋνιόν (Γαλλία)",
+  "@reunion": {},
+  "northAmerica": "Βόρεια Αμερική",
+  "@northAmerica": {},
+  "zucchini_names": "Κολοκυθάκια, Κολοκυθάκι",
+  "@zucchini_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "aboutPageTrailing": "Αυτή η εφαρμογή σάς επιτρέπει να τρώτε φθηνότερα και πιο νόστιμα και αυξάνει την ευαισθητοποίηση για την προέλευση των τροφίμων μας.",
+  "@aboutPageTrailing": {
+    "description": "A sentence about benefits for the app user"
+  },
+  "aboutPageTitle": "Πληροφορίες για την εφαρμογή",
+  "@aboutPageTitle": {
+    "description": "The phrase 'About the app'"
   }
 }
