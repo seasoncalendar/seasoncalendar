@@ -212,5 +212,13 @@
   "aboutPageTitle": "Πληροφορίες για την εφαρμογή",
   "@aboutPageTitle": {
     "description": "The phrase 'About the app'"
+  },
+  "contribPageContact": "Αν έχετε βρει κάποιο λάθος ή χώρο για συγκεκριμένη βελτίωση, μπορείτε να επικοινωνήσετε μαζί μου μέσω της ιστοσελίδας μου.",
+  "@contribPageContact": {
+    "description": "Justification for missing features/incorrectness by stating young age of app"
+  },
+  "contribPageCode": "Ο πηγαίος κώδικας της εφαρμογής είναι διαθέσιμος στο GitHub:",
+  "@contribPageCode": {
+    "description": "The phrase 'The source code for the app is available on GitHub:'"
   }
 }
