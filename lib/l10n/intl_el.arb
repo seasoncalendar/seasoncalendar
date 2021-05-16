@@ -220,5 +220,13 @@
   "contribPageCode": "Ο πηγαίος κώδικας της εφαρμογής είναι διαθέσιμος στο GitHub:",
   "@contribPageCode": {
     "description": "The phrase 'The source code for the app is available on GitHub:'"
+  },
+  "supportPageSpreadTitle": "Σας αρέσει η εφαρμογή;",
+  "@supportPageSpreadTitle": {
+    "description": "The phrase 'Do you like the app?'"
+  },
+  "wikipedia": "Βικιπαίδεια",
+  "@wikipedia": {
+    "description": "The word 'Wikipedia'"
   }
 }
