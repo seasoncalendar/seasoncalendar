@@ -1,3 +1,9 @@
+
+**This project is not actively maintained anymore.**
+
+However, everybody who wants to do so is more than welcome to work on this project!
+Thank you for your support 🤗
+
 # Seasonal Foods Calendar
 
 [![Build Status](https://travis-ci.com/Flunzmas/seasoncalendar.svg?branch=develop)](https://travis-ci.com/Flunzmas/seasoncalendar)
