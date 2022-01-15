@@ -1,5 +1,6 @@
 import 'package:intl/intl.dart';
 
+// look into the package flutter_localized_locales ?
 final Map<String, String> languageNameFromCode = {
   "aa": "Qafaraf",
   "ab": "Аҧсуа бызшәа Aƥsua bızšwa",
@@ -169,6 +170,7 @@ final Map<String, String> languageNameFromCode = {
   "zu": "isiZulu"
 };
 
+// languages not in this list will be marked as BETA
 final List<String> completeLanguages = [
   "en",
   "de",

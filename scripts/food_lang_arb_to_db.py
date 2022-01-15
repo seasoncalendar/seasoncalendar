@@ -1,3 +1,6 @@
+# DEPRECATED
+# The translations of the foods are no longer stored in the sqlite db
+
 import sys, glob, os, time
 import json
 import sqlite3
