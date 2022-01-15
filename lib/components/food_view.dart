@@ -7,7 +7,7 @@ import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/components/food_tile.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
-import 'package:swipe_gesture_recognizer/swipe_gesture_recognizer.dart';
+import 'package:swipe/swipe.dart';
 
 class FoodView extends StatelessWidget {
   List<Food> _selectedFoods;
@@ -38,7 +38,7 @@ class FoodView extends StatelessWidget {
     if (_fdc == null) {
       return innerView;
     } else {
-      return SwipeGestureRecognizer(
+      return Swipe(
         onSwipeLeft: () {
           _fdc.shiftMonth(1);
         },

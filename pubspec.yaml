@@ -29,17 +29,15 @@ dependencies:
   intl_utils: ^2.6.1
   shared_preferences: ^2.0.12
   url_launcher: ^6.0.0
-  edit_distance: ^0.4.1
-  #package_info is deprecated but package_info_plus conflicts with flutter_device_locale
-  #should we replace the later with something more modern?
-  package_info: ^0.4.0+16
-  swipe_gesture_recognizer: ^0.0.2
+  edit_distance: ^0.5.0-nullsafety.0
+  package_info_plus: ^1.3.0
+  swipe: ^0.0.1
   sqflite: ^2.0.2
   provider: ^5.0.0
   flutter_phoenix: ^1.0.0
   # flutter_map: ^0.10.1+1
   # sprintf: ^5.0.0
-  flutter_device_locale: ^0.4.0
+  devicelocale: ^0.5.0
   mutex: ^3.0.0
 
 dev_dependencies:

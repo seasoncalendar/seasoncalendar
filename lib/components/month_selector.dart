@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/theme/themes.dart';
-
-import 'package:swipe_gesture_recognizer/swipe_gesture_recognizer.dart';
-
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
+import 'package:swipe/swipe.dart';
 
 class MonthSelector extends StatelessWidget {
   final FoodDisplayConfiguration _fdc;
@@ -14,7 +12,7 @@ class MonthSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SwipeGestureRecognizer(
+    return Swipe(
       onSwipeLeft: () {
         _fdc.shiftMonth(1);
       },

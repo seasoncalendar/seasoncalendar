@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_device_locale/flutter_device_locale.dart';
+import 'package:devicelocale/devicelocale.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
@@ -83,7 +83,8 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
 
     // consider device language code if device language setting is activated
     if (languageCode == "null") {
-      Locale locale = await DeviceLocale.getCurrentLocale();
+      // List languages = await Devicelocale.preferredLanguages;
+      Locale locale = await Devicelocale.currentAsLocale;
       languageCode = locale.languageCode;
     }
 
