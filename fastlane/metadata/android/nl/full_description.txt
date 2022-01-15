@@ -1,0 +1,11 @@
+<p>Deze app toont je welk voedsel momenteel in het seizoen is en dus beschikbaar is van producenten dichtbij. Het is niet allen goedkoper en smakelijker, maar ook het transport is minder schadelijk voor on milieu.</p>
+<p>
+<b>Features:</b>
+<br>* Heeft de grootste verzameling van voedsel
+<br>* Laat je jouw favorieten uitkiezen en bekijken
+<br>* Open source
+<br>* Runt op een verscheidenheid van Androidapparaten
+<br>* Huidige voorinstellingen: Centraal-Europa
+</p>
+<p><i>Besef dat de werkelijke beschikbaarheid van voedsel in je lokale supermarkt kan verschillen met de informatie die hier wordt getoond.</i></p>
+<p>(Opmerking over licentie: deze app valt onder de GNU GPL-3.0 licentie, met de uitzondering van de databestanden in de assetsmap 'assets/db'. Neem contact met mij op vooraf ze te hergebruiken.)</p>
