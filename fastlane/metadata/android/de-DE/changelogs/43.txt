@@ -1,0 +1,3 @@
+Version 1.4.8+43:
+- Niederländische Übersetzung hinzugefügt
+- Abhängigkeiten upgedatet
