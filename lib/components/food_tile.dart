@@ -81,7 +81,8 @@ class FoodTileState extends State<FoodTile> {
 
     List<Widget> actions = [];
 
-    if (true) {
+    // TODO feature for editing availabilities
+    if (false) {
       actions.add(MaterialButton(
         onPressed: () async {
         },
