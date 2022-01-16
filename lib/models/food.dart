@@ -50,11 +50,11 @@ const Map<int, IconData> availabilityModeIcons = {
   -1: Icons.remove,
 };
 Map<int, Color> availabilityModeColor = {
-  0: Colors.lightGreenAccent[100],
-  1: Colors.lime[200],
-  2: Colors.yellowAccent[100],
-  3: Colors.orangeAccent[100],
-  -1: Colors.grey[200],
+  0: Colors.lightGreenAccent[100]!,
+  1: Colors.lime[200]!,
+  2: Colors.yellowAccent[100]!,
+  3: Colors.orangeAccent[100]!,
+  -1: Colors.grey[200]!,
 };
 const Map<String, int> availabilityModeValues = {
   "local": 0,
@@ -65,41 +65,36 @@ const Map<String, int> availabilityModeValues = {
 };
 
 List<Food> getFoodsFromIds(List<String> foodIds, List<Food> allFoods) {
-  List<Food> matchingFoods = new List();
+  var matchingFoods = new List<Food>.empty(growable: true);
   Map<String, Food> allFoodsMap =
       Map.fromIterable(allFoods, key: (food) => food.id, value: (food) => food);
   foodIds.forEach((id) {
     if (allFoodsMap.containsKey(id)) {
-      matchingFoods.add(allFoodsMap[id]);
+      matchingFoods.add(allFoodsMap[id]!);
     }
   });
   return matchingFoods;
 }
 
 List<String> splitByCommaAndTrim(String stringifiedList) {
-  List<String> res = List<String>();
-  stringifiedList.split(",").forEach((elem) {
-    res.add(elem.trim());
-  });
-  return res;
+  return stringifiedList.split(",").map(
+          (elem) => elem.trim()
+  ).toList();
 }
 
 List<Availability> availabilitiesFromStringList(List<String> avStringList) {
-  List<Availability> availabilities = new List<Availability>();
-  avStringList.forEach((av) {
-    double avDouble = double.tryParse(av);
-    availabilities.add(_fromDouble(avDouble ?? 0.0));
-  });
-  return availabilities;
+  return avStringList.map(
+          (str) => _fromDouble(double.tryParse(str) ?? 0.0)
+  ).toList();
 }
 
 class Food {
   String id;
-  String displayName;
-  List<String> synonyms;
+  String displayName = "...";
+  List<String> synonyms = List.empty();
   String typeInfo;
   bool isCommon;
-  LinkedHashMap<String, List<Availability>> availabilities;
+  LinkedHashMap<String, List<Availability>> availabilities = new LinkedHashMap<String, List<Availability>>();
   String infoUrl;
   String assetImgPath;
   String assetImgSourceUrl;
@@ -155,8 +150,8 @@ class Food {
     var avKeys = this.availabilities.keys.toList();
     for (int i = 0; i < avKeys.length; ++i) {
       var curKey = avKeys[i];
-      var curAv = this.availabilities[curKey][monthIndex];
-      availabilitiesThisMonth[availabilityModeValues[curKey]] = curAv;
+      var curAv = this.availabilities[curKey]![monthIndex];
+      availabilitiesThisMonth[availabilityModeValues[curKey]!] = curAv;
 
       // lower av modes are disregarded if any mode is "full"
       if (curAv == f) break;

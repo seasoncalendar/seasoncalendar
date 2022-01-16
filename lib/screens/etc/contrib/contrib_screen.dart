@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-
 import 'package:url_launcher/url_launcher.dart';
-
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
@@ -30,7 +27,7 @@ class ContribPage extends StatelessWidget {
                     text: TextSpan(
                       text: L10n.of(context).contribPageContact,
                       style: defaultTheme.textTheme.bodyText1
-                          .copyWith(color: Colors.black),
+                          ?.copyWith(color: Colors.black),
                     ),
                   ),
                   SizedBox(height: 10),
@@ -56,7 +53,7 @@ class ContribPage extends StatelessWidget {
                     text: TextSpan(
                       text: L10n.of(context).contribPageCode,
                       style: defaultTheme.textTheme.bodyText1
-                          .copyWith(color: Colors.black),
+                          ?.copyWith(color: Colors.black),
                     ),
                   ),
                   SizedBox(height: 10),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
@@ -17,9 +16,9 @@ class HomeScreenNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
         future: SettingsPageState.getSettings(),
-        builder: (context, snapshot) {
+        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
           if (snapshot.hasData) {
-            Map<String, dynamic> settings = snapshot.data;
+            var settings = snapshot.data!;
             return Container(
               color: defaultTheme.primaryColor,
               child: Row(

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
@@ -18,7 +17,7 @@ class EtcPage extends StatelessWidget {
 
   List<Widget> getEtcPageItems(BuildContext context) {
     bool isGooglePlay = AppConfig.of(context).buildFlavor == AppFlavor.googleplay;
-    List<Widget> etcPageItems = List<Widget>();
+    List<Widget> etcPageItems = List<Widget>.empty(growable: true);
 
     etcPageItems.add(ListTile(
       leading: Icon(Icons.help),

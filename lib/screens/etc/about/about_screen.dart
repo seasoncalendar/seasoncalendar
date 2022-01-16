@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
@@ -59,7 +57,7 @@ class AboutPage extends StatelessWidget {
                 SizedBox(height: 20),
                 Text(L10n.of(context).aboutPageDisclaimer,
                     style: defaultTheme.textTheme.bodyText1
-                        .copyWith(fontStyle: FontStyle.italic),
+                        ?.copyWith(fontStyle: FontStyle.italic),
                     textAlign: TextAlign.justify),
               ],
             ))));

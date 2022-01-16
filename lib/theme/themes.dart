@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 final ThemeData defaultTheme = ThemeData(
 
@@ -29,8 +28,9 @@ final ThemeData defaultTheme = ThemeData(
 
 const TextStyle foodText = TextStyle(fontSize: 1024.0, fontWeight: FontWeight.w600);
 
-final Color foodInfoViewBackgroundColor = Colors.lightGreen[50];
+final Color foodInfoViewBackgroundColor = Colors.lightGreen[50]!;
 
 final ListTileTheme defaultListTileTheme = ListTileTheme(
   selectedColor: Colors.lightGreen[700],
+  child: SizedBox.shrink(),
 );

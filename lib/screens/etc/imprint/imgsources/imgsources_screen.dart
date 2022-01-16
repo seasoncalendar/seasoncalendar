@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -8,10 +7,9 @@ import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 class ImgSourcesScreen extends StatelessWidget {
-  List<Food> _allFoods;
+  List<Food> _allFoods = List<Food>.empty();
 
-  ImgSourcesScreen(List<Food> allFoods) {
-    _allFoods = allFoods;
+  ImgSourcesScreen(List<Food> this._allFoods) {
     _allFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
   }
 

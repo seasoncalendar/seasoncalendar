@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 enum AppFlavor {
   googleplay,
@@ -26,13 +25,15 @@ class AppConfig extends InheritedWidget{
   final Widget child;
   final AppFlavor buildFlavor;
 
-  AppConfig(
-      {@required this.child,
-       @required this.buildFlavor}
-      );
+  const AppConfig({
+      required this.child,
+      required this.buildFlavor,
+  }): super(child: child);
 
   static AppConfig of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<AppConfig>();
+    var result = context.dependOnInheritedWidgetOfExactType<AppConfig>();
+    assert(result != null, 'No AppConfig found in context');
+    return result!;
   }
 
   @override

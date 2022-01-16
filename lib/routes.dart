@@ -21,6 +21,10 @@ import 'package:seasoncalendar/screens/etc/imprint/imprint_screen.dart';
 import 'package:seasoncalendar/screens/etc/imprint/imgsources/imgsources_screen.dart';
 import 'package:seasoncalendar/screens/etc/support/support_screen.dart';
 
+
+final initial_settings = loadAssetFromJson("assets/initialsettings.json");
+final independent_text = loadAssetFromJson("assets/localization_independent_text.json");
+
 final Map<String, WidgetBuilder> appRoutes = {
   "/": (context) => FutureBuilder(
       future: Future.wait([
@@ -29,11 +33,11 @@ final Map<String, WidgetBuilder> appRoutes = {
         DBProvider.db.getFoods(),
         UserDBProvider.db.getCustomFoods()
       ]),
-      builder: (_, snapshot) {
+      builder: (_, AsyncSnapshot<List<Object>> snapshot) {
         if (snapshot.hasData) {
-          final favoriteFoodNames = snapshot.data[0];
-          final settings = snapshot.data[1];
-          final allFoods = snapshot.data[2];
+          final favoriteFoodNames = snapshot.data![0] as List<String>;
+          final settings = snapshot.data![1] as Map<String, dynamic>;
+          final allFoods = snapshot.data![2] as List<Food>;
           // TODO Data[3] for custom foods
           return ChangeNotifierProvider(
             create: (_) =>
@@ -45,10 +49,10 @@ final Map<String, WidgetBuilder> appRoutes = {
         }
       }),
   "/settings": (_) => FutureBuilder(
-        future: loadAssetFromJson("assets/initialsettings.json"),
-        builder: (context, snapshot) {
+        future: initial_settings,
+        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
           if (snapshot.hasData) {
-            final initialSettings = snapshot.data;
+            final initialSettings = snapshot.data!;
             return SettingsPage(initialSettings);
           } else {
             return LoadingScaffold();
@@ -56,10 +60,10 @@ final Map<String, WidgetBuilder> appRoutes = {
         },
       ),
   "/settings/region": (_) => FutureBuilder(
-        future: loadAssetFromJson("assets/initialsettings.json"),
-        builder: (context, snapshot) {
+        future: initial_settings,
+        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
           if (snapshot.hasData) {
-            final initialSettings = snapshot.data;
+            final initialSettings = snapshot.data!;
             return SettingsRegionPage(initialSettings);
           } else {
             return LoadingScaffold();
@@ -67,10 +71,10 @@ final Map<String, WidgetBuilder> appRoutes = {
         },
       ),
   "/settings/language": (_) => FutureBuilder(
-    future: loadAssetFromJson("assets/initialsettings.json"),
-    builder: (context, snapshot) {
+    future: initial_settings,
+    builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
       if (snapshot.hasData) {
-        final initialSettings = snapshot.data;
+        final initialSettings = snapshot.data!;
         return SettingsLanguagePage(initialSettings);
       } else {
         return LoadingScaffold();
@@ -81,10 +85,10 @@ final Map<String, WidgetBuilder> appRoutes = {
   "/etc/howto": (_) => HowToPage(),
   "/etc/about": (_) => AboutPage(),
   "/etc/contrib": (_) => FutureBuilder(
-    future: loadAssetFromJson("assets/localization_independent_text.json"),
-    builder: (context, snapshot) {
+    future: independent_text,
+    builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
       if (snapshot.hasData) {
-        final l10nIndependentText = snapshot.data;
+        final l10nIndependentText = snapshot.data!;
         return ContribPage(l10nIndependentText);
       } else {
         return LoadingScaffold();
@@ -92,10 +96,10 @@ final Map<String, WidgetBuilder> appRoutes = {
     },
   ),
   "/etc/support": (_) => FutureBuilder(
-    future: loadAssetFromJson("assets/localization_independent_text.json"),
-    builder: (context, snapshot) {
+    future: independent_text,
+    builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
       if (snapshot.hasData) {
-        final l10nIndependentText = snapshot.data;
+        final l10nIndependentText = snapshot.data!;
         return SupportPage(l10nIndependentText);
       } else {
         return LoadingScaffold();
@@ -103,10 +107,10 @@ final Map<String, WidgetBuilder> appRoutes = {
     },
   ),
   "/etc/imprint": (_) => FutureBuilder(
-        future: loadAssetFromJson("assets/localization_independent_text.json"),
-        builder: (context, snapshot) {
+        future: independent_text,
+        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
           if (snapshot.hasData) {
-            final l10nIndependentText = snapshot.data;
+            final l10nIndependentText = snapshot.data!;
             return ImprintPage(l10nIndependentText);
           } else {
             return LoadingScaffold();
@@ -115,9 +119,9 @@ final Map<String, WidgetBuilder> appRoutes = {
       ),
   "/etc/imprint/imgs": (context) => FutureBuilder(
         future: DBProvider.db.getFoods(),
-        builder: (context, snapshot) {
+        builder: (context, AsyncSnapshot<Iterable<Food>> snapshot) {
           if (snapshot.hasData) {
-            final List<Food> allFoods = snapshot.data;
+            final allFoods = List<Food>.from(snapshot.data!);
             return ImgSourcesScreen(allFoods);
           } else {
             return LoadingScaffold();

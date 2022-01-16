@@ -18,8 +18,8 @@ void main() async {
 
   await const MethodChannel('flavor')
       .invokeMethod<String>('getFlavor')
-      .then((String flavor) {
-        inferredFlavor = appFlavorFromString(flavor);
+      .then((String? flavor) {
+        inferredFlavor = appFlavorFromString(flavor!);
       })
       .catchError((error) {
     print('Failed to load flavor, defaulting to googleplay flavor!');
@@ -36,19 +36,19 @@ class MyApp extends StatefulWidget {
   MyAppState createState() => MyAppState();
 
   static void setLocale(BuildContext context, Locale newLocale) {
-    MyAppState state = context.findAncestorStateOfType<MyAppState>();
+    MyAppState state = context.findAncestorStateOfType<MyAppState>()!;
 
     state.setState(() {
       state.locale = newLocale;
-      Intl.defaultLocale = state.locale.languageCode;
-      L10n.load(state.locale);
+      Intl.defaultLocale = state.locale?.languageCode;
+      L10n.load(state.locale!);
     });
   }
 }
 
 class MyAppState extends State<MyApp> {
-  Locale locale;
-  bool localeLoaded = false;
+  Locale? locale;
+  bool localeLoadedFromPrefs = false;
 
   @override
   void initState() {
@@ -56,7 +56,8 @@ class MyAppState extends State<MyApp> {
     L10n.load(Locale("en"));
     this._fetchLocale().then((locale) {
       setState(() {
-        this.localeLoaded = true;
+        this.localeLoadedFromPrefs = true;
+        print("");
         this.locale = locale;
       });
     });
@@ -64,32 +65,31 @@ class MyAppState extends State<MyApp> {
 
   _fetchLocale() async {
     var prefs = await SharedPreferences.getInstance();
+    var languageCode = prefs.getString('languageCode');
 
-    if (prefs.getString('languageCode') == null ||
-        prefs.getString('languageCode') == "null") {
+    if ( languageCode == null || languageCode == "null") {
       return null;
     }
-
-    return Locale(prefs.getString('languageCode'));
+    return Locale(languageCode);
   }
 
   @override
   Widget build(BuildContext context) {
-    if (this.localeLoaded == false) {
+    if (this.localeLoadedFromPrefs == false) {
       return CircularProgressIndicator(
         valueColor: AlwaysStoppedAnimation<Color>(defaultTheme.accentColor),
       );
     } else {
       return MaterialApp(
+        localeListResolutionCallback: (deviceLocales, supportedLocales) {
+          if (this.locale == null) {
+            this.locale = basicLocaleListResolution(deviceLocales, supportedLocales);
+          }
+          return this.locale;
+        },
         localeResolutionCallback: (deviceLocale, supportedLocales) {
           if (this.locale == null) {
-            if (supportedLocales
-                .map((l) => l.languageCode)
-                .contains(deviceLocale.languageCode)) {
-              this.locale = deviceLocale;
-            } else {
-              this.locale = Locale('en');
-            }
+            this.locale = basicLocaleListResolution([deviceLocale!], supportedLocales);
           }
           return this.locale;
         },

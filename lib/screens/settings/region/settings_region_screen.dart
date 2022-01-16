@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
@@ -10,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsRegionPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
-  Map<String, dynamic> _settings;
+  late Map<String, dynamic> _settings;
 
   SettingsRegionPage(Map<String, dynamic> initialSettings)
       : _initialSettings = initialSettings;
@@ -29,12 +28,12 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
               SettingsPageState.getSettingsI(widget._initialSettings),
               DBProvider.db.getRegions()
             ]),
-            builder: (context, snapshot) {
+            builder: (context, AsyncSnapshot<List<Object>> snapshot) {
               if (snapshot.hasData) {
-                Map<String, dynamic> settings = snapshot.data[0];
+                var settings = snapshot.data![0] as Map<String, dynamic>;
                 widget._settings = settings;
-                var regionListTiles =
-                    getRegionEntriesList(context, snapshot.data[1]);
+                var regions = snapshot.data![1] as Iterable<Region>;
+                var regionListTiles = getRegionEntriesList(context, regions);
 
                 return Container(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),

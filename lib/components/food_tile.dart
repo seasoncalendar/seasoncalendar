@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -14,7 +12,7 @@ class FoodTile extends StatefulWidget {
   final Food _food;
   final int _curMonthIndex;
   final List<List<Availability>> _allAvailabilities;
-  List<Availability> _curAvailabilities;
+  late List<Availability> _curAvailabilities;
   Color _curAvailabilityColor = Colors.white70;
 
   FoodTile(Food foodToDisplay, int curMonthIndex)
@@ -24,7 +22,7 @@ class FoodTile extends StatefulWidget {
                 (monthIndex) => foodToDisplay.getAvailabilitiesByMonth(monthIndex)) {
     _curAvailabilities = _allAvailabilities[_curMonthIndex];
     int fstModeIdx = _curAvailabilities.indexWhere((mode) => mode != Availability.none);
-    _curAvailabilityColor = availabilityModeColor[fstModeIdx];
+    _curAvailabilityColor = availabilityModeColor[fstModeIdx]!;
   }
 
   @override
@@ -39,10 +37,10 @@ class FoodTileState extends State<FoodTile> {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: isFavoriteFood(widget._food),
-      builder: (context, snapshot) {
+      builder: (context, AsyncSnapshot<bool> snapshot) {
         if (snapshot.hasData) {
           _isFavorite =
-          snapshot.hasData ? (snapshot.data ? 1 : -1) : _isFavorite;
+          snapshot.hasData ? (snapshot.data! ? 1 : -1) : _isFavorite;
         }
         return _buildFoodTile();
       },

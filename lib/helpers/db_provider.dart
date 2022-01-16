@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:mutex/mutex.dart';
 import 'package:flutter/services.dart';
@@ -9,7 +8,6 @@ import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/models/region.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
 
 import 'lang_helper.dart';
 
@@ -18,7 +16,7 @@ class DBProvider {
 
   static final DBProvider db = DBProvider._();
   static final Mutex _db_file_mutex = Mutex();
-  static Database _database;
+  static Database? _database;
   static String dbViewName = "null";
 
   Future<Database> get database async {
@@ -40,7 +38,7 @@ class DBProvider {
       }
     }
 
-    return _database;
+    return _database!;
   }
 
   initDB() async {
@@ -109,7 +107,7 @@ class DBProvider {
     return region;
   }
 
-  Future<Iterable<Food>> getFoods() async {
+  Future<List<Food>> getFoods() async {
     final Database db = await database;
 
     var region = await getCurrentRegion();

@@ -1,6 +1,7 @@
 import 'package:seasoncalendar/models/region.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:collection/collection.dart';
 import 'dart:io';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
@@ -10,13 +11,13 @@ class UserDBProvider {
   UserDBProvider._();
 
   static final UserDBProvider db = UserDBProvider._();
-  static Database _userdatabase;
+  static Database? _userdatabase;
 
   Future<Database> get userdatabase async {
     if (_userdatabase == null) {
       _userdatabase = await initDB();
     }
-    return _userdatabase;
+    return _userdatabase!;
   }
 
   _onOpen(Database db) async {
@@ -44,7 +45,6 @@ class UserDBProvider {
       await Directory(dirname(path)).create(recursive: true);
     } catch (_) {}
 
-    print('opening db');
     var db = await openDatabase(
       path,
       onCreate: _onCreate,
@@ -53,7 +53,6 @@ class UserDBProvider {
       version: 1,
       onOpen: _onOpen,
     );
-    print('opened db');
     return db;
   }
 
@@ -66,15 +65,13 @@ class UserDBProvider {
       FROM food_region_availability WHERE region_id = ?
       """, [region.id]);
 
-    Iterable<Food> allFoods = await DBProvider.db.getFoods();
+    List<Food> allFoods = await DBProvider.db.getFoods();
 
-    results.map((item) {
+    return results.map((item) {
       String foodId = item['food_id'];
 
-      Food dbFood = allFoods.firstWhere((element) => element.id == foodId,
-          orElse: null);
-      if (dbFood == null)
-        return null;
+      //throws on error
+      Food dbFood = allFoods.firstWhere((element) => element.id == foodId);
 
       String type = dbFood.typeInfo;
       String assetImgPath = dbFood.assetImgPath;
@@ -107,11 +104,10 @@ class UserDBProvider {
           assetImgSourceUrl,
           assetImgInfo,
           region);
-    }).where((element) => element != null).toList();
+    }).whereNotNull().toList();
   }
 
   addCustomFood(Food f) async {
-    if (f == null) return;
     final Database db = await userdatabase;
 
     var settings = await SettingsPageState.getSettings();

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:package_info_plus/package_info_plus.dart';
@@ -13,7 +12,7 @@ import 'package:seasoncalendar/screens/settings/filterfoods/settings_filterfoods
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
-  Map<String, dynamic> _settings;
+  Map<String, dynamic>? _settings;
   String _versionInfo = "...";
 
   SettingsPage(Map<String, dynamic> initialSettings)
@@ -41,7 +40,7 @@ class SettingsPageState extends State<SettingsPage> {
   }
 
   setSettingI(String key, dynamic newVal) async {
-    widget._settings[key] = newVal;
+    widget._settings![key] = newVal;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setValue(prefs, key, newVal);
   }
@@ -70,11 +69,10 @@ class SettingsPageState extends State<SettingsPage> {
             child: FutureBuilder(
                 future: Future.wait(
                     [getSettingsI(widget._initialSettings), getVersionInfo()]),
-                builder: (context, snapshot) {
+                builder: (context, AsyncSnapshot<List<Object>> snapshot) {
                   if (snapshot.hasData) {
-                    Map<String, dynamic> settings = snapshot.data[0];
-                    widget._settings = settings;
-                    widget._versionInfo = snapshot.data[1];
+                    widget._settings = snapshot.data![0] as Map<String, dynamic>;
+                    widget._versionInfo = snapshot.data![1] as String;
                   }
                   return _buildSettings(context);
                 })));
@@ -98,7 +96,7 @@ class SettingsPageState extends State<SettingsPage> {
           builder: (_) => AlertDialog(
             backgroundColor: Colors.white,
             content: FilterfoodsDialog(List.generate(
-                avTypeCount, (i) => widget._settings[avSettingsKeys[i]])),
+                avTypeCount, (i) => widget._settings![avSettingsKeys[i]])),
             elevation: 10,
             actions: [
               MaterialButton(
@@ -127,7 +125,7 @@ class SettingsPageState extends State<SettingsPage> {
                   secondary: const Icon(Icons.folder_special),
                   title: Text(L10n.of(context).settingsUncommonTitle),
                   subtitle: Text(L10n.of(context).settingsUncommonText),
-                  value: widget._settings["includeUncommon"],
+                  value: widget._settings!["includeUncommon"],
                   dense: false,
                   onChanged: (newVal) {
                     setSettingI("includeUncommon", newVal);
@@ -137,7 +135,7 @@ class SettingsPageState extends State<SettingsPage> {
                 SwitchListTile.adaptive(
                   secondary: const Icon(Icons.sort),
                   title: Text(L10n.of(context).settingsSortingTitle),
-                  value: widget._settings["foodSorting"],
+                  value: widget._settings!["foodSorting"],
                   dense: false,
                   onChanged: (newVal) {
                     setSettingI("foodSorting", newVal);

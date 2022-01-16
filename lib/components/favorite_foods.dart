@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 Future<bool> isFavoriteFood(Food food) async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  List<String> foods = prefs.getStringList("favoriteFoods");
+  List<String>? foods = prefs.getStringList("favoriteFoods");
   if (foods == null) {
     return false;
   } else {
@@ -15,7 +15,7 @@ Future<bool> isFavoriteFood(Food food) async {
 
 Future<List<String>> getFavoriteFoods() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  return prefs.getStringList("favoriteFoods") ?? List<String>();
+  return prefs.getStringList("favoriteFoods") ?? List<String>.empty();
 }
 
 void setFavoriteFoods(List<String> favoriteFoods) async {

@@ -4,10 +4,10 @@ final String columnFallbackRegion = 'fallbackRegion';
 final String columnAssetPath = 'assetPath';
 
 class Region {
-  String id;
-  String fallbackRegion;
-  String assetPath;
-  String name;
+  late String id;
+  late String? fallbackRegion;
+  late String assetPath;
+  late String name;
 
   Region();
 

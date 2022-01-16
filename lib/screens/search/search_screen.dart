@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:edit_distance/edit_distance.dart';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/components/loading_scaffold.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
@@ -36,7 +35,7 @@ class SearchScreen extends SearchDelegate<String> {
         icon: AnimatedIcon(
             icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
         onPressed: () {
-          close(context, null);
+          close(context, "");
         });
   }
 
@@ -49,9 +48,9 @@ class SearchScreen extends SearchDelegate<String> {
   Widget buildResults(BuildContext context) {
     return FutureBuilder(
       future: DBProvider.db.getFoods(),
-      builder: (context, snapshot) {
+      builder: (context, AsyncSnapshot<Iterable<Food>> snapshot) {
         if (snapshot.hasData) {
-          List<Food> _newestFoodCatalog = snapshot.data;
+          List<Food> _newestFoodCatalog = List.from(snapshot.data!);
           return getMatchingFoodView(context, _newestFoodCatalog);
         } else {
           return LoadingWidget();

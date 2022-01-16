@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:seasoncalendar/components/loading_scaffold.dart';
 
 import 'package:seasoncalendar/models/food.dart';
@@ -13,7 +12,7 @@ class FoodView extends StatelessWidget {
   List<Food> _selectedFoods;
   final int _monthIndex;
   final String _viewContext;
-  final FoodDisplayConfiguration _fdc;
+  final FoodDisplayConfiguration? _fdc;
 
   FoodView(FoodDisplayConfiguration fdc)
       : _fdc = fdc,
@@ -40,10 +39,10 @@ class FoodView extends StatelessWidget {
     } else {
       return Swipe(
         onSwipeLeft: () {
-          _fdc.shiftMonth(1);
+          _fdc?.shiftMonth(1);
         },
         onSwipeRight: () {
-          _fdc.shiftMonth(-1);
+          _fdc?.shiftMonth(-1);
         },
         child: innerView,
       );
@@ -53,10 +52,10 @@ class FoodView extends StatelessWidget {
   Widget _buildFull(BuildContext context) {
     return FutureBuilder(
         future: DBProvider.db.getFoods(),
-        builder: (context, snapshot) {
+        builder: (context, AsyncSnapshot<List<Food>> snapshot) {
           if (snapshot.hasData) {
             // update food data on every build
-            List<Food> _newestFoodCatalog = snapshot.data;
+            List<Food> _newestFoodCatalog = snapshot.data!;
             _selectedFoods = _selectedFoods
                 .map((Food f) =>
                     _newestFoodCatalog.firstWhere((Food nf) => nf.id == f.id))

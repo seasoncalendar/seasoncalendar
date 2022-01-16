@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
 import 'package:seasoncalendar/models/food.dart';

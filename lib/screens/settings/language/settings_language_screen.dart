@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,7 +11,7 @@ import 'package:seasoncalendar/main.dart';
 
 class SettingsLanguagePage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
-  Map<String, dynamic> _settings;
+  late Map<String, dynamic> _settings;
 
   SettingsLanguagePage(Map<String, dynamic> initialSettings)
       : _initialSettings = initialSettings;
@@ -30,7 +29,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
             future: SettingsPageState.getSettingsI(widget._initialSettings),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                Map<String, dynamic> settings = snapshot.data;
+                var settings = snapshot.data! as Map<String, dynamic>;
                 widget._settings = settings;
 
                 var languageListTiles = getLanguageEntries();
@@ -47,7 +46,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
                           padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           child: Text(L10n.of(context).incompleteLanguageNotice,
                               textAlign: TextAlign.left,
-                              style: defaultTheme.textTheme.bodyText1.copyWith(
+                              style: defaultTheme.textTheme.bodyText1?.copyWith(
                                   fontStyle: FontStyle.italic,
                                   color: Colors.grey[600])),
                         ),
@@ -84,8 +83,8 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     // consider device language code if device language setting is activated
     if (languageCode == "null") {
       // List languages = await Devicelocale.preferredLanguages;
-      Locale locale = await Devicelocale.currentAsLocale;
-      languageCode = locale.languageCode;
+      Locale? locale = await Devicelocale.currentAsLocale;
+      languageCode = locale!.languageCode;
     }
 
     // default to english locale of language code is not supported
@@ -101,7 +100,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
   getLanguageRadioListTile(String langCode) {
     String languageName = "NONE";
     if (languageNameFromCode.containsKey(langCode)) {
-      languageName = languageNameFromCode[langCode];
+      languageName = languageNameFromCode[langCode]!;
     }
     if (!completeLanguages.contains(langCode)) {
       languageName += " (Beta)";
@@ -131,15 +130,15 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
   }
 
   getDeviceLanguageEntry() {
-    return RadioListTile(
+    return RadioListTile<String>(
       activeColor: defaultTheme.accentColor,
       dense: false,
       value: "null",
       groupValue: widget._settings['languageCode'],
       title: Text(L10n.of(context).settingsLanguageUseLocale),
       subtitle: Text(L10n.of(context).settingsLanguageUseLocaleSub),
-      onChanged: (val) => setState(() {
-        setLanguage(val);
+      onChanged: (String? val) => setState(() {
+        setLanguage(val!);
       }),
     );
   }

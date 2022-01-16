@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
@@ -64,18 +63,18 @@ class ImprintPage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                languageNameFromCode["de"] + ", "
-                    + languageNameFromCode["en"] + ", "
-                    + languageNameFromCode["fr"] + ": "
+                languageNameFromCode["de"]! + ", "
+                    + languageNameFromCode["en"]! + ", "
+                    + languageNameFromCode["fr"]! + ": "
                     + L10n.of(context).imprintPageMyName,
                 textAlign: TextAlign.left,
               ),
               Text(
-                languageNameFromCode["es"] + ": Luciano Gardella",
+                languageNameFromCode["es"]! + ": Luciano Gardella",
                 textAlign: TextAlign.left,
               ),
               Text(
-                languageNameFromCode["pl"] + ": Mateusz Bartczak (matebart)",
+                languageNameFromCode["pl"]! + ": Mateusz Bartczak (matebart)",
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 20),
@@ -93,13 +92,13 @@ class ImprintPage extends StatelessWidget {
               Text(L10n.of(context).imprintPageDataText2,
                   textAlign: TextAlign.left,
                   style: defaultTheme.textTheme.bodyText1
-                      .copyWith(fontStyle: FontStyle.italic)),
+                      ?.copyWith(fontStyle: FontStyle.italic)),
               SizedBox(height: 20),
               GestureDetector(
                 child: Text(
                   L10n.of(context).imprintPageImagesHeadline,
                   style: defaultTheme.textTheme.headline6
-                      .copyWith(color: defaultTheme.accentColor),
+                      ?.copyWith(color: defaultTheme.accentColor),
                   textAlign: TextAlign.left,
                 ),
                 onTap: () =>

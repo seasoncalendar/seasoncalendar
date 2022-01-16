@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
