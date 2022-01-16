@@ -1,5 +1,5 @@
 {
-  "greenbeans_names": "Gewone boon",
+  "greenbeans_names": "Gewone Boon",
   "@greenbeans_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   },
@@ -71,11 +71,11 @@
   "@endive_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   },
-  "emptySearchViewText": "Geen levensmiddelen gevonden!",
+  "emptySearchViewText": "Geen voedsel gevonden!",
   "@emptySearchViewText": {
     "description": "A text shown when no food is displayed in the search result view."
   },
-  "emptyFoodsViewText": "Geen levensmiddelen beschikbaar!",
+  "emptyFoodsViewText": "Geen voedsel beschikbaar!",
   "@emptyFoodsViewText": {
     "description": "A text shown when no food is displayed in the current foods view."
   },
@@ -87,7 +87,7 @@
   "@emptyFavoritesViewHint": {
     "description": "A hint shown when no favorites are displayed in the current foods view."
   },
-  "emptyDefaultViewHint": "Controleer uw levensmiddel-filterinstellingen.",
+  "emptyDefaultViewHint": "Controleer uw voedselfilter.",
   "@emptyDefaultViewHint": {
     "description": "A hint shown when no foods are displayed in the current default foods view."
   },
@@ -119,7 +119,7 @@
   "@december": {
     "description": "The word 'December'"
   },
-  "date_names": "Dadel(vers)",
+  "date_names": "Dadel (vers)",
   "@date_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   },
@@ -151,7 +151,7 @@
   "@cranberry_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   },
-  "contribPageTitle": "Bijdragen",
+  "contribPageTitle": "Draag bij",
   "@contribPageTitle": {
     "description": "The word 'Contribute'"
   },
@@ -251,7 +251,7 @@
   "@champignon_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   },
-  "centralEurope": "Midden-Europa",
+  "centralEurope": "Centraal-Europa",
   "@centralEurope": {
     "description": "The region of Central Europe."
   },
@@ -279,7 +279,7 @@
   "@cauliflower_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   },
-  "carrot_names": "Wortel, Peen, Waspeen, Bospeen",
+  "carrot_names": "Wortel, Peen, Waspeen, Winterpeen, Bospeen",
   "@carrot_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   },
@@ -287,7 +287,7 @@
   "@carrot_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   },
-  "carob_names": "Johannisbrood",
+  "carob_names": "Johannisbrood, Carobe",
   "@carob_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   },
@@ -311,7 +311,7 @@
   "@broccoli_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   },
-  "blueberry_names": "Blauwe Bosbes",
+  "blueberry_names": "Blauwe bosbes",
   "@blueberry_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   },
@@ -335,7 +335,7 @@
   "@beetroot_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   },
-  "batavia_names": "IJsbergsla, Sla",
+  "batavia_names": "IJsbergsla",
   "@batavia_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   },
@@ -355,7 +355,7 @@
   "@back": {
     "description": "The word 'Back'"
   },
-  "avocado_names": "Avocado, Advocaatpeer , Solange",
+  "avocado_names": "Avocado, Advocaatpeer, Solange",
   "@avocado_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   },
@@ -403,11 +403,11 @@
   "@apple_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
   },
-  "appTitle": "Seizoenskalender",
+  "appTitle": "Seizoensvoedselkalender",
   "@appTitle": {
     "description": "The title of the app, e.g. 'Seasonal foods calendar'"
   },
-  "amla_names": "Amla, Emblica, Indische kruisbes",
+  "amla_names": "Amla, Emblica, Indische Kruisbes",
   "@amla_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   },
@@ -423,7 +423,7 @@
   "@aboutPageTitle": {
     "description": "The phrase 'About the app'"
   },
-  "aboutPageLeading": "Tegenwoordig zijn bijna alle levensmiddelen het hele jaar verkrijgbaar, zodat mensen zich niet meer bewust zijn van de seizoenstijden van groenten en fruit. Het kopen van seizoens- en lokale producten heeft flinke voordelen:",
+  "aboutPageLeading": "Tegenwoordig is bijna al het voedsel het hele jaar verkrijgbaar, zodat mensen zich niet meer bewust zijn van de seizoenstijden van groenten en fruit. Het kopen van seizoens- en lokale producten heeft flinke voordelen:",
   "@aboutPageLeading": {
     "description": "Justification for caring about food seasons"
   },
@@ -435,15 +435,15 @@
   "@aboutPageDisclaimer": {
     "description": "A disclaimer for the availability data"
   },
-  "aboutPageAdvantage5": "Je steunt lokale bedrijven en banen.",
+  "aboutPageAdvantage5": "Je steunt lokale bedrijven en werkgelegenheid.",
   "@aboutPageAdvantage5": {
     "description": "The phrase 'You support local businesses and jobs.'"
   },
-  "aboutPageAdvantage4": "Bij het transport worden minder schadelijke stoffen uitgestoten.",
+  "aboutPageAdvantage4": "Het transport is minder schadelijk voor het milieu.",
   "@aboutPageAdvantage4": {
     "description": "The phrase 'The transport is less harmful to the environment.'"
   },
-  "aboutPageAdvantage3": "De opslagkosten zijn lager.",
+  "aboutPageAdvantage3": "De opslagkosten worden minder.",
   "@aboutPageAdvantage3": {
     "description": "The phrase 'The efforts made for storing foods is reduced.'"
   },
@@ -455,7 +455,7 @@
   "@aboutPageAdvantage1": {
     "description": "The phrase 'Fresh produce tastes better and is healthier for your body.'"
   },
-  "imprintPageDisclaimerHeadline": "Disclaimer",
+  "imprintPageDisclaimerHeadline": "Vrijwaring",
   "@imprintPageDisclaimerHeadline": {
     "description": "The phrase 'Disclaimer'"
   },
@@ -479,7 +479,7 @@
   "@imprintPageDataHeadline": {
     "description": "The phrase 'Availability data'"
   },
-  "imprintPageButtonText": "Imprint",
+  "imprintPageButtonText": "Colofon",
   "@imprintPageButtonText": {
     "description": "The word 'Imprint'"
   },
@@ -519,7 +519,7 @@
   "@howToPageExplanationHeadline": {
     "description": "The phrase 'How do I use the app?'"
   },
-  "howToPageExplanation": "Deze app laat u in één oogopslag zien welke levensmiddelen momenteel in het seizoen zijn:",
+  "howToPageExplanation": "Deze app laat u in één oogopslag zien welk voedsel momenteel in het seizoen zijn:",
   "@howToPageExplanation": {
     "description": "A sentence explaining what the app does"
   },
@@ -582,5 +582,615 @@
   "greencabbage_infoUrl": "https://nl.wikipedia.org/wiki/Boerenkool_(groente)",
   "@greencabbage_infoUrl": {
     "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "languageCode": "nl",
+  "@languageCode": {
+    "description": "The two-character ISO language code of this language."
+  },
+  "incompleteLanguageNotice": "Onvolledige vertalingen worden getoond met een \"bèta\"-label. Voor deze worden ontbrekende vertalingen in het Engels getoond.",
+  "@incompleteLanguageNotice": {},
+  "imprintPageFontsText": "Font Awesome 5 (appellogo, wortellogo)\n(Licentie: fontawesome.com/license)",
+  "@imprintPageFontsText": {
+    "description": "Font information"
+  },
+  "imprintPageImagesHeadline": "Afbeeldingen",
+  "@imprintPageImagesHeadline": {
+    "description": "The word 'Images'"
+  },
+  "imprintPageMyName": "Andreas Boltres",
+  "@imprintPageMyName": {
+    "description": "App text author name"
+  },
+  "imprintPageTextHeadline": "Apptekst",
+  "@imprintPageTextHeadline": {
+    "description": "The word 'App text'"
+  },
+  "imprintPageTranslationsHeadline": "Vertalingen",
+  "@imprintPageTranslationsHeadline": {
+    "description": "The word 'Translations'"
+  },
+  "january": "Januari",
+  "@january": {
+    "description": "The word 'January'"
+  },
+  "july": "Juli",
+  "@july": {
+    "description": "The word 'July'"
+  },
+  "june": "Juni",
+  "@june": {
+    "description": "The word 'June'"
+  },
+  "kiwi_infoUrl": "https://nl.wikipedia.org/wiki/Kiwi_(fruit)",
+  "@kiwi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "kiwi_names": "Kiwi",
+  "@kiwi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "leek_infoUrl": "https://nl.wikipedia.org/wiki/Prei",
+  "@leek_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lemon_names": "Citroen",
+  "@lemon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lime_names": "Limoen",
+  "@lime_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "mango_infoUrl": "https://nl.wikipedia.org/wiki/Mango_(soort)",
+  "@mango_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "minAvAir": "Al het beschikbare voedsel",
+  "@minAvAir": {
+    "description": "The phrase 'All available foods'"
+  },
+  "nectarine_infoUrl": "https://nl.wikipedia.org/wiki/Nectarine",
+  "@nectarine_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "november": "November",
+  "@november": {
+    "description": "The word 'November'"
+  },
+  "october": "Oktober",
+  "@october": {
+    "description": "The word 'October'"
+  },
+  "onion_names": "Ui",
+  "@onion_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "orange_infoUrl": "https://nl.wikipedia.org/wiki/Sinaasappel",
+  "@orange_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "orange_names": "Sinaasappel, Appelsien",
+  "@orange_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "papaya_names": "Papaja",
+  "@papaya_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "parsnip_infoUrl": "https://nl.wikipedia.org/wiki/Pastinaak",
+  "@parsnip_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "parsnip_names": "Pastinaak",
+  "@parsnip_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "passionfruit_names": "Passiefruit",
+  "@passionfruit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "peach_infoUrl": "https://nl.wikipedia.org/wiki/Perzik",
+  "@peach_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pear_names": "Peer",
+  "@pear_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "peas_infoUrl": "https://nl.wikipedia.org/wiki/Erwt",
+  "@peas_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "peas_names": "Erwt",
+  "@peas_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "persimmon_infoUrl": "https://nl.wikipedia.org/wiki/Kaki_(plant)",
+  "@persimmon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pineapple_names": "Ananas",
+  "@pineapple_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "plum_infoUrl": "https://nl.wikipedia.org/wiki/Europese_cultuurpruim",
+  "@plum_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pointedcabbage_infoUrl": "https://nl.wikipedia.org/wiki/Spitskool",
+  "@pointedcabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pomegranate_names": "Granaatappel",
+  "@pomegranate_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "potato_names": "Aardappel",
+  "@potato_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pricklypear_infoUrl": "https://nl.wikipedia.org/wiki/Opuntia_ficus-indica",
+  "@pricklypear_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pricklypear_names": "Cactusvijg",
+  "@pricklypear_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "prune_infoUrl": "https://nl.wikipedia.org/wiki/Kwets_(pruim)",
+  "@prune_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "prune_names": "Kwets, Pruim",
+  "@prune_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "purplecabbage_infoUrl": "https://nl.wikipedia.org/wiki/Rodekool",
+  "@purplecabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "quince_infoUrl": "https://nl.wikipedia.org/wiki/Kweepeer",
+  "@quince_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "raspberry_infoUrl": "https://nl.wikipedia.org/wiki/Framboos",
+  "@raspberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "rhubarb_infoUrl": "https://nl.wikipedia.org/wiki/Rabarber",
+  "@rhubarb_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "rosehip_names": "Rozenbottel",
+  "@rosehip_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "savoy_infoUrl": "https://nl.wikipedia.org/wiki/Savooiekool",
+  "@savoy_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "september": "September",
+  "@september": {
+    "description": "The word 'September'"
+  },
+  "savoy_names": "Savooiekool, Savooikool, Groenekool, Groene Kool",
+  "@savoy_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "searchFieldLabel": "Zoek...",
+  "@searchFieldLabel": {
+    "description": "The label used in the search bar"
+  },
+  "settingsFilterTitle": "Filter op beschikbaarheid",
+  "@settingsFilterTitle": {
+    "description": "The phrase 'Filter by availability'"
+  },
+  "settingsLanguageTitle": "Taal",
+  "@settingsLanguageTitle": {
+    "description": "The word 'Language'"
+  },
+  "settingsLanguageUseLocale": "Gebruik taal van apparaat",
+  "@settingsLanguageUseLocale": {
+    "description": "The phrase 'Use device language'"
+  },
+  "settingsLanguageUseLocaleSub": "Gebruik Engels als taal van apparaat niet wordt ondersteund",
+  "@settingsLanguageUseLocaleSub": {
+    "description": "The phrase 'Uses English if device language is not supported'"
+  },
+  "settingsPageTitle": "Instellingen",
+  "@settingsPageTitle": {
+    "description": "The word 'Settings'"
+  },
+  "settingsRegionUseLocale": "Gebruik regio van apparaat",
+  "@settingsRegionUseLocale": {
+    "description": "The phrase 'Use device region'"
+  },
+  "settingsRegionUseLocaleSub": "Gebruik 'Centraal-Europa' als regio van apparaat niet is ondersteund",
+  "@settingsRegionUseLocaleSub": {
+    "description": "The phrase 'Uses 'Central Europe' if device region is not supported'"
+  },
+  "settingsSortingTitle": "Sorteer op beschikbaarheid",
+  "@settingsSortingTitle": {
+    "description": "The phrase 'Sort by availability'"
+  },
+  "settingsUncommonText": "bijvoorbeeld kweepeer, kruipbraam",
+  "@settingsUncommonText": {
+    "description": "The phrase 'e.g. quince, cloudberry'"
+  },
+  "settingsVersion": "Versie",
+  "@settingsVersion": {
+    "description": "The word 'Version'"
+  },
+  "smallradish_infoUrl": "https://nl.wikipedia.org/wiki/Radijs",
+  "@smallradish_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "sorb_infoUrl": "https://nl.wikipedia.org/wiki/Lijsterbes",
+  "@sorb_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "spinach_names": "Spinazie",
+  "@spinach_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "starfuit_names": "Carambola, Sterfruit",
+  "@starfuit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "strawberry_infoUrl": "https://nl.wikipedia.org/wiki/Aardbei",
+  "@strawberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "supportPageHeadline": "Geef aalmoezen",
+  "@supportPageHeadline": {
+    "description": "The word 'Give alms'"
+  },
+  "supportPageSpreadText1": "Goed om te horen! De meest effectieve manier om mij te ondersteunen is door gewoon het voort te zeggen: Breng je vrienden en je familie op de hoogte van deze app!",
+  "@supportPageSpreadText1": {
+    "description": "A text motivating to spread the word about the app if the user likes it"
+  },
+  "supportPageSpreadTitle": "Vind je de app goed?",
+  "@supportPageSpreadTitle": {
+    "description": "The phrase 'Do you like the app?'"
+  },
+  "supportPageText1": "Deze app blijft volledig gratis en vrij van advertenties zolang ik deze doorontwikkel.",
+  "@supportPageText1": {
+    "description": "The statement 'This app will remain fully free of charge and ad-free as long as I am developing it.'"
+  },
+  "supportPageTitle": "Steun",
+  "@supportPageTitle": {
+    "description": "The word 'Support'"
+  },
+  "supportPageWebsiteLink": "Naar de webpagina",
+  "@supportPageWebsiteLink": {
+    "description": "The phrase 'To the webpage'"
+  },
+  "sweetcorn_names": "Maïs, Mais",
+  "@sweetcorn_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "sweetpotato_infoUrl": "https://nl.wikipedia.org/wiki/Zoete_aardappel",
+  "@sweetpotato_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "sweetpotato_names": "Zoete Aardappel",
+  "@sweetpotato_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "tomato_infoUrl": "https://nl.wikipedia.org/wiki/Tomaat",
+  "@tomato_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "tomato_names": "Tomaat",
+  "@tomato_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "watermelon_infoUrl": "https://nl.wikipedia.org/wiki/Watermeloen",
+  "@watermelon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "wildstrawberry_infoUrl": "https://nl.wikipedia.org/wiki/Bosaardbei",
+  "@wildstrawberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "yellowplum_names": "Mirabel, Kroosjespruim",
+  "@yellowplum_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "zucchini_names": "Courgette, Zukini",
+  "@zucchini_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lychee_names": "Lychee",
+  "@lychee_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "imprintPageFontsHeadline": "Font",
+  "@imprintPageFontsHeadline": {
+    "description": "The word 'Font'"
+  },
+  "lemon_infoUrl": "https://nl.wikipedia.org/wiki/Citroen_(vrucht)",
+  "@lemon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "may": "Mei",
+  "@may": {
+    "description": "The word 'May'"
+  },
+  "imprintPagePublisher": "Uitgever",
+  "@imprintPagePublisher": {
+    "description": "The word 'Publisher'"
+  },
+  "imprintPageTitle": "Colofon",
+  "@imprintPageTitle": {
+    "description": "The word 'Imprint'"
+  },
+  "imprintPageSourcesHeadline": "Bronnen",
+  "@imprintPageSourcesHeadline": {
+    "description": "The word 'Sources'"
+  },
+  "leek_names": "Prei",
+  "@leek_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lime_infoUrl": "https://nl.wikipedia.org/wiki/Limoen",
+  "@lime_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lollorossa_infoUrl": "https://nl.wikipedia.org/wiki/Kluitsla",
+  "@lollorossa_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "languageName": "Engels",
+  "@languageName": {
+    "description": "The name of this language"
+  },
+  "mango_names": "Mango",
+  "@mango_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "march": "Maart",
+  "@march": {
+    "description": "The word 'March'"
+  },
+  "pumpkin_infoUrl": "https://nl.wikipedia.org/wiki/Pompoen",
+  "@pumpkin_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lychee_infoUrl": "https://nl.wikipedia.org/wiki/Lychee",
+  "@lychee_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "minAvLand": "Geen voedsel dat overzees of van ver weg is geïmporteerd",
+  "@minAvLand": {
+    "description": "The phrase 'No foods imported from overseas/far away'"
+  },
+  "minAvLocal": "Alleen lokaal en regionaal voedsel",
+  "@minAvLocal": {
+    "description": "The phrase 'Only local and regional foods'"
+  },
+  "minAvSea": "Geen voedsel dat per vliegtuig is geïmporteerd",
+  "@minAvSea": {
+    "description": "The phrase 'No foods imported via airplane'"
+  },
+  "nectarine_names": "Nectarine, Nectarijn",
+  "@nectarine_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "nashi_infoUrl": "https://nl.wikipedia.org/wiki/Nashipeer",
+  "@nashi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "nashi_names": "Nashipeer, Zandpeer, Aziatische Peer",
+  "@nashi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "radicchio_names": "Roodloof",
+  "@radicchio_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "zucchini_infoUrl": "https://nl.wikipedia.org/wiki/Courgette",
+  "@zucchini_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "imprintPageDisclaimerText": "De inhoud van deze app is gemaakt en aangeboden met de grootste zorg en met de beste bedoelingen. Desondanks kan ik geen garantie van welke soort ook geven over de nauwkeurigheid, adequaatheid, geldigheid, betrouwbaarheid, beschikbaarheid of volledigheid over de informatie die in deze app wordt getoond.",
+  "@imprintPageDisclaimerText": {
+    "description": "The disclaimer for the app"
+  },
+  "kohlrabi_infoUrl": "https://nl.wikipedia.org/wiki/Koolrabi",
+  "@kohlrabi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "onion_infoUrl": "https://nl.wikipedia.org/wiki/Ui_(plant)",
+  "@onion_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pakchoi_names": "Paksoi, Pak-choi",
+  "@pakchoi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pear_infoUrl": "https://nl.wikipedia.org/wiki/Peer_(plant)",
+  "@pear_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pointedcabbage_names": "Spitskool",
+  "@pointedcabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "quince_names": "Kweepeer",
+  "@quince_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "sweetcorn_infoUrl": "https://nl.wikipedia.org/wiki/Ma%C3%AFs",
+  "@sweetcorn_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "whitecabbage_names": "Wittekool, Witte Kool",
+  "@whitecabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "persimmon_names": "Kaki, Sharonvrucht, Persimmon",
+  "@persimmon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "wildstrawberry_names": "Bosaardbei",
+  "@wildstrawberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "kohlrabi_names": "Koolrabi",
+  "@kohlrabi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "papaya_infoUrl": "https://nl.wikipedia.org/wiki/Papaja",
+  "@papaya_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pakchoi_infoUrl": "https://nl.wikipedia.org/wiki/Paksoi",
+  "@pakchoi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "paprika_infoUrl": "https://nl.wikipedia.org/wiki/Paprika",
+  "@paprika_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "paprika_names": "Paprika",
+  "@paprika_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "passionfruit_infoUrl": "https://nl.wikipedia.org/wiki/Passiflora_edulis",
+  "@passionfruit_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "physalis_infoUrl": "https://nl.wikipedia.org/wiki/Goudbes",
+  "@physalis_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "physalis_names": "Goudbes, Ananaskers, Incabes, Kaapse Kruisbes, Kaapse Goudbes",
+  "@physalis_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pineapple_infoUrl": "https://nl.wikipedia.org/wiki/Ananas",
+  "@pineapple_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pomegranate_infoUrl": "https://nl.wikipedia.org/wiki/Granaatappel",
+  "@pomegranate_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "potato_infoUrl": "https://nl.wikipedia.org/wiki/Aardappel",
+  "@potato_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "plum_names": "Europese Cultuurpruim, Pruim",
+  "@plum_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pumpkin_names": "Pompoen",
+  "@pumpkin_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "purplecabbage_names": "Rodekool, Rode Kool",
+  "@purplecabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "rhubarb_names": "Rabarber",
+  "@rhubarb_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "rosehip_infoUrl": "https://nl.wikipedia.org/wiki/Rozenbottel",
+  "@rosehip_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "settingsLanguageSubtitle": "Wijzigen van taal herstart de app",
+  "@settingsLanguageSubtitle": {
+    "description": "The phrase 'Changing the language restarts the app'"
+  },
+  "sorb_names": "Lijsterbes",
+  "@sorb_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "starfuit_infoUrl": "https://nl.wikipedia.org/wiki/Carambola",
+  "@starfuit_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "strawberry_names": "Aardbei",
+  "@strawberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "peach_names": "Perzik",
+  "@peach_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "smallradish_names": "Radijs",
+  "@smallradish_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "radicchio_infoUrl": "https://nl.wikipedia.org/wiki/Roodlof",
+  "@radicchio_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "radish_infoUrl": "https://nl.wikipedia.org/wiki/Rammenas",
+  "@radish_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "raspberry_names": "Framboos",
+  "@raspberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "settingsRegionTitle": "Regio",
+  "@settingsRegionTitle": {
+    "description": "The word 'Region'"
+  },
+  "settingsUncommonTitle": "Toon speciaal en ongebruikelijk voedsel",
+  "@settingsUncommonTitle": {
+    "description": "The phrase 'Show special and unusual foods'"
+  },
+  "spinach_infoUrl": "https://nl.wikipedia.org/wiki/Spinazie",
+  "@spinach_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "supportPageSpreadText2": "Op deze manier kunnen we samen meer aandacht geven aan de afkomst van ons voedsel en tegelijkertijd geld besparen en smakelijker eten.",
+  "@supportPageSpreadText2": {
+    "description": "Continuation of the motivating text"
+  },
+  "wikipedia": "Wikipedia",
+  "@wikipedia": {
+    "description": "The word 'Wikipedia'"
+  },
+  "yellowplum_infoUrl": "https://nl.wikipedia.org/wiki/Mirabel_(pruim)",
+  "@yellowplum_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "northAmerica": "Noord-Amerika",
+  "@northAmerica": {},
+  "reunion": "Réunion (Frankrijk)",
+  "@reunion": {},
+  "supportPageText2": "Maar als je mijn werk wil steunen kun je ook zien wat ik verder doe op mijn webpagina.",
+  "@supportPageText2": {
+    "description": "Something like 'User can go to webpage if they further want to support'"
+  },
+  "watermelon_names": "Watermeloen",
+  "@watermelon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "whitecabbage_infoUrl": "https://nl.wikipedia.org/wiki/Wittekool",
+  "@whitecabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "radish_names": "Rettich, Rammenas",
+  "@radish_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lingonberry_names": "Rode Bosbes, Vossenbes",
+  "@lingonberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lingonberry_infoUrl": "https://nl.wikipedia.org/wiki/Rode_bosbes",
+  "@lingonberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lollorossa_names": "Kluitsla, Lollo Rossa, Eikenbladsla",
+  "@lollorossa_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   }
 }

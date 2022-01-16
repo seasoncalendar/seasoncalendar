@@ -1,0 +1,232 @@
+{
+  "eggplant_names": "Μελιτζάνα, Μπριντζάλ",
+  "@eggplant_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "dragonfruit_names": "Δράκος, Φρούτα δράκων, Πιτάγια, Πιταχάγια",
+  "@dragonfruit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "december": "Δεκέμβριος",
+  "@december": {
+    "description": "The word 'December'"
+  },
+  "currant_names": "Σταφίδα, Φραγκοστάφυλο",
+  "@currant_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cucumber_names": "Αγγούρι",
+  "@cucumber_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cranberry_names": "Βακκίνιο, Κράνμπερι",
+  "@cranberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "contribPageTitle": "Συμβάλλετε",
+  "@contribPageTitle": {
+    "description": "The word 'Contribute'"
+  },
+  "blueberry_names": "Μύρτιλλο",
+  "@blueberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "blackberry_names": "Μαυρο μουρο",
+  "@blackberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "beetroot_names": "Παντζάρια, τεύτλα, επιτραπέζια τεύτλα, κόκκινα τεύτλα",
+  "@beetroot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "batavia_names": "Μπατάβια, Σγουρή Σαλάτα, Μαρούλι",
+  "@batavia_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "banana_names": "Μπανάνα",
+  "@banana_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "back": "Μετάβαση πίσω",
+  "@back": {
+    "description": "The word 'Back'"
+  },
+  "avocado_names": "Αβοκάντο, Αχλάδι αβοκάντο, Αχλάδι αλιγάτορα",
+  "@avocado_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "august": "Αύγουστος",
+  "@august": {
+    "description": "The word 'August'"
+  },
+  "asparagus_names": "Σπαράγγια, χόρτο σπουργίτι",
+  "@asparagus_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "artichoke_names": "Αγκινάρα",
+  "@artichoke_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "april": "Απρίλιος",
+  "@april": {
+    "description": "The word 'April'"
+  },
+  "apricot_names": "Βερύκοκκο",
+  "@apricot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "apple_names": "Μήλο",
+  "@apple_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "appTitle": "Ημερολόγιο εποχιακών τροφίμων",
+  "@appTitle": {
+    "description": "The title of the app, e.g. 'Seasonal foods calendar'"
+  },
+  "amla_names": "Μυρομπάλαν, Ινδικό φραγκοστάφυλο",
+  "@amla_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "aboutPageLeading": "Στις μέρες μας, καθώς σχεδόν όλα τα τρόφιμα είναι διαθέσιμα καθ 'όλη τη διάρκεια του έτους, οι άνθρωποι έχουν χάσει την επίγνωση της εποχικότητας των τροφίμων τους. Ωστόσο, η αγορά εποχιακών και τοπικών τροφίμων έχει συχνά εντυπωσιακά πλεονεκτήματα:",
+  "@aboutPageLeading": {
+    "description": "Justification for caring about food seasons"
+  },
+  "aboutPageHeadline": "Γιατί πρέπει να νοιαζόμαστε για τις εποχές των τροφίμων;",
+  "@aboutPageHeadline": {
+    "description": "The phrase 'Why care about foods' seasons?'"
+  },
+  "aboutPageDisclaimer": "Λάβετε υπόψη ότι η πραγματική διαθεσιμότητα τροφίμων στο τοπικό σας σούπερ μάρκετ μπορεί να διαφέρει από τις πληροφορίες που εμφανίζονται εδώ.",
+  "@aboutPageDisclaimer": {
+    "description": "A disclaimer for the availability data"
+  },
+  "aboutPageAdvantage5": "Υποστηρίζετε τοπικές επιχειρήσεις και θέσεις εργασίας.",
+  "@aboutPageAdvantage5": {
+    "description": "The phrase 'You support local businesses and jobs.'"
+  },
+  "aboutPageAdvantage4": "Οι μεταφορές είναι λιγότερο επιβλαβείς για το περιβάλλον.",
+  "@aboutPageAdvantage4": {
+    "description": "The phrase 'The transport is less harmful to the environment.'"
+  },
+  "aboutPageAdvantage3": "Οι προσπάθειες που καταβάλλονται για την αποθήκευση τροφίμων μειώνονται.",
+  "@aboutPageAdvantage3": {
+    "description": "The phrase 'The efforts made for storing foods is reduced.'"
+  },
+  "aboutPageAdvantage2": "Τα φρέσκα τρόφιμα είναι γενικά φθηνότερα.",
+  "@aboutPageAdvantage2": {
+    "description": "The phrase 'Fresh foods are generally cheaper.'"
+  },
+  "aboutPageAdvantage1": "Τα φρέσκα προϊόντα έχουν καλύτερη γεύση και είναι πιο υγιεινά για τον οργανισμό σας.",
+  "@aboutPageAdvantage1": {
+    "description": "The phrase 'Fresh produce tastes better and is healthier for your body.'"
+  },
+  "contribPageCodeHeadline": "Δείξτε μου τον κωδικό!",
+  "@contribPageCodeHeadline": {
+    "description": "The phrase 'Show me the code!'"
+  },
+  "contribPageCodeButtonText": "Στο αποθετήριο GitHub",
+  "@contribPageCodeButtonText": {
+    "description": "The phrase 'To the GitHub repo'"
+  },
+  "coco_names": "Καρύδα, Κόκο, Κοκοφοίνικας",
+  "@coco_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cloudberry_names": "Σκανδιναβικό μούρο, Κόμπμπερι",
+  "@cloudberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "clementine_names": "Κλημεντίνη, Μανταρίνι, Τανγκόρ, Πορτοκάλι Μανδαρίνου",
+  "@clementine_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "chinesecabbage_names": "Κινέζικο λάχανο, λάχανο Νάπα, Νάπα",
+  "@chinesecabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "chicory_names": "Ραδίκι",
+  "@chicory_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "chestnut_names": "Κάστανο, Καστανέα σατίβα",
+  "@chestnut_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cherry_names": "Κεράσι, γλυκό κεράσι, αγριοκέρασο",
+  "@cherry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "chard_names": "Σέσκουλο, ελβετικό σέσκουλο",
+  "@chard_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "champignon_names": "Σαμπινιόν, Μανιτάρι",
+  "@champignon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "centralEurope": "Κεντρική Ευρώπη",
+  "@centralEurope": {
+    "description": "The region of Central Europe."
+  },
+  "celerygreen_names": "Σέλινο",
+  "@celerygreen_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "celery_names": "Σελινόριζα",
+  "@celery_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cauliflower_names": "Κουνουπίδι",
+  "@cauliflower_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "carrot_names": "Καρότο",
+  "@carrot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "carob_names": "Χαρούπι",
+  "@carob_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "brusselssprouts_names": "Λαχανάκια Βρυξελλών",
+  "@brusselssprouts_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "broccoli_names": "Μπρόκολο",
+  "@broccoli_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "incompleteLanguageNotice": "Οι ελλιπείς γλώσσες εμφανίζονται με μια ειδοποίηση \"Beta\". Για αυτές, οι μεταφράσεις που λείπουν εμφανίζονται στα Αγγλικά.",
+  "@incompleteLanguageNotice": {},
+  "reunion": "Ρεϋνιόν (Γαλλία)",
+  "@reunion": {},
+  "northAmerica": "Βόρεια Αμερική",
+  "@northAmerica": {},
+  "zucchini_names": "Κολοκυθάκια, Κολοκυθάκι",
+  "@zucchini_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "aboutPageTrailing": "Αυτή η εφαρμογή σάς επιτρέπει να τρώτε φθηνότερα και πιο νόστιμα και αυξάνει την ευαισθητοποίηση για την προέλευση των τροφίμων μας.",
+  "@aboutPageTrailing": {
+    "description": "A sentence about benefits for the app user"
+  },
+  "aboutPageTitle": "Πληροφορίες για την εφαρμογή",
+  "@aboutPageTitle": {
+    "description": "The phrase 'About the app'"
+  },
+  "contribPageContact": "Αν έχετε βρει κάποιο λάθος ή χώρο για συγκεκριμένη βελτίωση, μπορείτε να επικοινωνήσετε μαζί μου μέσω της ιστοσελίδας μου.",
+  "@contribPageContact": {
+    "description": "Justification for missing features/incorrectness by stating young age of app"
+  },
+  "contribPageCode": "Ο πηγαίος κώδικας της εφαρμογής είναι διαθέσιμος στο GitHub:",
+  "@contribPageCode": {
+    "description": "The phrase 'The source code for the app is available on GitHub:'"
+  },
+  "supportPageSpreadTitle": "Σας αρέσει η εφαρμογή;",
+  "@supportPageSpreadTitle": {
+    "description": "The phrase 'Do you like the app?'"
+  },
+  "wikipedia": "Βικιπαίδεια",
+  "@wikipedia": {
+    "description": "The word 'Wikipedia'"
+  }
+}

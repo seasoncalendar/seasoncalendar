@@ -82,5 +82,387 @@
   "apple_names": "Pomo",
   "@apple_names": {
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
-  }
+  },
+  "settingsUncommonText": "ekz. cidonio, kamemoro",
+  "@settingsUncommonText": {
+    "description": "The phrase 'e.g. quince, cloudberry'"
+  },
+  "howToPageFavorites": "Per tuŝeto de la stelo ☆ de manĝaĵo, vi ĝin aldonas al/forigas de via listo de preferataĵoj. Per tuŝeto de la stelo sur la menuobreto, vi povas vidi nur viajn preferataĵojn.",
+  "@howToPageFavorites": {
+    "description": "Describes how to use the favorites function"
+  },
+  "emptyFavoritesViewText": "Neniuj preferataĵoj haveblas!",
+  "@emptyFavoritesViewText": {
+    "description": "A text shown when no favorites are displayed in the current foods view."
+  },
+  "emptyFavoritesViewHint": "Por preferi manĝaĵon, tuŝetu la stelon ☆ de la manĝaĵo.",
+  "@emptyFavoritesViewHint": {
+    "description": "A hint shown when no favorites are displayed in the current foods view."
+  },
+  "emptyDefaultViewHint": "Kontrolu la filtradon de manĝaĵoj.",
+  "@emptyDefaultViewHint": {
+    "description": "A hint shown when no foods are displayed in the current default foods view."
+  },
+  "aboutPageLeading": "Nuntempe, ĉar preskaŭ ĉiuj manĝaĵoj haveblas tutjare, homoj senkonsciiĝis pri la sezonoj de siaj manĝaĵoj. Tamen aĉeti sezonajn kaj lokajn manĝaĵojn estas jene avantaĝe:",
+  "@aboutPageLeading": {
+    "description": "Justification for caring about food seasons"
+  },
+  "aboutPageTrailing": "Ĉi tiu aplikaĵo helpas vin manĝi pli malmultekoste kaj pli bonguste kaj sciigas vin pri la originoj de manĝaĵoj.",
+  "@aboutPageTrailing": {
+    "description": "A sentence about benefits for the app user"
+  },
+  "imprintPageDisclaimerText": "La enhavo de ĉi tiu aplikaĵo estis kreita kaj provizita zorgege kaj bonafide. Tamen mi nek asertas nek garantias, eksplicite aŭ implicite, ion ajn pri la precizeco, taŭgeco, valideco, fidindeco, havebleco aŭ kompleteco de ajnaj informoj montrataj en ĉi tiu aplikaĵo.",
+  "@imprintPageDisclaimerText": {
+    "description": "The disclaimer for the app"
+  },
+  "imprintPageDataText2": "Dankon al la teamo de Lebensmittellexikon.de, pro permeso uzi iliajn datenojn pri havebleco!",
+  "@imprintPageDataText2": {
+    "description": "Saying thanks to those that let their data be used here"
+  },
+  "imprintPageDataProtectionText": "Ĉi tiu aplikaĵo kolektas nenian personan datenon. Por konservi kaj efektivigi la agordojn de la aplikaĵo, necesas permeso por atingi la konservejon de la aparato.",
+  "@imprintPageDataProtectionText": {
+    "description": "The privacy policy for the app"
+  },
+  "howToPagePartial": "Nigra piktogramo indikas abundan haveblecon; griza piktogramo, limigitan haveblecon en tiu specifa kategorio.",
+  "@howToPagePartial": {
+    "description": "Describes what the icon's color does."
+  },
+  "howToPageExplanation": "Ĉi tiu aplikaĵo sciigas vin unuavide pri la nunaj sezonaj manĝaĵoj:",
+  "@howToPageExplanation": {
+    "description": "A sentence explaining what the app does"
+  },
+  "imprintPageFontsText": "Font Awesome 5 (piktogramoj de pomo, karoto)\n(Permesilo: fontawesome.com/license)",
+  "@imprintPageFontsText": {
+    "description": "Font information"
+  },
+  "minAvLand": "Neniuj manĝaĵoj importitaj de eksterlando / malproksima loko",
+  "@minAvLand": {
+    "description": "The phrase 'No foods imported from overseas/far away'"
+  },
+  "imprintPageTitle": "Juraj informoj",
+  "@imprintPageTitle": {
+    "description": "The word 'Imprint'"
+  },
+  "imprintPageTextHeadline": "Teksto en aplikaĵo",
+  "@imprintPageTextHeadline": {
+    "description": "The word 'App text'"
+  },
+  "imprintPageSourcesHeadline": "Fontoj",
+  "@imprintPageSourcesHeadline": {
+    "description": "The word 'Sources'"
+  },
+  "imprintPagePublisher": "Eldoninto",
+  "@imprintPagePublisher": {
+    "description": "The word 'Publisher'"
+  },
+  "imprintPageButtonText": "Juraj informoj",
+  "@imprintPageButtonText": {
+    "description": "The word 'Imprint'"
+  },
+  "imprintPageDisclaimerHeadline": "Malgarantio",
+  "@imprintPageDisclaimerHeadline": {
+    "description": "The phrase 'Disclaimer'"
+  },
+  "imprintPageDataProtectionHeadline": "Regularo pri privateco",
+  "@imprintPageDataProtectionHeadline": {
+    "description": "The phrase 'Privacy policy'"
+  },
+  "imprintPageDataHeadline": "Datenoj pri havebleco",
+  "@imprintPageDataHeadline": {
+    "description": "The phrase 'Availability data'"
+  },
+  "howToPageColors": "La koloro de la nomo respondas al la ĉi-supra klasifiko. Verdo estas pli bona ol ruĝo.",
+  "@howToPageColors": {
+    "description": "Describes what the food background colors do"
+  },
+  "howToPageAvLocal": "Sezona/loke aŭ regione havebla.",
+  "@howToPageAvLocal": {
+    "description": "A sentence explaining what the house icon means."
+  },
+  "imprintPageTranslationsHeadline": "Tradukoj",
+  "@imprintPageTranslationsHeadline": {
+    "description": "The word 'Translations'"
+  },
+  "supportPageText2": "Sed se vi volas subteni mian laboron, vi povas rigardi, kion mi faras ĝenerale ĉe mia retpaĝo.",
+  "@supportPageText2": {
+    "description": "Something like 'User can go to webpage if they further want to support'"
+  },
+  "supportPageText1": "Ĉi tiu aplikaĵo restos tute senpaga kaj senreklama dum mi disvolvos ĝin.",
+  "@supportPageText1": {
+    "description": "The statement 'This app will remain fully free of charge and ad-free as long as I am developing it.'"
+  },
+  "supportPageSpreadText2": "Tiel ni povas kune konsciigi nin pri la originoj de niaj manĝaĵoj, dume ŝparante monon kaj manĝante pli bonguste.",
+  "@supportPageSpreadText2": {
+    "description": "Continuation of the motivating text"
+  },
+  "supportPageSpreadText1": "Estas agrable aŭdi tion! La plej efika maniero subteni min estas simple diskonigi: Informu viajn amikojn kaj familianojn pri la aplikaĵo!",
+  "@supportPageSpreadText1": {
+    "description": "A text motivating to spread the word about the app if the user likes it"
+  },
+  "settingsUncommonTitle": "Montri specialajn kaj nekutimajn manĝaĵojn",
+  "@settingsUncommonTitle": {
+    "description": "The phrase 'Show special and unusual foods'"
+  },
+  "imprintPageDataText": "Lebensmittellexikon.de (plejparte);\nAndreas Boltres (la resto).",
+  "@imprintPageDataText": {
+    "description": "Name of author(s) for availability data"
+  },
+  "minAvSea": "Neniuj manĝaĵoj importitaj aviade",
+  "@minAvSea": {
+    "description": "The phrase 'No foods imported via airplane'"
+  },
+  "minAvLocal": "Nur lokaj kaj regionaj manĝaĵoj",
+  "@minAvLocal": {
+    "description": "The phrase 'Only local and regional foods'"
+  },
+  "minAvAir": "Ĉiuj haveblaj manĝaĵoj",
+  "@minAvAir": {
+    "description": "The phrase 'All available foods'"
+  },
+  "may": "Majo",
+  "@may": {
+    "description": "The word 'May'"
+  },
+  "march": "Marto",
+  "@march": {
+    "description": "The word 'March'"
+  },
+  "incompleteLanguageNotice": "Nekompletaj lingvoj montriĝas kun avizo \"Beta\". Por tiuj, mankantaj tradukoj montriĝas angle.",
+  "@incompleteLanguageNotice": {},
+  "centralEurope": "Mezeŭropo",
+  "@centralEurope": {
+    "description": "The region of Central Europe."
+  },
+  "settingsRegionUseLocaleSub": "Uziĝas 'Mezeŭropon' se la aparata regiono ne estas subtenata",
+  "@settingsRegionUseLocaleSub": {
+    "description": "The phrase 'Uses 'Central Europe' if device region is not supported'"
+  },
+  "settingsLanguageUseLocaleSub": "Uziĝas la angla, se la aparata lingvo ne estas subtenata",
+  "@settingsLanguageUseLocaleSub": {
+    "description": "The phrase 'Uses English if device language is not supported'"
+  },
+  "settingsLanguageSubtitle": "Ŝanĝo de la lingvo restartigas la aplikaĵon",
+  "@settingsLanguageSubtitle": {
+    "description": "The phrase 'Changing the language restarts the app'"
+  },
+  "settingsFilterTitle": "Filtri laŭ havebleco",
+  "@settingsFilterTitle": {
+    "description": "The phrase 'Filter by availability'"
+  },
+  "howToPageAvSea": "Importita de malproksima loko, plejparte ŝipe.",
+  "@howToPageAvSea": {
+    "description": "A sentence explaining what the ship icon means."
+  },
+  "howToPageAvLand": "Importita de ne tro malproksima loko, plejparte per teraj veturiloj.",
+  "@howToPageAvLand": {
+    "description": "A sentence explaining what the truck icon means."
+  },
+  "howToPageAvAir": "Importita de malproksima loko, plejparte aviade.",
+  "@howToPageAvAir": {
+    "description": "A sentence explaining what the airplane icon means."
+  },
+  "howToPageTitle": "Klarigo",
+  "@howToPageTitle": {
+    "description": "The word 'Explanation'"
+  },
+  "imprintImgSourcesPublisher": "\nKreinto: ",
+  "@imprintImgSourcesPublisher": {
+    "description": "The word 'Creator: ' (with trailing double dot and space, leading newline!)"
+  },
+  "imprintImgSourcesLicense": "Permesilo: ",
+  "@imprintImgSourcesLicense": {
+    "description": "The word 'License: ' (with trailing double dot and space!)"
+  },
+  "contribPageContact": "Se vi trovis eraron aŭ konkretan plibonigindaĵon, bonvolu kontakti min per mia retpaĝo.",
+  "@contribPageContact": {
+    "description": "Justification for missing features/incorrectness by stating young age of app"
+  },
+  "contribPageCode": "La fontkodo de la aplikaĵo haveblas ĉe GitHub:",
+  "@contribPageCode": {
+    "description": "The phrase 'The source code for the app is available on GitHub:'"
+  },
+  "aboutPageDisclaimer": "Bonvolu memori, ke la reala havebleco de manĝaĵoj en via loka butiko povas diferenci de la informoj montrataj ĉi tie.",
+  "@aboutPageDisclaimer": {
+    "description": "A disclaimer for the availability data"
+  },
+  "aboutPageAdvantage3": "Malpliiĝas la klopodo por konservi manĝaĵojn.",
+  "@aboutPageAdvantage3": {
+    "description": "The phrase 'The efforts made for storing foods is reduced.'"
+  },
+  "aboutPageAdvantage5": "Vi subtenas lokajn entreprenojn kaj dungojn.",
+  "@aboutPageAdvantage5": {
+    "description": "The phrase 'You support local businesses and jobs.'"
+  },
+  "aboutPageAdvantage4": "La transporto malpli difektas la medion.",
+  "@aboutPageAdvantage4": {
+    "description": "The phrase 'The transport is less harmful to the environment.'"
+  },
+  "aboutPageAdvantage1": "Freŝaj manĝaĵoj gustas pli bone kaj estas pli sanaj por via korpo.",
+  "@aboutPageAdvantage1": {
+    "description": "The phrase 'Fresh produce tastes better and is healthier for your body.'"
+  },
+  "aboutPageAdvantage2": "Freŝaj manĝaĵoj estas ĝenerale pli malmultekostaj.",
+  "@aboutPageAdvantage2": {
+    "description": "The phrase 'Fresh foods are generally cheaper.'"
+  },
+  "emptyFoodsViewText": "Neniuj manĝaĵoj haveblas!",
+  "@emptyFoodsViewText": {
+    "description": "A text shown when no food is displayed in the current foods view."
+  },
+  "settingsSortingTitle": "Ordigi laŭ havebleco",
+  "@settingsSortingTitle": {
+    "description": "The phrase 'Sort by availability'"
+  },
+  "emptySearchViewText": "Neniuj manĝaĵoj troviĝis!",
+  "@emptySearchViewText": {
+    "description": "A text shown when no food is displayed in the search result view."
+  },
+  "aboutPageHeadline": "Kial zorgi pri la sezonoj de manĝaĵoj?",
+  "@aboutPageHeadline": {
+    "description": "The phrase 'Why care about foods' seasons?'"
+  },
+  "contribPageContactHeadline": "Ĉu io mankas aŭ malĝustas?",
+  "@contribPageContactHeadline": {
+    "description": "The phrase 'Something is missing or wrong?'"
+  },
+  "supportPageSpreadTitle": "Ĉu vi ŝatas la aplikaĵon?",
+  "@supportPageSpreadTitle": {
+    "description": "The phrase 'Do you like the app?'"
+  },
+  "october": "Oktobro",
+  "@october": {
+    "description": "The word 'October'"
+  },
+  "november": "Novembro",
+  "@november": {
+    "description": "The word 'November'"
+  },
+  "languageCode": "eo",
+  "@languageCode": {
+    "description": "The two-character ISO language code of this language."
+  },
+  "languageName": "Esperanto",
+  "@languageName": {
+    "description": "The name of this language"
+  },
+  "june": "Junio",
+  "@june": {
+    "description": "The word 'June'"
+  },
+  "july": "Julio",
+  "@july": {
+    "description": "The word 'July'"
+  },
+  "january": "Januaro",
+  "@january": {
+    "description": "The word 'January'"
+  },
+  "imprintPageMyName": "Andreas Boltres",
+  "@imprintPageMyName": {
+    "description": "App text author name"
+  },
+  "imprintPageImagesHeadline": "Bildoj",
+  "@imprintPageImagesHeadline": {
+    "description": "The word 'Images'"
+  },
+  "imprintPageFontsHeadline": "Tiparo",
+  "@imprintPageFontsHeadline": {
+    "description": "The word 'Font'"
+  },
+  "howToPageExplanationHeadline": "Kiel uzi la aplikaĵon?",
+  "@howToPageExplanationHeadline": {
+    "description": "The phrase 'How do I use the app?'"
+  },
+  "etcPageTitle": "Pri la aplikaĵo",
+  "@etcPageTitle": {
+    "description": "Title shown at the top of the 'more info' page (the one behind the icon with three dots)"
+  },
+  "settingsPageTitle": "Agordoj",
+  "@settingsPageTitle": {
+    "description": "The word 'Settings'"
+  },
+  "searchFieldLabel": "Serĉi…",
+  "@searchFieldLabel": {
+    "description": "The label used in the search bar"
+  },
+  "september": "Septembro",
+  "@september": {
+    "description": "The word 'September'"
+  },
+  "settingsVersion": "Versio",
+  "@settingsVersion": {
+    "description": "The word 'Version'"
+  },
+  "settingsLanguageUseLocale": "Uzi lingvon de la aparato",
+  "@settingsLanguageUseLocale": {
+    "description": "The phrase 'Use device language'"
+  },
+  "settingsLanguageTitle": "Lingvo",
+  "@settingsLanguageTitle": {
+    "description": "The word 'Language'"
+  },
+  "settingsRegionUseLocale": "Uzi regionon de aparato",
+  "@settingsRegionUseLocale": {
+    "description": "The phrase 'Use device region'"
+  },
+  "settingsRegionTitle": "Regiono",
+  "@settingsRegionTitle": {
+    "description": "The word 'Region'"
+  },
+  "supportPageTitle": "Subteni",
+  "@supportPageTitle": {
+    "description": "The word 'Support'"
+  },
+  "supportPageWebsiteLink": "Retpaĝen",
+  "@supportPageWebsiteLink": {
+    "description": "The phrase 'To the webpage'"
+  },
+  "supportPageHeadline": "Doni almozon",
+  "@supportPageHeadline": {
+    "description": "The word 'Give alms'"
+  },
+  "imprintPageAppInfo": "Informoj pri la Aplikaĵo",
+  "@imprintPageAppInfo": {
+    "description": "The word 'App Information'"
+  },
+  "february": "Februaro",
+  "@february": {
+    "description": "The word 'February'"
+  },
+  "contribPageCodeButtonText": "Github-deponejen",
+  "@contribPageCodeButtonText": {
+    "description": "The phrase 'To the GitHub repo'"
+  },
+  "contribPageCodeHeadline": "Montru al mi la kodon!",
+  "@contribPageCodeHeadline": {
+    "description": "The phrase 'Show me the code!'"
+  },
+  "contribPageContactButtonText": "Retpaĝen",
+  "@contribPageContactButtonText": {
+    "description": "The phrase 'To the webpage'"
+  },
+  "contribPageTitle": "Kontribui",
+  "@contribPageTitle": {
+    "description": "The word 'Contribute'"
+  },
+  "december": "Decembro",
+  "@december": {
+    "description": "The word 'December'"
+  },
+  "appTitle": "Kalendaro de Sezonaj Manĝaĵoj",
+  "@appTitle": {
+    "description": "The title of the app, e.g. 'Seasonal foods calendar'"
+  },
+  "aboutPageTitle": "Pri la aplikaĵo",
+  "@aboutPageTitle": {
+    "description": "The phrase 'About the app'"
+  },
+  "reunion": "Reunio (Francio)",
+  "@reunion": {},
+  "wikipedia": "Vikipedio",
+  "@wikipedia": {
+    "description": "The word 'Wikipedia'"
+  },
+  "northAmerica": "Nord-Ameriko",
+  "@northAmerica": {}
 }
