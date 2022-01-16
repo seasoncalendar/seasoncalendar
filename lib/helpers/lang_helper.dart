@@ -178,6 +178,7 @@ final List<String> completeLanguages = [
   "pl",
   "es",
   "it",
+  "nl",
   "bg"
 ];
 final List<String> nonDisplayableLanguages = ["eo"];
