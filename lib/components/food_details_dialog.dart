@@ -83,7 +83,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
           Text(
             widget._food.displayName,
             textAlign: TextAlign.center,
-            style: defaultTheme.textTheme.headline5,
+            style: Theme.of(context).textTheme.headline5,
           ),
           SizedBox(height: 10),
           imgAndAvailabilities,

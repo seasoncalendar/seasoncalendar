@@ -69,7 +69,7 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
     // regions.sort();
     return regions.map((region) {
       return RadioListTile(
-        activeColor: defaultTheme.accentColor,
+        activeColor: Theme.of(context).colorScheme.secondary,
         dense: false,
         value: region.id,
         groupValue: widget._settings['regionCode'],

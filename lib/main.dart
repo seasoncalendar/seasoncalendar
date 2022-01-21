@@ -77,7 +77,7 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     if (this.localeLoadedFromPrefs == false) {
       return CircularProgressIndicator(
-        valueColor: AlwaysStoppedAnimation<Color>(defaultTheme.accentColor),
+        valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondary),
       );
     } else {
       return MaterialApp(

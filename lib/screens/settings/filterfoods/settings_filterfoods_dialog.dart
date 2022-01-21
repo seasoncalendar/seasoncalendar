@@ -26,17 +26,17 @@ class FilterfoodsDialogState extends State<FilterfoodsDialog> {
           Text(
             L10n.of(context).settingsFilterTitle,
             textAlign: TextAlign.center,
-            style: defaultTheme.textTheme.headline5,
+            style: Theme.of(context).textTheme.headline5,
           ),
           SizedBox(height: 35,),
           ToggleButtons(
             color: Colors.black38,
             selectedColor: Colors.black,
-            fillColor: defaultTheme.primaryColor.withAlpha(150),
-            borderColor: defaultTheme.accentColor.withAlpha(0),
-            selectedBorderColor: defaultTheme.accentColor.withAlpha(150),
-            splashColor: defaultTheme.primaryColor,
-            highlightColor: defaultTheme.primaryColor,
+            fillColor: Theme.of(context).colorScheme.primary.withAlpha(150),
+            borderColor: Theme.of(context).colorScheme.secondary.withAlpha(0),
+            selectedBorderColor: Theme.of(context).colorScheme.secondary.withAlpha(150),
+            splashColor: Theme.of(context).colorScheme.primary,
+            highlightColor: Theme.of(context).colorScheme.primary,
             children: avIcons,
             isSelected: widget._selectedAvailabilities,
             onPressed: (int i) {

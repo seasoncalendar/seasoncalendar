@@ -20,7 +20,7 @@ class HomeScreenNavigationBar extends StatelessWidget {
           if (snapshot.hasData) {
             var settings = snapshot.data!;
             return Container(
-              color: defaultTheme.primaryColor,
+              color: Theme.of(context).colorScheme.primary,
               child: Row(
                 children: <Widget>[
                   Spacer(flex: 2),

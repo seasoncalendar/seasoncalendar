@@ -27,7 +27,7 @@ class ImgSourcesScreen extends StatelessWidget {
                 dense: false,
                 title: Text(
                   _allFoods[i].displayName,
-                  style: defaultTheme.textTheme.headline6,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
                 subtitle: Text(L10n.of(context).imprintImgSourcesLicense +
                     _allFoods[i].assetImgInfo.split("/")[0].trim() +

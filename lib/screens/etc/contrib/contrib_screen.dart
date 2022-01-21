@@ -20,13 +20,13 @@ class ContribPage extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   Text(L10n.of(context).contribPageContactHeadline,
-                      style: defaultTheme.textTheme.headline4),
+                      style: Theme.of(context).textTheme.headline4),
                   SizedBox(height: 20),
                   RichText(
                     textAlign: TextAlign.justify,
                     text: TextSpan(
                       text: L10n.of(context).contribPageContact,
-                      style: defaultTheme.textTheme.bodyText1
+                      style: Theme.of(context).textTheme.bodyText1
                           ?.copyWith(color: Colors.black),
                     ),
                   ),
@@ -46,13 +46,13 @@ class ContribPage extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(L10n.of(context).contribPageCodeHeadline,
-                      style: defaultTheme.textTheme.headline4),
+                      style: Theme.of(context).textTheme.headline4),
                   SizedBox(height: 20),
                   RichText(
                     textAlign: TextAlign.justify,
                     text: TextSpan(
                       text: L10n.of(context).contribPageCode,
-                      style: defaultTheme.textTheme.bodyText1
+                      style: Theme.of(context).textTheme.bodyText1
                           ?.copyWith(color: Colors.black),
                     ),
                   ),

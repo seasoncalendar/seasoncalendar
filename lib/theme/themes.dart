@@ -4,8 +4,12 @@ final ThemeData defaultTheme = ThemeData(
 
 // Define the default brightness and colors.
     brightness: Brightness.light,
-    primaryColor: Colors.lightGreen[200],
-    accentColor: Colors.lightGreen[600],
+    primarySwatch: Colors.lightGreen,
+    colorScheme: ColorScheme.fromSwatch(
+      primarySwatch: Colors.lightGreen,
+      accentColor: Colors.lightGreen[600],
+      brightness: Brightness.light,
+    ).copyWith(primary: Colors.lightGreen[200]),
 
 // Define the default font family.
     fontFamily: 'Noto',

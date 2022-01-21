@@ -32,7 +32,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
                 var settings = snapshot.data! as Map<String, dynamic>;
                 widget._settings = settings;
 
-                var languageListTiles = getLanguageEntries();
+                var languageListTiles = getLanguageEntries(context);
 
                 return Container(
                     padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
@@ -46,7 +46,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
                           padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           child: Text(L10n.of(context).incompleteLanguageNotice,
                               textAlign: TextAlign.left,
-                              style: defaultTheme.textTheme.bodyText1?.copyWith(
+                              style: Theme.of(context).textTheme.bodyText1?.copyWith(
                                   fontStyle: FontStyle.italic,
                                   color: Colors.grey[600])),
                         ),
@@ -97,7 +97,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     MyApp.setLocale(context, newLocale);
   }
 
-  getLanguageRadioListTile(String langCode) {
+  getLanguageRadioListTile(BuildContext context, String langCode) {
     String languageName = "NONE";
     if (languageNameFromCode.containsKey(langCode)) {
       languageName = languageNameFromCode[langCode]!;
@@ -106,7 +106,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
       languageName += " (Beta)";
     }
     return RadioListTile(
-      activeColor: defaultTheme.accentColor,
+      activeColor: Theme.of(context).colorScheme.secondary,
       dense: false,
       value: langCode,
       groupValue: widget._settings['languageCode'],
@@ -117,21 +117,21 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     );
   }
 
-  getLanguageEntries() {
-    List<RadioListTile> languageEntries = [getDeviceLanguageEntry()];
+  getLanguageEntries(BuildContext context) {
+    List<RadioListTile> languageEntries = [getDeviceLanguageEntry(context)];
     List<String> localeLangCodes = L10n.delegate.supportedLocales
         .map((locale) => locale.languageCode)
         .where((langCode) => !nonDisplayableLanguages.contains(langCode))
         .toList();
     localeLangCodes.sort();
     languageEntries.addAll(
-        localeLangCodes.map((langCode) => getLanguageRadioListTile(langCode)));
+        localeLangCodes.map((langCode) => getLanguageRadioListTile(context, langCode)));
     return languageEntries;
   }
 
-  getDeviceLanguageEntry() {
+  getDeviceLanguageEntry(BuildContext context) {
     return RadioListTile<String>(
-      activeColor: defaultTheme.accentColor,
+      activeColor: Theme.of(context).colorScheme.secondary,
       dense: false,
       value: "null",
       groupValue: widget._settings['languageCode'],

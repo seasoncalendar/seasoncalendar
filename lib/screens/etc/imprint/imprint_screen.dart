@@ -23,7 +23,7 @@ class ImprintPage extends StatelessWidget {
             children: <Widget>[
               Text(
                 L10n.of(context).imprintPagePublisher,
-                style: defaultTheme.textTheme.headline4,
+                style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
@@ -34,7 +34,7 @@ class ImprintPage extends StatelessWidget {
               SizedBox(height: 20),
               Text(
                 L10n.of(context).imprintPageDisclaimerHeadline,
-                style: defaultTheme.textTheme.headline4,
+                style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
@@ -43,7 +43,7 @@ class ImprintPage extends StatelessWidget {
               SizedBox(height: 20),
               Text(
                 L10n.of(context).imprintPageDataProtectionHeadline,
-                style: defaultTheme.textTheme.headline4,
+                style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
@@ -52,13 +52,13 @@ class ImprintPage extends StatelessWidget {
               SizedBox(height: 20),
               Text(
                 L10n.of(context).imprintPageSourcesHeadline,
-                style: defaultTheme.textTheme.headline4,
+                style: Theme.of(context).textTheme.headline4,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
               Text(
                 L10n.of(context).imprintPageTextHeadline,
-                style: defaultTheme.textTheme.headline6,
+                style: Theme.of(context).textTheme.headline6,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
@@ -80,7 +80,7 @@ class ImprintPage extends StatelessWidget {
               SizedBox(height: 20),
               Text(
                 L10n.of(context).imprintPageDataHeadline,
-                style: defaultTheme.textTheme.headline6,
+                style: Theme.of(context).textTheme.headline6,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
@@ -91,14 +91,14 @@ class ImprintPage extends StatelessWidget {
               SizedBox(height: 10),
               Text(L10n.of(context).imprintPageDataText2,
                   textAlign: TextAlign.left,
-                  style: defaultTheme.textTheme.bodyText1
+                  style: Theme.of(context).textTheme.bodyText1
                       ?.copyWith(fontStyle: FontStyle.italic)),
               SizedBox(height: 20),
               GestureDetector(
                 child: Text(
                   L10n.of(context).imprintPageImagesHeadline,
-                  style: defaultTheme.textTheme.headline6
-                      ?.copyWith(color: defaultTheme.accentColor),
+                  style: Theme.of(context).textTheme.headline6
+                      ?.copyWith(color: Theme.of(context).colorScheme.secondary),
                   textAlign: TextAlign.left,
                 ),
                 onTap: () =>
@@ -107,7 +107,7 @@ class ImprintPage extends StatelessWidget {
               SizedBox(height: 10),
               Text(
                 L10n.of(context).imprintPageFontsHeadline,
-                style: defaultTheme.textTheme.headline6,
+                style: Theme.of(context).textTheme.headline6,
                 textAlign: TextAlign.left,
               ),
               SizedBox(height: 10),
