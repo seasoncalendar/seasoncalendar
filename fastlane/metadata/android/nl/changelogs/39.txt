@@ -1,0 +1,2 @@
+Versie 1.4.5+39:
+- Visuele verbeteringen en een betere uitleg.

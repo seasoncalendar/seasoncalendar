@@ -1,0 +1,3 @@
+Versie 1.4.7+42:
+- Enkele fouten in voedselnamen en -afbeeldingen gerepareerd
+- Appbeschrijving en instellingenmenu geven nu aan dat ,op dit moment, alleen data van Centraal-Europa beschikbaar is

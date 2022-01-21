@@ -1,0 +1,3 @@
+Versie 1.3.2+27:
+- De normale ui toegevoegd aan beschikbaar voedsel (bleek dat ik deze per ongeluk was vergeten).
+- Bugfix: Zoeken naar voedsel wordt nu altijd gedaan in de geselecteerde locale.

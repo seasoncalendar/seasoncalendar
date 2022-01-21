@@ -1,0 +1,2 @@
+Versie 1.1.2+15: Interne wijzigingen (buildmechanisme en appmetadata).
+Privacybeleid en apprechten blijven onveranderd.

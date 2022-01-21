@@ -1,0 +1,2 @@
+Versie 1.4.3+37:
+- Franse taal is toegevoegd.

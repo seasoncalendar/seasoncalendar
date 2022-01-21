@@ -1,0 +1,3 @@
+Versie 1.4.2+35:
+- Interne verbeteringen en reparaties.
+Privacybeleid en apprechten blijven onveranderd.
