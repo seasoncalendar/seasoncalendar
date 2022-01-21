@@ -1,0 +1,3 @@
+Versie 1.4.0:31:
+- Je kan nu handmatig de taal van de app kiezen in het instellingenmenu.
+Privacybeleid en apprechten blijven onveranderd.

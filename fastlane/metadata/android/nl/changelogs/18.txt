@@ -1,0 +1,2 @@
+Versie 1.1.3+18: Interne wijzigingen (tonen van voedsel wordt nu beheerd door providerpakket van flutter).
+Privacybeleid en app rechten blijven onveranderd.

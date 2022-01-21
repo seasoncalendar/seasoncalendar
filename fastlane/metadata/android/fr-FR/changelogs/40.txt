@@ -1,2 +1,2 @@
-Version 1.4.6+40:
-- Maintenant disponible en polonais et en espagnol !
+Version 1.4.6+40 :
+- Maintenant disponible en polonais et en espagnol !

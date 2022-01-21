@@ -1,0 +1,4 @@
+Versie 1.3.0+25:
+- De app past nu automatisch de taal aan naar die van het apparaat indien de app die ondersteund.
+- Engelstalige lijst van ondersteunde apparaattalen toegevoegd.
+Privacybeleid en app rechten blijven onveranderd.

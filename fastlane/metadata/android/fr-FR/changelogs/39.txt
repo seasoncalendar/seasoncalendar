@@ -1,2 +1,2 @@
-Version 1.4.5+39:
-- Améliorations: explication, apparence.
+Version 1.4.5+39 :
+- Améliorations : explication, apparence.
