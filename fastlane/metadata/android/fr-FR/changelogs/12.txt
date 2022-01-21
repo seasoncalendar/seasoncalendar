@@ -1,0 +1,1 @@
+Nouveau dans la v1.1 : Recherche d'aliments améliorée, qui inclut maitenant des synonymes allemands courants.

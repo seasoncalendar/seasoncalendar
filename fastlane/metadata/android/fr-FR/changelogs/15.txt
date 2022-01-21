@@ -1,0 +1,2 @@
+Version 1.1.2+15 : Changements internes (méchanisme de compilation et métadonnées de l'appli).
+La politique de privacité et les permissions de l'appli ne changent pas.
