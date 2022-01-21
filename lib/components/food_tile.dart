@@ -12,7 +12,7 @@ class FoodTile extends StatefulWidget {
   final Food _food;
   final int _curMonthIndex;
   final List<List<Availability>> _allAvailabilities;
-  late List<Availability> _curAvailabilities;
+  late final List<Availability> _curAvailabilities;
   Color _curAvailabilityColor = Colors.white70;
 
   FoodTile(Food foodToDisplay, int curMonthIndex)

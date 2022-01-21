@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/theme/seasoncalendar_icons.dart';
-import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/screens/search/search_screen.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 

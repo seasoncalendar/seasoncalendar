@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 class HowToPage extends StatelessWidget {
