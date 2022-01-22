@@ -59,6 +59,7 @@ Please note that the data concerning foods' availability partly stems from [lebe
 0. Clone the repo
 1. `flutter pub get`
 2. `flutter update-packages`
-3. `flutter build apk --debug --flavor <flavor>` **or** `flutter build apk --release --flavor <flavor>`
+3. `flutter pub run intl_utils:generate`
+4. `flutter build apk --debug --flavor <flavor>` **or** `flutter build apk --release --flavor <flavor>`
 
 (replace `<flavor>` with `googleplay` for the Google Play version, `foss` for the full version) 
