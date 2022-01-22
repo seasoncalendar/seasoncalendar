@@ -88,124 +88,120 @@ class SettingsPageState extends State<SettingsPage> {
     return packageInfo.version + "+" + packageInfo.buildNumber;
   }
 
-  Widget _buildSettings(BuildContext context) {
-    if (widget._settings == null) {
-      return Align(
-        alignment: Alignment.center,
-        child: CircularProgressIndicator(),
+  Widget _buildSettings(BuildContext context, settings, versionInfo) {
+    GestureTapCallback showFilterFoodsDialog = () {
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          backgroundColor: Colors.white,
+          content: FilterfoodsDialog(List.generate(
+              avTypeCount, (i) => widget._settings![avSettingsKeys[i]])),
+          elevation: 10,
+          actions: [
+            MaterialButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed("/etc/howto");
+              },
+              child: Icon(Icons.help),
+            ),
+            MaterialButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(L10n.of(context).back)),
+        ],
+        ),
+        barrierDismissible: true,
       );
-    } else {
-      GestureTapCallback showFilterFoodsDialog = () {
-        showDialog(
-          context: context,
-          builder: (_) => AlertDialog(
-            backgroundColor: Colors.white,
-            content: FilterfoodsDialog(List.generate(
-                avTypeCount, (i) => widget._settings![avSettingsKeys[i]])),
-            elevation: 10,
-            actions: [
-              MaterialButton(
-                onPressed: () {
-                  Navigator.of(context).pushNamed("/etc/howto");
+    };
+
+    return Container(
+        margin: EdgeInsets.all(10),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SwitchListTile.adaptive(
+                secondary: const Icon(Icons.folder_special),
+                title: Text(L10n.of(context).settingsUncommonTitle),
+                subtitle: Text(L10n.of(context).settingsUncommonText),
+                value: widget._settings!["includeUncommon"],
+                dense: false,
+                onChanged: (newVal) {
+                  setSettingI("includeUncommon", newVal);
                 },
-                child: Icon(Icons.help),
               ),
-              MaterialButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
+              const Divider(),
+              SwitchListTile.adaptive(
+                secondary: const Icon(Icons.sort),
+                title: Text(L10n.of(context).settingsSortingTitle),
+                value: widget._settings!["foodSorting"],
+                dense: false,
+                onChanged: (newVal) {
+                  setSettingI("foodSorting", newVal);
+                },
+              ),
+              const Divider(),
+              ListTile(
+                leading: Icon(Icons.visibility),
+                title: Text(L10n.of(context).settingsFilterTitle),
+                isThreeLine: false,
+                dense: false,
+                onTap: showFilterFoodsDialog,
+              ),
+              const Divider(),
+              ListTileTheme(
+                child: ListTile(
+                  enabled: false,
+                  leading: Icon(Icons.language),
+                  title: Text(L10n.of(context).settingsRegionTitle),
+                  trailing: Text(widget._settings?['regionCode']),
+                  isThreeLine: false,
+                  dense: false,
+                  onTap: () {
+                    Navigator.of(context).pushNamed("/settings/region");
                   },
-                  child: Text(L10n.of(context).back)),
+                ),
+              ),
+              const Divider(),
+              ListTileTheme(
+                child: ListTile(
+                  leading: Icon(Icons.translate),
+                  title: Text(L10n.of(context).settingsLanguageTitle),
+                  trailing: Text(widget._settings?['languageCode']),
+                  isThreeLine: false,
+                  dense: false,
+                  onTap: () {
+                    Navigator.of(context).pushNamed("/settings/language");
+                  },
+                ),
+              ),
+              const Divider(),
+              ListTileTheme(
+                child: ListTile(
+                  leading: Icon(Icons.account_balance),
+                  title: Text(L10n.of(context).imprintPageTitle),
+                  isThreeLine: false,
+                  dense: false,
+                  onTap: () =>
+                      {Navigator.of(context).pushNamed("/etc/imprint")},
+                ),
+              ),
+              const Divider(),
+              ListTile(
+                leading: Icon(Icons.info_outline),
+                enabled: false,
+                title: Text(L10n.of(context).settingsVersion),
+                trailing: Text(
+                  widget._versionInfo +
+                      versionCodeSuffixFromAppFlavor(
+                          AppConfig.of(context).buildFlavor),
+                  style: const TextStyle(color: Colors.black38),
+                ),
+                isThreeLine: false,
+                dense: false,
+              ),
             ],
           ),
-          barrierDismissible: true,
-        );
-      };
-
-      return Container(
-          margin: EdgeInsets.all(10),
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                SwitchListTile.adaptive(
-                  secondary: const Icon(Icons.folder_special),
-                  title: Text(L10n.of(context).settingsUncommonTitle),
-                  subtitle: Text(L10n.of(context).settingsUncommonText),
-                  value: widget._settings!["includeUncommon"],
-                  dense: false,
-                  onChanged: (newVal) {
-                    setSettingI("includeUncommon", newVal);
-                  },
-                ),
-                const Divider(),
-                SwitchListTile.adaptive(
-                  secondary: const Icon(Icons.sort),
-                  title: Text(L10n.of(context).settingsSortingTitle),
-                  value: widget._settings!["foodSorting"],
-                  dense: false,
-                  onChanged: (newVal) {
-                    setSettingI("foodSorting", newVal);
-                  },
-                ),
-                const Divider(),
-                ListTile(
-                  leading: Icon(Icons.visibility),
-                  title: Text(L10n.of(context).settingsFilterTitle),
-                  isThreeLine: false,
-                  dense: false,
-                  onTap: showFilterFoodsDialog,
-                ),
-                const Divider(),
-                ListTileTheme(
-                  child: ListTile(
-                    leading: Icon(Icons.language),
-                    title: Text(L10n.of(context).settingsRegionTitle),
-                    isThreeLine: false,
-                    dense: false,
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/settings/region");
-                    },
-                  ),
-                ),
-                const Divider(),
-                ListTileTheme(
-                  child: ListTile(
-                    leading: Icon(Icons.translate),
-                    title: Text(L10n.of(context).settingsLanguageTitle),
-                    isThreeLine: false,
-                    dense: false,
-                    onTap: () {
-                      Navigator.of(context).pushNamed("/settings/language");
-                    },
-                  ),
-                ),
-                const Divider(),
-                ListTileTheme(
-                  child: ListTile(
-                    leading: Icon(Icons.account_balance),
-                    title: Text(L10n.of(context).imprintPageTitle),
-                    isThreeLine: false,
-                    dense: false,
-                    onTap: () =>
-                        {Navigator.of(context).pushNamed("/etc/imprint")},
-                  ),
-                ),
-                const Divider(),
-                ListTile(
-                  leading: Icon(Icons.info_outline),
-                  enabled: false,
-                  title: Text(L10n.of(context).settingsVersion),
-                  trailing: Text(
-                    widget._versionInfo +
-                        versionCodeSuffixFromAppFlavor(
-                            AppConfig.of(context).buildFlavor),
-                    style: const TextStyle(color: Colors.black38),
-                  ),
-                  isThreeLine: false,
-                  dense: false,
-                ),
-              ],
-            ),
-          ));
-    }
+        ));
   }
 }
