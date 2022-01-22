@@ -29,29 +29,29 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
               DBProvider.db.getRegions()
             ]),
             builder: (context, AsyncSnapshot<List<Object>> snapshot) {
-              if (snapshot.hasData) {
-                var settings = snapshot.data![0] as Map<String, dynamic>;
-                widget._settings = settings;
-                var regions = snapshot.data![1] as Iterable<Region>;
-                var regionListTiles = getRegionEntriesList(context, regions);
-
-                return Container(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  child: ListView.separated(
-                    itemCount: regionListTiles.length,
-                    itemBuilder: (context, i) {
-                      return ListTileTheme(
-                          selectedColor: defaultListTileTheme.selectedColor,
-                          child: regionListTiles[i]);
-                    },
-                    separatorBuilder: (context, i) => const Divider(
-                      height: 10,
-                    ),
-                  ),
-                );
-              } else {
+              if (!snapshot.hasData) {
                 return Container();
               }
+              var settings = snapshot.data![0] as Map<String, dynamic>;
+              widget._settings = settings;
+              var regions = snapshot.data![1] as Iterable<Region>;
+              var regionListTiles = getRegionEntriesList(context, regions);
+
+              return Container(
+                padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                child: ListView.separated(
+                  itemCount: regionListTiles.length,
+                  itemBuilder: (context, i) {
+                    return ListTileTheme(
+                        selectedColor: defaultListTileTheme.selectedColor,
+                        child: regionListTiles[i]);
+                  },
+                  separatorBuilder: (context, i) =>
+                  const Divider(
+                    height: 10,
+                  ),
+                ),
+              );
             }));
   }
 

@@ -73,8 +73,13 @@ class SettingsPageState extends State<SettingsPage> {
                   if (snapshot.hasData) {
                     widget._settings = snapshot.data![0] as Map<String, dynamic>;
                     widget._versionInfo = snapshot.data![1] as String;
+                    return _buildSettings(context, widget._settings, widget._versionInfo);
+                  } else {
+                    return Align(
+                      alignment: Alignment.center,
+                      child: CircularProgressIndicator()
+                    );
                   }
-                  return _buildSettings(context);
                 })));
   }
 
