@@ -396,7 +396,7 @@
   "@pakchoi_names": {},
   "papaya_infoUrl": "https://es.wikipedia.org/wiki/Carica_papaya",
   "@papaya_infoUrl": {},
-  "papaya_names": "Papaya, Papaw, Pawpaw",
+  "papaya_names": "Papaya, Papayón, fruta bomba, Olocotón, Papayo, Mamón, lechosa, lechoza",
   "@papaya_names": {},
   "paprika_infoUrl": "https://es.wikipedia.org/wiki/Capsicum",
   "@paprika_infoUrl": {},
@@ -599,5 +599,9 @@
   "reunion": "Reunión (Francia)",
   "@reunion": {},
   "northAmerica": "América del Norte",
-  "@northAmerica": {}
+  "@northAmerica": {},
+  "northernCalifornia": "California del norte",
+  "@northernCalifornia": {
+    "description": "The region of Northern California."
+  }
 }
