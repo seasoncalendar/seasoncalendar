@@ -46,9 +46,12 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
                           padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           child: Text(L10n.of(context).incompleteLanguageNotice,
                               textAlign: TextAlign.left,
-                              style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                                  fontStyle: FontStyle.italic,
-                                  color: Colors.grey[600])),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  ?.copyWith(
+                                      fontStyle: FontStyle.italic,
+                                      color: Colors.grey[600])),
                         ),
                         const SizedBox(
                           height: 20,
@@ -124,8 +127,8 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
         .where((langCode) => !nonDisplayableLanguages.contains(langCode))
         .toList();
     localeLangCodes.sort();
-    languageEntries.addAll(
-        localeLangCodes.map((langCode) => getLanguageRadioListTile(context, langCode)));
+    languageEntries.addAll(localeLangCodes
+        .map((langCode) => getLanguageRadioListTile(context, langCode)));
     return languageEntries;
   }
 

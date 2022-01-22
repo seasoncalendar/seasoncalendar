@@ -18,10 +18,13 @@ class FoodTile extends StatefulWidget {
   FoodTile(Food foodToDisplay, int curMonthIndex)
       : _food = foodToDisplay,
         _curMonthIndex = curMonthIndex,
-        _allAvailabilities = List.generate(12,
-                (monthIndex) => foodToDisplay.getAvailabilitiesByMonth(monthIndex)) {
+        _allAvailabilities = List.generate(
+            12,
+            (monthIndex) =>
+                foodToDisplay.getAvailabilitiesByMonth(monthIndex)) {
     _curAvailabilities = _allAvailabilities[_curMonthIndex];
-    int fstModeIdx = _curAvailabilities.indexWhere((mode) => mode != Availability.none);
+    int fstModeIdx =
+        _curAvailabilities.indexWhere((mode) => mode != Availability.none);
     _curAvailabilityColor = availabilityModeColor[fstModeIdx]!;
   }
 
@@ -40,7 +43,7 @@ class FoodTileState extends State<FoodTile> {
       builder: (context, AsyncSnapshot<bool> snapshot) {
         if (snapshot.hasData) {
           _isFavorite =
-          snapshot.hasData ? (snapshot.data! ? 1 : -1) : _isFavorite;
+              snapshot.hasData ? (snapshot.data! ? 1 : -1) : _isFavorite;
         }
         return _buildFoodTile();
       },
@@ -84,8 +87,7 @@ class FoodTileState extends State<FoodTile> {
     // TODO feature for editing availabilities
     if (false) {
       actions.add(MaterialButton(
-        onPressed: () async {
-        },
+        onPressed: () async {},
         child: Text("Edit"), // TODO l10n
       ));
     }
@@ -116,12 +118,10 @@ class FoodTileState extends State<FoodTile> {
         builder: (_) => AlertDialog(
           backgroundColor: Colors.white,
           content: FoodDetailsDialog(
-              widget._food,
-              foodImage,
-              widget._allAvailabilities),
+              widget._food, foodImage, widget._allAvailabilities),
           elevation: 10,
           actions: actions,
-         // actionsPadding: EdgeInsets.symmetric(horizontal: 4),
+          // actionsPadding: EdgeInsets.symmetric(horizontal: 4),
         ),
         barrierDismissible: true,
       );
@@ -161,7 +161,7 @@ class FoodTileState extends State<FoodTile> {
                         child: InkWell(
                           onTap: tapCallback,
                           child:
-                          new LayoutBuilder(builder: (context, constraint) {
+                              new LayoutBuilder(builder: (context, constraint) {
                             return getFavIcon(context, constraint, _isFavorite);
                           }),
                         ),
@@ -173,24 +173,24 @@ class FoodTileState extends State<FoodTile> {
                 flex: 2,
                 child: Container(
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          child: Container(
-                            padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-                            child: FittedBox(
-                              fit: BoxFit.contain,
-                              child: Text(
-                                widget._food.displayName,
-                                style: foodText,
-                              ),
-                            ),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text(
+                            widget._food.displayName,
+                            style: foodText,
                           ),
                         ),
-                        availabilityIconContainer
-                      ],
-                    )))
+                      ),
+                    ),
+                    availabilityIconContainer
+                  ],
+                )))
           ],
         ));
   }
@@ -207,24 +207,27 @@ Icon getFavIcon(context, constraint, int isFavorite) {
 
 Container getAvailabilityIconContainer(
     BuildContext context, constraint, List<Availability> availabilities) {
-
   Widget containerChild;
-  int fstModeIdx = availabilities.indexWhere((mode) => mode != Availability.none);
-  int sndModeIdx = availabilities.indexWhere((mode) => mode != Availability.none, fstModeIdx + 1);
-
+  int fstModeIdx =
+      availabilities.indexWhere((mode) => mode != Availability.none);
+  int sndModeIdx = availabilities.indexWhere(
+      (mode) => mode != Availability.none, fstModeIdx + 1);
 
   if (fstModeIdx == -1) {
     int iconAlpha = getIconAlphaFromAvailability(Availability.none);
     containerChild = Icon(availabilityModeIcons[fstModeIdx],
-        size: constraint.biggest.height, color: Colors.black.withAlpha(iconAlpha));
-  }
-  else if (sndModeIdx == -1) {
+        size: constraint.biggest.height,
+        color: Colors.black.withAlpha(iconAlpha));
+  } else if (sndModeIdx == -1) {
     int iconAlpha = getIconAlphaFromAvailability(availabilities[fstModeIdx]);
     containerChild = Icon(availabilityModeIcons[fstModeIdx],
-        size: constraint.biggest.height, color: Colors.black.withAlpha(iconAlpha));
+        size: constraint.biggest.height,
+        color: Colors.black.withAlpha(iconAlpha));
   } else {
-    int primaryIconAlpha = getIconAlphaFromAvailability(availabilities[fstModeIdx]);
-    int secondaryIconAlpha = getIconAlphaFromAvailability(availabilities[sndModeIdx]);
+    int primaryIconAlpha =
+        getIconAlphaFromAvailability(availabilities[fstModeIdx]);
+    int secondaryIconAlpha =
+        getIconAlphaFromAvailability(availabilities[sndModeIdx]);
     containerChild = Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -27,12 +27,16 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [for (var i = 0; i < 4; i += 1) getAvailabilityInfoCard(context, i)],
+          children: [
+            for (var i = 0; i < 4; i += 1) getAvailabilityInfoCard(context, i)
+          ],
         ),
         SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [for (var i = 4; i < 8; i += 1) getAvailabilityInfoCard(context, i)],
+          children: [
+            for (var i = 4; i < 8; i += 1) getAvailabilityInfoCard(context, i)
+          ],
         ),
         SizedBox(height: 5),
         Row(
@@ -51,14 +55,16 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
     if (isPortrait) {
       imgAndAvailabilities = Column(
         children: <Widget>[
-          widget._foodImage, SizedBox(height: 10),
+          widget._foodImage,
+          SizedBox(height: 10),
           SizedBox(width: 5),
           regionInfo,
           SizedBox(width: 5),
           availabilities,
         ],
       );
-    } else { // isLandscape
+    } else {
+      // isLandscape
       imgAndAvailabilities = Row(
         children: <Widget>[
           Expanded(
@@ -94,23 +100,19 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
   Widget getAvailabilityInfoCard(BuildContext context, int monthIndex) {
     Widget containerChild;
 
-    int fstModeIdx = widget._allAvailabilities[monthIndex].indexWhere((
-        mode) => mode != Availability.none);
-    int sndModeIdx = widget._allAvailabilities[monthIndex].indexWhere((
-        mode) => mode != Availability.none, fstModeIdx + 1);
+    int fstModeIdx = widget._allAvailabilities[monthIndex]
+        .indexWhere((mode) => mode != Availability.none);
+    int sndModeIdx = widget._allAvailabilities[monthIndex]
+        .indexWhere((mode) => mode != Availability.none, fstModeIdx + 1);
 
     if (fstModeIdx == -1) {
       int iconAlpha = getIconAlphaFromAvailability(Availability.none);
-      containerChild = Icon(
-          availabilityModeIcons[fstModeIdx],
+      containerChild = Icon(availabilityModeIcons[fstModeIdx],
           color: Colors.black.withAlpha(iconAlpha));
-    }
-
-    else if (sndModeIdx == -1) {
+    } else if (sndModeIdx == -1) {
       int iconAlpha = getIconAlphaFromAvailability(
           widget._allAvailabilities[monthIndex][fstModeIdx]);
-      containerChild = Icon(
-          availabilityModeIcons[fstModeIdx],
+      containerChild = Icon(availabilityModeIcons[fstModeIdx],
           color: Colors.black.withAlpha(iconAlpha));
     } else {
       int primaryIconAlpha = getIconAlphaFromAvailability(
@@ -140,8 +142,9 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
               padding: const EdgeInsets.all(2),
               child: Column(
                 children: <Widget>[
-                  Text(getMonthNameFromIndex(context, monthIndex).substring(
-                      0, 3),
+                  Text(
+                      getMonthNameFromIndex(context, monthIndex)
+                          .substring(0, 3),
                       style: TextStyle(fontWeight: FontWeight.bold)),
                   FittedBox(
                     fit: BoxFit.contain,

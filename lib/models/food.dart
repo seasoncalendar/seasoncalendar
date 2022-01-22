@@ -77,15 +77,13 @@ List<Food> getFoodsFromIds(List<String> foodIds, List<Food> allFoods) {
 }
 
 List<String> splitByCommaAndTrim(String stringifiedList) {
-  return stringifiedList.split(",").map(
-          (elem) => elem.trim()
-  ).toList();
+  return stringifiedList.split(",").map((elem) => elem.trim()).toList();
 }
 
 List<Availability> availabilitiesFromStringList(List<String> avStringList) {
-  return avStringList.map(
-          (str) => _fromDouble(double.tryParse(str) ?? 0.0)
-  ).toList();
+  return avStringList
+      .map((str) => _fromDouble(double.tryParse(str) ?? 0.0))
+      .toList();
 }
 
 class Food {
@@ -94,7 +92,8 @@ class Food {
   List<String> synonyms = List.empty();
   String typeInfo;
   bool isCommon;
-  LinkedHashMap<String, List<Availability>> availabilities = new LinkedHashMap<String, List<Availability>>();
+  LinkedHashMap<String, List<Availability>> availabilities =
+      new LinkedHashMap<String, List<Availability>>();
   String infoUrl;
   String assetImgPath;
   String assetImgSourceUrl;
@@ -162,5 +161,4 @@ class Food {
 
   bool isFruit() => this.typeInfo.toLowerCase().contains("fruit");
   bool isVegetable() => this.typeInfo.toLowerCase().contains("vegetable");
-
 }

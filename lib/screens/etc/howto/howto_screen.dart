@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 class HowToPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

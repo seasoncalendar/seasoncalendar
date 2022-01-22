@@ -53,7 +53,9 @@ class MonthSelector extends StatelessWidget {
                                     itemBuilder: (context, i) {
                                       if (i % 2 == 0) {
                                         return ListTileTheme(
-                                          selectedTileColor: Theme.of(context).colorScheme.primary,
+                                          selectedTileColor: Theme.of(context)
+                                              .colorScheme
+                                              .primary,
                                           selectedColor: Colors.black,
                                           child: ListTile(
                                             title: Text(

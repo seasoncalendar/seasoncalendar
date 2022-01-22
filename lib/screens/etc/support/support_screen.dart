@@ -5,7 +5,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 class SupportPage extends StatelessWidget {
-
   final Map<String, dynamic> _l10nIndependentText;
 
   SupportPage(Map<String, dynamic> l10nIndependentText)

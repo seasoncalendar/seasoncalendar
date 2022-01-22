@@ -76,8 +76,8 @@ class SearchScreen extends SearchDelegate<String> {
         .toList();
 
     var startsWithMatches = dbFoods
-        .where((food) => food.synonyms.any((synonym) =>
-            synonym.toLowerCase().startsWith(query.toLowerCase())))
+        .where((food) => food.synonyms.any(
+            (synonym) => synonym.toLowerCase().startsWith(query.toLowerCase())))
         .toList();
 
     var innerMatches = dbFoods
@@ -88,7 +88,9 @@ class SearchScreen extends SearchDelegate<String> {
 
     var matches = exactMatches;
 
-    var tmp = []..addAll(startsWithMatches)..addAll(innerMatches);
+    var tmp = []
+      ..addAll(startsWithMatches)
+      ..addAll(innerMatches);
     tmp.forEach((food) {
       if (!matches.contains(food)) {
         matches.add(food);
@@ -98,7 +100,6 @@ class SearchScreen extends SearchDelegate<String> {
     if (matches.length > 0) {
       return FoodView.fromSearchResult(matches, _monthIndex);
     }
-
 
     final Levenshtein lvs = new Levenshtein();
 

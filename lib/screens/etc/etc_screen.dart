@@ -16,7 +16,8 @@ class EtcPage extends StatelessWidget {
   }
 
   List<Widget> getEtcPageItems(BuildContext context) {
-    bool isGooglePlay = AppConfig.of(context).buildFlavor == AppFlavor.googleplay;
+    bool isGooglePlay =
+        AppConfig.of(context).buildFlavor == AppFlavor.googleplay;
     List<Widget> etcPageItems = List<Widget>.empty(growable: true);
 
     etcPageItems.add(ListTile(
@@ -43,8 +44,7 @@ class EtcPage extends StatelessWidget {
       etcPageItems.add(ListTile(
         leading: Icon(Icons.favorite),
         title: Text(L10n.of(context).supportPageTitle),
-        onTap: () =>
-            Navigator.of(context).pushNamed("/etc/support"),
+        onTap: () => Navigator.of(context).pushNamed("/etc/support"),
       ));
       etcPageItems.add(const Divider());
     }
@@ -52,8 +52,7 @@ class EtcPage extends StatelessWidget {
     etcPageItems.add(ListTile(
       leading: Icon(Icons.account_balance),
       title: Text(L10n.of(context).imprintPageTitle),
-      onTap: () =>
-          Navigator.of(context).pushNamed("/etc/imprint"),
+      onTap: () => Navigator.of(context).pushNamed("/etc/imprint"),
     ));
 
     return etcPageItems;

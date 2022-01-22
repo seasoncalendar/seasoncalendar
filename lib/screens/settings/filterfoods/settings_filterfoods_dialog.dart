@@ -18,7 +18,6 @@ class FilterfoodsDialog extends StatefulWidget {
 class FilterfoodsDialogState extends State<FilterfoodsDialog> {
   @override
   Widget build(BuildContext context) {
-
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -27,20 +26,23 @@ class FilterfoodsDialogState extends State<FilterfoodsDialog> {
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headline5,
           ),
-          SizedBox(height: 35,),
+          SizedBox(
+            height: 35,
+          ),
           ToggleButtons(
-            color: Colors.black38,
-            selectedColor: Colors.black,
-            fillColor: Theme.of(context).colorScheme.primary.withAlpha(150),
-            borderColor: Theme.of(context).colorScheme.secondary.withAlpha(0),
-            selectedBorderColor: Theme.of(context).colorScheme.secondary.withAlpha(150),
-            splashColor: Theme.of(context).colorScheme.primary,
-            highlightColor: Theme.of(context).colorScheme.primary,
-            children: avIcons,
-            isSelected: widget._selectedAvailabilities,
-            onPressed: (int i) {
-              toggleAvView(i);
-            }),
+              color: Colors.black38,
+              selectedColor: Colors.black,
+              fillColor: Theme.of(context).colorScheme.primary.withAlpha(150),
+              borderColor: Theme.of(context).colorScheme.secondary.withAlpha(0),
+              selectedBorderColor:
+                  Theme.of(context).colorScheme.secondary.withAlpha(150),
+              splashColor: Theme.of(context).colorScheme.primary,
+              highlightColor: Theme.of(context).colorScheme.primary,
+              children: avIcons,
+              isSelected: widget._selectedAvailabilities,
+              onPressed: (int i) {
+                toggleAvView(i);
+              }),
         ],
       ),
     );

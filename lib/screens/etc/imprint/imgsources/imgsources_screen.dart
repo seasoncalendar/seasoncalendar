@@ -15,8 +15,7 @@ class ImgSourcesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            AppBar(title: Text(L10n.of(context).imprintPageImagesHeadline)),
+        appBar: AppBar(title: Text(L10n.of(context).imprintPageImagesHeadline)),
         body: Container(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
           child: ListView.separated(

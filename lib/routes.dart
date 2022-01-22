@@ -21,9 +21,9 @@ import 'package:seasoncalendar/screens/etc/imprint/imprint_screen.dart';
 import 'package:seasoncalendar/screens/etc/imprint/imgsources/imgsources_screen.dart';
 import 'package:seasoncalendar/screens/etc/support/support_screen.dart';
 
-
 final initial_settings = loadAssetFromJson("assets/initialsettings.json");
-final independent_text = loadAssetFromJson("assets/localization_independent_text.json");
+final independent_text =
+    loadAssetFromJson("assets/localization_independent_text.json");
 
 final Map<String, WidgetBuilder> appRoutes = {
   "/": (context) => FutureBuilder(
@@ -71,41 +71,41 @@ final Map<String, WidgetBuilder> appRoutes = {
         },
       ),
   "/settings/language": (_) => FutureBuilder(
-    future: initial_settings,
-    builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
-      if (snapshot.hasData) {
-        final initialSettings = snapshot.data!;
-        return SettingsLanguagePage(initialSettings);
-      } else {
-        return LoadingScaffold();
-      }
-    },
-  ),
+        future: initial_settings,
+        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
+          if (snapshot.hasData) {
+            final initialSettings = snapshot.data!;
+            return SettingsLanguagePage(initialSettings);
+          } else {
+            return LoadingScaffold();
+          }
+        },
+      ),
   "/etc": (_) => EtcPage(),
   "/etc/howto": (_) => HowToPage(),
   "/etc/about": (_) => AboutPage(),
   "/etc/contrib": (_) => FutureBuilder(
-    future: independent_text,
-    builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
-      if (snapshot.hasData) {
-        final l10nIndependentText = snapshot.data!;
-        return ContribPage(l10nIndependentText);
-      } else {
-        return LoadingScaffold();
-      }
-    },
-  ),
+        future: independent_text,
+        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
+          if (snapshot.hasData) {
+            final l10nIndependentText = snapshot.data!;
+            return ContribPage(l10nIndependentText);
+          } else {
+            return LoadingScaffold();
+          }
+        },
+      ),
   "/etc/support": (_) => FutureBuilder(
-    future: independent_text,
-    builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
-      if (snapshot.hasData) {
-        final l10nIndependentText = snapshot.data!;
-        return SupportPage(l10nIndependentText);
-      } else {
-        return LoadingScaffold();
-      }
-    },
-  ),
+        future: independent_text,
+        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
+          if (snapshot.hasData) {
+            final l10nIndependentText = snapshot.data!;
+            return SupportPage(l10nIndependentText);
+          } else {
+            return LoadingScaffold();
+          }
+        },
+      ),
   "/etc/imprint": (_) => FutureBuilder(
         future: independent_text,
         builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {

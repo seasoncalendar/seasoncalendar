@@ -67,44 +67,47 @@ class UserDBProvider {
 
     List<Food> allFoods = await DBProvider.db.getFoods();
 
-    return results.map((item) {
-      String foodId = item['food_id'];
+    return results
+        .map((item) {
+          String foodId = item['food_id'];
 
-      //throws on error
-      Food dbFood = allFoods.firstWhere((element) => element.id == foodId);
+          //throws on error
+          Food dbFood = allFoods.firstWhere((element) => element.id == foodId);
 
-      String type = dbFood.typeInfo;
-      String assetImgPath = dbFood.assetImgPath;
-      String assetImgSourceUrl = dbFood.assetImgSourceUrl;
-      String assetImgInfo = dbFood.assetImgInfo;
+          String type = dbFood.typeInfo;
+          String assetImgPath = dbFood.assetImgPath;
+          String assetImgSourceUrl = dbFood.assetImgSourceUrl;
+          String assetImgInfo = dbFood.assetImgInfo;
 
-      int isCommon = dbFood.isCommon ? 1 : 0;
-      String avLocal = item['avLocal'];
-      String avLand = item['avLand'];
-      String avSea = item['avSea'];
-      String avAir = item['avAir'];
+          int isCommon = dbFood.isCommon ? 1 : 0;
+          String avLocal = item['avLocal'];
+          String avLand = item['avLand'];
+          String avSea = item['avSea'];
+          String avAir = item['avAir'];
 
-      String foodNamesString = dbFood.displayName;
-      for (String syn in dbFood.synonyms) {
-        foodNamesString += ",$syn";
-      }
-      String infoUrl = dbFood.infoUrl;
+          String foodNamesString = dbFood.displayName;
+          for (String syn in dbFood.synonyms) {
+            foodNamesString += ",$syn";
+          }
+          String infoUrl = dbFood.infoUrl;
 
-      return Food(
-          foodId,
-          foodNamesString,
-          type,
-          isCommon,
-          avLocal,
-          avLand,
-          avSea,
-          avAir,
-          infoUrl,
-          assetImgPath,
-          assetImgSourceUrl,
-          assetImgInfo,
-          region);
-    }).whereNotNull().toList();
+          return Food(
+              foodId,
+              foodNamesString,
+              type,
+              isCommon,
+              avLocal,
+              avLand,
+              avSea,
+              avAir,
+              infoUrl,
+              assetImgPath,
+              assetImgSourceUrl,
+              assetImgInfo,
+              region);
+        })
+        .whereNotNull()
+        .toList();
   }
 
   addCustomFood(Food f) async {
@@ -117,7 +120,6 @@ class UserDBProvider {
     var avLand = f.availabilities['landTransport'];
     var avSea = f.availabilities['seaTransport'];
     var avAir = f.availabilities['flightTransport'];
-
 
     await db.rawQuery(
         """INSERT OR REPLACE INTO food_region_availability (food_id, avLocal, avLand, avSea, avAir, region_id) VALUES (?,?,?,?,?,?)""",

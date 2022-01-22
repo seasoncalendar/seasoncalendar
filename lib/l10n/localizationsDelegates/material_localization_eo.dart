@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-
-class MaterialLocalizationEoDelegate extends LocalizationsDelegate<MaterialLocalizations> {
-
+class MaterialLocalizationEoDelegate
+    extends LocalizationsDelegate<MaterialLocalizations> {
   @override
   bool isSupported(Locale locale) {
     return locale.languageCode == "eo";
@@ -19,5 +18,4 @@ class MaterialLocalizationEoDelegate extends LocalizationsDelegate<MaterialLocal
   }
 }
 
-class MaterialLocalizationEo extends DefaultMaterialLocalizations {
-}
+class MaterialLocalizationEo extends DefaultMaterialLocalizations {}

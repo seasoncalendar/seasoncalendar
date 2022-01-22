@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 class AboutPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +54,9 @@ class AboutPage extends StatelessWidget {
                     textAlign: TextAlign.justify),
                 SizedBox(height: 20),
                 Text(L10n.of(context).aboutPageDisclaimer,
-                    style: Theme.of(context).textTheme.bodyText1
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1
                         ?.copyWith(fontStyle: FontStyle.italic),
                     textAlign: TextAlign.justify),
               ],

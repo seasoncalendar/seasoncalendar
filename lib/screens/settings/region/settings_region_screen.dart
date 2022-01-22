@@ -46,8 +46,7 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
                         selectedColor: defaultListTileTheme.selectedColor,
                         child: regionListTiles[i]);
                   },
-                  separatorBuilder: (context, i) =>
-                  const Divider(
+                  separatorBuilder: (context, i) => const Divider(
                     height: 10,
                   ),
                 ),

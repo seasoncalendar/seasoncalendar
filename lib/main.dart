@@ -19,9 +19,8 @@ void main() async {
   await const MethodChannel('flavor')
       .invokeMethod<String>('getFlavor')
       .then((String? flavor) {
-        inferredFlavor = appFlavorFromString(flavor!);
-      })
-      .catchError((error) {
+    inferredFlavor = appFlavorFromString(flavor!);
+  }).catchError((error) {
     print('Failed to load flavor, defaulting to googleplay flavor!');
   });
 
@@ -67,7 +66,7 @@ class MyAppState extends State<MyApp> {
     var prefs = await SharedPreferences.getInstance();
     var languageCode = prefs.getString('languageCode');
 
-    if ( languageCode == null || languageCode == "null") {
+    if (languageCode == null || languageCode == "null") {
       return null;
     }
     return Locale(languageCode);
@@ -77,19 +76,22 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     if (this.localeLoadedFromPrefs == false) {
       return CircularProgressIndicator(
-        valueColor: AlwaysStoppedAnimation<Color>(Theme.of(context).colorScheme.secondary),
+        valueColor: AlwaysStoppedAnimation<Color>(
+            Theme.of(context).colorScheme.secondary),
       );
     } else {
       return MaterialApp(
         localeListResolutionCallback: (deviceLocales, supportedLocales) {
           if (this.locale == null) {
-            this.locale = basicLocaleListResolution(deviceLocales, supportedLocales);
+            this.locale =
+                basicLocaleListResolution(deviceLocales, supportedLocales);
           }
           return this.locale;
         },
         localeResolutionCallback: (deviceLocale, supportedLocales) {
           if (this.locale == null) {
-            this.locale = basicLocaleListResolution([deviceLocale!], supportedLocales);
+            this.locale =
+                basicLocaleListResolution([deviceLocale!], supportedLocales);
           }
           return this.locale;
         },

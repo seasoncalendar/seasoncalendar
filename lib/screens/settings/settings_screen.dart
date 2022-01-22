@@ -71,14 +71,15 @@ class SettingsPageState extends State<SettingsPage> {
                     [getSettingsI(widget._initialSettings), getVersionInfo()]),
                 builder: (context, AsyncSnapshot<List<Object>> snapshot) {
                   if (snapshot.hasData) {
-                    widget._settings = snapshot.data![0] as Map<String, dynamic>;
+                    widget._settings =
+                        snapshot.data![0] as Map<String, dynamic>;
                     widget._versionInfo = snapshot.data![1] as String;
-                    return _buildSettings(context, widget._settings, widget._versionInfo);
+                    return _buildSettings(
+                        context, widget._settings, widget._versionInfo);
                   } else {
                     return Align(
-                      alignment: Alignment.center,
-                      child: CircularProgressIndicator()
-                    );
+                        alignment: Alignment.center,
+                        child: CircularProgressIndicator());
                   }
                 })));
   }
@@ -105,11 +106,11 @@ class SettingsPageState extends State<SettingsPage> {
               child: Icon(Icons.help),
             ),
             MaterialButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text(L10n.of(context).back)),
-        ],
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text(L10n.of(context).back)),
+          ],
         ),
         barrierDismissible: true,
       );

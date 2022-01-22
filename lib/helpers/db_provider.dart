@@ -134,7 +134,7 @@ class DBProvider {
         FROM foods AS f
         INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
         WHERE fr.region_id = ?)
-        """, [region.id, fallbackRegion, region.id ]);
+        """, [region.id, fallbackRegion, region.id]);
 
     return results.map((item) {
       String foodId = item['id'];
@@ -143,7 +143,8 @@ class DBProvider {
       String assetImgSourceUrl = item['assetImgSourceUrl'];
       String assetImgInfo = item['assetImgInfo'];
 
-      Region region = allRegions.firstWhere((region) => region.id == item['region_id']);
+      Region region =
+          allRegions.firstWhere((region) => region.id == item['region_id']);
       int isCommon = item['is_common'];
       String avLocal = item['avLocal'];
       String avLand = item['avLand'];
@@ -153,8 +154,20 @@ class DBProvider {
       String foodNamesString = getTranslationByKey(foodId + "_names");
       String infoUrl = getTranslationByKey(foodId + "_infoUrl");
 
-      return Food(foodId, foodNamesString, type, isCommon, avLocal, avLand,
-          avSea, avAir, infoUrl, assetImgPath, assetImgSourceUrl, assetImgInfo, region);
+      return Food(
+          foodId,
+          foodNamesString,
+          type,
+          isCommon,
+          avLocal,
+          avLand,
+          avSea,
+          avAir,
+          infoUrl,
+          assetImgPath,
+          assetImgSourceUrl,
+          assetImgInfo,
+          region);
     }).toList();
   }
 }

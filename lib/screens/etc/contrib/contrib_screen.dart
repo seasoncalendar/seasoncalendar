@@ -3,7 +3,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 class ContribPage extends StatelessWidget {
-
   final Map<String, dynamic> _l10nIndependentText;
 
   ContribPage(Map<String, dynamic> l10nIndependentText)
@@ -25,14 +24,15 @@ class ContribPage extends StatelessWidget {
                     textAlign: TextAlign.justify,
                     text: TextSpan(
                       text: L10n.of(context).contribPageContact,
-                      style: Theme.of(context).textTheme.bodyText1
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
                           ?.copyWith(color: Colors.black),
                     ),
                   ),
                   SizedBox(height: 10),
                   RaisedButton(
-                    child:
-                        Text(L10n.of(context).contribPageContactButtonText),
+                    child: Text(L10n.of(context).contribPageContactButtonText),
                     onPressed: () async {
                       final url = _l10nIndependentText["websiteContactPage"];
                       if (await canLaunch(url)) {
@@ -51,7 +51,9 @@ class ContribPage extends StatelessWidget {
                     textAlign: TextAlign.justify,
                     text: TextSpan(
                       text: L10n.of(context).contribPageCode,
-                      style: Theme.of(context).textTheme.bodyText1
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
                           ?.copyWith(color: Colors.black),
                     ),
                   ),

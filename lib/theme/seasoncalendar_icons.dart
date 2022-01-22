@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/SeasonCalendar.ttf
 ///
-/// 
+///
 /// * Font Awesome 5, Copyright (C) 2016 by Dave Gandy
 ///         Author:    Dave Gandy
 ///         License:   SIL (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
@@ -25,8 +25,12 @@ class SeasonCalendarIcons {
   static const _kFontFam = 'SeasonCalendar';
   static const _kFontPkg = null;
 
-  static const IconData arrow_left = IconData(0xf060, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData arrow_right = IconData(0xf061, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData apple_alt = IconData(0xf5d1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-  static const IconData carrot = IconData(0xf787, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData arrow_left =
+      IconData(0xf060, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData arrow_right =
+      IconData(0xf061, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData apple_alt =
+      IconData(0xf5d1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData carrot =
+      IconData(0xf787, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
