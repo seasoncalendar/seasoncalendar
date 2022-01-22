@@ -152,7 +152,7 @@ class SettingsPageState extends State<SettingsPage> {
               const Divider(),
               ListTileTheme(
                 child: ListTile(
-                  enabled: false,
+                  enabled: true,
                   leading: Icon(Icons.language),
                   title: Text(L10n.of(context).settingsRegionTitle),
                   trailing: Text(widget._settings?['regionCode']),

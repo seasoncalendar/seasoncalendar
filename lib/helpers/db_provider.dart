@@ -146,10 +146,10 @@ class DBProvider {
       Region region =
           allRegions.firstWhere((region) => region.id == item['region_id']);
       int isCommon = item['is_common'];
-      String avLocal = item['avLocal'];
-      String avLand = item['avLand'];
-      String avSea = item['avSea'];
-      String avAir = item['avAir'];
+      String avLocal = item['avLocal'] ?? ",,,,,,,,,,,";
+      String avLand = item['avLand'] ?? ",,,,,,,,,,,";
+      String avSea = item['avSea'] ?? ",,,,,,,,,,,";
+      String avAir = item['avAir'] ?? ",,,,,,,,,,,";
 
       String foodNamesString = getTranslationByKey(foodId + "_names");
       String infoUrl = getTranslationByKey(foodId + "_infoUrl");

@@ -1189,7 +1189,13 @@
     "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
   },
   "northAmerica": "North America",
-  "@northAmerica": {},
+  "@northAmerica": {
+    "description": "The region of North America."
+  },
+  "northernCalifornia": "Northern California",
+  "@northernCalifornia": {
+    "description": "The region of Northern California."
+  },
   "reunion": "Réunion (France)",
   "@reunion": {},
   "incompleteLanguageNotice": "Incomplete languages are displayed with a \"Beta\" notice. For them, missing translations are displayed in English.",

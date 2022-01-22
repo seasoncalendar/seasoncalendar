@@ -73,6 +73,7 @@ class SettingsRegionPageState extends State<SettingsRegionPage> {
         value: region.id,
         groupValue: widget._settings['regionCode'],
         title: Text(region.name),
+        subtitle: region.fallbackRegion != null ? Text("fallback: ${region.fallbackRegion}") : null,
         onChanged: (val) => setState(() {
           setRegion(context, region.id);
         }),
