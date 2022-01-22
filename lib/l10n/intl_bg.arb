@@ -599,5 +599,9 @@
   "reunion": "Реюнион (Франция)",
   "@reunion": {},
   "northAmerica": "Северна Америка",
-  "@northAmerica": {}
+  "@northAmerica": {},
+  "northernCalifornia": "Северна Калифорния",
+  "@northernCalifornia": {
+    "description": "The region of Northern California."
+  }
 }
