@@ -31,7 +31,8 @@ final Map<String, WidgetBuilder> appRoutes = {
         getFavoriteFoods(),
         SettingsPageState.getSettings(),
         DBProvider.db.getFoods(),
-        UserDBProvider.db.getCustomFoods()
+        // TODO when data[3] is used
+        // UserDBProvider.db.getCustomFoods()
       ]),
       builder: (_, AsyncSnapshot<List<Object>> snapshot) {
         if (snapshot.hasData) {
