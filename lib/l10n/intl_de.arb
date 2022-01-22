@@ -599,5 +599,9 @@
   "reunion": "Réunion (Frankreich)",
   "@reunion": {},
   "northAmerica": "Nordamerika",
-  "@northAmerica": {}
+  "@northAmerica": {},
+  "northernCalifornia": "Nordkalifornien",
+  "@northernCalifornia": {
+    "description": "The region of Northern California."
+  }
 }
