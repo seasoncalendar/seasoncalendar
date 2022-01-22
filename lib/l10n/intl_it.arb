@@ -599,5 +599,9 @@
   "reunion": "La Riunione (Francia)",
   "@reunion": {},
   "northAmerica": "America del Nord",
-  "@northAmerica": {}
+  "@northAmerica": {},
+  "northernCalifornia": "California del Nord",
+  "@northernCalifornia": {
+    "description": "The region of Northern California."
+  }
 }
