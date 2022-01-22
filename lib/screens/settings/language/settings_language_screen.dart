@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:devicelocale/devicelocale.dart';
@@ -98,6 +99,10 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
       newLocale = Locale("en");
     }
     MyApp.setLocale(context, newLocale);
+
+    Navigator.of(context).pushNamed("/settings").then((_) {
+      Phoenix.rebirth(context); // restart application if new region
+    });
   }
 
   getLanguageRadioListTile(BuildContext context, String langCode) {
