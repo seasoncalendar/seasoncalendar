@@ -21,7 +21,7 @@ Foods that are produced regionally are often times cheaper, tastier and better f
 
 **I aim at continuously extending the languages and regions supported!**
 
-- _Supported Languages: German, English, French, Spanish, Polish, Dutch_
+- _Supported Languages: German, English, French, Spanish, Polish, Dutch, Italian_
 - _Supported Regions: Central Europe_
 
 ### Screenshots
