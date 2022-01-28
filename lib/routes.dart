@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:seasoncalendar/components/favorite_foods.dart';
+import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:seasoncalendar/components/loading_scaffold.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';

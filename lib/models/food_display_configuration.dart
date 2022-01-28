@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:seasoncalendar/helpers/availabilities.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
-import 'package:seasoncalendar/components/favorite_foods.dart';
+import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 
