@@ -1,0 +1,4 @@
+Version 1.3.0+25 :
+- L'application s'adapte désormais automatiquement à la langue de l'appareil si elle est prise en charge.
+- Ajout de l'anglais à la liste des langues prises en charge par l'appareil.
+La politique de confidentialité reste inchangée, mais les paramètres de l'appareil sont consultés pour déterminer la langue de l'appareil.
