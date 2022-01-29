@@ -1,0 +1,3 @@
+Versie 1.4.9+44:
+- Fiks favoriet voedsel
+- Fiks tonen taal in instellingen
