@@ -1,0 +1,3 @@
+Version 1.4.9+44 :
+- Correction des nourritures favorites
+- Correction de l'affichage de la langue dans les paramètres
