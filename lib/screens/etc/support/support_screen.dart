@@ -41,7 +41,7 @@ class SupportPage extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyText1,
                     textAlign: TextAlign.justify),
                 SizedBox(height: 10),
-                RaisedButton(
+                ElevatedButton(
                   child: Text(L10n.of(context).supportPageWebsiteLink),
                   onPressed: () async {
                     final url = _l10nIndependentText["websiteSupportPage"];

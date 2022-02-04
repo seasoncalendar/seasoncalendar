@@ -31,7 +31,7 @@ class ContribPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text(L10n.of(context).contribPageContactButtonText),
                     onPressed: () async {
                       final url = _l10nIndependentText["websiteContactPage"];
@@ -58,7 +58,7 @@ class ContribPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10),
-                  RaisedButton(
+                  ElevatedButton(
                     child: Text(L10n.of(context).contribPageCodeButtonText),
                     onPressed: () async {
                       final url = _l10nIndependentText["seasonCalendarGithub"];

@@ -135,7 +135,7 @@ class FoodTileState extends State<FoodTile> {
             Expanded(
                 flex: 10,
                 child: Stack(
-                  overflow: Overflow.clip,
+                  clipBehavior: Clip.hardEdge,
                   alignment: AlignmentDirectional.topEnd,
                   children: <Widget>[
                     GestureDetector(
