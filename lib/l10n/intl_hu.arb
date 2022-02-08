@@ -1,1 +1,150 @@
-{}
+{
+  "aboutPageAdvantage4": "A szállítás kevésbé káros a környezetre.",
+  "@aboutPageAdvantage4": {
+    "description": "The phrase 'The transport is less harmful to the environment.'"
+  },
+  "aboutPageAdvantage2": "A friss áru általában olcsóbb.",
+  "@aboutPageAdvantage2": {
+    "description": "The phrase 'Fresh foods are generally cheaper.'"
+  },
+  "aboutPageAdvantage3": "A tárolás kevésbé körülményes.",
+  "@aboutPageAdvantage3": {
+    "description": "The phrase 'The efforts made for storing foods is reduced.'"
+  },
+  "aboutPageAdvantage5": "Támogatod a helyi vállalkozásokat és munkahelyeket.",
+  "@aboutPageAdvantage5": {
+    "description": "The phrase 'You support local businesses and jobs.'"
+  },
+  "aboutPageDisclaimer": "Hasznos tudni, hogy a helyi szupermarketben elérhető termékek nem feltétlenül egyeznek az itt felsoroltakkal.",
+  "@aboutPageDisclaimer": {
+    "description": "A disclaimer for the availability data"
+  },
+  "aboutPageHeadline": "Miért törődjünk az ételek szezonalitásával?",
+  "@aboutPageHeadline": {
+    "description": "The phrase 'Why care about foods' seasons?'"
+  },
+  "april": "április",
+  "@april": {
+    "description": "The word 'April'"
+  },
+  "artichoke_names": "Articsóka",
+  "@artichoke_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "asparagus_names": "Spárga",
+  "@asparagus_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "august": "augusztus",
+  "@august": {
+    "description": "The word 'August'"
+  },
+  "cherry_names": "Cseresznye",
+  "@cherry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "contribPageCode": "Az alkalmazás fornáskódja elérhető GitHubon:",
+  "@contribPageCode": {
+    "description": "The phrase 'The source code for the app is available on GitHub:'"
+  },
+  "aboutPageAdvantage1": "A friss áru finomabb és egészségesebb is.",
+  "@aboutPageAdvantage1": {
+    "description": "The phrase 'Fresh produce tastes better and is healthier for your body.'"
+  },
+  "centralEurope": "Közép-Európa",
+  "@centralEurope": {
+    "description": "The region of Central Europe."
+  },
+  "chicory_names": "Cikória",
+  "@chicory_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "aboutPageTitle": "Az alkalmazásról",
+  "@aboutPageTitle": {
+    "description": "The phrase 'About the app'"
+  },
+  "celery_names": "Zeller, zellergyökér",
+  "@celery_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "aboutPageLeading": "Manapság, mivel szinte minden élelmiszer egész évben elérhető, az emberek nem tudják, hogy melyik szezonban teremnek. A szezonális és helyi élelmiszerek vásárlása azonban gyakran szembetűnő előnyökkel jár:",
+  "@aboutPageLeading": {
+    "description": "Justification for caring about food seasons"
+  },
+  "appTitle": "Szezonális ételek naptára",
+  "@appTitle": {
+    "description": "The title of the app, e.g. 'Seasonal foods calendar'"
+  },
+  "avocado_names": "Avokádó",
+  "@avocado_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "back": "Vissza",
+  "@back": {
+    "description": "The word 'Back'"
+  },
+  "beetroot_names": "Retek, piros retek",
+  "@beetroot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "carrot_names": "Sárgarépa, Répa",
+  "@carrot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "chestnut_names": "Dió",
+  "@chestnut_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "contribPageCodeHeadline": "Mutasd a kódot!",
+  "@contribPageCodeHeadline": {
+    "description": "The phrase 'Show me the code!'"
+  },
+  "aboutPageTrailing": "Ez az alkalmazás segít olcsóbb és finomabb ételeket enni, és felhívja and figyelmet ételeink eredetére.",
+  "@aboutPageTrailing": {
+    "description": "A sentence about benefits for the app user"
+  },
+  "apricot_names": "Sárgabarack",
+  "@apricot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "apple_names": "Alma",
+  "@apple_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "banana_names": "Banán",
+  "@banana_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "batavia_names": "Fejes saláta, Saláta",
+  "@batavia_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "blackberry_names": "Szeder, Feketeszeder",
+  "@blackberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "blueberry_names": "Áfonya",
+  "@blueberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "broccoli_names": "Brokkoli",
+  "@broccoli_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "clementine_names": "Klementin, Tangerin",
+  "@clementine_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "coco_names": "Kókuszdió",
+  "@coco_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cauliflower_names": "Karfiol",
+  "@cauliflower_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "chinesecabbage_names": "Kínai kel",
+  "@chinesecabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  }
+}
