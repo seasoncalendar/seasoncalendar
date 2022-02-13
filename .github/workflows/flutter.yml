@@ -37,14 +37,13 @@ jobs:
       - name: Setup flutter
         run: |
           flutter config --no-analytics
-          flutter doctor --android-licenses
           flutter doctor --verbose
           flutter pub get
           flutter update-packages
           # flutter test
           flutter pub run intl_utils:generate
 
-      - run: flutter build apk --verbose --debug --flavor foss
+      # - run: flutter build apk --verbose --debug --flavor foss
 
       - name: Prepare signing key
         run: |
