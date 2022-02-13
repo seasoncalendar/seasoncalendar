@@ -32,8 +32,6 @@ jobs:
           cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
           # ${{ hashFiles('**/package-lock.json') }}
 
-      - run: echo ${{ steps.flutter-action.outputs }}
-
       - name: Setup flutter
         run: |
           flutter config --no-analytics
@@ -54,7 +52,7 @@ jobs:
           echo keyPassword=${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }} >> android/key.properties
           echo keyAlias=${{ secrets.KEY_ALIAS }} >> android/key.properties
           echo storeFile=$(pwd)/android/key.jks >> android/key.properties
-          wc andoid/key.properties
+          wc android/key.properties
 
 
       - run: flutter build apk --verbose --release --flavor foss
@@ -78,7 +76,7 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: '32.0.0'
 
-      - run: echo ${{ steps.sign.outputs }}
+      - run: echo ${{ fromJSON(steps.sign.outputs) }}
 
       - uses: actions/upload-artifact@v2
         with:
