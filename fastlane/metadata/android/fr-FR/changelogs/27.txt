@@ -1,0 +1,3 @@
+Version 1.3.2+27 :
+- Ajout des oignons classiques aux aliments disponibles (il semble que je les ai accidentellement oubliés).
+- Correction : La recherche d'aliments est maintenant toujours effectuée en utilisant la locale actuellement sélectionnée.

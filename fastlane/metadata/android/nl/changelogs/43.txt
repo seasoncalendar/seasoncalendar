@@ -1,0 +1,3 @@
+Versie 1.4.8+43:
+- Nederlandse vertaling toegevoegd
+- Afhankelijkheden bijgewerkt
