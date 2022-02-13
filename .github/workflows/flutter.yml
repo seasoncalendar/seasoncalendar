@@ -53,7 +53,7 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }}
           keyPassword: ${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }}
 
-      - run: echo ${{ jobs.sign.outputs }}
+      - run: echo ${{ steps.sign.outputs }}
 
       - uses: actions/upload-artifact@v2
         with:
