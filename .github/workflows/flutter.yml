@@ -37,6 +37,7 @@ jobs:
       - name: Setup flutter
         run: |
           flutter config --no-analytics
+          flutter doctor --android-licenses
           flutter doctor --verbose
           flutter pub get
           flutter update-packages
@@ -47,12 +48,14 @@ jobs:
 
       - name: Prepare signing key
         run: |
-          echo ${{ secrets.SIGNING_KEY_DECRYPTED }} > android/key.jks
+          echo ${{ secrets.SIGNING_KEY_DECRYPTED }} > android/key.jks.base64
+          base64 -d android/key.jks.base64 > android/key.jks
           touch android/key.properties
           echo storePassword=${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }} > android/key.properties
           echo keyPassword=${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }} >> android/key.properties
           echo keyAlias=${{ secrets.KEY_ALIAS }} >> android/key.properties
-          echo storeFile=$(pdw)/android/key.jks >> android/key.properties
+          echo storeFile=$(pwd)/android/key.jks >> android/key.properties
+          wc andoid/key.properties
 
 
       - run: flutter build apk --verbose --release --flavor foss
@@ -61,8 +64,7 @@ jobs:
 
       - name: Remove signing key
         run: |
-          rm android/key.jks
-          rm android/key.properties
+          rm android/key.jks.base64 android/key.jks android/key.properties
 
 
       - uses: r0adkll/sign-android-release@v1
