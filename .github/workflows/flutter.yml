@@ -1,11 +1,15 @@
-name: Flutter build app
+name: Flutter Build App
 
 on:
   push:
-    branches: [ develop ]
+    branches:
+      - develop
     tags:
+      - *
   # pull_request:
   #   branches: [ master ]
+  # release:
+  #   types: [published]
   workflow_dispatch:
 
 
@@ -26,18 +30,30 @@ jobs:
           cache-key: flutter # optional, change this to force refresh cache
           cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
           # ${{ hashFiles('**/package-lock.json') }}
-      # - name: Install NDK
-      #   # Simply install NDK as defined in android/app/build.gradle
-      #   run: echo "y" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --install "ndk;$(grep "ndk" android/app/build.gradle | awk '{print $2}' | sed 's/"//g')" --sdk_root=${ANDROID_SDK_ROOT} 
-      - run: flutter config --no-analytics
-      - run: flutter doctor --verbose
-      - run: flutter pub get
-      - run: flutter update-packages
-      # - run: flutter test
-      - run: flutter pub run intl_utils:generate
+      - name: Setup flutter
+        run: |
+          flutter config --no-analytics
+          flutter doctor --verbose
+          flutter pub get
+          flutter update-packages
+          # flutter test
+          flutter pub run intl_utils:generate
       - run: flutter build apk --verbose --debug --flavor foss
       # - run: flutter build apk --verbose --release --flavor foss
       # - run: flutter build appbundle
+
+
+      - uses: r0adkll/sign-android-release@v1
+        name: Sign app APK
+        id: sign
+        with:
+          releaseDirectory: build/app/outputs/flutter-apk
+          signingKeyBase64: ${{ secrets.SIGNING_KEY_DECRYPTED }} # by decrypted we mean in base64 :)
+          alias: ${{ secrets.KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }}
+          keyPassword: ${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }}
+
+      - run: echo ${{ jobs.sign.outputs }}
 
       - uses: actions/upload-artifact@v2
         with:
