@@ -1,8 +1,9 @@
 name: Flutter build app
 
 on:
-  # push:
-  #   branches: [ master ]
+  push:
+    branches: [ develop ]
+    tags:
   # pull_request:
   #   branches: [ master ]
   workflow_dispatch:
@@ -21,16 +22,25 @@ jobs:
         with:
           # channel: 'stable'
           flutter-version: '2.8.1'
-      - run: flutter pub get --suppress-analytics
+          cache: true
+          cache-key: flutter # optional, change this to force refresh cache
+          cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
+          # ${{ hashFiles('**/package-lock.json') }}
+      # - name: Install NDK
+      #   # Simply install NDK as defined in android/app/build.gradle
+      #   run: echo "y" | sudo /usr/local/lib/android/sdk/tools/bin/sdkmanager --install "ndk;$(grep "ndk" android/app/build.gradle | awk '{print $2}' | sed 's/"//g')" --sdk_root=${ANDROID_SDK_ROOT} 
+      - run: flutter config --no-analytics
+      - run: flutter doctor --verbose
+      - run: flutter pub get
       - run: flutter update-packages
       # - run: flutter test
       - run: flutter pub run intl_utils:generate
       - run: flutter build apk --verbose --debug --flavor foss
-      - run: flutter build apk --verbose --release --flavor foss
-      - run: flutter build appbundle
+      # - run: flutter build apk --verbose --release --flavor foss
+      # - run: flutter build appbundle
 
       - uses: actions/upload-artifact@v2
         with:
-          name: foss-release-apk
-          path: build/app/outputs/apk/foss/release/app-foss-release.apk
+          name: foss-debug-apk
+          path: build/app/outputs/flutter-apk/app-foss-debug.apk
                 # build/app/outputs/flutter-apk/app-foss-release.apk
