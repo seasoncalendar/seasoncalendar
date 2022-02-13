@@ -25,8 +25,8 @@ jobs:
       - run: flutter update-packages
       # - run: flutter test
       - run: flutter pub run intl_utils:generate
-      - run: flutter build apk --debug --flavor foss
-      - run: flutter build apk --release --flavor foss
+      - run: flutter build apk --verbose --debug --flavor foss
+      - run: flutter build apk --verbose --release --flavor foss
       - run: flutter build appbundle
 
       - uses: actions/upload-artifact@v2
