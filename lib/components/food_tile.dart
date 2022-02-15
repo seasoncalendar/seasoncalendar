@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:seasoncalendar/theme/themes.dart';
-import 'package:seasoncalendar/components/favorite_foods.dart';
+import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/components/food_details_dialog.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
@@ -135,7 +135,7 @@ class FoodTileState extends State<FoodTile> {
             Expanded(
                 flex: 10,
                 child: Stack(
-                  overflow: Overflow.clip,
+                  clipBehavior: Clip.hardEdge,
                   alignment: AlignmentDirectional.topEnd,
                   children: <Widget>[
                     GestureDetector(

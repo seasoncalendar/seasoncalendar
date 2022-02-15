@@ -1,0 +1,3 @@
+Version 1.4.2+35 :
+- Améliorations et corrections internes.
+La politique de confidentialité et les autorisations de l'application restent inchangées.

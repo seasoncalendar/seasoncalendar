@@ -1,9 +1,3 @@
-
-**This project is not actively maintained anymore.**
-
-However, everybody who wants to do so is more than welcome to work on this project!
-Thank you for your support 🤗
-
 # Seasonal Foods Calendar
 
 [![Build Status](https://travis-ci.com/Flunzmas/seasoncalendar.svg?branch=develop)](https://travis-ci.com/Flunzmas/seasoncalendar)
@@ -21,7 +15,7 @@ Foods that are produced regionally are often times cheaper, tastier and better f
 
 **I aim at continuously extending the languages and regions supported!**
 
-- _Supported Languages: German, English, French, Spanish, Polish, Dutch_
+- _Supported Languages: German, English, French, Spanish, Polish, Dutch, Italian_
 - _Supported Regions: Central Europe_
 
 ### Screenshots

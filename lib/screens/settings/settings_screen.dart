@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -8,7 +9,7 @@ import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/helpers/availabilities.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
-import 'package:seasoncalendar/screens/settings/filterfoods/settings_filterfoods_dialog.dart';
+import 'package:seasoncalendar/screens/settings/settings_filterfoods_dialog.dart';
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
@@ -168,7 +169,7 @@ class SettingsPageState extends State<SettingsPage> {
                 child: ListTile(
                   leading: Icon(Icons.translate),
                   title: Text(L10n.of(context).settingsLanguageTitle),
-                  trailing: Text(widget._settings?['languageCode']),
+                  trailing: Text(Intl.defaultLocale!),
                   isThreeLine: false,
                   dense: false,
                   onTap: () {

@@ -1,0 +1,3 @@
+Version 1.4.0+31 :
+- Vous pouvez désormais sélectionner manuellement la langue de l'application dans les paramètres.
+La politique de confidentialité et les autorisations de l'application restent inchangées.

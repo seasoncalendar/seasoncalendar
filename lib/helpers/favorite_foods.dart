@@ -15,7 +15,7 @@ Future<bool> isFavoriteFood(Food food) async {
 
 Future<List<String>> getFavoriteFoods() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  return prefs.getStringList("favoriteFoods") ?? List<String>.empty();
+  return prefs.getStringList("favoriteFoods") ?? List<String>.empty(growable: true);
 }
 
 void setFavoriteFoods(List<String> favoriteFoods) async {

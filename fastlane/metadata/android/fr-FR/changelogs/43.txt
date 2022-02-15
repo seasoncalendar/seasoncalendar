@@ -1,0 +1,3 @@
+Version 1.4.8+43 :
+- Ajout de la traduction néerlandaise
+- Mise à jour des dépendances
