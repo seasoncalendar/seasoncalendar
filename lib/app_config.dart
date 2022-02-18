@@ -4,31 +4,29 @@ import 'package:flutter/material.dart';
 enum AppFlavor { googleplay, foss }
 
 AppFlavor appFlavorFromString(String flavorStr) {
-  if (flavorStr == "googleplay") {
-    return AppFlavor.googleplay;
-  } else if (flavorStr == 'foss') {
-    return AppFlavor.foss;
+  switch(flavorStr) {
+    case 'foss':
+      return AppFlavor.foss;
+    case 'googleplay':
+    default:
+      return AppFlavor.googleplay;
   }
-
-  // default case: googleplay
-  return AppFlavor.googleplay;
 }
 
 String versionCodeSuffixFromAppFlavor(AppFlavor flavor) {
-  if (flavor == AppFlavor.foss) {
-    return " (f)";
+  switch(flavor) {
+    case AppFlavor.googleplay:
+      return " (g)";
+    case AppFlavor.foss:
+      return " (f)";
   }
-
-  // default case: googleplay
-  return " (g)";
 }
 
 class AppConfig extends InheritedWidget {
-  final Widget child;
   final AppFlavor buildFlavor;
 
   const AppConfig({
-    required this.child,
+    required Widget child,
     required this.buildFlavor,
   }) : super(child: child);
 

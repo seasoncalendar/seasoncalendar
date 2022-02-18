@@ -15,13 +15,13 @@ class FoodTile extends StatefulWidget {
   late final List<Availability> _curAvailabilities;
   Color _curAvailabilityColor = Colors.white70;
 
-  FoodTile(Food foodToDisplay, int curMonthIndex)
+  FoodTile(Food foodToDisplay, int curMonthIndex, {Key? key})
       : _food = foodToDisplay,
         _curMonthIndex = curMonthIndex,
         _allAvailabilities = List.generate(
             12,
             (monthIndex) =>
-                foodToDisplay.getAvailabilitiesByMonth(monthIndex)) {
+                foodToDisplay.getAvailabilitiesByMonth(monthIndex)), super(key: key) {
     _curAvailabilities = _allAvailabilities[_curMonthIndex];
     int fstModeIdx =
         _curAvailabilities.indexWhere((mode) => mode != Availability.none);
@@ -29,7 +29,7 @@ class FoodTile extends StatefulWidget {
   }
 
   @override
-  FoodTileState createState() => new FoodTileState();
+  FoodTileState createState() => FoodTileState();
 }
 
 class FoodTileState extends State<FoodTile> {
@@ -76,7 +76,7 @@ class FoodTileState extends State<FoodTile> {
     Container availabilityIconContainer = Container(
       color: Colors.white.withAlpha(220),
       padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-      child: new LayoutBuilder(builder: (context, constraint) {
+      child: LayoutBuilder(builder: (context, constraint) {
         return getAvailabilityIconContainer(
             context, constraint, widget._curAvailabilities);
       }),
@@ -88,7 +88,7 @@ class FoodTileState extends State<FoodTile> {
     if (false) {
       actions.add(MaterialButton(
         onPressed: () async {},
-        child: Text("Edit"), // TODO l10n
+        child: const Text("Edit"), // TODO l10n
       ));
     }
 
@@ -150,7 +150,7 @@ class FoodTileState extends State<FoodTile> {
                         decoration: ShapeDecoration(
                             color: Colors.white.withAlpha(200),
                             shape: OutlineInputBorder(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(0),
                                   bottomLeft: Radius.circular(10),
                                   bottomRight: Radius.circular(0),
@@ -160,9 +160,8 @@ class FoodTileState extends State<FoodTile> {
                             )),
                         child: InkWell(
                           onTap: tapCallback,
-                          child:
-                              new LayoutBuilder(builder: (context, constraint) {
-                            return getFavIcon(context, constraint, _isFavorite);
+                          child: LayoutBuilder(builder: (context, constraint) {
+                              return getFavIcon(context, constraint, _isFavorite);
                           }),
                         ),
                       ),
@@ -197,12 +196,13 @@ class FoodTileState extends State<FoodTile> {
 }
 
 Icon getFavIcon(context, constraint, int isFavorite) {
-  if (isFavorite == 1)
+  if (isFavorite == 1) {
     return Icon(Icons.star, size: constraint.biggest.height);
-  else if (isFavorite == -1)
+  } else if (isFavorite == -1) {
     return Icon(Icons.star_border, size: constraint.biggest.height);
-  else
+  } else {
     return Icon(Icons.star_half, size: constraint.biggest.height);
+  }
 }
 
 Container getAvailabilityIconContainer(
@@ -235,7 +235,7 @@ Container getAvailabilityIconContainer(
         Icon(availabilityModeIcons[fstModeIdx],
             size: constraint.biggest.height,
             color: Colors.black.withAlpha(primaryIconAlpha)),
-        Text(" / "),
+        const Text(" / "),
         Icon(availabilityModeIcons[sndModeIdx],
             size: constraint.biggest.height / 1.4,
             color: Colors.black.withAlpha(secondaryIconAlpha)),

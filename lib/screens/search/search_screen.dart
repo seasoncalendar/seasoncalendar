@@ -22,7 +22,7 @@ class SearchScreen extends SearchDelegate<String> {
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-          icon: Icon(Icons.clear),
+          icon: const Icon(Icons.clear),
           onPressed: () {
             query = "";
           })
@@ -53,7 +53,7 @@ class SearchScreen extends SearchDelegate<String> {
           List<Food> _newestFoodCatalog = List.from(snapshot.data!);
           return getMatchingFoodView(context, _newestFoodCatalog);
         } else {
-          return LoadingWidget();
+          return const LoadingWidget();
         }
       },
     );
@@ -88,20 +88,18 @@ class SearchScreen extends SearchDelegate<String> {
 
     var matches = exactMatches;
 
-    var tmp = []
-      ..addAll(startsWithMatches)
-      ..addAll(innerMatches);
-    tmp.forEach((food) {
+    var tmp = [...startsWithMatches, ...innerMatches];
+    for (var food in tmp) {
       if (!matches.contains(food)) {
         matches.add(food);
       }
-    });
+    }
 
-    if (matches.length > 0) {
+    if (matches.isNotEmpty) {
       return FoodView.fromSearchResult(matches, _monthIndex);
     }
 
-    final Levenshtein lvs = new Levenshtein();
+    final Levenshtein lvs = Levenshtein();
 
     var lvsResults = dbFoods
         .where((food) =>

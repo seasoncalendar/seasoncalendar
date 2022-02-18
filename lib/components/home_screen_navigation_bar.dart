@@ -9,7 +9,7 @@ import 'package:seasoncalendar/generated/l10n.dart';
 class HomeScreenNavigationBar extends StatelessWidget {
   final FoodDisplayConfiguration _fdc;
 
-  HomeScreenNavigationBar(FoodDisplayConfiguration fdc) : _fdc = fdc;
+  const HomeScreenNavigationBar(FoodDisplayConfiguration fdc, {Key? key}) : _fdc = fdc, super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +22,16 @@ class HomeScreenNavigationBar extends StatelessWidget {
               color: Theme.of(context).colorScheme.primary,
               child: Row(
                 children: <Widget>[
-                  Spacer(flex: 2),
+                  const Spacer(flex: 2),
                   Expanded(
                     flex: 10,
                     child: IconButton(
                       icon: settings["showFruits"]
-                          ? Icon(
+                          ? const Icon(
                               SeasonCalendarIcons.apple_alt,
                               color: Colors.black,
                             )
-                          : Icon(
+                          : const Icon(
                               SeasonCalendarIcons.apple_alt,
                               color: Colors.black26,
                             ),
@@ -44,11 +44,11 @@ class HomeScreenNavigationBar extends StatelessWidget {
                     flex: 10,
                     child: IconButton(
                       icon: settings["showVegetables"]
-                          ? Icon(
+                          ? const Icon(
                               SeasonCalendarIcons.carrot,
                               color: Colors.black,
                             )
-                          : Icon(
+                          : const Icon(
                               SeasonCalendarIcons.carrot,
                               color: Colors.black26,
                             ),
@@ -57,7 +57,7 @@ class HomeScreenNavigationBar extends StatelessWidget {
                       },
                     ),
                   ),
-                  Spacer(flex: 5),
+                  const Spacer(flex: 5),
                   Expanded(
                     flex: 10,
                     child: IconButton(
@@ -72,7 +72,7 @@ class HomeScreenNavigationBar extends StatelessWidget {
                   Expanded(
                     flex: 10,
                     child: IconButton(
-                        icon: Icon(Icons.search),
+                        icon: const Icon(Icons.search),
                         onPressed: () {
                           showSearch(
                               context: context,
@@ -80,26 +80,26 @@ class HomeScreenNavigationBar extends StatelessWidget {
                                   L10n.of(context).searchFieldLabel));
                         }),
                   ),
-                  Spacer(flex: 5),
+                  const Spacer(flex: 5),
                   Expanded(
                     flex: 10,
                     child: IconButton(
-                        icon: Icon(Icons.settings),
+                        icon: const Icon(Icons.settings),
                         onPressed: () => _showSettings(context)),
                   ),
                   Expanded(
                     flex: 10,
                     child: IconButton(
-                      icon: Icon(Icons.more_horiz),
+                      icon: const Icon(Icons.more_horiz),
                       onPressed: () => Navigator.of(context).pushNamed("/etc"),
                     ),
                   ),
-                  Spacer(flex: 2)
+                  const Spacer(flex: 2)
                 ],
               ),
             );
           } else {
-            return LinearProgressIndicator();
+            return const LinearProgressIndicator();
           }
         });
   }

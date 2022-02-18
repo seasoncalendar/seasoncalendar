@@ -65,7 +65,7 @@ const Map<String, int> availabilityModeValues = {
 };
 
 List<Food> getFoodsFromIds(List<String> foodIds, List<Food> allFoods) {
-  var matchingFoods = new List<Food>.empty(growable: true);
+  var matchingFoods = List<Food>.empty(growable: true);
   Map<String, Food> allFoodsMap =
       Map.fromIterable(allFoods, key: (food) => food.id, value: (food) => food);
   foodIds.forEach((id) {
@@ -92,8 +92,7 @@ class Food {
   List<String> synonyms = List.empty();
   String typeInfo;
   bool isCommon;
-  LinkedHashMap<String, List<Availability>> availabilities =
-      new LinkedHashMap<String, List<Availability>>();
+  LinkedHashMap<String, List<Availability>> availabilities = LinkedHashMap<>();
   String infoUrl;
   String assetImgPath;
   String assetImgSourceUrl;

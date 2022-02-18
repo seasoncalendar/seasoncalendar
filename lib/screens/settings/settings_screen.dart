@@ -16,11 +16,11 @@ class SettingsPage extends StatefulWidget {
   Map<String, dynamic>? _settings;
   String _versionInfo = "...";
 
-  SettingsPage(Map<String, dynamic> initialSettings)
-      : _initialSettings = initialSettings;
+  SettingsPage(Map<String, dynamic> initialSettings, {Key? key})
+      : _initialSettings = initialSettings, super(key: key);
 
   @override
-  SettingsPageState createState() => new SettingsPageState();
+  SettingsPageState createState() => SettingsPageState();
 }
 
 class SettingsPageState extends State<SettingsPage> {
@@ -34,9 +34,9 @@ class SettingsPageState extends State<SettingsPage> {
       Map<String, dynamic> initialSettings) async {
     Map<String, dynamic> settings = {};
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    initialSettings.keys.forEach((key) {
+    for (var key in initialSettings.keys) {
       settings[key] = prefs.get(key) ?? initialSettings[key];
-    });
+    }
     return settings;
   }
 
@@ -78,7 +78,7 @@ class SettingsPageState extends State<SettingsPage> {
                     return _buildSettings(
                         context, widget._settings, widget._versionInfo);
                   } else {
-                    return Align(
+                    return const Align(
                         alignment: Alignment.center,
                         child: CircularProgressIndicator());
                   }
@@ -104,7 +104,7 @@ class SettingsPageState extends State<SettingsPage> {
               onPressed: () {
                 Navigator.of(context).pushNamed("/etc/howto");
               },
-              child: Icon(Icons.help),
+              child: const Icon(Icons.help),
             ),
             MaterialButton(
                 onPressed: () {
@@ -118,7 +118,7 @@ class SettingsPageState extends State<SettingsPage> {
     };
 
     return Container(
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -144,7 +144,7 @@ class SettingsPageState extends State<SettingsPage> {
               ),
               const Divider(),
               ListTile(
-                leading: Icon(Icons.visibility),
+                leading: const Icon(Icons.visibility),
                 title: Text(L10n.of(context).settingsFilterTitle),
                 isThreeLine: false,
                 dense: false,
@@ -154,7 +154,7 @@ class SettingsPageState extends State<SettingsPage> {
               ListTileTheme(
                 child: ListTile(
                   enabled: true,
-                  leading: Icon(Icons.language),
+                  leading: const Icon(Icons.language),
                   title: Text(L10n.of(context).settingsRegionTitle),
                   trailing: Text(widget._settings?['regionCode']),
                   isThreeLine: false,
@@ -167,7 +167,7 @@ class SettingsPageState extends State<SettingsPage> {
               const Divider(),
               ListTileTheme(
                 child: ListTile(
-                  leading: Icon(Icons.translate),
+                  leading: const Icon(Icons.translate),
                   title: Text(L10n.of(context).settingsLanguageTitle),
                   trailing: Text(Intl.defaultLocale!),
                   isThreeLine: false,
@@ -180,7 +180,7 @@ class SettingsPageState extends State<SettingsPage> {
               const Divider(),
               ListTileTheme(
                 child: ListTile(
-                  leading: Icon(Icons.account_balance),
+                  leading: const Icon(Icons.account_balance),
                   title: Text(L10n.of(context).imprintPageTitle),
                   isThreeLine: false,
                   dense: false,
@@ -190,7 +190,7 @@ class SettingsPageState extends State<SettingsPage> {
               ),
               const Divider(),
               ListTile(
-                leading: Icon(Icons.info_outline),
+                leading: const Icon(Icons.info_outline),
                 enabled: false,
                 title: Text(L10n.of(context).settingsVersion),
                 trailing: Text(

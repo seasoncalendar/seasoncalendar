@@ -14,11 +14,11 @@ class SettingsLanguagePage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
   late Map<String, dynamic> _settings;
 
-  SettingsLanguagePage(Map<String, dynamic> initialSettings)
-      : _initialSettings = initialSettings;
+  SettingsLanguagePage(Map<String, dynamic> initialSettings, {Key? key})
+      : _initialSettings = initialSettings, super(key: key);
 
   @override
-  SettingsLanguagePageState createState() => new SettingsLanguagePageState();
+  SettingsLanguagePageState createState() => SettingsLanguagePageState();
 }
 
 class SettingsLanguagePageState extends State<SettingsLanguagePage> {
@@ -96,7 +96,7 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
     if (languageNameFromCode.keys.contains(languageCode)) {
       newLocale = Locale(languageCode);
     } else {
-      newLocale = Locale("en");
+      newLocale = const Locale("en");
     }
     MyApp.setLocale(context, newLocale);
 

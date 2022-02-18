@@ -1,7 +1,7 @@
-final String tableRegions = 'regions';
-final String columnId = 'id';
-final String columnFallbackRegion = 'fallbackRegion';
-final String columnAssetPath = 'assetPath';
+const String tableRegions = 'regions';
+const String columnId = 'id';
+const String columnFallbackRegion = 'fallbackRegion';
+const String columnAssetPath = 'assetPath';
 
 class Region {
   late String id;
@@ -13,12 +13,10 @@ class Region {
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
+      columnId: id,
       columnFallbackRegion: fallbackRegion,
       columnAssetPath: assetPath,
     };
-    if (id != null) {
-      map[columnId] = id;
-    }
     return map;
   }
 

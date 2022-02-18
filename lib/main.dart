@@ -31,6 +31,7 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
+
   @override
   MyAppState createState() => MyAppState();
 
@@ -52,11 +53,10 @@ class MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    L10n.load(Locale("en"));
-    this._fetchLocale().then((locale) {
+    L10n.load(const Locale("en"));
+    _fetchLocale().then((locale) {
       setState(() {
         this.localeLoadedFromPrefs = true;
-        print("");
         this.locale = locale;
       });
     });

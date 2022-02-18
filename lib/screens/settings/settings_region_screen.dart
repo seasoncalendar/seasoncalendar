@@ -11,11 +11,11 @@ class SettingsRegionPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
   late Map<String, dynamic> _settings;
 
-  SettingsRegionPage(Map<String, dynamic> initialSettings)
-      : _initialSettings = initialSettings;
+  SettingsRegionPage(Map<String, dynamic> initialSettings, {Key? key})
+      : _initialSettings = initialSettings, super(key: key);
 
   @override
-  SettingsRegionPageState createState() => new SettingsRegionPageState();
+  SettingsRegionPageState createState() => SettingsRegionPageState();
 }
 
 class SettingsRegionPageState extends State<SettingsRegionPage> {

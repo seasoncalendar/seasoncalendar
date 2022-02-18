@@ -7,13 +7,13 @@ class FoodDetailsDialog extends StatefulWidget {
   final Image _foodImage;
   final List<List<Availability>> _allAvailabilities;
 
-  FoodDetailsDialog(Food food, Image foodImage, dynamic allAvailabilities)
+  const FoodDetailsDialog(Food food, Image foodImage, dynamic allAvailabilities, {Key? key})
       : _food = food,
         _foodImage = foodImage,
-        _allAvailabilities = allAvailabilities;
+        _allAvailabilities = allAvailabilities, super(key: key);
 
   @override
-  State<StatefulWidget> createState() => new FoodDetailsState();
+  State<StatefulWidget> createState() => FoodDetailsState();
 }
 
 class FoodDetailsState extends State<FoodDetailsDialog> {
@@ -31,14 +31,14 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
             for (var i = 0; i < 4; i += 1) getAvailabilityInfoCard(context, i)
           ],
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             for (var i = 4; i < 8; i += 1) getAvailabilityInfoCard(context, i)
           ],
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -48,7 +48,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
       ],
     );
 
-    var imgAndAvailabilities;
+    Widget imgAndAvailabilities;
     var regionInfo = Text(widget._food.region.name);
     //Text(L10n.of(context). widget._food.region.name)
 
@@ -56,10 +56,10 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
       imgAndAvailabilities = Column(
         children: <Widget>[
           widget._foodImage,
-          SizedBox(height: 10),
-          SizedBox(width: 5),
+          const SizedBox(height: 10),
+          const SizedBox(width: 5),
           regionInfo,
-          SizedBox(width: 5),
+          const SizedBox(width: 5),
           availabilities,
         ],
       );
@@ -71,9 +71,9 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
             flex: 41,
             child: widget._foodImage,
           ),
-          SizedBox(width: 5),
+          const SizedBox(width: 5),
           regionInfo,
-          SizedBox(width: 5),
+          const SizedBox(width: 5),
           Expanded(
             flex: 100,
             child: availabilities,
@@ -90,7 +90,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headline5,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           imgAndAvailabilities,
         ],
       ),
@@ -125,7 +125,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
         children: <Widget>[
           Icon(availabilityModeIcons[fstModeIdx],
               color: Colors.black.withAlpha(primaryIconAlpha)),
-          Text(" / "),
+          const Text(" / "),
           Icon(availabilityModeIcons[sndModeIdx],
               color: Colors.black.withAlpha(secondaryIconAlpha)),
         ],
@@ -145,7 +145,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
                   Text(
                       getMonthNameFromIndex(context, monthIndex)
                           .substring(0, 3),
-                      style: TextStyle(fontWeight: FontWeight.bold)),
+                      style: const TextStyle(fontWeight: FontWeight.bold)),
                   FittedBox(
                     fit: BoxFit.contain,
                     child: containerChild,

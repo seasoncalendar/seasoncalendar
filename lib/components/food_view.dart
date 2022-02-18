@@ -14,17 +14,17 @@ class FoodView extends StatelessWidget {
   final String _viewContext;
   final FoodDisplayConfiguration? _fdc;
 
-  FoodView(FoodDisplayConfiguration fdc)
+  FoodView(FoodDisplayConfiguration fdc, {Key? key})
       : _fdc = fdc,
         _selectedFoods = fdc.foodsToDisplay,
         _monthIndex = fdc.monthIndex,
-        _viewContext = fdc.favoritesSelected ? "fav" : "main";
+        _viewContext = fdc.favoritesSelected ? "fav" : "main", super(key: key);
 
-  FoodView.fromSearchResult(List<Food> searchResultFoods, int monthIndex)
+  FoodView.fromSearchResult(List<Food> searchResultFoods, int monthIndex, {Key? key})
       : _fdc = null,
         _selectedFoods = searchResultFoods,
         _monthIndex = monthIndex,
-        _viewContext = "search";
+        _viewContext = "search", super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class FoodView extends StatelessWidget {
             return GridView.builder(
               itemCount: _selectedFoods.length,
               padding: const EdgeInsets.all(5.0),
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 maxCrossAxisExtent: 300,
               ),
               itemBuilder: (context, i) {
@@ -72,7 +72,7 @@ class FoodView extends StatelessWidget {
               },
             );
           } else {
-            return LoadingWidget();
+            return const LoadingWidget();
           }
         });
   }
@@ -123,12 +123,12 @@ class FoodView extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 1,
-                      child: new LayoutBuilder(builder: (context, constraint) {
+                      child: LayoutBuilder(builder: (context, constraint) {
                         var cst =
                             constraint.biggest.width < constraint.biggest.height
                                 ? constraint.biggest.width
                                 : constraint.biggest.height;
-                        return new Icon(
+                        return Icon(
                           emptyIcon,
                           size: cst,
                           color: Colors.black45,

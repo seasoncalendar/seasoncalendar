@@ -7,40 +7,40 @@ import 'package:seasoncalendar/generated/l10n.dart';
 class SupportPage extends StatelessWidget {
   final Map<String, dynamic> _l10nIndependentText;
 
-  SupportPage(Map<String, dynamic> l10nIndependentText)
-      : _l10nIndependentText = l10nIndependentText;
+  const SupportPage(Map<String, dynamic> l10nIndependentText, {Key? key})
+      : _l10nIndependentText = l10nIndependentText, super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text(L10n.of(context).supportPageTitle)),
         body: Container(
-            margin: EdgeInsets.all(18),
+            margin: const EdgeInsets.all(18),
             child: SingleChildScrollView(
                 child: Column(
               children: <Widget>[
                 Text(L10n.of(context).supportPageSpreadTitle,
                     style: Theme.of(context).textTheme.headline4),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(L10n.of(context).supportPageSpreadText1,
                     style: Theme.of(context).textTheme.bodyText1,
                     textAlign: TextAlign.justify),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(L10n.of(context).supportPageSpreadText2,
                     style: Theme.of(context).textTheme.bodyText1,
                     textAlign: TextAlign.justify),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(L10n.of(context).supportPageHeadline,
                     style: Theme.of(context).textTheme.headline4),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(L10n.of(context).supportPageText1,
                     style: Theme.of(context).textTheme.bodyText1,
                     textAlign: TextAlign.justify),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(L10n.of(context).supportPageText2,
                     style: Theme.of(context).textTheme.bodyText1,
                     textAlign: TextAlign.justify),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   child: Text(L10n.of(context).supportPageWebsiteLink),
                   onPressed: () async {

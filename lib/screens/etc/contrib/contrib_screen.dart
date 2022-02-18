@@ -5,21 +5,21 @@ import 'package:seasoncalendar/generated/l10n.dart';
 class ContribPage extends StatelessWidget {
   final Map<String, dynamic> _l10nIndependentText;
 
-  ContribPage(Map<String, dynamic> l10nIndependentText)
-      : _l10nIndependentText = l10nIndependentText;
+  const ContribPage(Map<String, dynamic> l10nIndependentText, {Key? key})
+      : _l10nIndependentText = l10nIndependentText, super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text(L10n.of(context).contribPageTitle)),
         body: Container(
-            margin: EdgeInsets.all(18),
+            margin: const EdgeInsets.all(18),
             child: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
                   Text(L10n.of(context).contribPageContactHeadline,
                       style: Theme.of(context).textTheme.headline4),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   RichText(
                     textAlign: TextAlign.justify,
                     text: TextSpan(
@@ -30,7 +30,7 @@ class ContribPage extends StatelessWidget {
                           ?.copyWith(color: Colors.black),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                     child: Text(L10n.of(context).contribPageContactButtonText),
                     onPressed: () async {
@@ -43,10 +43,10 @@ class ContribPage extends StatelessWidget {
                       }
                     },
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(L10n.of(context).contribPageCodeHeadline,
                       style: Theme.of(context).textTheme.headline4),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   RichText(
                     textAlign: TextAlign.justify,
                     text: TextSpan(
@@ -57,7 +57,7 @@ class ContribPage extends StatelessWidget {
                           ?.copyWith(color: Colors.black),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   ElevatedButton(
                     child: Text(L10n.of(context).contribPageCodeButtonText),
                     onPressed: () async {

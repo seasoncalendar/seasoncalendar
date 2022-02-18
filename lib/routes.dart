@@ -43,10 +43,10 @@ final Map<String, WidgetBuilder> appRoutes = {
           return ChangeNotifierProvider(
             create: (_) =>
                 FoodDisplayConfiguration(allFoods, settings, favoriteFoodNames),
-            child: HomeScreen(),
+            child: const HomeScreen(),
           );
         } else {
-          return LoadingScaffold();
+          return const LoadingScaffold();
         }
       }),
   "/settings": (_) => FutureBuilder(
@@ -56,7 +56,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final initialSettings = snapshot.data!;
             return SettingsPage(initialSettings);
           } else {
-            return LoadingScaffold();
+            return const LoadingScaffold();
           }
         },
       ),
@@ -67,7 +67,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final initialSettings = snapshot.data!;
             return SettingsRegionPage(initialSettings);
           } else {
-            return LoadingScaffold();
+            return const LoadingScaffold();
           }
         },
       ),
@@ -78,13 +78,13 @@ final Map<String, WidgetBuilder> appRoutes = {
             final initialSettings = snapshot.data!;
             return SettingsLanguagePage(initialSettings);
           } else {
-            return LoadingScaffold();
+            return const LoadingScaffold();
           }
         },
       ),
-  "/etc": (_) => EtcPage(),
-  "/etc/howto": (_) => HowToPage(),
-  "/etc/about": (_) => AboutPage(),
+  "/etc": (_) => const EtcPage(),
+  "/etc/howto": (_) => const HowToPage(),
+  "/etc/about": (_) => const AboutPage(),
   "/etc/contrib": (_) => FutureBuilder(
         future: independent_text,
         builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
@@ -92,7 +92,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final l10nIndependentText = snapshot.data!;
             return ContribPage(l10nIndependentText);
           } else {
-            return LoadingScaffold();
+            return const LoadingScaffold();
           }
         },
       ),
@@ -103,7 +103,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final l10nIndependentText = snapshot.data!;
             return SupportPage(l10nIndependentText);
           } else {
-            return LoadingScaffold();
+            return const LoadingScaffold();
           }
         },
       ),
@@ -114,7 +114,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final l10nIndependentText = snapshot.data!;
             return ImprintPage(l10nIndependentText);
           } else {
-            return LoadingScaffold();
+            return const LoadingScaffold();
           }
         },
       ),
@@ -125,7 +125,7 @@ final Map<String, WidgetBuilder> appRoutes = {
             final allFoods = List<Food>.from(snapshot.data!);
             return ImgSourcesScreen(allFoods);
           } else {
-            return LoadingScaffold();
+            return const LoadingScaffold();
           }
         },
       ),

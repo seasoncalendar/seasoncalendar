@@ -6,7 +6,7 @@ import 'package:swipe/swipe.dart';
 class MonthSelector extends StatelessWidget {
   final FoodDisplayConfiguration _fdc;
 
-  MonthSelector(FoodDisplayConfiguration fdc) : _fdc = fdc;
+  const MonthSelector(FoodDisplayConfiguration fdc, {Key? key}) : _fdc = fdc, super(key: key);
 
   @override
   Widget build(BuildContext context) {

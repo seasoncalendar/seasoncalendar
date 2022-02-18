@@ -10,15 +10,15 @@ import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 
 class FoodDisplayConfiguration extends ChangeNotifier {
   final List<Food> allFoods;
-  var favoriteFoodNames;
-  var foodsToDisplay;
+  List<String> favoriteFoodNames;
+  late List<Food> foodsToDisplay;
   bool favoritesSelected = false;
   int monthIndex = DateTime.now().toLocal().month - 1;
 
   FoodDisplayConfiguration(List<Food> initialFoods,
       Map<String, dynamic> settings, List<String> initialFavoriteFoodNames)
-      : allFoods = initialFoods {
-    favoriteFoodNames = initialFavoriteFoodNames;
+      : allFoods = initialFoods,
+        favoriteFoodNames = initialFavoriteFoodNames {
     foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodNames, settings);
   }
 
@@ -106,10 +106,12 @@ class FoodDisplayConfiguration extends ChangeNotifier {
         var av1 = a.getAvailabilitiesByMonth(monthIndex);
         var av2 = b.getAvailabilitiesByMonth(monthIndex);
         int comp = compareAvailabilities(av1, av2);
-        if (comp != 0)
+        if (comp != 0) {
           return comp;
-        else
+        }
+        else {
           return a.displayName.compareTo(b.displayName);
+        }
       });
     }
 
