@@ -3,7 +3,7 @@ name: Flutter Build App
 on:
   push:
     tags:
-      - v**
+      - '*'
     # branches:
     #   - develop
   # pull_request:
@@ -38,10 +38,11 @@ jobs:
           flutter doctor --verbose
           flutter pub get
           flutter update-packages
-          # flutter test
           flutter pub run intl_utils:generate
 
-      - run: flutter build apk --verbose --debug --flavor foss
+      
+      # - name: Build debug
+      #   run: flutter build apk --verbose --debug --flavor foss
 
       - name: Prepare signing key
         run: |
@@ -54,31 +55,25 @@ jobs:
           echo storeFile=$(pwd)/android/key.jks >> android/key.properties
           wc android/key.properties
 
+      - name: Build release apk
+        run: flutter build apk --release --flavor foss --verbose
+        id: build-apk
 
-      - run: flutter build apk --verbose --release --flavor foss
-
-      # - run: flutter build appbundle
+      - name: Build app bundle
+        run: flutter build appbundle --release --flavor foss --verbose
+        id: build-bundle
 
       - name: Remove signing key
         run: |
           rm android/key.jks.base64 android/key.jks android/key.properties
 
-
-      - uses: r0adkll/sign-android-release@v1
-        name: Sign app APK
-        id: sign
-        with:
-          releaseDirectory: build/app/outputs/flutter-apk
-          signingKeyBase64: ${{ secrets.SIGNING_KEY_DECRYPTED }} # by decrypted we mean in base64 :)
-          alias: ${{ secrets.KEY_ALIAS }}
-          keyStorePassword: ${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }}
-          keyPassword: ${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }}
-        env:
-          BUILD_TOOLS_VERSION: '32.0.0'
-
-      - run: echo ${{ fromJSON(steps.sign.outputs) }}
-
       - uses: actions/upload-artifact@v2
         with:
           name: foss-debug-apk
-          path: build/app/outputs/flutter-apk/app-foss-debug-signed.apk
+          path: build/app/outputs/flutter-apk/app-foss-release.apk
+
+      # - name: Release
+      #   uses: softprops/action-gh-release@v1
+      #   if: startsWith(github.ref, 'refs/tags/')
+      #   with:
+      #     files: 
