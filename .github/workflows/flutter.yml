@@ -75,14 +75,12 @@ jobs:
         run: |
           rm android/key.jks.base64 android/key.jks android/key.properties
 
+      - run: rename_apks.sh
+
       - uses: actions/upload-artifact@v2
         with:
-          name: app-release
-          path: |
-            build/app/outputs/flutter-apk/app-foss-release.apk
-            build/app/outputs/flutter-apk/app-arm64-v8a-foss-release.apk
-            build/app/outputs/flutter-apk/app-armeabi-v7a-foss-release.apk
-            build/app/outputs/flutter-apk/app-x86_64-foss-release.apk
+          name: seasoncalendar-release-apks
+          path: build/app/outputs/flutter-apk/seasoncalendar*.apk
 
       - uses: actions/upload-artifact@v2
         with:
@@ -95,11 +93,7 @@ jobs:
         with:
           draft: true
           generate_release_notes: true
-          files: |
-            build/app/outputs/flutter-apk/app-foss-release.apk
-            build/app/outputs/flutter-apk/app-arm64-v8a-foss-release.apk
-            build/app/outputs/flutter-apk/app-armeabi-v7a-foss-release.apk
-            build/app/outputs/flutter-apk/app-x86_64-foss-release.apk
+          files: build/app/outputs/flutter-apk/seasoncalendar*.apk
 
       # - name: Create Google Play Release
       #   uses: r0adkll/upload-google-play@v1
