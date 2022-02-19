@@ -65,7 +65,7 @@ jobs:
 
       - name: Build release apk
         run: flutter build apk --release --flavor foss --verbose --split-per-abi
-        id: build-apk
+        id: build-apk-split
 
       - name: Build app bundle
         run: flutter build appbundle --release --flavor googleplay --verbose
