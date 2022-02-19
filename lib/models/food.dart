@@ -92,7 +92,7 @@ class Food {
   List<String> synonyms = List.empty();
   String typeInfo;
   bool isCommon;
-  LinkedHashMap<String, List<Availability>> availabilities = LinkedHashMap<>();
+  LinkedHashMap<String, List<Availability>> availabilities = LinkedHashMap();
   String infoUrl;
   String assetImgPath;
   String assetImgSourceUrl;
