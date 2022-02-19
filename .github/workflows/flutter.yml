@@ -48,10 +48,6 @@ jobs:
           flutter update-packages
           flutter pub run intl_utils:generate
 
-      
-      # - name: Build debug
-      #   run: flutter build apk --verbose --debug --flavor foss
-
       - name: Prepare signing key
         run: |
           echo ${{ secrets.SIGNING_KEY_DECRYPTED }} > android/key.jks.base64
@@ -67,8 +63,12 @@ jobs:
         run: flutter build apk --release --flavor foss --verbose
         id: build-apk
 
+      - name: Build release apk
+        run: flutter build apk --release --flavor foss --verbose --split-per-abi
+        id: build-apk
+
       - name: Build app bundle
-        run: flutter build appbundle --release --flavor foss --verbose
+        run: flutter build appbundle --release --flavor googleplay --verbose
         id: build-bundle
 
       - name: Remove signing key
@@ -78,10 +78,37 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: app-release
-          path: build/app/outputs/flutter-apk/app-foss-release.apk
+          path: |
+            build/app/outputs/flutter-apk/app-foss-release.apk
+            build/app/outputs/flutter-apk/app-arm64-v8a-foss-release.apk
+            build/app/outputs/flutter-apk/app-armeabi-v7a-foss-release.apk
+            build/app/outputs/flutter-apk/app-x86_64-foss-release.apk
+
       - uses: actions/upload-artifact@v2
         with:
           name: appbundle-release
           path: build/app/outputs/bundle/fossRelease/app-foss-release.aab
 
+      - name: Create Github Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/v')
+        with:
+          draft: true
+          generate_release_notes: true
+          files: |
+            build/app/outputs/flutter-apk/app-foss-release.apk
+            build/app/outputs/flutter-apk/app-arm64-v8a-foss-release.apk
+            build/app/outputs/flutter-apk/app-armeabi-v7a-foss-release.apk
+            build/app/outputs/flutter-apk/app-x86_64-foss-release.apk
 
+      # - name: Create Google Play Release
+      #   uses: r0adkll/upload-google-play@v1
+      #   if: startsWith(github.ref, 'refs/tags/v')
+      #   with:
+      #   serviceAccountJson: ${{ SERVICE_ACCOUNT_JSON }}
+      #   packageName: flunzmas.seasoncalendar
+      #   releaseFiles: app-foss-release.aab
+      #   track: production
+      #   inAppUpdatePriority: 2
+      #   whatsNewDirectory: distribution/whatsnew
+      #   mappingFile: app/build/outputs/mapping/release/mapping.txt
