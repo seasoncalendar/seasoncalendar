@@ -87,7 +87,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: appbundle-release
-          path: build/app/outputs/bundle/fossRelease/app-foss-release.aab
+          path: build/app/outputs/bundle/googleplayRelease/app-googleplay-release.aab
 
       - name: Create Github Release
         uses: softprops/action-gh-release@v1
