@@ -75,7 +75,7 @@ jobs:
         run: |
           rm android/key.jks.base64 android/key.jks android/key.properties
 
-      - run: rename_apks.sh
+      - run: scripts/rename_apks.sh
 
       - uses: actions/upload-artifact@v2
         with:
