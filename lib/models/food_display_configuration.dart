@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:seasoncalendar/helpers/availabilities.dart';
+import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/helpers/favorite_foods.dart';

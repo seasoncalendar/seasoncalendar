@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/screens/settings/settings_screen.dart';
-
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'package:seasoncalendar/generated/l10n.dart';
-import 'package:seasoncalendar/helpers/availabilities.dart';
+import 'package:seasoncalendar/models/availability.dart';
 
 class AvailabilitiesDialog extends StatefulWidget {
   final List<bool> _selectedAvailabilities;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
+import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
 
 class FoodDetailsDialog extends StatefulWidget {

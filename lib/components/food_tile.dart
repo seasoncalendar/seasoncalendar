@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/models/availability.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -18,10 +19,8 @@ class FoodTile extends StatefulWidget {
   FoodTile(Food foodToDisplay, int curMonthIndex, {Key? key})
       : _food = foodToDisplay,
         _curMonthIndex = curMonthIndex,
-        _allAvailabilities = List.generate(
-            12,
-            (monthIndex) =>
-                foodToDisplay.getAvailabilitiesByMonth(monthIndex)), super(key: key) {
+        _allAvailabilities = foodToDisplay.getAvailabilitiesList(),
+        super(key: Key(foodToDisplay.id)) {
     _curAvailabilities = _allAvailabilities[_curMonthIndex];
     int fstModeIdx =
         _curAvailabilities.indexWhere((mode) => mode != Availability.none);

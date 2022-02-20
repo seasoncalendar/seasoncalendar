@@ -8,7 +8,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
-import 'package:seasoncalendar/helpers/availabilities.dart';
+import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/components/availabilities_dialog.dart';
