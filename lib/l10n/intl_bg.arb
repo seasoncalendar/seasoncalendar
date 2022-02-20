@@ -274,7 +274,7 @@
   "@iceberg_names": {},
   "imprintImgSourcesLicense": "Лиценз: ",
   "@imprintImgSourcesLicense": {},
-  "imprintImgSourcesPublisher": "Създател: ",
+  "imprintImgSourcesPublisher": "\nСъздател: ",
   "@imprintImgSourcesPublisher": {},
   "imprintPageAppInfo": "Информация за приложението",
   "@imprintPageAppInfo": {},
@@ -605,5 +605,13 @@
     "description": "The region of Northern California."
   },
   "confirm": "Потвърдете",
-  "@confirm": {}
+  "@confirm": {},
+  "settingsEnableCustomAvTitle": "Активиране на персонализирани наличности",
+  "@settingsEnableCustomAvTitle": {},
+  "foodEditAvTitle": "Редактиране на наличностите",
+  "@foodEditAvTitle": {},
+  "settingsEnableCustomAvSubtitle": "Ако е активирано, наличностите могат да бъдат персонализирани на вашето устройство и персонализациите ще се покажат",
+  "@settingsEnableCustomAvSubtitle": {},
+  "settingsResetCustomAvTitle": "Нулиране на персонализираните наличности",
+  "@settingsResetCustomAvTitle": {}
 }
