@@ -8,41 +8,45 @@ import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:swipe/swipe.dart';
 
+enum FoodViewMode {
+  main,
+  favorite,
+  search
+}
+
 class FoodView extends StatelessWidget {
-  List<Food> _selectedFoods;
-  final int _monthIndex;
-  final String _viewContext;
-  final FoodDisplayConfiguration? _fdc;
+  final List<Food> _selectedFoods;
+  final FoodViewMode _mode;
+  final FoodDisplayConfiguration _fdc;
+  final bool displaySearch = false;
 
   FoodView(FoodDisplayConfiguration fdc, {Key? key})
       : _fdc = fdc,
         _selectedFoods = fdc.foodsToDisplay,
-        _monthIndex = fdc.monthIndex,
-        _viewContext = fdc.favoritesSelected ? "fav" : "main", super(key: key);
+        _mode = fdc.favoritesSelected ? FoodViewMode.favorite : FoodViewMode.main, super(key: key);
 
-  FoodView.fromSearchResult(List<Food> searchResultFoods, int monthIndex, {Key? key})
-      : _fdc = null,
+  FoodView.fromSearchResult(FoodDisplayConfiguration fdc, List<Food> searchResultFoods, {Key? key})
+      : _fdc = fdc,
         _selectedFoods = searchResultFoods,
-        _monthIndex = monthIndex,
-        _viewContext = "search", super(key: key);
+        _mode = FoodViewMode.search, super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Widget innerView = _selectedFoods.length >= 1
-        ? _buildFull(context)
-        : _buildEmpty(context, _viewContext);
+    Widget innerView = _selectedFoods.isEmpty
+        ? _buildEmpty(context, _mode)
+        : _buildFull(context);
 
     // can't swipe foodView when no display configuration given
     // (e.g. when displaying search results)
-    if (_fdc == null) {
+    if (_mode == FoodViewMode.search) {
       return innerView;
     } else {
       return Swipe(
         onSwipeLeft: () {
-          _fdc?.shiftMonth(1);
+          _fdc.shiftMonth(1);
         },
         onSwipeRight: () {
-          _fdc?.shiftMonth(-1);
+          _fdc.shiftMonth(-1);
         },
         child: innerView,
       );
@@ -50,34 +54,19 @@ class FoodView extends StatelessWidget {
   }
 
   Widget _buildFull(BuildContext context) {
-    return FutureBuilder(
-        future: DBProvider.db.getFoods(),
-        builder: (context, AsyncSnapshot<List<Food>> snapshot) {
-          if (snapshot.hasData) {
-            // update food data on every build
-            List<Food> _newestFoodCatalog = snapshot.data!;
-            _selectedFoods = _selectedFoods
-                .map((Food f) =>
-                    _newestFoodCatalog.firstWhere((Food nf) => nf.id == f.id))
-                .toList();
-
-            return GridView.builder(
-              itemCount: _selectedFoods.length,
-              padding: const EdgeInsets.all(5.0),
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 300,
-              ),
-              itemBuilder: (context, i) {
-                return FoodTile(_selectedFoods[i], _monthIndex);
-              },
-            );
-          } else {
-            return const LoadingWidget();
-          }
-        });
+    return GridView.builder(
+      itemCount: _selectedFoods.length,
+      padding: const EdgeInsets.all(5.0),
+      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+        maxCrossAxisExtent: 300,
+      ),
+      itemBuilder: (context, i) {
+        return FoodTile(_selectedFoods[i], _fdc.monthIndex);
+      },
+    );
   }
 
-  Widget _buildEmpty(BuildContext context, String viewContext) {
+  Widget _buildEmpty(BuildContext context, FoodViewMode mode) {
     IconData emptyIcon = Icons.spa;
     String emptyText = L10n.of(context).emptyFoodsViewText;
     Widget emptyHint = Text(
@@ -86,7 +75,7 @@ class FoodView extends StatelessWidget {
       textAlign: TextAlign.center,
     );
 
-    if (viewContext.startsWith("fav")) {
+    if (mode == FoodViewMode.favorite) {
       emptyIcon = Icons.star_border;
       emptyText = L10n.of(context).emptyFavoritesViewText;
       emptyHint = Text(
@@ -96,7 +85,7 @@ class FoodView extends StatelessWidget {
         style: const TextStyle(color: Colors.black54),
         textAlign: TextAlign.center,
       );
-    } else if (viewContext == "search") {
+    } else if (mode == FoodViewMode.search) {
       emptyIcon = Icons.search;
       emptyText = L10n.of(context).emptySearchViewText;
       emptyHint = Container();
