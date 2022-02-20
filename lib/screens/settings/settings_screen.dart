@@ -132,7 +132,7 @@ class SettingsPageState extends State<SettingsPage> {
                 onPressed: () {
                   Navigator.of(context).pop(dialog.selectedAvailabilities);
                 },
-                child: Text(L10n.of(context).back)),
+                child: Text(L10n.of(context).confirm)),
           ],
         ),
         barrierDismissible: true,
@@ -179,6 +179,19 @@ class SettingsPageState extends State<SettingsPage> {
               const Divider(),
               ListTileTheme(
                 child: ListTile(
+                  leading: const Icon(Icons.translate),
+                  title: Text(L10n.of(context).settingsLanguageTitle),
+                  trailing: Text(Intl.defaultLocale!),
+                  isThreeLine: false,
+                  dense: false,
+                  onTap: () {
+                    Navigator.of(context).pushNamed("/settings/language");
+                  },
+                ),
+              ),
+              const Divider(),
+              ListTileTheme(
+                child: ListTile(
                   enabled: true,
                   leading: const Icon(Icons.language),
                   title: Text(L10n.of(context).settingsRegionTitle),
@@ -191,15 +204,24 @@ class SettingsPageState extends State<SettingsPage> {
                 ),
               ),
               const Divider(),
+              SwitchListTile.adaptive(
+                secondary: Icon(Icons.edit_attributes_outlined),
+                title: Text(L10n.of(context).settingsEnableCustomAvTitle),
+                subtitle: Text(L10n.of(context).settingsEnableCustomAvSubtitle),
+                value: widget._settings!["useCustomAv"],
+                dense: false,
+                onChanged: (newVal) {
+                  setSettingI("useCustomAv", newVal);
+                },
+              ),
+              const Divider(),
               ListTileTheme(
                 child: ListTile(
-                  leading: const Icon(Icons.translate),
-                  title: Text(L10n.of(context).settingsLanguageTitle),
-                  trailing: Text(Intl.defaultLocale!),
+                  leading: Icon(Icons.delete_forever),
+                  title: Text(L10n.of(context).settingsResetCustomAvTitle),
                   isThreeLine: false,
                   dense: false,
-                  onTap: () {
-                    Navigator.of(context).pushNamed("/settings/language");
+                  onTap: () {/*Display alert dialog then empty foods_av_custom*/
                   },
                 ),
               ),
