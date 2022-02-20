@@ -1203,5 +1203,7 @@
   "confirm": "Confirm",
   "@confirm": {},
   "settingsResetCustomAvTitle": "Reset custom availabilities",
-  "@settingsResetCustomAvTitle": {}
+  "@settingsResetCustomAvTitle": {},
+  "settingsEnableCustomAvTitle": "Enable custom availabilities",
+  "@settingsEnableCustomAvTitle": {}
 }
