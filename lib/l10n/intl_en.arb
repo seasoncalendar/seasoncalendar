@@ -1205,5 +1205,7 @@
   "settingsResetCustomAvTitle": "Reset custom availabilities",
   "@settingsResetCustomAvTitle": {},
   "settingsEnableCustomAvTitle": "Enable custom availabilities",
-  "@settingsEnableCustomAvTitle": {}
+  "@settingsEnableCustomAvTitle": {},
+  "settingsEnableCustomAvSubtitle": "If enabled, availabilities can be customized on your device and customizations will be displayed",
+  "@settingsEnableCustomAvSubtitle": {}
 }
