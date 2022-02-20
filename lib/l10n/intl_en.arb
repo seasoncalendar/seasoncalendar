@@ -1199,5 +1199,7 @@
   "reunion": "Réunion (France)",
   "@reunion": {},
   "incompleteLanguageNotice": "Incomplete languages are displayed with a \"Beta\" notice. For them, missing translations are displayed in English.",
-  "@incompleteLanguageNotice": {}
+  "@incompleteLanguageNotice": {},
+  "confirm": "confirm",
+  "@confirm": {}
 }
