@@ -18,9 +18,9 @@ Otherwise:
 Perhaps the best thing about this seasonal foods calendar is its potential to provide information for people all around the globe.
 However, in order to increase its reach, new languages, foods and regions have to be added continuously. A description on how to do this is provided in the respective issues:
 
-- Languages: [Issue #36](https://github.com/Flunzmas/seasoncalendar/issues/36)
-- Foods: [Issue #29](https://github.com/Flunzmas/seasoncalendar/issues/29)
-- Regions: [Issue #47](https://github.com/Flunzmas/seasoncalendar/issues/47)
+- Languages: [Issue #36](https://github.com/seasoncalendar/seasoncalendar/issues/36)
+- Foods: [Issue #29](https://github.com/seasoncalendar/seasoncalendar/issues/29)
+- Regions: [Issue #47](https://github.com/seasoncalendar/seasoncalendar/issues/47)
 
 ### Other stuff
 
