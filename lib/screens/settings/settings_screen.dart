@@ -42,6 +42,24 @@ class SettingsPageState extends State<SettingsPage> {
     return settings;
   }
 
+  clearSettings(BuildContext? context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+    widget._settings = Map.from(widget._initialSettings);
+    // TODO set SharedPreferences to initialSettings?
+
+    if (context != null) {
+      const snackBar = SnackBar(
+        content: Text('Settings reset!'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+      // todo rebirth overrides the SnackBar notification
+      // but is currently required to reset the apps state
+      Phoenix.rebirth(context);
+    }
+  }
+
   setSettingI(String key, dynamic newVal) async {
     widget._settings![key] = newVal;
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -193,7 +211,7 @@ class SettingsPageState extends State<SettingsPage> {
               const Divider(),
               ListTile(
                 leading: const Icon(Icons.info_outline),
-                enabled: false,
+                enabled: kDebugMode,
                 title: Text(L10n.of(context).settingsVersion),
                 trailing: Text(
                   widget._versionInfo +
@@ -203,6 +221,7 @@ class SettingsPageState extends State<SettingsPage> {
                 ),
                 isThreeLine: false,
                 dense: false,
+                onLongPress:  () => clearSettings(context),
               ),
             ],
           ),
