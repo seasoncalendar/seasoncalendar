@@ -4,6 +4,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:intl/intl.dart';
 
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:seasoncalendar/helpers/user_db_provider.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -221,7 +222,37 @@ class SettingsPageState extends State<SettingsPage> {
                   title: Text(L10n.of(context).settingsResetCustomAvTitle),
                   isThreeLine: false,
                   dense: false,
-                  onTap: () {/*Display alert dialog then empty foods_av_custom*/
+                  onTap: () async {
+                    bool? res = await showDialog(
+                      context: context,
+                      builder: (_) => AlertDialog(
+                        backgroundColor: Colors.white,
+                        title: Text("Are you sure?"),
+                        content: Text("Do you really want to delete your locally edited availability data. This action cannot be undone."),
+                        elevation: 10,
+                        actions: [
+                          MaterialButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(true);
+                            },
+                            child: Text("Delete"),
+                          ),
+                          MaterialButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text(L10n.of(context).back)),
+                        ],
+                      ),
+                    );
+                    if (res ?? false) {
+                      UserDBProvider.db.deleteDB();
+                      Phoenix.rebirth(context);
+                      var snackBar = const SnackBar(
+                        content: Text('Custom availability data was deleted!'),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
                   },
                 ),
               ),

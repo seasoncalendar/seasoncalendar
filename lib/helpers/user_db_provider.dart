@@ -59,6 +59,14 @@ class UserDBProvider {
     return db;
   }
 
+  deleteDB() async {
+    await _userdatabase?.close();
+    _userdatabase = null;
+    var databasesPath = await getDatabasesPath();
+    var path = join(databasesPath, "custom_foods.db");
+    deleteDatabase(path);
+  }
+
   Future<List<Food>> getFoodsWithCustom() async {
     final Database db = await userdatabase;
     Region region = await DBProvider.db.getCurrentRegion();

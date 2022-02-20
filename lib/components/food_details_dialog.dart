@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
+import 'package:seasoncalendar/helpers/user_db_provider.dart';
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
