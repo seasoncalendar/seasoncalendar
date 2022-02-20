@@ -207,8 +207,10 @@ class SettingsPageState extends State<SettingsPage> {
               const Divider(),
               SwitchListTile.adaptive(
                 secondary: Icon(Icons.edit_attributes_outlined),
-                title: Text(L10n.of(context).settingsEnableCustomAvTitle),
-                subtitle: Text(L10n.of(context).settingsEnableCustomAvSubtitle),
+                title: Text("Custom availabilities"), //L10n.of(context).settingsEnableCustomAvTitle),
+                subtitle: widget._settings!["useCustomAv"] ?
+                  Text("Tab to hide custom availabilities") : //L10n.of(context).settingsDisableCustomAv),
+                  Text("Tab to allow editing availability"), //L10n.of(context).settingsEnableCustomAv):
                 value: widget._settings!["useCustomAv"],
                 dense: false,
                 onChanged: (newVal) {
@@ -221,6 +223,7 @@ class SettingsPageState extends State<SettingsPage> {
                   leading: Icon(Icons.delete_forever),
                   title: Text(L10n.of(context).settingsResetCustomAvTitle),
                   isThreeLine: false,
+                  enabled: widget._settings!["useCustomAv"],
                   dense: false,
                   onTap: () async {
                     bool? res = await showDialog(
