@@ -66,13 +66,15 @@ const Map<String, int> availabilityModeValues = {
 
 List<Food> getFoodsFromIds(List<String> foodIds, List<Food> allFoods) {
   var matchingFoods = List<Food>.empty(growable: true);
-  Map<String, Food> allFoodsMap =
-      Map.fromIterable(allFoods, key: (food) => food.id, value: (food) => food);
-  foodIds.forEach((id) {
+  Map<String, Food> allFoodsMap = {
+    for (var food in allFoods)
+      food.id: food,
+  };
+  for (var id in foodIds) {
     if (allFoodsMap.containsKey(id)) {
       matchingFoods.add(allFoodsMap[id]!);
     }
-  });
+  }
   return matchingFoods;
 }
 
@@ -100,40 +102,33 @@ class Food {
   Region region;
 
   Food(
-      String id,
+      this.id,
       String foodNamesString,
-      String type,
-      int isCommon,
+      this.typeInfo,
+      int commonInt,
       String avLocal,
       String avLand,
       String avSea,
       String avAir,
-      String infoUrl,
-      String assetImgPath,
-      String assetImgSourceUrl,
-      String assetImgInfo,
-      Region region)
-      : this.id = id,
-        this.typeInfo = type,
-        this.isCommon = isCommon == 1,
-        this.infoUrl = infoUrl,
-        this.assetImgPath = assetImgPath,
-        this.assetImgSourceUrl = assetImgSourceUrl,
-        this.assetImgInfo = assetImgInfo,
-        this.region = region {
+      this.infoUrl,
+      this.assetImgPath,
+      this.assetImgSourceUrl,
+      this.assetImgInfo,
+      this.region)
+      : isCommon = commonInt == 1 {
     // handle names and synonyms
-    this.synonyms = splitByCommaAndTrim(foodNamesString);
-    this.displayName = this.synonyms[0];
+    synonyms = splitByCommaAndTrim(foodNamesString);
+    displayName = synonyms[0];
 
     // handle availabilities
-    this.availabilities = LinkedHashMap<String, List<Availability>>();
-    this.availabilities['local'] =
+    availabilities = LinkedHashMap<String, List<Availability>>();
+    availabilities['local'] =
         availabilitiesFromStringList(splitByCommaAndTrim(avLocal));
-    this.availabilities['landTransport'] =
+    availabilities['landTransport'] =
         availabilitiesFromStringList(splitByCommaAndTrim(avLand));
-    this.availabilities['seaTransport'] =
+    availabilities['seaTransport'] =
         availabilitiesFromStringList(splitByCommaAndTrim(avSea));
-    this.availabilities['flightTransport'] =
+    availabilities['flightTransport'] =
         availabilitiesFromStringList(splitByCommaAndTrim(avAir));
   }
 
@@ -145,10 +140,10 @@ class Food {
       Availability.none
     ];
 
-    var avKeys = this.availabilities.keys.toList();
+    var avKeys = availabilities.keys.toList();
     for (int i = 0; i < avKeys.length; ++i) {
       var curKey = avKeys[i];
-      var curAv = this.availabilities[curKey]![monthIndex];
+      var curAv = availabilities[curKey]![monthIndex];
       availabilitiesThisMonth[availabilityModeValues[curKey]!] = curAv;
 
       // lower av modes are disregarded if any mode is "full"
@@ -158,6 +153,6 @@ class Food {
     return availabilitiesThisMonth;
   }
 
-  bool isFruit() => this.typeInfo.toLowerCase().contains("fruit");
-  bool isVegetable() => this.typeInfo.toLowerCase().contains("vegetable");
+  bool isFruit() => typeInfo.toLowerCase().contains("fruit");
+  bool isVegetable() => typeInfo.toLowerCase().contains("vegetable");
 }
