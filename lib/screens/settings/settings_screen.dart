@@ -55,9 +55,9 @@ class SettingsPageState extends State<SettingsPage> {
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
-      // todo rebirth overrides the SnackBar notification
-      // but is currently required to reset the apps state
-      Phoenix.rebirth(context);
+      Navigator.of(context).pushNamed("/settings").then((_) {
+        Phoenix.rebirth(context);
+      });
     }
   }
 
@@ -247,11 +247,14 @@ class SettingsPageState extends State<SettingsPage> {
                     );
                     if (res ?? false) {
                       UserDBProvider.db.deleteDB();
-                      Phoenix.rebirth(context);
                       var snackBar = const SnackBar(
                         content: Text('Custom availability data was deleted!'),
                       );
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+                      Navigator.of(context).pushNamed("/settings").then((_) {
+                        Phoenix.rebirth(context);
+                      });
                     }
                   },
                 ),
