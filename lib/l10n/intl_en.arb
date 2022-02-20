@@ -1201,5 +1201,7 @@
   "incompleteLanguageNotice": "Incomplete languages are displayed with a \"Beta\" notice. For them, missing translations are displayed in English.",
   "@incompleteLanguageNotice": {},
   "confirm": "Confirm",
-  "@confirm": {}
+  "@confirm": {},
+  "settingsResetCustomAvTitle": "Reset custom availabilities",
+  "@settingsResetCustomAvTitle": {}
 }
