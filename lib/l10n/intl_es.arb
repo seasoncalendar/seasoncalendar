@@ -605,5 +605,13 @@
     "description": "The region of Northern California."
   },
   "confirm": "Confirmar",
-  "@confirm": {}
+  "@confirm": {},
+  "settingsResetCustomAvTitle": "Restablecer disponibilidades personalizadas",
+  "@settingsResetCustomAvTitle": {},
+  "settingsEnableCustomAvTitle": "Habilitar disponibilidades personalizadas",
+  "@settingsEnableCustomAvTitle": {},
+  "settingsEnableCustomAvSubtitle": "Si habilitado, las disponibilidades pueden ser personalizadas en el dispositivo y customizations será mostrado",
+  "@settingsEnableCustomAvSubtitle": {},
+  "foodEditAvTitle": "Editar disponibilidades",
+  "@foodEditAvTitle": {}
 }
