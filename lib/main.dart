@@ -75,11 +75,8 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    if (this.localeLoadedFromPrefs == false) {
-      return CircularProgressIndicator(
-        valueColor: AlwaysStoppedAnimation<Color>(
-            Theme.of(context).colorScheme.secondary),
-      );
+    if (localeLoadedFromPrefs == false) {
+      return Container(); // waiting for the locale from the SharedPreferences
     } else {
       return MaterialApp(
         localeListResolutionCallback: (deviceLocales, supportedLocales) {
