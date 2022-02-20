@@ -31,6 +31,17 @@ int compareAvailabilities(List<Availability> av1, List<Availability> av2) {
   return 0;
 }
 
+List<Availability> overrideAvailabilities(List<Availability> orig,
+    List<Availability> over) {
+  List<Availability> res = List.of(orig);
+  for(int i = 0; i < orig.length; i += 1) {
+    if (over[i] != Availability.unknown) {
+      res[i] = over[i];
+    }
+  }
+  return res;
+}
+
 int getIconAlphaFromAvailability(Availability av) {
   if (av == n) return 230;
   if (av == f) return 200;
@@ -47,6 +58,26 @@ List<Availability> availabilitiesFromStringList(List<String> avStringList) {
   return avStringList
       .map((str) => _fromDouble(double.tryParse(str) ?? -1.0))
       .toList();
+}
+
+
+String availabilitiesToString(List<Availability> avList) {
+  return avList.map((av) => _toDouble(av)).join(",");
+}
+
+List<bool> availabilitiesToBooleans(List<Availability> avs) {
+  return avs.map((Availability e) => e == Availability.full || e == Availability.some).toList();
+}
+
+List<Availability> availabilitiesFromBooleans(List<bool> avs) {
+  mapii(bool e) {
+    if (e) {
+      return Availability.full;
+    } else {
+      return Availability.none;
+    }
+  }
+  return avs.map(mapii).toList();
 }
 
 /*
@@ -75,8 +106,9 @@ const Map<String, int> availabilityModeValues = {
   "landTransport": 1,
   "seaTransport": 2,
   "flightTransport": 3,
-  "notAvailable": -1,
 };
+
+List<String> availabilityNames = availabilityModeValues.keys.toList();
 
 const int avTypeCount = 4;
 

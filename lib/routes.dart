@@ -31,15 +31,20 @@ final Map<String, WidgetBuilder> appRoutes = {
         getFavoriteFoods(),
         SettingsPageState.getSettings(),
         DBProvider.db.getFoods(),
-        // TODO when data[3] is used
-        // UserDBProvider.db.getCustomFoods()
+        UserDBProvider.db.getFoodsWithCustom()
       ]),
       builder: (_, AsyncSnapshot<List<Object>> snapshot) {
         if (snapshot.hasData) {
           final favoriteFoodNames = snapshot.data![0] as List<String>;
           final settings = snapshot.data![1] as Map<String, dynamic>;
-          final allFoods = snapshot.data![2] as List<Food>;
-          // TODO Data[3] for custom foods
+          List<Food> allFoods;
+          if (settings["useCustomAv"]?? false) {
+            // use foods merged with custom entries
+            allFoods = snapshot.data![3] as List<Food>;
+          } else {
+            // use default food entries
+            allFoods = snapshot.data![2] as List<Food>;
+          }
           return ChangeNotifierProvider(
             create: (_) =>
                 FoodDisplayConfiguration(allFoods, settings, favoriteFoodNames),

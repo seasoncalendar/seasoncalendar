@@ -1,3 +1,6 @@
+import 'dart:collection';
+
+import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/region.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -56,7 +59,7 @@ class UserDBProvider {
     return db;
   }
 
-  Future<List<Food>> getCustomFoods() async {
+  Future<List<Food>> getFoodsWithCustom() async {
     final Database db = await userdatabase;
     Region region = await DBProvider.db.getCurrentRegion();
 
@@ -66,8 +69,7 @@ class UserDBProvider {
       """, [region.id]);
 
     List<Food> allFoods = await DBProvider.db.getFoods();
-
-    return results
+    List<Food> customFoods = results
         .map((item) {
           String foodId = item['food_id'];
 
@@ -80,10 +82,10 @@ class UserDBProvider {
           String assetImgInfo = dbFood.assetImgInfo;
 
           int isCommon = dbFood.isCommon ? 1 : 0;
-          String avLocal = item['avLocal'];
-          String avLand = item['avLand'];
-          String avSea = item['avSea'];
-          String avAir = item['avAir'];
+          String avLocal = item['avLocal'] ?? ",,,,,,,,,,,";
+          String avLand = item['avLand'] ?? ",,,,,,,,,,,";
+          String avSea = item['avSea'] ?? ",,,,,,,,,,,";
+          String avAir = item['avAir'] ?? ",,,,,,,,,,,";
 
           String foodNamesString = dbFood.displayName;
           for (String syn in dbFood.synonyms) {
@@ -108,18 +110,33 @@ class UserDBProvider {
         })
         .whereNotNull()
         .toList();
+
+    return mergeCustomFoods(allFoods, customFoods);
   }
 
-  addCustomFood(Food f) async {
+  List<Food> mergeCustomFoods(List<Food> origFoods, List<Food> customFoods) {
+    for (var food in origFoods) {
+      var match = customFoods.firstWhereOrNull((f) => f.id == food.id);
+      if (match != null) {
+        food.availabilities = LinkedHashMap.from(
+            food.availabilities.map((key, value) =>
+          MapEntry(key, overrideAvailabilities(value, match.availabilities[key]!))
+        ));
+      }
+    }
+    return origFoods;
+  }
+
+  addCustomAvailability(Food f) async {
     final Database db = await userdatabase;
 
     var settings = await SettingsPageState.getSettings();
     var regionCode = settings['regionCode'];
 
-    var avLocal = f.availabilities['local'];
-    var avLand = f.availabilities['landTransport'];
-    var avSea = f.availabilities['seaTransport'];
-    var avAir = f.availabilities['flightTransport'];
+    var avLocal = availabilitiesToString(f.availabilities['local']!);
+    var avLand = availabilitiesToString(f.availabilities['landTransport']!);
+    var avSea = availabilitiesToString(f.availabilities['seaTransport']!);
+    var avAir = availabilitiesToString(f.availabilities['flightTransport']!);
 
     await db.rawQuery(
         """INSERT OR REPLACE INTO food_region_availability (food_id, avLocal, avLand, avSea, avAir, region_id) VALUES (?,?,?,?,?,?)""",

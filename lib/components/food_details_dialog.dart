@@ -1,17 +1,23 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
+import 'package:seasoncalendar/models/food_display_configuration.dart';
+import 'availabilities_dialog.dart';
 
 class FoodDetailsDialog extends StatefulWidget {
   final Food _food;
   final Image _foodImage;
-  final List<List<Availability>> _allAvailabilities;
+  late List<List<Availability>> _allAvailabilities;
 
-  const FoodDetailsDialog(Food food, Image foodImage, dynamic allAvailabilities, {Key? key})
+  FoodDetailsDialog(Food food, Image foodImage, {Key? key})
       : _food = food,
         _foodImage = foodImage,
-        _allAvailabilities = allAvailabilities, super(key: key);
+        super(key: key) {
+    _allAvailabilities = food.getAvailabilitiesList();
+  }
 
   @override
   State<StatefulWidget> createState() => FoodDetailsState();
@@ -133,9 +139,51 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
       );
     }
 
+    editAvailabilities() async {
+
+      List<Availability> avs = widget._allAvailabilities[monthIndex];
+      List<bool> list = availabilitiesToBooleans(avs);
+
+      var dialog = AvailabilitiesDialog(List.of(list));
+      showDialog(
+        context: context,
+        builder: (_) => AlertDialog(
+          backgroundColor: Colors.white,
+          title: Text(L10n.of(context).settingsFilterTitle),
+          content: dialog,
+          elevation: 10,
+          actions: [
+            MaterialButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed("/etc/howto");
+              },
+              child: const Icon(Icons.help),
+            ),
+            MaterialButton(
+                onPressed: () {
+                  Navigator.of(context).pop(dialog.selectedAvailabilities);
+                },
+                child: Text(L10n.of(context).confirm)),
+          ],
+        ),
+        barrierDismissible: true,
+      ).then((ret) {
+        var retList = ret as List<bool>;
+        if (!listEquals(list, retList)) {
+          print("New avalibilities");
+          List<Availability> avList = availabilitiesFromBooleans(retList);
+          setState(() {
+            widget._food.changeAvailabilitiesForMonth(avList, monthIndex);
+            widget._allAvailabilities = widget._food.getAvailabilitiesList();
+            UserDBProvider.db.addCustomAvailability(widget._food);
+          });
+        }
+      });
+    }
+
     return Expanded(
       flex: 1,
-      child: Container(
+      child: InkWell(
         child: Card(
             elevation: 1,
             color: availabilityModeColor[fstModeIdx],
@@ -154,6 +202,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
                 ],
               ),
             )),
+        onTap: editAvailabilities
       ),
     );
   }

@@ -94,6 +94,12 @@ class Food {
         12, (monthIndex) => getAvailabilitiesByMonth(monthIndex));
   }
 
+  changeAvailabilitiesForMonth(List<Availability> av, int month) {
+    for (int i = 0; i < availabilityNames.length; i += 1) {
+      availabilities[availabilityNames[i]]![month] = av[i];
+    }
+  }
+
   bool isFruit() => typeInfo.toLowerCase().contains("fruit");
   bool isVegetable() => typeInfo.toLowerCase().contains("vegetable");
 }

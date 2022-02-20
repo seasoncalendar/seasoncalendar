@@ -117,7 +117,7 @@ class FoodTileState extends State<FoodTile> {
         builder: (_) => AlertDialog(
           backgroundColor: Colors.white,
           content: FoodDetailsDialog(
-              widget._food, foodImage, widget._allAvailabilities),
+              widget._food, foodImage),
           elevation: 10,
           actions: actions,
           // actionsPadding: EdgeInsets.symmetric(horizontal: 4),
