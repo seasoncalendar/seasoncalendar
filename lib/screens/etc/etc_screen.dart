@@ -19,8 +19,7 @@ class EtcPage extends StatelessWidget {
   }
 
   List<Widget> getEtcPageItems(BuildContext context) {
-    bool isGooglePlay =
-        AppConfig.of(context).buildFlavor == AppFlavor.googleplay;
+    bool isGooglePlay = AppConfig.of(context, listen: false).flavor == AppFlavor.googleplay;
     List<Widget> etcPageItems = List<Widget>.empty(growable: true);
 
     etcPageItems.add(ListTile(

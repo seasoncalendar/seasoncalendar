@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
+import 'package:seasoncalendar/app_config.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:devicelocale/devicelocale.dart';
@@ -10,32 +11,16 @@ import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/helpers/lang_helper.dart';
 import 'package:seasoncalendar/main.dart';
 
-class SettingsLanguagePage extends StatefulWidget {
-  final Map<String, dynamic> _initialSettings;
-  late Map<String, dynamic> _settings;
+class SettingsLanguagePage extends StatelessWidget {
+  SettingsLanguagePage({Key? key}): super(key: key);
 
-  SettingsLanguagePage(Map<String, dynamic> initialSettings, {Key? key})
-      : _initialSettings = initialSettings, super(key: key);
-
-  @override
-  SettingsLanguagePageState createState() => SettingsLanguagePageState();
-}
-
-class SettingsLanguagePageState extends State<SettingsLanguagePage> {
   @override
   Widget build(BuildContext context) {
+    var languageListTiles = getLanguageEntries(context);
+
     return Scaffold(
         appBar: AppBar(title: Text(L10n.of(context).settingsLanguageTitle)),
-        body: FutureBuilder(
-            future: SettingsPageState.getSettingsI(widget._initialSettings),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                var settings = snapshot.data! as Map<String, dynamic>;
-                widget._settings = settings;
-
-                var languageListTiles = getLanguageEntries(context);
-
-                return Container(
+        body: Container(
                     padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -72,37 +57,8 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
                           ),
                         ),
                       ],
-                    ));
-              } else {
-                return Container();
-              }
-            }));
-  }
-
-  setLanguage(String languageCode) async {
-    widget._settings['languageCode'] = languageCode;
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString('languageCode', languageCode);
-
-    // consider device language code if device language setting is activated
-    if (languageCode == "null") {
-      // List languages = await Devicelocale.preferredLanguages;
-      Locale? locale = await Devicelocale.currentAsLocale;
-      languageCode = locale!.languageCode;
-    }
-
-    // default to english locale of language code is not supported
-    Locale newLocale;
-    if (languageNameFromCode.keys.contains(languageCode)) {
-      newLocale = Locale(languageCode);
-    } else {
-      newLocale = const Locale("en");
-    }
-    MyApp.setLocale(context, newLocale);
-
-    Navigator.of(context).pushNamed("/settings").then((_) {
-      Phoenix.rebirth(context); // restart application if new region
-    });
+                    ))
+            );
   }
 
   getLanguageRadioListTile(BuildContext context, String langCode) {
@@ -117,11 +73,11 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
       activeColor: Theme.of(context).colorScheme.secondary,
       dense: false,
       value: langCode,
-      groupValue: widget._settings['languageCode'],
+      groupValue: AppConfig.of(context).settings['languageCode'],
       title: Text("${langCode.toUpperCase()} - $languageName"),
-      onChanged: (val) => setState(() {
-        setLanguage(langCode);
-      }),
+      onChanged: (_) {
+        AppConfig.of(context, listen: false).setLanguage(langCode);
+      }
     );
   }
 
@@ -142,12 +98,12 @@ class SettingsLanguagePageState extends State<SettingsLanguagePage> {
       activeColor: Theme.of(context).colorScheme.secondary,
       dense: false,
       value: "null",
-      groupValue: widget._settings['languageCode'],
+      groupValue: AppConfig.of(context).settings['languageCode'],
       title: Text(L10n.of(context).settingsLanguageUseLocale),
       subtitle: Text(L10n.of(context).settingsLanguageUseLocaleSub),
-      onChanged: (String? val) => setState(() {
-        setLanguage(val!);
-      }),
+      onChanged: (String? val) {
+        AppConfig.of(context, listen: false).setLanguage(val!);
+      }
     );
   }
 }

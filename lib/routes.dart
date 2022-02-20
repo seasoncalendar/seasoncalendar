@@ -76,17 +76,7 @@ final Map<String, WidgetBuilder> appRoutes = {
           }
         },
       ),
-  "/settings/language": (_) => FutureBuilder(
-        future: initial_settings,
-        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
-          if (snapshot.hasData) {
-            final initialSettings = snapshot.data!;
-            return SettingsLanguagePage(initialSettings);
-          } else {
-            return const LoadingScaffold();
-          }
-        },
-      ),
+  "/settings/language": (_) => SettingsLanguagePage(),
   "/etc": (_) => const EtcPage(),
   "/etc/howto": (_) => const HowToPage(),
   "/etc/about": (_) => const AboutPage(),

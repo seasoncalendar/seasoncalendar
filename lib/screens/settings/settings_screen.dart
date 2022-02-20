@@ -281,7 +281,7 @@ class SettingsPageState extends State<SettingsPage> {
                 trailing: Text(
                   widget._versionInfo +
                       versionCodeSuffixFromAppFlavor(
-                          AppConfig.of(context).buildFlavor),
+                          AppConfig.of(context, listen:false).flavor),
                   style: const TextStyle(color: Colors.black38),
                 ),
                 isThreeLine: false,

@@ -1,3 +1,7 @@
+import 'dart:ffi';
+
+import 'package:provider/provider.dart';
+import 'package:seasoncalendar/components/loading_scaffold.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter/material.dart';
@@ -13,98 +17,68 @@ import 'package:intl/intl.dart';
 import 'package:seasoncalendar/l10n/localizationsDelegates/material_localization_eo.dart';
 
 void main() async {
-  var inferredFlavor = AppFlavor.googleplay;
+  String flavorStr = "";
   WidgetsFlutterBinding.ensureInitialized();
 
   await const MethodChannel('flavor')
       .invokeMethod<String>('getFlavor')
       .then((String? flavor) {
-    inferredFlavor = appFlavorFromString(flavor!);
+    flavorStr = flavor ?? "error";
   }).catchError((error) {
     print('Failed to load flavor, defaulting to googleplay flavor!');
   });
 
   var configuredApp = Phoenix(
-    child: AppConfig(child: const MyApp(), buildFlavor: inferredFlavor),
+    child: FutureBuilder(
+        future: settingsConfigurationFuture,
+        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+          if (snapshot.hasData) {
+            return ChangeNotifierProvider(
+                create: (_) => AppConfig.fromAsync(flavorStr, snapshot),
+                child: const MyApp());
+          } else {
+            return const CircularProgressIndicator();
+          }
+        }),
   );
+
   return runApp(configuredApp);
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  MyAppState createState() => MyAppState();
-
-  static void setLocale(BuildContext context, Locale newLocale) {
-    MyAppState state = context.findAncestorStateOfType<MyAppState>()!;
-
-    state.setState(() {
-      state.locale = newLocale;
-      Intl.defaultLocale = state.locale?.languageCode;
-      L10n.load(state.locale!);
-    });
-  }
-}
-
-class MyAppState extends State<MyApp> {
-  Locale? locale;
-  bool localeLoadedFromPrefs = false;
-
-  @override
-  void initState() {
-    super.initState();
-    L10n.load(const Locale("en"));
-    _fetchLocale().then((locale) {
-      setState(() {
-        localeLoadedFromPrefs = true;
-        this.locale = locale;
-      });
-    });
-  }
-
-  _fetchLocale() async {
-    var prefs = await SharedPreferences.getInstance();
-    var languageCode = prefs.getString('languageCode');
-
-    if (languageCode == null || languageCode == "null") {
-      return null;
-    }
-    return Locale(languageCode);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    if (localeLoadedFromPrefs == false) {
-      return Container(); // waiting for the locale from the SharedPreferences
-    } else {
-      return MaterialApp(
-        localeListResolutionCallback: (deviceLocales, supportedLocales) {
-          final newLocale = basicLocaleListResolution(deviceLocales, supportedLocales);
-          // if null after localeLoadedFromPrefs use device locale
-          locale ??= newLocale;
-          return locale;
-        },
-        localeResolutionCallback: (deviceLocale, supportedLocales) {
-          final newLocale = basicLocaleListResolution([deviceLocale!], supportedLocales);
-          locale ??= newLocale;
-          return locale;
-        },
-        debugShowCheckedModeBanner: true,
-        title: "seasoncalendar",
-        initialRoute: '/',
-        routes: appRoutes,
-        theme: defaultTheme,
-        darkTheme: defaultTheme,
-        localizationsDelegates: [
-          L10n.delegate,
-          GlobalMaterialLocalizations.delegate,
-          MaterialLocalizationEoDelegate(),
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: L10n.delegate.supportedLocales,
-      );
-    }
+    return MaterialApp(
+      localeListResolutionCallback: (deviceLocales, supportedLocales) {
+        final newLocale =
+            basicLocaleListResolution(deviceLocales, supportedLocales);
+        // if null after localeLoadedFromPrefs use device locale
+        var prefLocale = AppConfig.of(context).locale;
+        AppConfig.of(context).locale ??= newLocale;
+        return AppConfig.of(context).locale;
+      },
+      localeResolutionCallback: (deviceLocale, supportedLocales) {
+        final newLocale =
+            basicLocaleListResolution([deviceLocale!], supportedLocales);
+        AppConfig.of(context).locale ??= newLocale;
+        return AppConfig.of(context).locale;
+      },
+      debugShowCheckedModeBanner: true,
+      title: "Seasoncalendar",
+      initialRoute: '/',
+      routes: appRoutes,
+      theme: defaultTheme,
+      darkTheme: defaultTheme,
+      localizationsDelegates: [
+        L10n.delegate,
+        GlobalMaterialLocalizations.delegate,
+        MaterialLocalizationEoDelegate(),
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: L10n.delegate.supportedLocales,
+    );
   }
 }
