@@ -1201,5 +1201,13 @@
   "incompleteLanguageNotice": "Incomplete languages are displayed with a \"Beta\" notice. For them, missing translations are displayed in English.",
   "@incompleteLanguageNotice": {},
   "confirm": "Confirm",
-  "@confirm": {}
+  "@confirm": {},
+  "settingsResetCustomAvTitle": "Reset custom availabilities",
+  "@settingsResetCustomAvTitle": {},
+  "settingsEnableCustomAvTitle": "Enable custom availabilities",
+  "@settingsEnableCustomAvTitle": {},
+  "settingsEnableCustomAvSubtitle": "If enabled, availabilities can be customized on your device and customizations will be displayed",
+  "@settingsEnableCustomAvSubtitle": {},
+  "foodEditAvTitle": "Edit availabilities",
+  "@foodEditAvTitle": {}
 }
