@@ -1207,5 +1207,7 @@
   "settingsEnableCustomAvTitle": "Enable custom availabilities",
   "@settingsEnableCustomAvTitle": {},
   "settingsEnableCustomAvSubtitle": "If enabled, availabilities can be customized on your device and customizations will be displayed",
-  "@settingsEnableCustomAvSubtitle": {}
+  "@settingsEnableCustomAvSubtitle": {},
+  "foodEditAvTitle": "Edit availabilities",
+  "@foodEditAvTitle": {}
 }
