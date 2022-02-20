@@ -44,7 +44,7 @@ class MonthSelector extends StatelessWidget {
                             context: context,
                             builder: (_) => AlertDialog(
                               backgroundColor: Colors.white,
-                              content: Container(
+                              content: SizedBox(
                                 width: double.minPositive,
                                 child: ListView.builder(
                                     shrinkWrap: true,

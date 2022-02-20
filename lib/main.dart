@@ -25,12 +25,13 @@ void main() async {
   });
 
   var configuredApp = Phoenix(
-    child: AppConfig(child: MyApp(), buildFlavor: inferredFlavor),
+    child: AppConfig(child: const MyApp(), buildFlavor: inferredFlavor),
   );
   return runApp(configuredApp);
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   MyAppState createState() => MyAppState();
@@ -56,7 +57,7 @@ class MyAppState extends State<MyApp> {
     L10n.load(const Locale("en"));
     _fetchLocale().then((locale) {
       setState(() {
-        this.localeLoadedFromPrefs = true;
+        localeLoadedFromPrefs = true;
         this.locale = locale;
       });
     });
@@ -82,18 +83,15 @@ class MyAppState extends State<MyApp> {
     } else {
       return MaterialApp(
         localeListResolutionCallback: (deviceLocales, supportedLocales) {
-          if (this.locale == null) {
-            this.locale =
-                basicLocaleListResolution(deviceLocales, supportedLocales);
-          }
-          return this.locale;
+          final newLocale = basicLocaleListResolution(deviceLocales, supportedLocales);
+          // if null after localeLoadedFromPrefs use device locale
+          locale ??= newLocale;
+          return locale;
         },
         localeResolutionCallback: (deviceLocale, supportedLocales) {
-          if (this.locale == null) {
-            this.locale =
-                basicLocaleListResolution([deviceLocale!], supportedLocales);
-          }
-          return this.locale;
+          final newLocale = basicLocaleListResolution([deviceLocale!], supportedLocales);
+          locale ??= newLocale;
+          return locale;
         },
         debugShowCheckedModeBanner: true,
         title: "seasoncalendar",

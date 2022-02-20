@@ -112,7 +112,7 @@ class FoodTileState extends State<FoodTile> {
           child: Text(L10n.of(context).back)),
     ];
 
-    GestureTapCallback showFoodInfo = () {
+    showFoodInfo() {
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
@@ -125,7 +125,7 @@ class FoodTileState extends State<FoodTile> {
         ),
         barrierDismissible: true,
       );
-    };
+    }
 
     return Card(
         elevation: 3,

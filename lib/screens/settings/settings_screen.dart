@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:intl/intl.dart';
 
 import 'package:package_info_plus/package_info_plus.dart';
@@ -91,7 +93,7 @@ class SettingsPageState extends State<SettingsPage> {
   }
 
   Widget _buildSettings(BuildContext context, settings, versionInfo) {
-    GestureTapCallback showFilterFoodsDialog = () {
+    showFilterFoodsDialog() {
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
@@ -115,7 +117,7 @@ class SettingsPageState extends State<SettingsPage> {
         ),
         barrierDismissible: true,
       );
-    };
+    }
 
     return Container(
         margin: const EdgeInsets.all(10),
