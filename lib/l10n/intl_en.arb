@@ -1200,6 +1200,6 @@
   "@reunion": {},
   "incompleteLanguageNotice": "Incomplete languages are displayed with a \"Beta\" notice. For them, missing translations are displayed in English.",
   "@incompleteLanguageNotice": {},
-  "confirm": "confirm",
+  "confirm": "Confirm",
   "@confirm": {}
 }
