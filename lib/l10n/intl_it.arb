@@ -603,5 +603,7 @@
   "northernCalifornia": "California del Nord",
   "@northernCalifornia": {
     "description": "The region of Northern California."
-  }
+  },
+  "confirm": "Confermare",
+  "@confirm": {}
 }
