@@ -33,7 +33,7 @@ class MonthSelector extends StatelessWidget {
             ),
             Expanded(
                 child: Container(
-                    child: GestureDetector(
+                    child: InkWell(
                         child: Text(
                           getMonthNameFromIndex(context, _fdc.monthIndex),
                           textAlign: TextAlign.center,

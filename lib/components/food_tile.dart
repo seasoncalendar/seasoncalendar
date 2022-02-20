@@ -138,10 +138,12 @@ class FoodTileState extends State<FoodTile> {
                   clipBehavior: Clip.hardEdge,
                   alignment: AlignmentDirectional.topEnd,
                   children: <Widget>[
-                    GestureDetector(
-                      onTap: showFoodInfo,
-                      child: foodImage,
-                    ),
+                    Ink.image(
+                      image: AssetImage(widget._food.assetImgPath),
+                      child: InkWell(
+                        onTap: showFoodInfo,
+                        child: null,
+                      )),
                     FractionallySizedBox(
                       widthFactor: 2.5 / 12,
                       heightFactor: 2.5 / 10,
