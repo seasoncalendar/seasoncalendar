@@ -11,7 +11,7 @@ import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/helpers/availabilities.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
-import 'package:seasoncalendar/screens/settings/settings_filterfoods_dialog.dart';
+import 'package:seasoncalendar/components/availabilities_dialog.dart';
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
@@ -112,12 +112,14 @@ class SettingsPageState extends State<SettingsPage> {
 
   Widget _buildSettings(BuildContext context, settings, versionInfo) {
     showFilterFoodsDialog() {
+      List<bool> avList = List.generate(avTypeCount, (i) => widget._settings![avSettingsKeys[i]]);
+      var dialog = AvailabilitiesDialog(avList);
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
           backgroundColor: Colors.white,
-          content: FilterfoodsDialog(List.generate(
-              avTypeCount, (i) => widget._settings![avSettingsKeys[i]])),
+          title: Text(L10n.of(context).settingsFilterTitle),
+          content: dialog,
           elevation: 10,
           actions: [
             MaterialButton(
@@ -128,13 +130,17 @@ class SettingsPageState extends State<SettingsPage> {
             ),
             MaterialButton(
                 onPressed: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(context).pop(dialog.selectedAvailabilities);
                 },
                 child: Text(L10n.of(context).back)),
           ],
         ),
         barrierDismissible: true,
-      );
+      ).then((ret) {
+        for (int i in Iterable.generate(avTypeCount)) {
+          setSettingI(avSettingsKeys[i], dialog.selectedAvailabilities[i]);
+        }
+      });
     }
 
     return Container(
