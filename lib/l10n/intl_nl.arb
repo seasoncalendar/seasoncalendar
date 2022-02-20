@@ -1196,5 +1196,7 @@
   "northernCalifornia": "Noord-Californië",
   "@northernCalifornia": {
     "description": "The region of Northern California."
-  }
+  },
+  "confirm": "Bevestigen",
+  "@confirm": {}
 }
