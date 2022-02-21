@@ -122,29 +122,16 @@ class SettingsPageState extends State<SettingsPage> {
 
     showFilterFoodsDialog() {
       List<bool> avList = List.generate(
-          avTypeCount, (i) => widget._settings![avSettingsKeys[i]]);
-      var dialog = AvailabilitiesDialog(avList);
+          avIcons.length, (i) {
+            return widget._settings![avSettingsKeys[i]];
+          }
+      );
       showDialog(
         context: context,
-        builder: (_) => AlertDialog(
-          title: Text(L10n.of(context).settingsFilterTitle),
-          content: dialog,
-          elevation: 10,
-          actions: [
-            MaterialButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed("/etc/howto");
-              },
-              child: const Icon(Icons.help),
-            ),
-            MaterialButton(
-                onPressed: () {
-                  Navigator.of(context).pop(dialog.selectedAvailabilities);
-                },
-                child: Text(L10n.of(context).confirm)),
-          ],
+          barrierDismissible: true,
+          builder: (_) => SettingsAvailabilitiesDialog(avList,
+            title: Text(L10n.of(context).settingsFilterTitle),
         ),
-        barrierDismissible: true,
       ).then((ret) {
         if (ret != null) {
           for (int i in Iterable.generate(avTypeCount)) {
