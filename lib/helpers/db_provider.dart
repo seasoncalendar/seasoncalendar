@@ -74,16 +74,23 @@ class DBProvider {
         FROM regions 
         """, []);
 
-    return results.map((item) {
+    var res = results.map((item) {
       Region region = Region();
       region.id = item['id'];
-      region.fallbackRegion = item['fallbackRegion'];
+      region.fallbackRegionId = item['fallbackRegion'];
       region.assetPath = item['assetPath'];
       region.name = getTranslationByKey(region.assetPath);
       return region;
-    }).toList();
+    });
+    // set fallbackRegion from id
+    for (var r in res) {
+      if (r.fallbackRegionId == null) continue;
+      r.fallbackRegion = res.firstWhere((e) => r.fallbackRegionId == e.id);
+    }
+    return res.toList();
   }
 
+  @Deprecated("Use AppConfig instead")
   Future<Region> getCurrentRegion() async {
     final Database db = await database;
     var settings = await SettingsPageState.getSettings();
@@ -101,7 +108,7 @@ class DBProvider {
 
     Region region = Region();
     region.id = results[0]['id'];
-    region.fallbackRegion = results[0]['fallbackRegion'];
+    region.fallbackRegionId = results[0]['fallbackRegion'];
     region.assetPath = results[0]['assetPath'];
     region.name = getTranslationByKey(region.assetPath);
     return region;

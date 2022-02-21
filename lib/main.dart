@@ -17,24 +17,15 @@ import 'package:intl/intl.dart';
 import 'package:seasoncalendar/l10n/localizationsDelegates/material_localization_eo.dart';
 
 void main() async {
-  String flavorStr = "";
   WidgetsFlutterBinding.ensureInitialized();
-
-  await const MethodChannel('flavor')
-      .invokeMethod<String>('getFlavor')
-      .then((String? flavor) {
-    flavorStr = flavor ?? "error";
-  }).catchError((error) {
-    print('Failed to load flavor, defaulting to googleplay flavor!');
-  });
 
   var configuredApp = Phoenix(
     child: FutureBuilder(
-        future: settingsConfigurationFuture,
+        future: appConfigFuture(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.hasData) {
             return ChangeNotifierProvider(
-                create: (_) => AppConfig.fromAsync(flavorStr, snapshot.data!),
+                create: (_) => AppConfig.fromAsync(snapshot.data!),
                 lazy: false,
                 builder: (_, __) => const MyApp());
           } else {
@@ -67,7 +58,7 @@ class MyApp extends StatelessWidget {
         return AppConfig.of(context).locale;
       },
       debugShowCheckedModeBanner: true,
-      title: "Seasoncalendar",
+      title: L10n.current.appTitle,
       initialRoute: '/',
       routes: appRoutes,
       theme: defaultTheme,

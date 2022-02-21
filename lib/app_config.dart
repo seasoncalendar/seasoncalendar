@@ -1,14 +1,17 @@
 import 'package:devicelocale/devicelocale.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'helpers/json_asset_loader.dart';
 import 'generated/l10n.dart';
 import 'helpers/lang_helper.dart';
+import 'models/region.dart';
 
 enum AppFlavor { googleplay, foss }
 
@@ -31,45 +34,58 @@ String versionCodeSuffixFromAppFlavor(AppFlavor flavor) {
   }
 }
 
-final settingsConfigurationFuture = Future.wait([
-  SharedPreferences.getInstance(),
-  loadAssetFromJson("assets/initialsettings.json"),
-  loadAssetFromJson("assets/localization_independent_text.json"),
-]);
+Future<List<dynamic>> appConfigFuture() async {
+  String flavorStr = "googleplay";
+  try {
+    flavorStr = await const MethodChannel('flavor').invokeMethod<String>('getFlavor') ?? "googleplay";
+  } on Exception{
+    flavorStr = "googleplay";
+    print('Failed to load flavor, defaulting to googleplay flavor!');
+  }
+  var pref = await SharedPreferences.getInstance();
+  var initialSettings = await loadAssetFromJson("assets/initialsettings.json");
+  var langCode = pref.getString("languageCode") ?? initialSettings["languageCode"]!;
+  // initialize translation early to avoid bugs
+  await L10n.load(const Locale("en"));
+  if (langCode != "null") {
+    await L10n.load(Locale(langCode));
+  }
+  var independentText = await loadAssetFromJson("assets/localization_independent_text.json");
+  var regions = await DBProvider.db.getRegions();
+  return [flavorStr, pref, initialSettings, independentText, regions];
+}
 
 class AppConfig extends ChangeNotifier {
   final AppFlavor flavor;
-  late final SharedPreferences prefs;
-  late final Map<String, dynamic> initialSettings;
-  late final Map<String, dynamic> independentText;
-  Map<String, dynamic> settings = {};
+  final SharedPreferences prefs;
+  final Map<String, dynamic> initialSettings;
+  final Map<String, dynamic> independentText;
+  final Map<String, dynamic> settings = {};
   Locale? locale;
+  List<Region> regions;
+  late Region curRegion;
 
-  AppConfig.fromAsync(String flavorStr, List<dynamic> asyncRes)
-  : flavor = appFlavorFromString(flavorStr) {
-    prefs = asyncRes[0];
-    initialSettings = asyncRes[1];
-    independentText = asyncRes[2];
+  AppConfig.fromAsync(List<dynamic> asyncRes)
+      : flavor = appFlavorFromString(asyncRes[0]),
+        prefs = asyncRes[1],
+        initialSettings = asyncRes[2],
+        independentText = asyncRes[3],
+        regions = asyncRes[4]
+  {
     for (var key in initialSettings.keys) {
       settings[key] = prefs.get(key) ?? initialSettings[key];
     }
 
+    // load and set locale  (note L10n already loaded)
     String? languageCode = settings['languageCode'];
     if (languageCode == null || languageCode == "null") {
       locale = null;
-      Intl.defaultLocale = "en";
-      L10n.load(const Locale("en"));
     } else {
       locale = Locale(languageCode);
-      Intl.defaultLocale = locale?.languageCode;
-      L10n.load(locale!);
     }
-  }
 
-  AppConfig(this.flavor, this.settings, this.initialSettings) {
-    for (var key in initialSettings.keys) {
-      settings[key] = prefs.get(key) ?? initialSettings[key];
-    }
+    var curRegionId = settings['regionCode'];
+    curRegion = regions.firstWhere((r) => r.id == curRegionId);
   }
 
   static AppConfig of(BuildContext context, {bool listen = true}) {
@@ -79,7 +95,7 @@ class AppConfig extends ChangeNotifier {
   bool get useCustomAv {
     return settings["useCustomAv"];
   }
-  void set useCustomAv(bool val) {
+  set useCustomAv(bool val) {
     setValue("useCustomAv", val);
     notifyListeners();
   }
@@ -114,6 +130,12 @@ class AppConfig extends ChangeNotifier {
     }
 
     changeLocale(newLocale);
+  }
+
+  setRegion(String regionCode) {
+    prefs.setString('regionCode', regionCode);
+    curRegion = regions.firstWhere((r) => r.id == regionCode);
+    notifyListeners();
   }
 
   setValue(String key, dynamic value) {

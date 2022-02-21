@@ -5,7 +5,8 @@ const String columnAssetPath = 'assetPath';
 
 class Region {
   late String id;
-  late String? fallbackRegion;
+  String? fallbackRegionId;
+  Region? fallbackRegion;
   late String assetPath;
   late String name;
 

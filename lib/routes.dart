@@ -54,17 +54,7 @@ final Map<String, WidgetBuilder> appRoutes = {
           }
         },
       ),
-  "/settings/region": (_) => FutureBuilder(
-        future: initial_settings,
-        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
-          if (snapshot.hasData) {
-            final initialSettings = snapshot.data!;
-            return SettingsRegionPage(initialSettings);
-          } else {
-            return const LoadingScaffold();
-          }
-        },
-      ),
+  "/settings/region": (_) => SettingsRegionPage(),
   "/settings/language": (_) => SettingsLanguagePage(),
   "/etc": (_) => const EtcPage(),
   "/etc/howto": (_) => const HowToPage(),
