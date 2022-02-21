@@ -14,18 +14,18 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Consumer<FoodDisplayConfiguration>(
-          builder: (context, fdc, child) {
+          builder: (context, fdc, _) {
             return MonthSelector(fdc);
           },
         ),
       ),
       body: Consumer<FoodDisplayConfiguration>(
-        builder: (context, fdc, child) {
+        builder: (context, fdc, _) {
           return FoodView(fdc);
         },
       ),
       bottomNavigationBar: Consumer<FoodDisplayConfiguration>(
-        builder: (context, fdc, child) {
+        builder: (context, fdc, _) {
           return HomeScreenNavigationBar(fdc);
         },
       ),

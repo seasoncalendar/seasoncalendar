@@ -28,12 +28,14 @@ class EtcPage extends StatelessWidget {
       onTap: () => Navigator.of(context).pushNamed("/etc/howto"),
     ));
     etcPageItems.add(const Divider());
+
     etcPageItems.add(ListTile(
       leading: const Icon(Icons.info),
       title: Text(L10n.of(context).aboutPageTitle),
       onTap: () => Navigator.of(context).pushNamed("/etc/about"),
     ));
     etcPageItems.add(const Divider());
+
     etcPageItems.add(ListTile(
       leading: const Icon(Icons.extension),
       title: Text(L10n.of(context).contribPageTitle),
