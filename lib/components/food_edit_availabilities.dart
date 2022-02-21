@@ -41,7 +41,7 @@ class FoodEditAvailabilitiesState extends State<FoodEditAvailabilities> {
                 Theme.of(context).colorScheme.secondary.withAlpha(150),
                 splashColor: Theme.of(context).colorScheme.primary,
                 highlightColor: Theme.of(context).colorScheme.primary,
-                children: avIcons,
+                children: avIcons.getRange(0,4).toList(),
                 isSelected: boolAvailabilities,
                 onPressed: (int i) {
                   setState(() {

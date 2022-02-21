@@ -92,6 +92,7 @@ const Map<int, IconData> availabilityModeIcons = {
   1: Icons.local_shipping,
   2: Icons.directions_boat,
   3: Icons.airplanemode_active,
+  4: Icons.contact_support,
   -1: Icons.remove,
 };
 Map<int, Color> availabilityModeColor = {
@@ -117,6 +118,8 @@ const List<Widget> avIcons = [
   Icon(Icons.local_shipping),
   Icon(Icons.directions_boat),
   Icon(Icons.airplanemode_active),
+  Icon(Icons.remove),
+  Icon(Icons.contact_support), // question_mark
 ];
 
 const List<String> avSettingsKeys = [
@@ -124,4 +127,6 @@ const List<String> avSettingsKeys = [
   "showAvLand",
   "showAvSea",
   "showAvAir",
+  "showUnavailable",
+  "showUnknown",
 ];

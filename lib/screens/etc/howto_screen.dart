@@ -45,6 +45,18 @@ class HowToPage extends StatelessWidget {
                   title: Text(L10n.of(context).howToPageAvAir,
                       style: Theme.of(context).textTheme.bodyText1),
                 ),
+                ListTile(
+                  dense: true,
+                  leading: const Icon(Icons.remove, color: Colors.black),
+                  title: Text("TK",
+                      style: Theme.of(context).textTheme.bodyText1),
+                ),
+                ListTile(
+                  dense: true,
+                  leading: const Icon(Icons.contact_support, color: Colors.black),
+                  title: Text("TK",
+                      style: Theme.of(context).textTheme.bodyText1),
+                ),
                 const SizedBox(height: 10),
                 Text(L10n.of(context).howToPagePartial,
                     style: Theme.of(context).textTheme.bodyText1,

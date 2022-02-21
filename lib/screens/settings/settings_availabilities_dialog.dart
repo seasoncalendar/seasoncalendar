@@ -34,14 +34,30 @@ class SettingsAvailabilitiesDialogState extends State<SettingsAvailabilitiesDial
                 Theme.of(context).colorScheme.secondary.withAlpha(150),
                 splashColor: Theme.of(context).colorScheme.primary,
                 highlightColor: Theme.of(context).colorScheme.primary,
-                children: avIcons,
-                isSelected: widget._selectedAvailabilities,
+                children: avIcons.getRange(0,4).toList(),
+                isSelected: widget._selectedAvailabilities.getRange(0,4).toList(),
                 onPressed: (int i) {
                   setState(() {
                     widget._selectedAvailabilities[i] = !widget._selectedAvailabilities[i];
                   });
                 }),
-
+            const SizedBox(height: 20),
+            ToggleButtons(
+                color: Colors.black38,
+                selectedColor: Colors.black,
+                fillColor: Theme.of(context).colorScheme.primary.withAlpha(150),
+                borderColor: Theme.of(context).colorScheme.secondary.withAlpha(0),
+                selectedBorderColor:
+                Theme.of(context).colorScheme.secondary.withAlpha(150),
+                splashColor: Theme.of(context).colorScheme.primary,
+                highlightColor: Theme.of(context).colorScheme.primary,
+                children: avIcons.getRange(4, avIcons.length).toList(),
+                isSelected: widget._selectedAvailabilities.getRange(4, avIcons.length).toList(),
+                onPressed: (int i) {
+                  setState(() {
+                    widget._selectedAvailabilities[4+i] = !widget._selectedAvailabilities[4+i];
+                  });
+                }),
           ],
         ),
       ),

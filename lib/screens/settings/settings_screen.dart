@@ -134,7 +134,7 @@ class SettingsPageState extends State<SettingsPage> {
         ),
       ).then((ret) {
         if (ret != null) {
-          for (int i in Iterable.generate(avTypeCount)) {
+          for (int i in Iterable.generate(avSettingsKeys.length)) {
             setSettingI(avSettingsKeys[i], ret[i]);
           }
         }
