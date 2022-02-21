@@ -1,9 +1,9 @@
 # Seasonal Foods Calendar
 
-[![Build Status](https://travis-ci.com/Flunzmas/seasoncalendar.svg?branch=develop)](https://travis-ci.com/Flunzmas/seasoncalendar)
-[<img src="https://img.shields.io/github/release/flunzmas/seasoncalendar.svg?logo=github">](https://github.com/Flunzmas/seasoncalendar/releases/latest)
+[![Build App](https://github.com/seasoncalendar/seasoncalendar/actions/workflows/flutter.yml/badge.svg)](https://github.com/seasoncalendar/seasoncalendar/actions/workflows/flutter.yml)
+[<img src="https://img.shields.io/github/release/seasoncalendar/seasoncalendar.svg?logo=github">](https://github.com/seasoncalendar/seasoncalendar/releases/latest)
 [<img src="https://img.shields.io/f-droid/v/flunzmas.seasoncalendar.svg?logo=F-Droid">](https://f-droid.org/packages/flunzmas.seasoncalendar)
-[<img src="https://img.shields.io/github/license/flunzmas/seasoncalendar">](/LICENSE)
+[<img src="https://img.shields.io/github/license/seasoncalendar/seasoncalendar">](/LICENSE)
 [<img src="https://hosted.weblate.org/widgets/seasoncalendar/-/app_text/svg-badge.svg" alt="Translation status" />](https://hosted.weblate.org/engage/seasoncalendar/)
 
 A practical and easy to use app showing you which kinds of fruit, vegetables, salads etc. are in season right now.
@@ -30,12 +30,12 @@ There certainly are similar apps out there, especially within the German-speakin
 However some distinguishing features are:
 
 - Huge database
-  - Over 100 different kinds of foods and their availability ([contribute and improve information](https://github.com/Flunzmas/seasoncalendar/issues/29))
+  - Over 100 different kinds of foods and their availability ([contribute and improve information](https://github.com/seasoncalendar/seasoncalendar/issues/29))
 - Save favorite foods
 - Modern design
 - No Advertisement & No Tracking (never!)
 - Runs on a variety of android devices (Android 4.1 or newer)
-- [Multiple languages](https://github.com/Flunzmas/seasoncalendar/issues/36) (and coming soon [multiple regions](https://github.com/Flunzmas/seasoncalendar/issues/47))
+- [Multiple languages](https://github.com/seasoncalendar/seasoncalendar/issues/36) (and coming soon [multiple regions](https://github.com/seasoncalendar/seasoncalendar/issues/47))
 - Free Open Source Software
 
 Especially the open-source aspect is a main motivating factor for me to further develop this app.
