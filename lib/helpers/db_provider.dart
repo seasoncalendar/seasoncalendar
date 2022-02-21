@@ -71,13 +71,13 @@ class DBProvider {
       region.assetPath = item['assetPath'];
       region.name = getTranslationByKey(region.assetPath);
       return region;
-    });
+    }).toList();
     // set fallbackRegion from id
     for (var r in res) {
       if (r.fallbackRegionId == null) continue;
       r.fallbackRegion = res.firstWhere((e) => r.fallbackRegionId == e.id);
     }
-    return res.toList();
+    return res;
   }
 
   @Deprecated("Use AppConfig instead")
