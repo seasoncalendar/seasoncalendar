@@ -127,7 +127,6 @@ class UserDBProvider {
     for (var food in res) {
       var match = customFoods.firstWhereOrNull((f) => f.id == food.id);
       if (match != null) {
-        food.displayName = "test";
         food.availabilities = LinkedHashMap.from(
             food.availabilities.map((key, value) =>
           MapEntry(key, overrideAvailabilities(value, match.availabilities[key]!))

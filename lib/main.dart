@@ -34,8 +34,9 @@ void main() async {
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.hasData) {
             return ChangeNotifierProvider(
-                create: (_) => AppConfig.fromAsync(flavorStr, snapshot),
-                child: const MyApp());
+                create: (_) => AppConfig.fromAsync(flavorStr, snapshot.data!),
+                lazy: false,
+                builder: (_, __) => const MyApp());
           } else {
             return const CircularProgressIndicator();
           }

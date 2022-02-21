@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/app_config.dart';
+import 'package:seasoncalendar/helpers/db_provider.dart';
+import 'package:seasoncalendar/helpers/user_db_provider.dart';
 
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
@@ -8,18 +11,41 @@ import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 
+Future<List<Object>> foodDisplayConfigurationFuture() async {
+  var origFoods = await DBProvider.db.getFoods();
+  var customFoods = await UserDBProvider.db.getFoodsWithCustom(origFoods: origFoods);
+  var favFoodNames = await getFavoriteFoods();
+  return [origFoods, customFoods, favFoodNames];
+}
+
 class FoodDisplayConfiguration extends ChangeNotifier {
-  final List<Food> allFoods;
-  List<String> favoriteFoodNames;
-  late List<Food> foodsToDisplay;
+  List<Food> allFoods = [];
+  List<String> favoriteFoodNames = [];
+  List<Food> foodsToDisplay = [];
   bool favoritesSelected = false;
   int monthIndex = DateTime.now().toLocal().month - 1;
 
-  FoodDisplayConfiguration(List<Food> initialFoods,
-      Map<String, dynamic> settings, List<String> initialFavoriteFoodNames)
-      : allFoods = initialFoods,
-        favoriteFoodNames = initialFavoriteFoodNames {
-    foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodNames, settings);
+  FoodDisplayConfiguration.async(AppConfig config, List<dynamic> asynRes) {
+    setFromFeature(config, asynRes);
+  }
+
+  update(AppConfig config) {
+      foodDisplayConfigurationFuture().then((res) {
+        setFromFeature(config, res);
+      });
+  }
+
+  setFromFeature(AppConfig config, List<dynamic> res) {
+    if (config.useCustomAv) {
+      // use foods merged with custom entries
+      allFoods = res[1] as List<Food>;
+    } else {
+      // use default food entries
+      allFoods = res[0] as List<Food>;
+    }
+    favoriteFoodNames = res[2] as List<String>;
+    foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodNames, config.settings);
+    notifyListeners();
   }
 
   setMonth(int value) {

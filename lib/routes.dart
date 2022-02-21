@@ -26,30 +26,17 @@ final initial_settings = loadAssetFromJson("assets/initialsettings.json");
 final independent_text =
     loadAssetFromJson("assets/localization_independent_text.json");
 
-Future<List<Object>> mainFuture() async {
-  var origFoods = await DBProvider.db.getFoods();
-  var customFoods = await UserDBProvider.db.getFoodsWithCustom(origFoods: origFoods);
-  var favFoodNames = await getFavoriteFoods();
-  return [origFoods, customFoods, favFoodNames];
-}
-
 final Map<String, WidgetBuilder> appRoutes = {
   "/": (context) => FutureBuilder(
-      future: mainFuture(),
+      future: foodDisplayConfigurationFuture(),
       builder: (_, AsyncSnapshot<List<Object>> snapshot) {
         if (snapshot.hasData) {
-          List<Food> allFoods;
-          if (AppConfig.of(context).useCustomAv) {
-            // use foods merged with custom entries
-            allFoods = snapshot.data![1] as List<Food>;
-          } else {
-            // use default food entries
-            allFoods = snapshot.data![0] as List<Food>;
-          }
-          final favoriteFoodNames = snapshot.data![2] as List<String>;
-          return ChangeNotifierProvider(
-            create: (_) =>
-                FoodDisplayConfiguration(allFoods, AppConfig.of(context).settings, favoriteFoodNames),
+          return ChangeNotifierProxyProvider<AppConfig, FoodDisplayConfiguration>(
+            create: (_) => FoodDisplayConfiguration.async(AppConfig.of(context), snapshot.data!),
+            update: (_, config, foodDC) {
+              foodDC ??= FoodDisplayConfiguration.async(config, snapshot.data!);
+              return foodDC..update(config);
+            },
             child: const HomeScreen(),
           );
         } else {

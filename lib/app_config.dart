@@ -45,20 +45,24 @@ class AppConfig extends ChangeNotifier {
   Map<String, dynamic> settings = {};
   Locale? locale;
 
-  AppConfig.fromAsync(String flavorStr, AsyncSnapshot<dynamic> snapshot)
+  AppConfig.fromAsync(String flavorStr, List<dynamic> asyncRes)
   : flavor = appFlavorFromString(flavorStr) {
-    prefs = snapshot.data![0];
-    initialSettings = snapshot.data[1];
-    independentText = snapshot.data[2];
+    prefs = asyncRes[0];
+    initialSettings = asyncRes[1];
+    independentText = asyncRes[2];
     for (var key in initialSettings.keys) {
       settings[key] = prefs.get(key) ?? initialSettings[key];
     }
 
-    String? languageCode = prefs.getString('languageCode');
+    String? languageCode = settings['languageCode'];
     if (languageCode == null || languageCode == "null") {
       locale = null;
+      Intl.defaultLocale = "en";
+      L10n.load(const Locale("en"));
     } else {
       locale = Locale(languageCode);
+      Intl.defaultLocale = locale?.languageCode;
+      L10n.load(locale!);
     }
   }
 
