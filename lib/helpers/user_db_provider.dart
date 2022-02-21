@@ -123,16 +123,18 @@ class UserDBProvider {
   }
 
   List<Food> mergeCustomFoods(List<Food> origFoods, List<Food> customFoods) {
-    for (var food in origFoods) {
+    var res = List.generate(origFoods.length, (i) => Food.copy(origFoods[i]));
+    for (var food in res) {
       var match = customFoods.firstWhereOrNull((f) => f.id == food.id);
       if (match != null) {
+        food.displayName = "test";
         food.availabilities = LinkedHashMap.from(
             food.availabilities.map((key, value) =>
           MapEntry(key, overrideAvailabilities(value, match.availabilities[key]!))
         ));
       }
     }
-    return origFoods;
+    return res;
   }
 
   addCustomAvailability(Food f) async {

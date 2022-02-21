@@ -89,6 +89,26 @@ class Food {
     return availabilitiesThisMonth;
   }
 
+  // create a copy for local editing
+  Food.copy(Food o)
+      : id = o.id, 
+        displayName = o.displayName,
+        synonyms = o.synonyms,
+        typeInfo = o.typeInfo,
+        isCommon = o.isCommon,
+        infoUrl = o.infoUrl,
+        assetImgPath = o.assetImgPath,
+        assetImgSourceUrl = o.assetImgSourceUrl,
+        assetImgInfo = o.assetImgInfo,
+        region = o.region
+  {
+    availabilities = LinkedHashMap.from(
+        Map<String, List<Availability>>.from(o.availabilities)
+            .map((k, List<Availability> v) => 
+        MapEntry(k, List<Availability>.from(v)))
+    );
+  }
+
   List<List<Availability>> getAvailabilitiesList() {
     return List.generate(
         12, (monthIndex) => getAvailabilitiesByMonth(monthIndex));
