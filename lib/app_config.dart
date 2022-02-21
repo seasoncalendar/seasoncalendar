@@ -100,10 +100,9 @@ class AppConfig extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeLocale(Locale newLocale, {bool notify = true}) {
+  void changeLocale(Locale newLocale, {bool notify = true}) async {
     locale = newLocale;
-    Intl.defaultLocale = newLocale.languageCode;
-    L10n.load(newLocale);
+    await L10n.load(newLocale);
 
     if (notify) {
       notifyListeners();

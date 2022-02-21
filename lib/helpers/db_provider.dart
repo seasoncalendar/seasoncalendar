@@ -17,22 +17,12 @@ class DBProvider {
   static final DBProvider db = DBProvider._();
   static final Mutex _db_file_mutex = Mutex();
   static Database? _database;
-  static String dbViewName = "null";
 
   Future<Database> get database async {
-    var settings = await SettingsPageState.getSettings();
-    var langCode = settings['languageCode'];
-    if (langCode == "null") {
-      langCode = L10n.current.languageCode;
-    }
-    String targetDBViewName =
-        "foods_" + langCode + "_" + settings['regionCode'];
-    dbViewName = targetDBViewName;
-
     if (_database == null) {
       await _db_file_mutex.acquire();
       try {
-        if (_database == null) _database = await initDB();
+        _database ??= await initDB();
       } finally {
         _db_file_mutex.release();
       }

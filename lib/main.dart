@@ -47,14 +47,19 @@ class MyApp extends StatelessWidget {
         final newLocale =
             basicLocaleListResolution(deviceLocales, supportedLocales);
         // if null after localeLoadedFromPrefs use device locale
-        var prefLocale = AppConfig.of(context).locale;
-        AppConfig.of(context).locale ??= newLocale;
+        if (AppConfig.of(context).locale == null) {
+          AppConfig.of(context).changeLocale(newLocale);
+          return newLocale;
+        }
         return AppConfig.of(context).locale;
       },
       localeResolutionCallback: (deviceLocale, supportedLocales) {
         final newLocale =
             basicLocaleListResolution([deviceLocale!], supportedLocales);
-        AppConfig.of(context).locale ??= newLocale;
+        if (AppConfig.of(context).locale == null) {
+          AppConfig.of(context).changeLocale(newLocale);
+          return newLocale;
+        }
         return AppConfig.of(context).locale;
       },
       debugShowCheckedModeBanner: true,
