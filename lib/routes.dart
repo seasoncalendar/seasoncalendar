@@ -43,55 +43,17 @@ final Map<String, WidgetBuilder> appRoutes = {
           return const LoadingScaffold();
         }
       }),
-  "/settings": (_) => FutureBuilder(
-        future: initial_settings,
-        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
-          if (snapshot.hasData) {
-            final initialSettings = snapshot.data!;
-            return SettingsPage(initialSettings);
-          } else {
-            return const LoadingScaffold();
-          }
-        },
-      ),
-  "/settings/region": (_) => SettingsRegionPage(),
-  "/settings/language": (_) => SettingsLanguagePage(),
+
+
+  "/settings": (context) => SettingsPage(AppConfig.of(context).initialSettings),
+  "/settings/region": (_) => const SettingsRegionPage(),
+  "/settings/language": (_) => const SettingsLanguagePage(),
   "/etc": (_) => const EtcPage(),
   "/etc/howto": (_) => const HowToPage(),
   "/etc/about": (_) => const AboutPage(),
-  "/etc/contrib": (_) => FutureBuilder(
-        future: independent_text,
-        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
-          if (snapshot.hasData) {
-            final l10nIndependentText = snapshot.data!;
-            return ContribPage(l10nIndependentText);
-          } else {
-            return const LoadingScaffold();
-          }
-        },
-      ),
-  "/etc/support": (_) => FutureBuilder(
-        future: independent_text,
-        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
-          if (snapshot.hasData) {
-            final l10nIndependentText = snapshot.data!;
-            return SupportPage(l10nIndependentText);
-          } else {
-            return const LoadingScaffold();
-          }
-        },
-      ),
-  "/etc/imprint": (_) => FutureBuilder(
-        future: independent_text,
-        builder: (context, AsyncSnapshot<Map<String, dynamic>> snapshot) {
-          if (snapshot.hasData) {
-            final l10nIndependentText = snapshot.data!;
-            return ImprintPage(l10nIndependentText);
-          } else {
-            return const LoadingScaffold();
-          }
-        },
-      ),
+  "/etc/contrib": (_) => const ContribPage(),
+  "/etc/support": (_) => const SupportPage(),
+  "/etc/imprint": (_) => const ImprintPage(),
   "/etc/imprint/imgs": (context) => FutureBuilder(
         future: DBProvider.db.getFoods(),
         builder: (context, AsyncSnapshot<Iterable<Food>> snapshot) {

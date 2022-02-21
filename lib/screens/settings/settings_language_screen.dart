@@ -7,7 +7,7 @@ import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/helpers/lang_helper.dart';
 
 class SettingsLanguagePage extends StatelessWidget {
-  SettingsLanguagePage({Key? key}): super(key: key);
+  const SettingsLanguagePage({Key? key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {

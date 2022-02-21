@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/app_config.dart';
 
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/helpers/lang_helper.dart';
 
 class ImprintPage extends StatelessWidget {
-  final Map<String, dynamic> _l10nIndependentText;
-
-  const ImprintPage(Map<String, dynamic> l10nIndependentText, {Key? key})
-      : _l10nIndependentText = l10nIndependentText, super(key: key);
+  const ImprintPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var _l10nIndependentText = AppConfig.of(context).independentText;
     return Scaffold(
       appBar: AppBar(title: Text(L10n.of(context).imprintPageTitle)),
       body: Container(

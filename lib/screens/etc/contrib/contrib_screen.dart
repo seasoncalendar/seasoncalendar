@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:seasoncalendar/app_config.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 class ContribPage extends StatelessWidget {
-  final Map<String, dynamic> _l10nIndependentText;
-
-  const ContribPage(Map<String, dynamic> l10nIndependentText, {Key? key})
-      : _l10nIndependentText = l10nIndependentText, super(key: key);
+  const ContribPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var _l10nIndependentText = AppConfig.of(context).independentText;
     return Scaffold(
         appBar: AppBar(title: Text(L10n.of(context).contribPageTitle)),
         body: Container(
