@@ -2,8 +2,6 @@ import 'package:devicelocale/devicelocale.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -60,7 +58,6 @@ class AppConfig extends ChangeNotifier {
   final SharedPreferences prefs;
   final Map<String, dynamic> initialSettings;
   final Map<String, dynamic> independentText;
-  final Map<String, dynamic> settings = {};
   Locale? locale;
   List<Region> regions;
   late Region curRegion;
@@ -72,41 +69,35 @@ class AppConfig extends ChangeNotifier {
         independentText = asyncRes[3],
         regions = asyncRes[4]
   {
-    for (var key in initialSettings.keys) {
-      settings[key] = prefs.get(key) ?? initialSettings[key];
-    }
-
     // load and set locale  (note L10n already loaded)
-    String? languageCode = settings['languageCode'];
-    if (languageCode == null || languageCode == "null") {
-      locale = null;
-    } else {
+    String? languageCode = getValue('languageCode');
+    if (languageCode != null && languageCode != "null") {
       locale = Locale(languageCode);
     }
 
-    var curRegionId = settings['regionCode'];
-    curRegion = regions.firstWhere((r) => r.id == curRegionId);
+    loadRegion();
   }
 
   static AppConfig of(BuildContext context, {bool listen = true}) {
     return Provider.of<AppConfig>(context, listen: listen);
   }
 
+  String get languageCode {
+    return getValue("languageCode")!;
+  }
+
   bool get useCustomAv {
-    return settings["useCustomAv"];
+    return getValue("useCustomAv")!;
   }
   set useCustomAv(bool val) {
     setValue("useCustomAv", val);
     notifyListeners();
   }
 
-  void changeLocale(Locale newLocale, {bool notify = true}) async {
+  void changeLocale(Locale newLocale) async {
     locale = newLocale;
     await L10n.load(newLocale);
-
-    if (notify) {
-      notifyListeners();
-    }
+    notifyListeners();
   }
 
   void setLanguage(String languageCode) async {
@@ -131,27 +122,52 @@ class AppConfig extends ChangeNotifier {
     changeLocale(newLocale);
   }
 
+  loadRegion() {
+    var curRegionId = getValue('regionCode');
+    curRegion = regions.firstWhere((r) => r.id == curRegionId);
+  }
+
   setRegion(String regionCode) {
     prefs.setString('regionCode', regionCode);
     curRegion = regions.firstWhere((r) => r.id == regionCode);
     notifyListeners();
   }
 
-  setValue(String key, dynamic value) {
+  /// Setting directly does not notify listeners
+  Future<dynamic> setValue(String key, dynamic value) {
     if (value is bool) {
-      prefs.setBool(key, value);
+      return prefs.setBool(key, value);
     } else if (value is double) {
-      prefs.setDouble(key, value);
+      return prefs.setDouble(key, value);
     } else if (value is int) {
-      prefs.setInt(key, value);
+      return prefs.setInt(key, value);
     } else if (value is String) {
-      prefs.setString(key, value);
+      return prefs.setString(key, value);
     } else if (value is List<String>) {
-      prefs.setStringList(key, value);
+      return prefs.setStringList(key, value);
     } else {
-      return;
+      return Future.value(null);
     }
-    settings[key] = value;
+  }
+
+  dynamic getValue(String key) {
+    return prefs.get(key) ?? initialSettings[key];
+  }
+
+  /// Use with cation as not all changes will to preferences will prompt notify
+  Map<String, dynamic> getPreferences() {
+    Map<String, dynamic> prefsMap = {};
+    for (var key in initialSettings.keys) {
+      prefsMap[key] = getValue(key);
+    }
+    return prefsMap;
+  }
+
+  clearSettings() async {
+    prefs.clear();
+    setLanguage(getValue('languageCode'));
+    loadRegion();
+    notifyListeners();
   }
 
 }

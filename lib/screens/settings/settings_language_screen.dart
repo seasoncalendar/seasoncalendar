@@ -68,10 +68,11 @@ class SettingsLanguagePage extends StatelessWidget {
       activeColor: Theme.of(context).colorScheme.secondary,
       dense: false,
       value: langCode,
-      groupValue: AppConfig.of(context).settings['languageCode'],
+      groupValue: AppConfig.of(context).languageCode,
       title: Text("${langCode.toUpperCase()} - $languageName"),
       onChanged: (_) {
         AppConfig.of(context, listen: false).setLanguage(langCode);
+        Navigator.of(context).pop(langCode);
       }
     );
   }
@@ -93,7 +94,7 @@ class SettingsLanguagePage extends StatelessWidget {
       activeColor: Theme.of(context).colorScheme.secondary,
       dense: false,
       value: "null",
-      groupValue: AppConfig.of(context).settings['languageCode'],
+      groupValue: AppConfig.of(context).languageCode,
       title: Text(L10n.of(context).settingsLanguageUseLocale),
       subtitle: Text(L10n.of(context).settingsLanguageUseLocaleSub),
       onChanged: (String? val) {

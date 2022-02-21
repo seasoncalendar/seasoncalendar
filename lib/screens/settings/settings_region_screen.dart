@@ -42,9 +42,10 @@ class SettingsRegionPage extends StatelessWidget {
         value: region.id,
         groupValue: AppConfig.of(context).curRegion.id,
         title: Text(region.name),
-        subtitle: region.fallbackRegion != null ? Text("fallback: ${region.fallbackRegion?.name}") : null,
+        subtitle: region.fallbackRegion != null ? Text("Fallback ${region.fallbackRegion?.name}") : null,
         onChanged: (val) {
           AppConfig.of(context, listen: false).setRegion(region.id);
+          Navigator.of(context).pop(region.id);
         })
       ).toList();
   }

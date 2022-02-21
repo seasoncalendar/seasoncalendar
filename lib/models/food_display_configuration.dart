@@ -24,6 +24,7 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   List<Food> foodsToDisplay = [];
   bool favoritesSelected = false;
   int monthIndex = DateTime.now().toLocal().month - 1;
+  late AppConfig config;
 
   FoodDisplayConfiguration.async(AppConfig config, List<dynamic> asynRes) {
     setFromFeature(config, asynRes);
@@ -36,6 +37,7 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   }
 
   setFromFeature(AppConfig config, List<dynamic> res) {
+    this.config = config;
     if (config.useCustomAv) {
       // use foods merged with custom entries
       allFoods = res[1] as List<Food>;
@@ -44,7 +46,7 @@ class FoodDisplayConfiguration extends ChangeNotifier {
       allFoods = res[0] as List<Food>;
     }
     favoriteFoodNames = res[2] as List<String>;
-    foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodNames, config.settings);
+    foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodNames, config.getPreferences());
     notifyListeners();
   }
 
@@ -64,29 +66,20 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   }
 
   void toggleFruitsSelected() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final initialSettings =
-        await loadAssetFromJson("assets/initialsettings.json");
-    bool fruitsSelected =
-        prefs.getBool("showFruits") ?? initialSettings["showFruits"];
-    prefs.setBool("showFruits", !fruitsSelected);
+    bool fruitsSelected = config.getValue("showFruits");
+    config.setValue("showFruits", !fruitsSelected);
     updateFoodsAndNotify();
   }
 
   void toggleVegetablesSelected() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    final initialSettings =
-        await loadAssetFromJson("assets/initialsettings.json");
-    bool vegetablesSelected =
-        prefs.getBool("showVegetables") ?? initialSettings["showVegetables"];
-    prefs.setBool("showVegetables", !vegetablesSelected);
+    bool vegetablesSelected = config.getValue("showVegetables");
+    config.setValue("showVegetables", !vegetablesSelected);
     updateFoodsAndNotify();
   }
 
   updateFoodsAndNotify() async {
     final favoriteFoodIds = await getFavoriteFoods();
-    Map<String, dynamic> settings = await SettingsPageState.getSettings();
-    foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodIds, settings);
+    foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodIds, config.getPreferences());
     notifyListeners();
   }
 

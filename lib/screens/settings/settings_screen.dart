@@ -4,6 +4,7 @@ import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:intl/intl.dart';
 
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:seasoncalendar/helpers/lang_helper.dart';
 import 'package:seasoncalendar/helpers/user_db_provider.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -41,24 +42,6 @@ class SettingsPageState extends State<SettingsPage> {
       settings[key] = prefs.get(key) ?? initialSettings[key];
     }
     return settings;
-  }
-
-  clearSettings(BuildContext? context) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
-    widget._settings = Map.from(widget._initialSettings);
-    // TODO set SharedPreferences to initialSettings?
-
-    if (context != null) {
-      const snackBar = SnackBar(
-        content: Text('Settings reset!'),
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-      Navigator.of(context).pushNamed("/settings").then((_) {
-        Phoenix.rebirth(context);
-      });
-    }
   }
 
   setSettingI(String key, dynamic newVal) async {
@@ -112,13 +95,38 @@ class SettingsPageState extends State<SettingsPage> {
   }
 
   Widget _buildSettings(BuildContext context, settings, versionInfo) {
+    List<Widget> settingsItems = List<Widget>.empty(growable: true);
+
+    settingsItems.add(SwitchListTile.adaptive(
+      secondary: const Icon(Icons.folder_special),
+      title: Text(L10n.of(context).settingsUncommonTitle),
+      subtitle: Text(L10n.of(context).settingsUncommonText),
+      value: widget._settings!["includeUncommon"],
+      dense: false,
+      onChanged: (newVal) {
+        setSettingI("includeUncommon", newVal);
+      },
+    ));
+    settingsItems.add(const Divider());
+
+    settingsItems.add(SwitchListTile.adaptive(
+      secondary: const Icon(Icons.sort),
+      title: Text(L10n.of(context).settingsSortingTitle),
+      value: widget._settings!["foodSorting"],
+      dense: false,
+      onChanged: (newVal) {
+        setSettingI("foodSorting", newVal);
+      },
+    ));
+    settingsItems.add(const Divider());
+
     showFilterFoodsDialog() {
-      List<bool> avList = List.generate(avTypeCount, (i) => widget._settings![avSettingsKeys[i]]);
+      List<bool> avList = List.generate(
+          avTypeCount, (i) => widget._settings![avSettingsKeys[i]]);
       var dialog = AvailabilitiesDialog(avList);
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
-          backgroundColor: Colors.white,
           title: Text(L10n.of(context).settingsFilterTitle),
           content: dialog,
           elevation: 10,
@@ -138,157 +146,159 @@ class SettingsPageState extends State<SettingsPage> {
         ),
         barrierDismissible: true,
       ).then((ret) {
-        for (int i in Iterable.generate(avTypeCount)) {
-          setSettingI(avSettingsKeys[i], dialog.selectedAvailabilities[i]);
+        if (ret != null) {
+          for (int i in Iterable.generate(avTypeCount)) {
+            setSettingI(avSettingsKeys[i], ret[i]);
+          }
         }
       });
     }
+
+    settingsItems.add(ListTile(
+      leading: const Icon(Icons.visibility),
+      title: Text(L10n.of(context).settingsFilterTitle),
+      isThreeLine: false,
+      dense: false,
+      onTap: showFilterFoodsDialog,
+    ));
+    settingsItems.add(const Divider());
+
+    var languageCode = AppConfig.of(context).locale!.languageCode;
+    var languageName = languageNameFromCode[languageCode] ?? languageCode;
+    languageName = languageName.length > 20 ? languageCode : languageName;
+
+    settingsItems.add(ListTileTheme(
+      child: ListTile(
+        leading: const Icon(Icons.translate),
+        title: Text(L10n.of(context).settingsLanguageTitle),
+        trailing: Text(languageName),
+        isThreeLine: false,
+        dense: false,
+        onTap: () {
+          Navigator.of(context).pushNamed("/settings/language");
+        },
+      ),
+    ));
+    settingsItems.add(const Divider());
+
+    var region = AppConfig.of(context).curRegion;
+    var regionName = region.name.length > 25 ? region.id : region.name;
+
+    settingsItems.add(ListTileTheme(
+      child: ListTile(
+        enabled: true,
+        leading: const Icon(Icons.language),
+        title: Text(L10n.of(context).settingsRegionTitle),
+        trailing: Text(regionName),
+        isThreeLine: false,
+        dense: false,
+        onTap: () {
+          Navigator.of(context).pushNamed("/settings/region");
+        },
+      ),
+    ));
+    settingsItems.add(const Divider());
+
+    settingsItems.add(SwitchListTile.adaptive(
+      secondary: Icon(Icons.edit_attributes_outlined),
+      title: Text(
+          "Custom availabilities"), //L10n.of(context).settingsEnableCustomAvTitle),
+      subtitle: AppConfig.of(context).useCustomAv
+          ? Text("Tab to hide custom availabilities")
+          : //L10n.of(context).settingsDisableCustomAv),
+          Text(
+              "Tab to allow editing availability"), //L10n.of(context).settingsEnableCustomAv):
+      value: AppConfig.of(context).useCustomAv,
+      dense: false,
+      onChanged: (newVal) {
+        AppConfig.of(context, listen: false).useCustomAv = newVal;
+      },
+    ));
+    settingsItems.add(const Divider());
+
+    settingsItems.add(ListTileTheme(
+      child: ListTile(
+        leading: Icon(Icons.delete_forever),
+        title: Text(L10n.of(context).settingsResetCustomAvTitle),
+        isThreeLine: false,
+        enabled: widget._settings!["useCustomAv"],
+        dense: false,
+        onTap: () async {
+          bool? res = await showDialog(
+            context: context,
+            builder: (_) => AlertDialog(
+              title: Text("Are you sure?"),
+              content: Text(
+                  "Do you really want to delete your locally edited availability data. This action cannot be undone."),
+              elevation: 10,
+              actions: [
+                MaterialButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(true);
+                  },
+                  child: Text("Delete"),
+                ),
+                MaterialButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(L10n.of(context).back)),
+              ],
+            ),
+          );
+          if (res ?? false) {
+            UserDBProvider.db.deleteDB();
+            var snackBar = const SnackBar(
+              content: Text('Custom availability data was deleted!'),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+            Navigator.of(context).pushNamed("/settings").then((_) {
+              Phoenix.rebirth(context);
+            });
+          }
+        },
+      ),
+    ));
+    settingsItems.add(const Divider());
+
+    settingsItems.add(ListTileTheme(
+      child: ListTile(
+        leading: const Icon(Icons.account_balance),
+        title: Text(L10n.of(context).imprintPageTitle),
+        isThreeLine: false,
+        dense: false,
+        onTap: () => {Navigator.of(context).pushNamed("/etc/imprint")},
+      ),
+    ));
+    settingsItems.add(const Divider());
+
+    settingsItems.add(ListTile(
+      leading: const Icon(Icons.info_outline),
+      enabled: kDebugMode,
+      title: Text(L10n.of(context).settingsVersion),
+      trailing: Text(
+        widget._versionInfo +
+            versionCodeSuffixFromAppFlavor(
+                AppConfig.of(context, listen: false).flavor),
+        style: const TextStyle(color: Colors.black38),
+      ),
+      isThreeLine: false,
+      dense: false,
+      onLongPress: () {
+        AppConfig.of(context, listen: false).clearSettings();
+        const snackBar = SnackBar(
+          content: Text('Settings reset!'),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      },
+    ));
 
     return Container(
         margin: const EdgeInsets.all(10),
         child: SingleChildScrollView(
           child: Column(
-            children: <Widget>[
-              SwitchListTile.adaptive(
-                secondary: const Icon(Icons.folder_special),
-                title: Text(L10n.of(context).settingsUncommonTitle),
-                subtitle: Text(L10n.of(context).settingsUncommonText),
-                value: widget._settings!["includeUncommon"],
-                dense: false,
-                onChanged: (newVal) {
-                  setSettingI("includeUncommon", newVal);
-                },
-              ),
-              const Divider(),
-              SwitchListTile.adaptive(
-                secondary: const Icon(Icons.sort),
-                title: Text(L10n.of(context).settingsSortingTitle),
-                value: widget._settings!["foodSorting"],
-                dense: false,
-                onChanged: (newVal) {
-                  setSettingI("foodSorting", newVal);
-                },
-              ),
-              const Divider(),
-              ListTile(
-                leading: const Icon(Icons.visibility),
-                title: Text(L10n.of(context).settingsFilterTitle),
-                isThreeLine: false,
-                dense: false,
-                onTap: showFilterFoodsDialog,
-              ),
-              const Divider(),
-              ListTileTheme(
-                child: ListTile(
-                  leading: const Icon(Icons.translate),
-                  title: Text(L10n.of(context).settingsLanguageTitle),
-                  trailing: Text(Intl.defaultLocale!),
-                  isThreeLine: false,
-                  dense: false,
-                  onTap: () {
-                    Navigator.of(context).pushNamed("/settings/language");
-                  },
-                ),
-              ),
-              const Divider(),
-              ListTileTheme(
-                child: ListTile(
-                  enabled: true,
-                  leading: const Icon(Icons.language),
-                  title: Text(L10n.of(context).settingsRegionTitle),
-                  trailing: Text(widget._settings?['regionCode']),
-                  isThreeLine: false,
-                  dense: false,
-                  onTap: () {
-                    Navigator.of(context).pushNamed("/settings/region");
-                  },
-                ),
-              ),
-              const Divider(),
-              SwitchListTile.adaptive(
-                secondary: Icon(Icons.edit_attributes_outlined),
-                title: Text("Custom availabilities"), //L10n.of(context).settingsEnableCustomAvTitle),
-                subtitle: AppConfig.of(context).useCustomAv ?
-                  Text("Tab to hide custom availabilities") : //L10n.of(context).settingsDisableCustomAv),
-                  Text("Tab to allow editing availability"), //L10n.of(context).settingsEnableCustomAv):
-                value: AppConfig.of(context).useCustomAv,
-                dense: false,
-                onChanged: (newVal) {
-                  AppConfig.of(context, listen: false).useCustomAv = newVal;
-                },
-              ),
-              const Divider(),
-              ListTileTheme(
-                child: ListTile(
-                  leading: Icon(Icons.delete_forever),
-                  title: Text(L10n.of(context).settingsResetCustomAvTitle),
-                  isThreeLine: false,
-                  enabled: widget._settings!["useCustomAv"],
-                  dense: false,
-                  onTap: () async {
-                    bool? res = await showDialog(
-                      context: context,
-                      builder: (_) => AlertDialog(
-                        backgroundColor: Colors.white,
-                        title: Text("Are you sure?"),
-                        content: Text("Do you really want to delete your locally edited availability data. This action cannot be undone."),
-                        elevation: 10,
-                        actions: [
-                          MaterialButton(
-                            onPressed: () {
-                              Navigator.of(context).pop(true);
-                            },
-                            child: Text("Delete"),
-                          ),
-                          MaterialButton(
-                              onPressed: () {
-                                Navigator.of(context).pop();
-                              },
-                              child: Text(L10n.of(context).back)),
-                        ],
-                      ),
-                    );
-                    if (res ?? false) {
-                      UserDBProvider.db.deleteDB();
-                      var snackBar = const SnackBar(
-                        content: Text('Custom availability data was deleted!'),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-                      Navigator.of(context).pushNamed("/settings").then((_) {
-                        Phoenix.rebirth(context);
-                      });
-                    }
-                  },
-                ),
-              ),
-              const Divider(),
-              ListTileTheme(
-                child: ListTile(
-                  leading: const Icon(Icons.account_balance),
-                  title: Text(L10n.of(context).imprintPageTitle),
-                  isThreeLine: false,
-                  dense: false,
-                  onTap: () =>
-                      {Navigator.of(context).pushNamed("/etc/imprint")},
-                ),
-              ),
-              const Divider(),
-              ListTile(
-                leading: const Icon(Icons.info_outline),
-                enabled: kDebugMode,
-                title: Text(L10n.of(context).settingsVersion),
-                trailing: Text(
-                  widget._versionInfo +
-                      versionCodeSuffixFromAppFlavor(
-                          AppConfig.of(context, listen:false).flavor),
-                  style: const TextStyle(color: Colors.black38),
-                ),
-                isThreeLine: false,
-                dense: false,
-                onLongPress:  () => clearSettings(context),
-              ),
-            ],
+            children: settingsItems,
           ),
         ));
   }
