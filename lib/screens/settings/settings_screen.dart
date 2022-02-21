@@ -13,7 +13,7 @@ import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
-import 'package:seasoncalendar/components/availabilities_dialog.dart';
+import 'package:seasoncalendar/screens/settings/settings_availabilities_dialog.dart';
 
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;

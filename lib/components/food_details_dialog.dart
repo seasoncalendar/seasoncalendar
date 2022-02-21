@@ -7,7 +7,7 @@ import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import '../app_config.dart';
-import 'availabilities_dialog.dart';
+import 'food_edit_availabilities.dart';
 
 class FoodDetailsDialog extends StatefulWidget {
   final Food _food;
@@ -146,7 +146,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
       List<Availability> avs = widget._food.getAvailabilitiesList()[monthIndex];
       List<bool> list = availabilitiesToBooleans(avs);
 
-      var dialog = AvailabilitiesDialog(List.of(list));
+      var dialog = FoodEditAvailabilities(List.of(list));
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
