@@ -67,7 +67,7 @@ class UserDBProvider {
     deleteDatabase(path);
   }
 
-  Future<List<Food>> getFoodsWithCustom() async {
+  Future<List<Food>> getFoodsWithCustom({List<Food>? origFoods}) async {
     final Database db = await userdatabase;
     Region region = await DBProvider.db.getCurrentRegion();
 
@@ -76,7 +76,7 @@ class UserDBProvider {
       FROM food_region_availability WHERE region_id = ?
       """, [region.id]);
 
-    List<Food> allFoods = await DBProvider.db.getFoods();
+    List<Food> allFoods = origFoods ?? await DBProvider.db.getFoods();
     List<Food> customFoods = results
         .map((item) {
           String foodId = item['food_id'];

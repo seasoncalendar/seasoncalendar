@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:seasoncalendar/app_config.dart';
 
 import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:seasoncalendar/components/loading_scaffold.dart';
@@ -25,29 +26,30 @@ final initial_settings = loadAssetFromJson("assets/initialsettings.json");
 final independent_text =
     loadAssetFromJson("assets/localization_independent_text.json");
 
+Future<List<Object>> mainFuture() async {
+  var origFoods = await DBProvider.db.getFoods();
+  var customFoods = await UserDBProvider.db.getFoodsWithCustom(origFoods: origFoods);
+  var favFoodNames = await getFavoriteFoods();
+  return [origFoods, customFoods, favFoodNames];
+}
+
 final Map<String, WidgetBuilder> appRoutes = {
   "/": (context) => FutureBuilder(
-      future: Future.wait([
-        getFavoriteFoods(),
-        SettingsPageState.getSettings(),
-        DBProvider.db.getFoods(),
-        UserDBProvider.db.getFoodsWithCustom()
-      ]),
+      future: mainFuture(),
       builder: (_, AsyncSnapshot<List<Object>> snapshot) {
         if (snapshot.hasData) {
-          final favoriteFoodNames = snapshot.data![0] as List<String>;
-          final settings = snapshot.data![1] as Map<String, dynamic>;
           List<Food> allFoods;
-          if (settings["useCustomAv"]?? false) {
+          if (AppConfig.of(context).useCustomAv) {
             // use foods merged with custom entries
-            allFoods = snapshot.data![3] as List<Food>;
+            allFoods = snapshot.data![1] as List<Food>;
           } else {
             // use default food entries
-            allFoods = snapshot.data![2] as List<Food>;
+            allFoods = snapshot.data![0] as List<Food>;
           }
+          final favoriteFoodNames = snapshot.data![2] as List<String>;
           return ChangeNotifierProvider(
             create: (_) =>
-                FoodDisplayConfiguration(allFoods, settings, favoriteFoodNames),
+                FoodDisplayConfiguration(allFoods, AppConfig.of(context).settings, favoriteFoodNames),
             child: const HomeScreen(),
           );
         } else {
