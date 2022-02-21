@@ -1,11 +1,6 @@
-import 'dart:ffi';
-
 import 'package:provider/provider.dart';
-import 'package:seasoncalendar/components/loading_scaffold.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -13,7 +8,6 @@ import 'package:seasoncalendar/routes.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
-import 'package:intl/intl.dart';
 import 'package:seasoncalendar/l10n/localizationsDelegates/material_localization_eo.dart';
 
 void main() async {

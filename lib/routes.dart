@@ -10,17 +10,17 @@ import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/helpers/user_db_provider.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/models/food.dart';
-import 'package:seasoncalendar/screens/etc/howto/howto_screen.dart';
+import 'package:seasoncalendar/screens/etc/howto_screen.dart';
 import 'package:seasoncalendar/screens/home/home_screen.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/screens/settings/settings_language_screen.dart';
 import 'package:seasoncalendar/screens/settings/settings_region_screen.dart';
 import 'package:seasoncalendar/screens/etc/etc_screen.dart';
-import 'package:seasoncalendar/screens/etc/about/about_screen.dart';
-import 'package:seasoncalendar/screens/etc/contrib/contrib_screen.dart';
-import 'package:seasoncalendar/screens/etc/imprint/imprint_screen.dart';
-import 'package:seasoncalendar/screens/etc/imprint/imgsources/imgsources_screen.dart';
-import 'package:seasoncalendar/screens/etc/support/support_screen.dart';
+import 'package:seasoncalendar/screens/etc/about_screen.dart';
+import 'package:seasoncalendar/screens/etc/contrib_screen.dart';
+import 'package:seasoncalendar/screens/etc/imprint_screen.dart';
+import 'package:seasoncalendar/screens/etc/imgsources_screen.dart';
+import 'package:seasoncalendar/screens/etc/support_screen.dart';
 
 final initial_settings = loadAssetFromJson("assets/initialsettings.json");
 final independent_text =
