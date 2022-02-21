@@ -12,24 +12,22 @@ import 'food_edit_availabilities.dart';
 class FoodDetailsDialog extends StatefulWidget {
   final Food _food;
   final Image _foodImage;
-  late List<List<Availability>> _allAvailabilities; // TODO remove and get from _food jit
 
-  FoodDetailsDialog(Food food, Image foodImage, {Key? key})
-      : _food = food,
-        _foodImage = foodImage,
-        super(key: key) {
-    _allAvailabilities = food.getAvailabilitiesList(short: true);
-  }
+  const FoodDetailsDialog(Food food, Image foodImage, {Key? key})
+      : _food = food, _foodImage = foodImage, super(key: key);
 
   @override
   State<StatefulWidget> createState() => FoodDetailsState();
 }
 
 class FoodDetailsState extends State<FoodDetailsDialog> {
+  late List<List<Availability>> _allAvailabilities; // TODO remove and get from _food jit
   bool editing = false;
 
   @override
   Widget build(BuildContext context) {
+    _allAvailabilities = widget._food.getAvailabilitiesList(short: true);
+
     var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
     var availabilities = Column(
@@ -59,7 +57,6 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
 
     Widget imgAndAvailabilities;
     var regionInfo = Text(widget._food.region.name);
-    //Text(L10n.of(context). widget._food.region.name)
 
     if (isPortrait) {
       imgAndAvailabilities = Column(
@@ -109,9 +106,9 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
   Widget getAvailabilityInfoCard(BuildContext context, int monthIndex) {
     Widget containerChild;
 
-    int fstModeIdx = widget._allAvailabilities[monthIndex]
+    int fstModeIdx = _allAvailabilities[monthIndex]
         .indexWhere((mode) => mode != Availability.none);
-    int sndModeIdx = widget._allAvailabilities[monthIndex]
+    int sndModeIdx = _allAvailabilities[monthIndex]
         .indexWhere((mode) => mode != Availability.none, fstModeIdx + 1);
 
     if (fstModeIdx == -1) {
@@ -120,14 +117,14 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
           color: Colors.black.withAlpha(iconAlpha));
     } else if (sndModeIdx == -1) {
       int iconAlpha = getIconAlphaFromAvailability(
-          widget._allAvailabilities[monthIndex][fstModeIdx]);
+          _allAvailabilities[monthIndex][fstModeIdx]);
       containerChild = Icon(availabilityModeIcons[fstModeIdx],
           color: Colors.black.withAlpha(iconAlpha));
     } else {
       int primaryIconAlpha = getIconAlphaFromAvailability(
-          widget._allAvailabilities[monthIndex][fstModeIdx]);
+          _allAvailabilities[monthIndex][fstModeIdx]);
       int secondaryIconAlpha = getIconAlphaFromAvailability(
-          widget._allAvailabilities[monthIndex][sndModeIdx]);
+          _allAvailabilities[monthIndex][sndModeIdx]);
       containerChild = Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -143,42 +140,20 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
 
     var allowEditAvailabilities = AppConfig.of(context).useCustomAv;
     editAvailabilities() async {
-      List<Availability> avs = widget._food.getAvailabilitiesList()[monthIndex];
-      List<bool> list = availabilitiesToBooleans(avs);
-
-      var dialog = FoodEditAvailabilities(List.of(list));
-      showDialog(
+      var ret = await showDialog(
         context: context,
-        builder: (_) => AlertDialog(
-          backgroundColor: Colors.white,
-          title: Text(L10n.of(context).settingsFilterTitle),
-          content: dialog,
-          elevation: 10,
-          actions: [
-            MaterialButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed("/etc/howto");
-              },
-              child: const Icon(Icons.help),
-            ),
-            MaterialButton(
-                onPressed: () {
-                  Navigator.of(context).pop(dialog.selectedAvailabilities);
-                },
-                child: Text(L10n.of(context).confirm)),
-          ],
-        ),
         barrierDismissible: true,
-      ).then((ret) {
-        var retList = ret as List<bool>;
-        if (!listEquals(list, retList)) {
-          List<Availability> avList = availabilitiesFromBooleans(retList);
-          setState(() {
-            widget._food.changeAvailabilitiesForMonth(avList, monthIndex);
-            widget._allAvailabilities = widget._food.getAvailabilitiesList(short: true);
-            UserDBProvider.db.addCustomAvailability(widget._food);
-          });
-        }
+        builder: (_) => FoodEditAvailabilities(
+            widget._food.getAvailabilitiesList()[monthIndex],
+            title: Text(L10n.of(context).settingsFilterTitle),
+        ),
+      ) as List<Availability>;
+
+      //Navigator.of(context).
+
+      setState(() {
+        widget._food.changeAvailabilitiesForMonth(ret, monthIndex);
+        UserDBProvider.db.addCustomAvailability(widget._food);
       });
     }
 
