@@ -68,7 +68,7 @@ class Food {
         availabilitiesFromStringList(splitByCommaAndTrim(avAir));
   }
 
-  List<Availability> getAvailabilitiesByMonth(int monthIndex) {
+  List<Availability> getAvailabilitiesByMonth(int monthIndex, {bool short = false}) {
     List<Availability> availabilitiesThisMonth = [
       Availability.none,
       Availability.none,
@@ -83,7 +83,7 @@ class Food {
       availabilitiesThisMonth[availabilityModeValues[curKey]!] = curAv;
 
       // lower av modes are disregarded if any mode is "full"
-      if (curAv == f) break;
+      if (short && curAv == f) break;
     }
 
     return availabilitiesThisMonth;
@@ -109,9 +109,9 @@ class Food {
     );
   }
 
-  List<List<Availability>> getAvailabilitiesList() {
+  List<List<Availability>> getAvailabilitiesList({bool short: false}) {
     return List.generate(
-        12, (monthIndex) => getAvailabilitiesByMonth(monthIndex));
+        12, (monthIndex) => getAvailabilitiesByMonth(monthIndex, short: short));
   }
 
   changeAvailabilitiesForMonth(List<Availability> av, int month) {

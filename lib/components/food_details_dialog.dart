@@ -12,13 +12,13 @@ import 'availabilities_dialog.dart';
 class FoodDetailsDialog extends StatefulWidget {
   final Food _food;
   final Image _foodImage;
-  late List<List<Availability>> _allAvailabilities;
+  late List<List<Availability>> _allAvailabilities; // TODO remove and get from _food jit
 
   FoodDetailsDialog(Food food, Image foodImage, {Key? key})
       : _food = food,
         _foodImage = foodImage,
         super(key: key) {
-    _allAvailabilities = food.getAvailabilitiesList();
+    _allAvailabilities = food.getAvailabilitiesList(short: true);
   }
 
   @override
@@ -143,7 +143,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
 
     var allowEditAvailabilities = AppConfig.of(context).useCustomAv;
     editAvailabilities() async {
-      List<Availability> avs = widget._allAvailabilities[monthIndex];
+      List<Availability> avs = widget._food.getAvailabilitiesList()[monthIndex];
       List<bool> list = availabilitiesToBooleans(avs);
 
       var dialog = AvailabilitiesDialog(List.of(list));
@@ -175,7 +175,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
           List<Availability> avList = availabilitiesFromBooleans(retList);
           setState(() {
             widget._food.changeAvailabilitiesForMonth(avList, monthIndex);
-            widget._allAvailabilities = widget._food.getAvailabilitiesList();
+            widget._allAvailabilities = widget._food.getAvailabilitiesList(short: true);
             UserDBProvider.db.addCustomAvailability(widget._food);
           });
         }

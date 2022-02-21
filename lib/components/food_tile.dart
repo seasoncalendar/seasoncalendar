@@ -19,7 +19,7 @@ class FoodTile extends StatefulWidget {
   FoodTile(Food foodToDisplay, int curMonthIndex, {Key? key})
       : _food = foodToDisplay,
         _curMonthIndex = curMonthIndex,
-        _allAvailabilities = foodToDisplay.getAvailabilitiesList(),
+        _allAvailabilities = foodToDisplay.getAvailabilitiesList(short: true),
         super(key: Key(foodToDisplay.id)) {
     _curAvailabilities = _allAvailabilities[_curMonthIndex];
     int fstModeIdx =
@@ -82,14 +82,6 @@ class FoodTileState extends State<FoodTile> {
     );
 
     List<Widget> actions = [];
-
-    // TODO feature for editing availabilities
-    if (false) {
-      actions.add(MaterialButton(
-        onPressed: () async {},
-        child: const Text("Edit"), // TODO l10n
-      ));
-    }
 
     actions += [
       MaterialButton(
@@ -202,6 +194,8 @@ Icon getFavIcon(context, constraint, int isFavorite) {
   } else if (isFavorite == -1) {
     return Icon(Icons.star_border, size: constraint.biggest.height);
   } else {
+    // TODO why/when does this case happen
+    // could hint at errors in the data grabbing
     return Icon(Icons.star_half, size: constraint.biggest.height);
   }
 }

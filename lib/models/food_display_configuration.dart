@@ -110,7 +110,7 @@ class FoodDisplayConfiguration extends ChangeNotifier {
         List.generate(avTypeCount, (i) => settings[avSettingsKeys[i]]);
     filteredFoods = filteredFoods.where((food) {
       List<bool> foodAvs = food
-          .getAvailabilitiesByMonth(monthIndex)
+          .getAvailabilitiesByMonth(monthIndex, short: true)
           .map((mode) => mode != Availability.none)
           .toList();
       return List.generate(foodAvs.length, (i) => selectedAvs[i] && foodAvs[i])
@@ -122,8 +122,8 @@ class FoodDisplayConfiguration extends ChangeNotifier {
 
     if (settings['foodSorting'] == true) {
       filteredFoods.sort((a, b) {
-        var av1 = a.getAvailabilitiesByMonth(monthIndex);
-        var av2 = b.getAvailabilitiesByMonth(monthIndex);
+        var av1 = a.getAvailabilitiesByMonth(monthIndex, short: true);
+        var av2 = b.getAvailabilitiesByMonth(monthIndex, short: true);
         int comp = compareAvailabilities(av1, av2);
         if (comp != 0) {
           return comp;
