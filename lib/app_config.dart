@@ -72,14 +72,12 @@ class AppConfig extends ChangeNotifier {
     return Provider.of<AppConfig>(context, listen: listen);
   }
 
-  static Future<Map<String, dynamic>> getSettingsI(
-      Map<String, dynamic> initialSettings) async {
-    Map<String, dynamic> settings = {};
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    for (var key in initialSettings.keys) {
-      settings[key] = prefs.get(key) ?? initialSettings[key];
-    }
-    return settings;
+  bool get useCustomAv {
+    return settings["useCustomAv"];
+  }
+  void set useCustomAv(bool val) {
+    setValue("useCustomAv", val);
+    notifyListeners();
   }
 
   void changeLocale(Locale newLocale, {bool notify = true}) {

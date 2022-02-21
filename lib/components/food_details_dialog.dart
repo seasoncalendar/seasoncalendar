@@ -6,6 +6,7 @@ import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
+import '../app_config.dart';
 import 'availabilities_dialog.dart';
 
 class FoodDetailsDialog extends StatefulWidget {
@@ -140,8 +141,8 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
       );
     }
 
+    var allowEditAvailabilities = AppConfig.of(context).useCustomAv;
     editAvailabilities() async {
-
       List<Availability> avs = widget._allAvailabilities[monthIndex];
       List<bool> list = availabilitiesToBooleans(avs);
 
@@ -171,7 +172,6 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
       ).then((ret) {
         var retList = ret as List<bool>;
         if (!listEquals(list, retList)) {
-          print("New avalibilities");
           List<Availability> avList = availabilitiesFromBooleans(retList);
           setState(() {
             widget._food.changeAvailabilitiesForMonth(avList, monthIndex);
@@ -203,7 +203,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
                 ],
               ),
             )),
-        onTap: editAvailabilities
+        onTap: allowEditAvailabilities ? editAvailabilities : null
       ),
     );
   }
