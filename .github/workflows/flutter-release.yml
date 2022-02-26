@@ -1,19 +1,15 @@
-name: Flutter Build App
+name: Flutter Release App
 
 on:
   push:
     tags:
-      - '*'
-    # branches:
-    #   - develop
-  # pull_request:
-  #   branches: [ master ]
-  # release:
-  #   types: [published]
+      - 'v*'
   workflow_dispatch:
     inputs:
       for_ref:
         default: ''
+        description: The branch or tag that shall be used for checkout (defaults to '')
+        required: false
         type: string
 
 
@@ -38,7 +34,6 @@ jobs:
           cache: true
           cache-key: flutter # optional, change this to force refresh cache
           cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
-          # ${{ hashFiles('**/package-lock.json') }}
 
       - name: Setup flutter
         run: |
