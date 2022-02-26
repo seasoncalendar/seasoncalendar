@@ -147,14 +147,14 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
             widget._food.getAvailabilitiesList()[monthIndex],
             title: Text(L10n.of(context).settingsFilterTitle),
         ),
-      ) as List<Availability>;
-
-      //Navigator.of(context).
-
-      setState(() {
-        widget._food.changeAvailabilitiesForMonth(ret, monthIndex);
-        UserDBProvider.db.addCustomAvailability(widget._food);
-      });
+      );
+      if (ret != null) {
+        ret = ret as List<Availability>;
+        setState(() {
+          widget._food.changeAvailabilitiesForMonth(ret, monthIndex);
+          UserDBProvider.db.addCustomAvailability(widget._food);
+        });
+      }
     }
 
     return Expanded(
