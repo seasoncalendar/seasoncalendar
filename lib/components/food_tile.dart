@@ -203,10 +203,8 @@ Icon getFavIcon(context, constraint, int isFavorite) {
 Container getAvailabilityIconContainer(
     BuildContext context, constraint, List<Availability> availabilities) {
   Widget containerChild;
-  int fstModeIdx =
-      availabilities.indexWhere((mode) => mode != Availability.none);
-  int sndModeIdx = availabilities.indexWhere(
-      (mode) => mode != Availability.none, fstModeIdx + 1);
+  int fstModeIdx = availabilities.indexWhere(isAvailable);
+  int sndModeIdx = availabilities.indexWhere(isAvailable, fstModeIdx + 1);
 
   if (fstModeIdx == -1) {
     int iconAlpha = getIconAlphaFromAvailability(Availability.none);

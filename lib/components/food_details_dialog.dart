@@ -107,9 +107,9 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
     Widget containerChild;
 
     int fstModeIdx = _allAvailabilities[monthIndex]
-        .indexWhere((mode) => mode != Availability.none);
+        .indexWhere(isAvailable);
     int sndModeIdx = _allAvailabilities[monthIndex]
-        .indexWhere((mode) => mode != Availability.none, fstModeIdx + 1);
+        .indexWhere(isAvailable, fstModeIdx + 1);
 
     if (fstModeIdx == -1) {
       int iconAlpha = getIconAlphaFromAvailability(Availability.none);

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 enum Availability { none, some, full, unknown }
 
 const Availability n = Availability.none;
@@ -29,6 +28,10 @@ int compareAvailabilities(List<Availability> av1, List<Availability> av2) {
     if (comp != 0) return comp;
   }
   return 0;
+}
+
+bool isAvailable(Availability? a) {
+  return a != null && a != Availability.unknown && a != Availability.none;
 }
 
 List<Availability> overrideAvailabilities(List<Availability> orig,

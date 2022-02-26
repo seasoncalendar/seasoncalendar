@@ -14,20 +14,20 @@ import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 Future<List<Object>> foodDisplayConfigurationFuture() async {
   var origFoods = await DBProvider.db.getFoods();
   var customFoods = await UserDBProvider.db.getFoodsWithCustom(origFoods: origFoods);
-  var favFoodNames = await getFavoriteFoods();
-  return [origFoods, customFoods, favFoodNames];
+  var favFoodIds = await getFavoriteFoods();
+  return [origFoods, customFoods, favFoodIds];
 }
 
 class FoodDisplayConfiguration extends ChangeNotifier {
   List<Food> allFoods = [];
-  List<String> favoriteFoodNames = [];
+  List<String> favoriteFoodIds = [];
   List<Food> foodsToDisplay = [];
   bool favoritesSelected = false;
   int monthIndex = DateTime.now().toLocal().month - 1;
   late AppConfig config;
 
-  FoodDisplayConfiguration.async(AppConfig config, List<dynamic> asynRes) {
-    setFromFeature(config, asynRes);
+  FoodDisplayConfiguration.async(AppConfig config, List<dynamic> res) {
+    setFromFeature(config, res);
   }
 
   update(AppConfig config) {
@@ -45,8 +45,8 @@ class FoodDisplayConfiguration extends ChangeNotifier {
       // use default food entries
       allFoods = res[0] as List<Food>;
     }
-    favoriteFoodNames = res[2] as List<String>;
-    foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodNames, config.getPreferences());
+    favoriteFoodIds = res[2] as List<String>;
+    foodsToDisplay = _getFilteredAndSortedFoods(config.getPreferences());
     notifyListeners();
   }
 
@@ -78,48 +78,54 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   }
 
   updateFoodsAndNotify() async {
-    final favoriteFoodIds = await getFavoriteFoods();
-    foodsToDisplay = _getFilteredAndSortedFoods(favoriteFoodIds, config.getPreferences());
+    favoriteFoodIds = await getFavoriteFoods();
+    foodsToDisplay = _getFilteredAndSortedFoods(config.getPreferences());
     notifyListeners();
   }
 
-  List<Food> _getFilteredAndSortedFoods(
-      List<String> favFoodIds, Map<String, dynamic> settings) {
-    // start with all possible foods...
-    List<Food> filteredFoods = allFoods;
-
+  bool showFoodPredicate(Food f, int month, Map<String, dynamic> settings) {
     // favorites only?
-    if (favoritesSelected) {
-      filteredFoods = getFoodsFromIds(favFoodIds, allFoods);
+    if (favoritesSelected && !favoriteFoodIds.contains(f.id)) {
+      return false;
     }
-
-    // common foods only?
-    if (settings['includeUncommon'] == false) {
-      filteredFoods = filteredFoods.where((food) => food.isCommon).toList();
+    if (settings['includeUncommon'] == false && !f.isCommon) {
+      return false;
     }
-
-    // filter out food types that shall not be displayed
-    filteredFoods = filteredFoods
-        .where((food) =>
-            food.isFruit() && settings["showFruits"] ||
-            food.isVegetable() && settings["showVegetables"])
-        .toList();
-
+    if (!settings["showFruits"] && f.isFruit()) {
+      return false;
+    }
+    if (!settings["showVegetables"] && f.isVegetable()) {
+      return false;
+    }
+    List<Availability> avails = f.getAvailabilitiesByMonth(monthIndex, short: true);
+    var isUnknown = avails.every((a) => a == Availability.unknown);
+    if (settings["showUnknown"] && isUnknown) {
+      return true;
+    }
+    // non of the exclusion criteria now try inclusion criteria
+    var isUnavailable = avails.every((a) => a == Availability.none || a == Availability.unknown);
+    if (settings["showUnavailable"] && isUnavailable) {
+      return true;
+    }
     // meets selected availabilities?
-    List<bool> selectedAvs =
-        List.generate(avTypeCount, (i) => settings[avSettingsKeys[i]]);
-    filteredFoods = filteredFoods.where((food) {
-      List<bool> foodAvs = food
-          .getAvailabilitiesByMonth(monthIndex, short: true)
-          .map((mode) => mode != Availability.none)
-          .toList();
-      return List.generate(foodAvs.length, (i) => selectedAvs[i] && foodAvs[i])
-          .contains(true);
-    }).toList();
+    bool hasSelectedAv = Iterable.generate(avails.length, (i) {
+      return isAvailable(avails[i]) && settings[avSettingsKeys[i]] && true;
+    }).any((el) => el);
+    if (hasSelectedAv) {
+      return true;
+    }
+    return false;
+  }
 
+  List<Food> _getFilteredAndSortedFoods(Map<String, dynamic> settings) {
+    // start with all possible foods...
+    // filter for the current month by the display settings
+    var filteredFoods = allFoods.where((f) {
+      return showFoodPredicate(f, monthIndex, settings);
+    }).toList();
     // sort remaining foods, first by display name.
     filteredFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
-
+    // and if specified sort by availability
     if (settings['foodSorting'] == true) {
       filteredFoods.sort((a, b) {
         var av1 = a.getAvailabilitiesByMonth(monthIndex, short: true);
@@ -127,13 +133,11 @@ class FoodDisplayConfiguration extends ChangeNotifier {
         int comp = compareAvailabilities(av1, av2);
         if (comp != 0) {
           return comp;
-        }
-        else {
+        } else {
           return a.displayName.compareTo(b.displayName);
         }
       });
     }
-
     return filteredFoods;
   }
 }

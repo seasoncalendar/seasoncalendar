@@ -68,12 +68,13 @@ class Food {
         availabilitiesFromStringList(splitByCommaAndTrim(avAir));
   }
 
+  /// when `short' is true only include availabilities till the first cat with full availabilities
   List<Availability> getAvailabilitiesByMonth(int monthIndex, {bool short = false}) {
     List<Availability> availabilitiesThisMonth = [
-      Availability.none,
-      Availability.none,
-      Availability.none,
-      Availability.none
+      Availability.unknown,
+      Availability.unknown,
+      Availability.unknown,
+      Availability.unknown
     ];
 
     var avKeys = availabilities.keys.toList();
@@ -83,7 +84,7 @@ class Food {
       availabilitiesThisMonth[availabilityModeValues[curKey]!] = curAv;
 
       // lower av modes are disregarded if any mode is "full"
-      if (short && curAv == f) break;
+      if (short && curAv == Availability.full) break;
     }
 
     return availabilitiesThisMonth;
