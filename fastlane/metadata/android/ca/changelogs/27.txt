@@ -1,0 +1,3 @@
+Versió 1.3.2+27:
+- Afegides les cebes als aliments disponibles (sembla que les he oblidat accidentalment).
+- Correcció d'errors: La cerca d'aliments ara sempre es fa utilitzant la configuració regional seleccionada actualment.

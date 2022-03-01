@@ -1,0 +1,2 @@
+Versió 1.1.3+18: Canvis interns (els aliments es mostren ara gestionats mitjançant el paquet de proveïdors de Flutter).
+La política de privadesa i els permisos de l'aplicació es mantenen sense canvis.

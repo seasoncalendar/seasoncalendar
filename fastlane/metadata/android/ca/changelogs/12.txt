@@ -1,0 +1,1 @@
+Novetat en v1.1: Recerca d'aliments millorada que ara inclou sinònims alemanys comuns.

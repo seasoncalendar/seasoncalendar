@@ -1,0 +1,11 @@
+<p>Aquesta aplicació et mostra quins aliments estan en temporada ara mateix i, per tant propers. No només són més barats i saborosos, sinó que també el seu transport és menys perjudicial per al nostre entorn.</p>
+<p>
+<b>Funcionalitats:</b>
+<br>* Compta amb la major col·lecció d'aliments
+<br>* Et permet triar i veure els teus favorits
+<br>* Codi obert
+<br>* Es pot executar en una varietat de dispositius Android
+<br>* Dades predefinides actualment disponibles: Europa Central
+</p>
+<p><i>Tingues en compte que la disponibilitat real d'aliments al supermercat local pot diferir de la informació que es mostra aquí.</i></p>
+<p>(Nota de llicència: aquesta aplicació està subjecta a la llicència GNU GPL-3.0, amb l'excepció dels fitxers de base de dades de la carpeta d'actius «assets/db». Posa't en contacte amb mi abans de tornar a utilitzar-los.)</p>

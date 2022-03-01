@@ -1,0 +1,3 @@
+Versió 1.4.8+43:
+- Afegida la traducció al neerlandès
+- Actualitza les dependències
