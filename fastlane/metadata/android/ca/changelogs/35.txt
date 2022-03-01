@@ -1,0 +1,3 @@
+Versió 1.4.2+35:
+- Millores i correccions internes.
+La política de privadesa i els permisos de l'aplicació es mantenen sense canvis.

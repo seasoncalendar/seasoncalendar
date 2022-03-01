@@ -1,0 +1,3 @@
+Versió 1.4.0+31:
+- Ara pots seleccionar manualment l'idioma de l'aplicació al menú de configuració.
+La política de privadesa i els permisos de l'aplicació es mantenen sense canvis.

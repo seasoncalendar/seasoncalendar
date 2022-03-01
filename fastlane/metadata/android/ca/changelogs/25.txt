@@ -1,0 +1,4 @@
+Versió 1.3.0+25:
+- L'aplicació ara s'ajusta automàticament a l'idioma del dispositiu si és compatible.
+- S'ha afegit anglès a la llista d'idiomes de dispositius admesos.
+La política de privadesa es manté sense canvis, però la configuració del dispositiu es consulta per a determinar l'idioma del dispositiu.
