@@ -613,5 +613,9 @@
   "settingsEnableCustomAvSubtitle": "Se abilitato, le disponibilità possono essere personalizzate sul dispositivo e verranno visualizzate le personalizzazioni",
   "@settingsEnableCustomAvSubtitle": {},
   "foodEditAvTitle": "Modifica disponibilità",
-  "@foodEditAvTitle": {}
+  "@foodEditAvTitle": {},
+  "howToPageUnavailable": "Di solito non disponibile.",
+  "@howToPageUnavailable": {},
+  "howToPageUnknown": "Disponibilità sconosciuta. (Si prega di contribuire ;-))",
+  "@howToPageUnknown": {}
 }
