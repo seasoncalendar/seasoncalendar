@@ -75,6 +75,14 @@ class ImprintPage extends StatelessWidget {
                 languageNameFromCode["pl"]! + ": Mateusz Bartczak (matebart)",
                 textAlign: TextAlign.left,
               ),
+              Text(
+                languageNameFromCode["nl"]! + ": Pander (PanderMusubi)",
+                textAlign: TextAlign.left,
+              ),
+              Text(
+                languageNameFromCode["ca"]! + ": Maite Guix",
+                textAlign: TextAlign.left,
+              ),
               const SizedBox(height: 20),
               Text(
                 L10n.of(context).imprintPageDataHeadline,
