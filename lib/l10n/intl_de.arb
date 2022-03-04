@@ -613,5 +613,9 @@
   "foodEditAvTitle": "Verfügbarkeiten bearbeiten",
   "@foodEditAvTitle": {},
   "settingsEnableCustomAvSubtitle": "Wenn diese Option aktiv ist, können Verfügbarkeiten angepasst werden und Anpassungen werden angezeigt",
-  "@settingsEnableCustomAvSubtitle": {}
+  "@settingsEnableCustomAvSubtitle": {},
+  "howToPageUnknown": "Verfügbarkeit unbekannt. (Bitte hinzufügen ;-))",
+  "@howToPageUnknown": {},
+  "howToPageUnavailable": "Normalerweise nicht verfügbar.",
+  "@howToPageUnavailable": {}
 }
