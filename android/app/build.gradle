@@ -75,6 +75,17 @@ android {
             dimension "app"
         }
     }
+
+    // Change the automatic versionCode mapping for different ABIs when building split APKs
+    // note ABIs 'armeabi', 'mips', and 'mips64' are not used
+    project.ext.abiCodes = ['armeabi-v7a':3, 'arm64-v8a':4, 'x86':1, 'x86_64':2] // old default
+    //project.ext.versionCodes = ['armeabi-v7a':1, 'arm64-v8a':2, 'x86':3, 'x86_64':4] // new default
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.versionCodeOverride =
+                    project.ext.abiCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) * 1000 + android.defaultConfig.versionCode
+        }
+    }
 }
 
 flutter {
