@@ -48,13 +48,13 @@ class HowToPage extends StatelessWidget {
                 ListTile(
                   dense: true,
                   leading: const Icon(Icons.remove, color: Colors.black),
-                  title: Text("TK",
+                  title: Text(L10n.of(context).howToPageUnavailable,
                       style: Theme.of(context).textTheme.bodyText1),
                 ),
                 ListTile(
                   dense: true,
                   leading: const Icon(Icons.contact_support, color: Colors.black),
-                  title: Text("TK",
+                  title: Text(L10n.of(context).howToPageUnknown,
                       style: Theme.of(context).textTheme.bodyText1),
                 ),
                 const SizedBox(height: 10),
