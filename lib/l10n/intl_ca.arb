@@ -1,0 +1,1212 @@
+{
+  "minAvSea": "No s'importen aliments a través de l'avió",
+  "@minAvSea": {
+    "description": "The phrase 'No foods imported via airplane'"
+  },
+  "april": "Abril",
+  "@april": {
+    "description": "The word 'April'"
+  },
+  "broccoli_infoUrl": "https://ca.wikipedia.org/wiki/Bròcoli",
+  "@broccoli_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "contribPageContactButtonText": "A la pàgina web",
+  "@contribPageContactButtonText": {
+    "description": "The phrase 'To the webpage'"
+  },
+  "february": "Febrer",
+  "@february": {
+    "description": "The word 'February'"
+  },
+  "howToPageAvLocal": "De temporada i de proximitat.",
+  "@howToPageAvLocal": {
+    "description": "A sentence explaining what the house icon means."
+  },
+  "imprintPageDataHeadline": "Dades de disponibilitat",
+  "@imprintPageDataHeadline": {
+    "description": "The phrase 'Availability data'"
+  },
+  "imprintPageButtonText": "Informació legal",
+  "@imprintPageButtonText": {
+    "description": "The word 'Imprint'"
+  },
+  "imprintPageTitle": "Informació legal",
+  "@imprintPageTitle": {
+    "description": "The word 'Imprint'"
+  },
+  "imprintPageTextHeadline": "Text de l'app",
+  "@imprintPageTextHeadline": {
+    "description": "The word 'App text'"
+  },
+  "lime_infoUrl": "https://ca.wikipedia.org/wiki/Llimona_dolça",
+  "@lime_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "march": "Març",
+  "@march": {
+    "description": "The word 'March'"
+  },
+  "parsnip_infoUrl": "https://ca.wikipedia.org/wiki/Xirivia",
+  "@parsnip_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "passionfruit_names": "Maracujà, Fruita de la passió, Granadilla",
+  "@passionfruit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "peas_infoUrl": "https://ca.wikipedia.org/wiki/Pèsol",
+  "@peas_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "peas_names": "Pèsol, Xítxero, Xitxo, Xítxol, Xiribec, Pitxo, Estiregassó, Xiribec",
+  "@peas_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "persimmon_infoUrl": "https://ca.wikipedia.org/wiki/Caquier",
+  "@persimmon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "physalis_infoUrl": "https://ca.wikipedia.org/wiki/Alquequengi",
+  "@physalis_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pointedcabbage_infoUrl": "https://ca.wikipedia.org/wiki/Col",
+  "@pointedcabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pomegranate_infoUrl": "https://ca.wikipedia.org/wiki/Magrana",
+  "@pomegranate_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pointedcabbage_names": "Col punxeguda",
+  "@pointedcabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pomegranate_names": "Magrana",
+  "@pomegranate_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "potato_names": "Patata",
+  "@potato_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "potato_infoUrl": "https://ca.wikipedia.org/wiki/Patatera",
+  "@potato_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pricklypear_names": "Figa de moro",
+  "@pricklypear_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "prune_infoUrl": "https://ca.wikipedia.org/wiki/Pruner_de_Damasc",
+  "@prune_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pumpkin_names": "Carabassa",
+  "@pumpkin_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "supportPageText2": "Però si vols donar suport al meu treball, pots fer una ullada al que faig en general a la meva pàgina web.",
+  "@supportPageText2": {
+    "description": "Something like 'User can go to webpage if they further want to support'"
+  },
+  "sweetpotato_names": "Moniato, Boniato, Batata",
+  "@sweetpotato_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "tomato_infoUrl": "https://ca.wikipedia.org/wiki/Tomàquet",
+  "@tomato_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "aboutPageDisclaimer": "Tingues en compte que la disponibilitat real d'aliments al teu supermercat local pot diferir de la informació que es mostra aquí.",
+  "@aboutPageDisclaimer": {
+    "description": "A disclaimer for the availability data"
+  },
+  "aboutPageAdvantage2": "Els aliments frescos són generalment més barats.",
+  "@aboutPageAdvantage2": {
+    "description": "The phrase 'Fresh foods are generally cheaper.'"
+  },
+  "aboutPageAdvantage4": "El transport és menys perjudicial per al medi ambient.",
+  "@aboutPageAdvantage4": {
+    "description": "The phrase 'The transport is less harmful to the environment.'"
+  },
+  "aboutPageHeadline": "Per què ens preocupen les estacions dels aliments?",
+  "@aboutPageHeadline": {
+    "description": "The phrase 'Why care about foods' seasons?'"
+  },
+  "appTitle": "Calendari d'aliments de temporada",
+  "@appTitle": {
+    "description": "The title of the app, e.g. 'Seasonal foods calendar'"
+  },
+  "aboutPageAdvantage5": "Dones suport a empreses i feines locals.",
+  "@aboutPageAdvantage5": {
+    "description": "The phrase 'You support local businesses and jobs.'"
+  },
+  "amla_infoUrl": "https://ca.wikipedia.org/wiki/Amla",
+  "@amla_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "apple_infoUrl": "https://ca.wikipedia.org/wiki/Poma",
+  "@apple_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "apple_names": "Poma",
+  "@apple_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "apricot_infoUrl": "https://ca.wikipedia.org/wiki/Albercoquer",
+  "@apricot_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "amla_names": "Amla",
+  "@amla_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "aboutPageLeading": "Avui en dia, com gairebé tots els aliments estan disponibles durant tot l'any, les persones no son conscients de la temporada dels aliments. No obstant això, la compra d'aliments de temporada i locals sovint té avantatges sorprenents:",
+  "@aboutPageLeading": {
+    "description": "Justification for caring about food seasons"
+  },
+  "august": "Agost",
+  "@august": {
+    "description": "The word 'August'"
+  },
+  "back": "Enrere",
+  "@back": {
+    "description": "The word 'Back'"
+  },
+  "asparagus_infoUrl": "https://ca.wikipedia.org/wiki/Espàrrec",
+  "@asparagus_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "avocado_infoUrl": "https://ca.wikipedia.org/wiki/Alvocat",
+  "@avocado_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "avocado_names": "Alvocat",
+  "@avocado_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "banana_infoUrl": "https://ca.wikipedia.org/wiki/Banana",
+  "@banana_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "banana_names": "Plàtan, banana",
+  "@banana_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "batavia_infoUrl": "https://ca.wikipedia.org/wiki/Enciam",
+  "@batavia_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "batavia_names": "Enciam, lletuga",
+  "@batavia_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "beetroot_infoUrl": "https://ca.wikipedia.org/wiki/Remolatxa_d%27hort",
+  "@beetroot_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "blackberry_infoUrl": "https://ca.wikipedia.org/wiki/Mora_(fruit)",
+  "@blackberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "blackberry_names": "Mora",
+  "@blackberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "beetroot_names": "Remolatxa d'hort, Remolatxa hortícola, Bleda-rave hortícola",
+  "@beetroot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "broccoli_names": "Bròcoli",
+  "@broccoli_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "brusselssprouts_infoUrl": "https://ca.wikipedia.org/wiki/Col_de_Brussel·les",
+  "@brusselssprouts_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "asparagus_names": "Espàrrec",
+  "@asparagus_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "blueberry_names": "Nabiu",
+  "@blueberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "blueberry_infoUrl": "https://ca.wikipedia.org/wiki/Nabiu",
+  "@blueberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "carrot_names": "Pastanaga",
+  "@carrot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cauliflower_names": "Coliflor",
+  "@cauliflower_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "celerygreen_names": "Api",
+  "@celerygreen_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "carob_infoUrl": "https://ca.wikipedia.org/wiki/Garrofer",
+  "@carob_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "carrot_infoUrl": "https://ca.wikipedia.org/wiki/Pastanaga",
+  "@carrot_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "cauliflower_infoUrl": "https://ca.wikipedia.org/wiki/Coliflor",
+  "@cauliflower_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "celery_infoUrl": "https://ca.wikipedia.org/wiki/Api-rave",
+  "@celery_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "celerygreen_infoUrl": "https://ca.wikipedia.org/wiki/Api",
+  "@celerygreen_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "chard_infoUrl": "https://ca.wikipedia.org/wiki/Bledera",
+  "@chard_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "cherry_infoUrl": "https://ca.wikipedia.org/wiki/Cirerer",
+  "@cherry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "chestnut_infoUrl": "https://ca.wikipedia.org/wiki/Castanyer",
+  "@chestnut_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "chestnut_names": "Castanya",
+  "@chestnut_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "chicory_infoUrl": "https://ca.wikipedia.org/wiki/Xicoira",
+  "@chicory_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "chinesecabbage_infoUrl": "https://ca.wikipedia.org/wiki/Col_xinesa",
+  "@chinesecabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "chard_names": "Bleda",
+  "@chard_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cherry_names": "Cirera, Cerira, Cidera, Cira",
+  "@cherry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "contribPageCodeButtonText": "Al repositori de GitHub",
+  "@contribPageCodeButtonText": {
+    "description": "The phrase 'To the GitHub repo'"
+  },
+  "contribPageCodeHeadline": "Ensenya'm el codi!",
+  "@contribPageCodeHeadline": {
+    "description": "The phrase 'Show me the code!'"
+  },
+  "contribPageContactHeadline": "Falta alguna cosa o no va bé?",
+  "@contribPageContactHeadline": {
+    "description": "The phrase 'Something is missing or wrong?'"
+  },
+  "contribPageTitle": "Contribuir",
+  "@contribPageTitle": {
+    "description": "The word 'Contribute'"
+  },
+  "clementine_infoUrl": "https://ca.wikipedia.org/wiki/Clementina",
+  "@clementine_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "cloudberry_infoUrl": "https://ca.wikipedia.org/wiki/Móra_vermella",
+  "@cloudberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "cloudberry_names": "Móra vermella",
+  "@cloudberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "coco_infoUrl": "https://ca.wikipedia.org/wiki/Cocoter",
+  "@coco_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "coco_names": "Coco",
+  "@coco_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "contribPageContact": "Si has trobat un error o espai per a una millora concreta, no dubtis a posar-te en contacte amb mi a través de la meva pàgina web.",
+  "@contribPageContact": {
+    "description": "Justification for missing features/incorrectness by stating young age of app"
+  },
+  "contribPageCode": "El codi font de l'app està disponible a GitHub:",
+  "@contribPageCode": {
+    "description": "The phrase 'The source code for the app is available on GitHub:'"
+  },
+  "december": "Desembre",
+  "@december": {
+    "description": "The word 'December'"
+  },
+  "cucumber_infoUrl": "https://ca.wikipedia.org/wiki/Cogombre",
+  "@cucumber_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "date_infoUrl": "https://ca.wikipedia.org/wiki/Palmera_de_dàtils",
+  "@date_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "date_names": "Dàtil",
+  "@date_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "dragonfruit_infoUrl": "https://ca.wikipedia.org/wiki/Pitaia",
+  "@dragonfruit_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "dragonfruit_names": "Pitaia, Pitahaia, Fruita del drac",
+  "@dragonfruit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "eggplant_infoUrl": "https://ca.wikipedia.org/wiki/Alberg%C3%ADnia",
+  "@eggplant_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "eggplant_names": "Albergínia, Albergina, Albargina, Esberzínia",
+  "@eggplant_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "elderberry_infoUrl": "https://ca.wikipedia.org/wiki/Saüc",
+  "@elderberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "emptyDefaultViewHint": "Comprova el filtratge de la pantalla dels teus aliments.",
+  "@emptyDefaultViewHint": {
+    "description": "A hint shown when no foods are displayed in the current default foods view."
+  },
+  "emptyFavoritesViewHint": "Afegeix a preferits tocant l'estrella de l'aliment ☆.",
+  "@emptyFavoritesViewHint": {
+    "description": "A hint shown when no favorites are displayed in the current foods view."
+  },
+  "currant_names": "Riba, Agrassó, Grosella, Gaixiva, Gallina, Carambuc, Cirerola",
+  "@currant_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "elderberry_names": "Saüc, Soguer",
+  "@elderberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "emptySearchViewText": "No s'han trobat aliments!",
+  "@emptySearchViewText": {
+    "description": "A text shown when no food is displayed in the search result view."
+  },
+  "fig_names": "Figa",
+  "@fig_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "gooseberry_infoUrl": "https://en.wikipedia.org/wiki/Gooseberry",
+  "@gooseberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "endive_infoUrl": "https://ca.wikipedia.org/wiki/End%C3%ADvia",
+  "@endive_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "fennel_infoUrl": "https://ca.wikipedia.org/wiki/Fonoll",
+  "@fennel_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "fennel_names": "Fonoll, Fenoll",
+  "@fennel_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "fieldsalad_infoUrl": "https://ca.wikipedia.org/wiki/Herba_dels_canonges",
+  "@fieldsalad_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "fieldsalad_names": "Herba dels canonges, Canonges",
+  "@fieldsalad_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "fig_infoUrl": "https://ca.wikipedia.org/wiki/Figuera",
+  "@fig_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "grapefuit_infoUrl": "https://ca.wikipedia.org/wiki/Aranja",
+  "@grapefuit_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "gooseberry_names": "Agrassó",
+  "@gooseberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "grapes_infoUrl": "https://ca.wikipedia.org/wiki/Raïm",
+  "@grapes_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "greenbeans_infoUrl": "https://ca.wikipedia.org/wiki/Phaseolus_vulgaris",
+  "@greenbeans_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "greenbeans_names": "Mongeta, Fesol",
+  "@greenbeans_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "greencabbage_infoUrl": "https://ca.wikipedia.org/wiki/Col_verda",
+  "@greencabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "greencabbage_names": "Col verda",
+  "@greencabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "greenonion_infoUrl": "https://ca.wikipedia.org/wiki/Ceba_d%27hivern",
+  "@greenonion_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "greenonion_names": "Ceba d'hivern, Cebollí francès, Ceba borda, Ceba porrera, Cibolla, Porradell, Porrassí",
+  "@greenonion_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "guava_infoUrl": "https://ca.wikipedia.org/wiki/Psidium_guajava",
+  "@guava_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "howToPageAvAir": "Importats des de lluny, majoritàriament en avió.",
+  "@howToPageAvAir": {
+    "description": "A sentence explaining what the airplane icon means."
+  },
+  "howToPageAvLand": "Importats des de no gaire lluny, principalment a través del transport terrestre.",
+  "@howToPageAvLand": {
+    "description": "A sentence explaining what the truck icon means."
+  },
+  "howToPageColors": "El color d'un camp de nom indica que correspon a la classificació anterior. El verd és millor que el vermell.",
+  "@howToPageColors": {
+    "description": "Describes what the food background colors do"
+  },
+  "howToPageExplanationHeadline": "Com puc utilitzar l'app?",
+  "@howToPageExplanationHeadline": {
+    "description": "The phrase 'How do I use the app?'"
+  },
+  "howToPagePartial": "Una icona negra indica una disponibilitat abundant, una icona grisa de disponibilitat limitada d'aquesta categoria específica.",
+  "@howToPagePartial": {
+    "description": "Describes what the icon's color does."
+  },
+  "honeymelon_infoUrl": "https://ca.wikipedia.org/wiki/Melonera",
+  "@honeymelon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "honeymelon_names": "Meló",
+  "@honeymelon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "howToPageAvSea": "Importats des de lluny, majoritàriament per vaixell.",
+  "@howToPageAvSea": {
+    "description": "A sentence explaining what the ship icon means."
+  },
+  "howToPageFavorites": "En tocar l'estrella d'un aliment ☆, l'afegeixes o l'elimines de la llista de favorits. Tocar l'estrella de la barra de menús permet restringir la visualització als favorits.",
+  "@howToPageFavorites": {
+    "description": "Describes how to use the favorites function"
+  },
+  "howToPageTitle": "Explicació",
+  "@howToPageTitle": {
+    "description": "The word 'Explanation'"
+  },
+  "iceberg_infoUrl": "https://ca.wikipedia.org/wiki/Enciam",
+  "@iceberg_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "imprintImgSourcesLicense": "Llicència: ",
+  "@imprintImgSourcesLicense": {
+    "description": "The word 'License: ' (with trailing double dot and space!)"
+  },
+  "iceberg_names": "Enciam iceberg",
+  "@iceberg_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "howToPageExplanation": "Aquesta app us mostra d'un cop d'ull quins aliments són de temporada ara mateix:",
+  "@howToPageExplanation": {
+    "description": "A sentence explaining what the app does"
+  },
+  "imprintPageDataProtectionHeadline": "Política de privacitat",
+  "@imprintPageDataProtectionHeadline": {
+    "description": "The phrase 'Privacy policy'"
+  },
+  "imprintPageDataText2": "Crèdits a l'equip de Lebensmittellexikon.de, gràcies per deixar-me utilitzar les teves dades de disponibilitat!",
+  "@imprintPageDataText2": {
+    "description": "Saying thanks to those that let their data be used here"
+  },
+  "imprintPageDisclaimerHeadline": "Descàrrega de responsabilitat",
+  "@imprintPageDisclaimerHeadline": {
+    "description": "The phrase 'Disclaimer'"
+  },
+  "imprintPageFontsText": "Font Awesome 5 (logotip de poma, logotip de pastanaga)\n(Llicència: fontawesome.com/license)",
+  "@imprintPageFontsText": {
+    "description": "Font information"
+  },
+  "imprintPageImagesHeadline": "Imatges",
+  "@imprintPageImagesHeadline": {
+    "description": "The word 'Images'"
+  },
+  "imprintPageMyName": "Andreas Boltres",
+  "@imprintPageMyName": {
+    "description": "App text author name"
+  },
+  "imprintPagePublisher": "Editor",
+  "@imprintPagePublisher": {
+    "description": "The word 'Publisher'"
+  },
+  "imprintPageSourcesHeadline": "Fonts",
+  "@imprintPageSourcesHeadline": {
+    "description": "The word 'Sources'"
+  },
+  "imprintPageTranslationsHeadline": "Traduccions",
+  "@imprintPageTranslationsHeadline": {
+    "description": "The word 'Translations'"
+  },
+  "january": "Gener",
+  "@january": {
+    "description": "The word 'January'"
+  },
+  "july": "Juliol",
+  "@july": {
+    "description": "The word 'July'"
+  },
+  "june": "Juny",
+  "@june": {
+    "description": "The word 'June'"
+  },
+  "languageCode": "ca",
+  "@languageCode": {
+    "description": "The two-character ISO language code of this language."
+  },
+  "imprintPageDataText": "Lebensmittellexikon.de (gran part);\nAndreas Boltres (la resta).",
+  "@imprintPageDataText": {
+    "description": "Name of author(s) for availability data"
+  },
+  "imprintPageFontsHeadline": "Font",
+  "@imprintPageFontsHeadline": {
+    "description": "The word 'Font'"
+  },
+  "kiwi_infoUrl": "https://ca.wikipedia.org/wiki/Kiwi",
+  "@kiwi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "kiwi_names": "Kiwi",
+  "@kiwi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "kohlrabi_infoUrl": "https://ca.wikipedia.org/wiki/Colrave",
+  "@kohlrabi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "kohlrabi_names": "Colrave",
+  "@kohlrabi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "languageName": "Català",
+  "@languageName": {
+    "description": "The name of this language"
+  },
+  "imprintPageDisclaimerText": "Els continguts d'aquesta app han estat creats i es proporcionen amb la màxima cura i de bona fe. No obstant això, no faig cap representació o garantia de cap tipus, expressa o implícita, pel que fa a l'exactitud, adequació, validesa, fiabilitat, disponibilitat o exhaustivitat de qualsevol informació mostrada en aquesta app.",
+  "@imprintPageDisclaimerText": {
+    "description": "The disclaimer for the app"
+  },
+  "mango_names": "Mango",
+  "@mango_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "may": "Maig",
+  "@may": {
+    "description": "The word 'May'"
+  },
+  "minAvAir": "Tots els aliments disponibles",
+  "@minAvAir": {
+    "description": "The phrase 'All available foods'"
+  },
+  "minAvLand": "No hi ha aliments importats des de l'estranger / lluny",
+  "@minAvLand": {
+    "description": "The phrase 'No foods imported from overseas/far away'"
+  },
+  "minAvLocal": "Només aliments locals i regionals",
+  "@minAvLocal": {
+    "description": "The phrase 'Only local and regional foods'"
+  },
+  "november": "Novembre",
+  "@november": {
+    "description": "The word 'November'"
+  },
+  "october": "Octubre",
+  "@october": {
+    "description": "The word 'October'"
+  },
+  "leek_infoUrl": "https://ca.wikipedia.org/wiki/Porro",
+  "@leek_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lemon_infoUrl": "https://ca.wikipedia.org/wiki/Llimoner",
+  "@lemon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lemon_names": "Llimona",
+  "@lemon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lime_names": "Llimona dolça, Llima dolça, Llima tropical",
+  "@lime_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lingonberry_infoUrl": "https://ca.wikipedia.org/wiki/Vaccinium_vitis-idaea",
+  "@lingonberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lingonberry_names": "Nabiu vermell, Nabiu roig",
+  "@lingonberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lollorossa_infoUrl": "https://ca.wikipedia.org/wiki/Enciam",
+  "@lollorossa_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lychee_infoUrl": "https://ca.wikipedia.org/wiki/Litxi",
+  "@lychee_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "lychee_names": "Litxi",
+  "@lychee_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "mango_infoUrl": "https://ca.wikipedia.org/wiki/Mango_(fruita)",
+  "@mango_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "nashi_infoUrl": "https://ca.wikipedia.org/wiki/Pera_Nashi",
+  "@nashi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "nectarine_infoUrl": "https://ca.wikipedia.org/wiki/Préssec",
+  "@nectarine_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "onion_infoUrl": "https://ca.wikipedia.org/wiki/Ceba",
+  "@onion_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "nectarine_names": "Nectarina",
+  "@nectarine_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "lollorossa_names": "Enciam",
+  "@lollorossa_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pear_names": "Pera",
+  "@pear_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "orange_infoUrl": "https://ca.wikipedia.org/wiki/Taronja",
+  "@orange_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "orange_names": "Taronja",
+  "@orange_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pakchoi_infoUrl": "https://ca.wikipedia.org/wiki/Bleda_xinesa",
+  "@pakchoi_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pakchoi_names": "Bleda xinesa",
+  "@pakchoi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "papaya_infoUrl": "https://ca.wikipedia.org/wiki/Papaier",
+  "@papaya_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "papaya_names": "Papaia",
+  "@papaya_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "paprika_infoUrl": "https://ca.wikipedia.org/wiki/Pebrot_morro_de_bou",
+  "@paprika_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "parsnip_names": "Xirivia, Xerevia",
+  "@parsnip_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "passionfruit_infoUrl": "https://ca.wikipedia.org/wiki/Maracujà",
+  "@passionfruit_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "peach_infoUrl": "https://ca.wikipedia.org/wiki/Préssec",
+  "@peach_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "peach_names": "Préssec, Prèssic, Bresquilla, Melicotó",
+  "@peach_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pear_infoUrl": "https://ca.wikipedia.org/wiki/Pera_(fruita)",
+  "@pear_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "persimmon_names": "Caqui, Persimó",
+  "@persimmon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "physalis_names": "Alquequengi, Bufeta de gos",
+  "@physalis_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pineapple_infoUrl": "https://ca.wikipedia.org/wiki/Ananàs",
+  "@pineapple_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "pineapple_names": "Pinya",
+  "@pineapple_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "plum_names": "Pruna",
+  "@plum_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "prune_names": "Pruna",
+  "@prune_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "pumpkin_infoUrl": "https://ca.wikipedia.org/wiki/Carbassera_de_rabequet",
+  "@pumpkin_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "raspberry_names": "Gerd",
+  "@raspberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "rhubarb_names": "Ruibarbre",
+  "@rhubarb_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "searchFieldLabel": "Cerca…",
+  "@searchFieldLabel": {
+    "description": "The label used in the search bar"
+  },
+  "september": "Setembre",
+  "@september": {
+    "description": "The word 'September'"
+  },
+  "settingsFilterTitle": "Filtra per disponibilitat",
+  "@settingsFilterTitle": {
+    "description": "The phrase 'Filter by availability'"
+  },
+  "settingsLanguageUseLocaleSub": "Utilitza l'anglès si la llengua del dispositiu no és compatible",
+  "@settingsLanguageUseLocaleSub": {
+    "description": "The phrase 'Uses English if device language is not supported'"
+  },
+  "settingsRegionUseLocale": "Utilitza la regió del dispositiu",
+  "@settingsRegionUseLocale": {
+    "description": "The phrase 'Use device region'"
+  },
+  "settingsSortingTitle": "Ordena per disponibilitat",
+  "@settingsSortingTitle": {
+    "description": "The phrase 'Sort by availability'"
+  },
+  "radicchio_names": "Radicchio",
+  "@radicchio_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "rosehip_names": "Gavarró, Gratacul",
+  "@rosehip_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "savoy_names": "Col de Milà",
+  "@savoy_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "settingsRegionUseLocaleSub": "Utilitza «Europa Central» si la regió del dispositiu no és compatible",
+  "@settingsRegionUseLocaleSub": {
+    "description": "The phrase 'Uses 'Central Europe' if device region is not supported'"
+  },
+  "radicchio_infoUrl": "https://ca.wikipedia.org/wiki/Radicchio",
+  "@radicchio_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "radish_infoUrl": "https://ca.wikipedia.org/wiki/Raphanus",
+  "@radish_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "raspberry_infoUrl": "https://ca.wikipedia.org/wiki/Gerd",
+  "@raspberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "rhubarb_infoUrl": "https://ca.wikipedia.org/wiki/Rheum_rhabarbarum",
+  "@rhubarb_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "rosehip_infoUrl": "https://ca.wikipedia.org/wiki/Gavarró",
+  "@rosehip_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "savoy_infoUrl": "https://ca.wikipedia.org/wiki/Col_de_Milà",
+  "@savoy_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "settingsUncommonText": "per exemple, codony, nabius",
+  "@settingsUncommonText": {
+    "description": "The phrase 'e.g. quince, cloudberry'"
+  },
+  "settingsUncommonTitle": "Mostra aliments especials i inusuals",
+  "@settingsUncommonTitle": {
+    "description": "The phrase 'Show special and unusual foods'"
+  },
+  "spinach_names": "Espinac",
+  "@spinach_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "strawberry_names": "Maduixa",
+  "@strawberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "supportPageSpreadTitle": "T'agrada l'app?",
+  "@supportPageSpreadTitle": {
+    "description": "The phrase 'Do you like the app?'"
+  },
+  "supportPageTitle": "Suport",
+  "@supportPageTitle": {
+    "description": "The word 'Support'"
+  },
+  "supportPageWebsiteLink": "A la pàgina web",
+  "@supportPageWebsiteLink": {
+    "description": "The phrase 'To the webpage'"
+  },
+  "wikipedia": "Viquipèdia",
+  "@wikipedia": {
+    "description": "The word 'Wikipedia'"
+  },
+  "smallradish_names": "Rave",
+  "@smallradish_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "sorb_names": "Serva de bosc",
+  "@sorb_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "starfuit_names": "Carambola",
+  "@starfuit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "strawberry_infoUrl": "https://ca.wikipedia.org/wiki/Maduixera",
+  "@strawberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "supportPageHeadline": "Donar",
+  "@supportPageHeadline": {
+    "description": "The word 'Give alms'"
+  },
+  "supportPageSpreadText2": "D'aquesta manera, podem conscienciar sobre l'origen dels nostres aliments junts alhora que estalviem diners i mengem més sabrós.",
+  "@supportPageSpreadText2": {
+    "description": "Continuation of the motivating text"
+  },
+  "sweetcorn_infoUrl": "https://ca.wikipedia.org/wiki/Dacsa",
+  "@sweetcorn_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "sweetcorn_names": "Blat de moro, Dacsa, Moresc, Panís",
+  "@sweetcorn_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "sweetpotato_infoUrl": "https://ca.wikipedia.org/wiki/Moniato",
+  "@sweetpotato_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "tomato_names": "Tomàquet, Tomaca, Tomata, Tomàtic, Tomàtiga, Tomàtec",
+  "@tomato_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "watermelon_infoUrl": "https://ca.wikipedia.org/wiki/S%C3%ADndria",
+  "@watermelon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "watermelon_names": "Síndria",
+  "@watermelon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "whitecabbage_infoUrl": "https://ca.wikipedia.org/wiki/Col",
+  "@whitecabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "whitecabbage_names": "Col",
+  "@whitecabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "smallradish_infoUrl": "https://ca.wikipedia.org/wiki/Rave",
+  "@smallradish_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "sorb_infoUrl": "https://ca.wikipedia.org/wiki/Moixera_de_guilla",
+  "@sorb_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "supportPageText1": "Aquesta app romandrà totalment gratuïta i sense anuncis mentre la desenvolupi.",
+  "@supportPageText1": {
+    "description": "The statement 'This app will remain fully free of charge and ad-free as long as I am developing it.'"
+  },
+  "northAmerica": "Amèrica del nord",
+  "@northAmerica": {
+    "description": "The region of North America."
+  },
+  "reunion": "Reunió (França)",
+  "@reunion": {},
+  "settingsEnableCustomAvSubtitle": "Si està habilitat, les disponibilitats es poden personalitzar al dispositiu i es mostraran les personalitzacions",
+  "@settingsEnableCustomAvSubtitle": {},
+  "wildstrawberry_infoUrl": "https://ca.wikipedia.org/wiki/Maduixera",
+  "@wildstrawberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "yellowplum_infoUrl": "https://ca.wikipedia.org/wiki/Prunera",
+  "@yellowplum_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "zucchini_infoUrl": "https://ca.wikipedia.org/wiki/Carabassó",
+  "@zucchini_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "zucchini_names": "Carbassó, Carabasseta",
+  "@zucchini_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "yellowplum_names": "Mirabel, Golden Japan",
+  "@yellowplum_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "settingsEnableCustomAvTitle": "Habilitar les disponibilitats personalitzades",
+  "@settingsEnableCustomAvTitle": {},
+  "confirm": "Confirmar",
+  "@confirm": {},
+  "settingsResetCustomAvTitle": "Reinicialitzar les disponibilitats personalitzades",
+  "@settingsResetCustomAvTitle": {},
+  "foodEditAvTitle": "Editar les disponibilitats",
+  "@foodEditAvTitle": {},
+  "incompleteLanguageNotice": "Els idiomes incomplets es mostren amb un avís «Beta». Per a ells, les traduccions que falten es mostren en anglès.",
+  "@incompleteLanguageNotice": {},
+  "aboutPageAdvantage1": "Els productes frescos tenen millor sabor i són més saludables per al seu cos.",
+  "@aboutPageAdvantage1": {
+    "description": "The phrase 'Fresh produce tastes better and is healthier for your body.'"
+  },
+  "aboutPageTrailing": "Aquesta app et permet menjar més barat i sabrós i augmenta la consciència sobre l'origen dels aliments.",
+  "@aboutPageTrailing": {
+    "description": "A sentence about benefits for the app user"
+  },
+  "aboutPageAdvantage3": "Els esforços realitzats per emmagatzemar els aliments es redueixen.",
+  "@aboutPageAdvantage3": {
+    "description": "The phrase 'The efforts made for storing foods is reduced.'"
+  },
+  "celery_names": "Api-rave, Celerí , Api nap",
+  "@celery_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "aboutPageTitle": "Sobre l'app",
+  "@aboutPageTitle": {
+    "description": "The phrase 'About the app'"
+  },
+  "apricot_names": "Albercoc",
+  "@apricot_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "artichoke_names": "Carxofa",
+  "@artichoke_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "artichoke_infoUrl": "https://ca.wikipedia.org/wiki/Carxofera",
+  "@artichoke_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "brusselssprouts_names": "Col de Brussel·les",
+  "@brusselssprouts_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "champignon_infoUrl": "https://ca.wikipedia.org/wiki/Xampinyó",
+  "@champignon_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "carob_names": "Garrofa",
+  "@carob_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "chicory_names": "Xicoira",
+  "@chicory_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "champignon_names": "Xampinyó",
+  "@champignon_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "centralEurope": "Europa Central",
+  "@centralEurope": {
+    "description": "The region of Central Europe."
+  },
+  "chinesecabbage_names": "Col xinesa, Col pequinesa",
+  "@chinesecabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cranberry_infoUrl": "https://ca.wikipedia.org/wiki/Nabiu_de_grua",
+  "@cranberry_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "cranberry_names": "Nabiu de grua, Cranberry",
+  "@cranberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "clementine_names": "Clementina, Mandarina",
+  "@clementine_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "cucumber_names": "Cogombre",
+  "@cucumber_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "currant_infoUrl": "https://ca.wikipedia.org/wiki/Riber",
+  "@currant_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "grapefuit_names": "Aranja",
+  "@grapefuit_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "emptyFoodsViewText": "No hi ha aliments disponibles!",
+  "@emptyFoodsViewText": {
+    "description": "A text shown when no food is displayed in the current foods view."
+  },
+  "emptyFavoritesViewText": "No hi ha favorits disponibles!",
+  "@emptyFavoritesViewText": {
+    "description": "A text shown when no favorites are displayed in the current foods view."
+  },
+  "endive_names": "Endívia, Escarola",
+  "@endive_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "grapes_names": "Raïm",
+  "@grapes_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "guava_names": "Psidium guajava",
+  "@guava_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "headlettuce_infoUrl": "https://ca.wikipedia.org/wiki/Enciam",
+  "@headlettuce_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "headlettuce_names": "Cabdell",
+  "@headlettuce_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "imprintImgSourcesPublisher": "\nCreador: ",
+  "@imprintImgSourcesPublisher": {
+    "description": "The word 'Creator: ' (with trailing double dot and space, leading newline!)"
+  },
+  "leek_names": "Porro, All porro, All porrer, All porret, Porrit, All porrí, All de serp, Ceballot",
+  "@leek_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "supportPageSpreadText1": "Encantat d'escoltar això! La manera més eficaç de donar-me suport és simplement difondre la paraula: Fes saber als amics i familiars sobre l'app!",
+  "@supportPageSpreadText1": {
+    "description": "A text motivating to spread the word about the app if the user likes it"
+  },
+  "nashi_names": "Pera Nashi, Pera asiàtica",
+  "@nashi_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "onion_names": "Ceba",
+  "@onion_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "paprika_names": "Pebrot vermell, Pebrot de morro de bou",
+  "@paprika_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "plum_infoUrl": "https://ca.wikipedia.org/wiki/Prunera",
+  "@plum_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "settingsLanguageUseLocale": "Utilitza l'idioma del dispositiu",
+  "@settingsLanguageUseLocale": {
+    "description": "The phrase 'Use device language'"
+  },
+  "settingsPageTitle": "Paràmetres",
+  "@settingsPageTitle": {
+    "description": "The word 'Settings'"
+  },
+  "starfuit_infoUrl": "https://ca.wikipedia.org/wiki/Averrhoa_carambola",
+  "@starfuit_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "settingsLanguageTitle": "Idioma",
+  "@settingsLanguageTitle": {
+    "description": "The word 'Language'"
+  },
+  "purplecabbage_infoUrl": "https://ca.wikipedia.org/wiki/Col_llombarda",
+  "@purplecabbage_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "settingsRegionTitle": "Regió",
+  "@settingsRegionTitle": {
+    "description": "The word 'Region'"
+  },
+  "pricklypear_infoUrl": "https://ca.wikipedia.org/wiki/Figuera_de_moro",
+  "@pricklypear_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "quince_names": "Codony",
+  "@quince_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "quince_infoUrl": "https://ca.wikipedia.org/wiki/Codonyer",
+  "@quince_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "purplecabbage_names": "Col llombarda",
+  "@purplecabbage_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "radish_names": "Daikon, Rave del Japó",
+  "@radish_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "spinach_infoUrl": "https://ca.wikipedia.org/wiki/Espinac",
+  "@spinach_infoUrl": {
+    "description": "a URL referring to an information webpage (e.g. Wikipedia) for the food."
+  },
+  "settingsVersion": "Versió",
+  "@settingsVersion": {
+    "description": "The word 'Version'"
+  },
+  "wildstrawberry_names": "Maduixa silvestre",
+  "@wildstrawberry_names": {
+    "description": "Common names and synonyms for the food, split by comma. The first name is the one displayed in the app, the others are used for the app's search feature."
+  },
+  "northernCalifornia": "Nord de Califòrnia",
+  "@northernCalifornia": {
+    "description": "The region of Northern California."
+  },
+  "etcPageTitle": "Sobre l'app",
+  "@etcPageTitle": {
+    "description": "Title shown at the top of the 'more info' page (the one behind the icon with three dots)"
+  },
+  "imprintPageAppInfo": "Informació de l'app",
+  "@imprintPageAppInfo": {
+    "description": "The word 'App Information'"
+  },
+  "imprintPageDataProtectionText": "Amb aquesta app no es recopilen dades personals. Per a desar i carregar la configuració de l'app, cal un permís per a accedir a l'emmagatzematge del dispositiu.",
+  "@imprintPageDataProtectionText": {
+    "description": "The privacy policy for the app"
+  },
+  "settingsLanguageSubtitle": "Canviar l'idioma reinicia l'app",
+  "@settingsLanguageSubtitle": {
+    "description": "The phrase 'Changing the language restarts the app'"
+  }
+}

@@ -1209,5 +1209,9 @@
   "settingsEnableCustomAvSubtitle": "If enabled, availabilities can be customized on your device and customizations will be displayed",
   "@settingsEnableCustomAvSubtitle": {},
   "foodEditAvTitle": "Edit availabilities",
-  "@foodEditAvTitle": {}
+  "@foodEditAvTitle": {},
+  "howToPageUnknown": "Availability unknown. (Please contribute ;-))",
+  "@howToPageUnknown": {},
+  "howToPageUnavailable": "Usually not available.",
+  "@howToPageUnavailable": {}
 }

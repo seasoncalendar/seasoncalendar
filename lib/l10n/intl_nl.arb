@@ -1197,6 +1197,18 @@
   "@northernCalifornia": {
     "description": "The region of Northern California."
   },
-  "confirm": "Bevestigen",
-  "@confirm": {}
+  "confirm": "Bevestig",
+  "@confirm": {},
+  "settingsEnableCustomAvTitle": "Schakel maatwerkbeschikbaarheid in",
+  "@settingsEnableCustomAvTitle": {},
+  "settingsResetCustomAvTitle": "Reset maatwerkbeschikbaarheid",
+  "@settingsResetCustomAvTitle": {},
+  "settingsEnableCustomAvSubtitle": "Als dit is ingeschakeld, beschikbaarheid kan worden aangepast op je apparaat en maatwerk zal worden getoond",
+  "@settingsEnableCustomAvSubtitle": {},
+  "foodEditAvTitle": "Bewerk beschikbaarheid",
+  "@foodEditAvTitle": {},
+  "howToPageUnavailable": "Gewoonlijk niet beschikbaar.",
+  "@howToPageUnavailable": {},
+  "howToPageUnknown": "Beschikbaarheid onbekend. (Graag bijdragen ;-))",
+  "@howToPageUnknown": {}
 }
