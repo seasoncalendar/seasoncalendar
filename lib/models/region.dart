@@ -1,16 +1,22 @@
+import 'dart:core';
+
+import 'package:seasoncalendar/helpers/lang_helper.dart';
+
 const String tableRegions = 'regions';
 const String columnId = 'id';
 const String columnFallbackRegion = 'fallbackRegion';
 const String columnAssetPath = 'assetPath';
 
 class Region {
-  late String id;
-  String? fallbackRegionId;
+  final String id;
+  final String? fallbackRegionId;
   Region? fallbackRegion;
-  late String assetPath;
-  late String name;
+  final String assetPath;
+  get name {
+    return getTranslationByKey(assetPath);
+  }
 
-  Region();
+  Region(this.id, this.fallbackRegionId, this.assetPath);
 
   Map<String, dynamic> toMap() {
     var map = <String, dynamic>{
@@ -21,9 +27,8 @@ class Region {
     return map;
   }
 
-  Region.fromMap(Map<String, dynamic> map) {
-    id = map[columnId];
-    fallbackRegion = map[columnFallbackRegion];
-    assetPath = map[columnAssetPath];
-  }
+  Region.fromMap(Map<String, dynamic> map)
+      : id = map[columnId],
+        fallbackRegionId = map[columnFallbackRegion],
+        assetPath = map[columnAssetPath];
 }

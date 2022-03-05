@@ -64,14 +64,8 @@ class DBProvider {
         FROM regions 
         """, []);
 
-    var res = results.map((item) {
-      Region region = Region();
-      region.id = item['id'];
-      region.fallbackRegionId = item['fallbackRegion'];
-      region.assetPath = item['assetPath'];
-      region.name = getTranslationByKey(region.assetPath);
-      return region;
-    }).toList();
+    var res = results.map((item) => Region.fromMap(item)).toList();
+
     // set fallbackRegion from id
     for (var r in res) {
       if (r.fallbackRegionId == null) continue;
@@ -96,11 +90,7 @@ class DBProvider {
       throw "current Region not in Database";
     }
 
-    Region region = Region();
-    region.id = results[0]['id'];
-    region.fallbackRegionId = results[0]['fallbackRegion'];
-    region.assetPath = results[0]['assetPath'];
-    region.name = getTranslationByKey(region.assetPath);
+    Region region = Region.fromMap(results[0]);
     return region;
   }
 
