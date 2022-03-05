@@ -10,9 +10,12 @@ class MonthSelector extends StatelessWidget {
 
   Widget monthDialog(BuildContext context) {
     return AlertDialog(
+      contentPadding: EdgeInsets.zero,
       backgroundColor: Colors.white,
-      content: SizedBox(
-        width: double.minPositive,
+      content: Material(
+        type: MaterialType.canvas,
+        clipBehavior: Clip.antiAlias,
+        borderRadius: BorderRadius.circular(4),
         child: ListView.builder(
             itemCount: 12 * 2 - 1,
             // 12 months in the gregorian calendar + dividers
@@ -21,25 +24,26 @@ class MonthSelector extends StatelessWidget {
                 return const Divider(height: 0);
               }
               int monthIndex = (i / 2).round();
-              return ListTileTheme(
-                selectedTileColor: Theme.of(context).colorScheme.primary,
-                selectedColor: Colors.black,
-                child: ListTile(
-                  title: Text(
-                    getMonthNameFromIndex(context, monthIndex),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  selected: monthIndex == _fdc.monthIndex,
-                  onTap: () {
-                    _fdc.setMonth(monthIndex);
-                    Navigator.of(context).pop();
-                  },
+              return ListTile(
+                title: Text(
+                  getMonthNameFromIndex(context, monthIndex),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
+                selected: monthIndex == _fdc.monthIndex,
+                selectedColor: Colors.black,
+                selectedTileColor: Theme.of(context).colorScheme.primary,
+                onTap: () {
+                  _fdc.setMonth(monthIndex);
+                  Navigator.of(context).pop();
+                },
               );
-            }),
+            },
+            controller: ScrollController(
+              // TODO remove hard coded value
+              initialScrollOffset: _fdc.monthIndex * 14.0
+            )
+        ),
       ),
       elevation: 10,
     );
@@ -47,7 +51,6 @@ class MonthSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Swipe(
       onSwipeLeft: () {
         _fdc.shiftMonth(1);
