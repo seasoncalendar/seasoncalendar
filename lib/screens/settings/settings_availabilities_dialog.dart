@@ -66,7 +66,7 @@ class SettingsAvailabilitiesDialogState extends State<SettingsAvailabilitiesDial
           onPressed: () {
             Navigator.of(context).pushNamed("/etc/howto");
           },
-          child: const Icon(Icons.help),
+          child: const Icon(Icons.help_outline),
         ),
         MaterialButton(
             onPressed: () {

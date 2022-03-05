@@ -187,7 +187,7 @@ class SettingsPageState extends State<SettingsPage> {
     settingsItems.add(const Divider());
 
     settingsItems.add(SwitchListTile.adaptive(
-      secondary: Icon(Icons.edit_attributes_outlined),
+      secondary: Icon(Icons.edit_note),
       title: Text(
           "Custom availabilities"), //L10n.of(context).settingsEnableCustomAvTitle),
       subtitle: AppConfig.of(context).useCustomAv

@@ -53,7 +53,7 @@ class HowToPage extends StatelessWidget {
                 ),
                 ListTile(
                   dense: true,
-                  leading: const Icon(Icons.contact_support, color: Colors.black),
+                  leading: const Icon(Icons.question_mark, color: Colors.black),
                   title: Text(L10n.of(context).howToPageUnknown,
                       style: Theme.of(context).textTheme.bodyText1),
                 ),

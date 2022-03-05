@@ -30,7 +30,7 @@ jobs:
         id: flutter-action
         with:
           # channel: 'stable'
-          flutter-version: '2.8.1'
+          flutter-version: '2.10.2'
           cache: true
           cache-key: flutter # optional, change this to force refresh cache
           cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
