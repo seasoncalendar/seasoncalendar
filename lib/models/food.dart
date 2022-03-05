@@ -36,6 +36,7 @@ class Food {
   String assetImgSourceUrl;
   String assetImgInfo;
   Region region;
+  bool isEdited = false;
 
   Food(
       this.id,

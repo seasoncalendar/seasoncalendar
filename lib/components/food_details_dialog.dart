@@ -56,7 +56,8 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
     );
 
     Widget imgAndAvailabilities;
-    var regionInfo = Text(widget._food.region.name);
+    var regionInfo = Text(widget._food.region.name
+        + (widget._food.isEdited ? " (edited)" : ""));
 
     if (isPortrait) {
       imgAndAvailabilities = Column(

@@ -127,10 +127,13 @@ class UserDBProvider {
     for (var food in res) {
       var match = customFoods.firstWhereOrNull((f) => f.id == food.id);
       if (match != null) {
+        food.isEdited = true;
         food.availabilities = LinkedHashMap.from(
             food.availabilities.map((key, value) =>
           MapEntry(key, overrideAvailabilities(value, match.availabilities[key]!))
         ));
+      } else {
+        food.isEdited = false;
       }
     }
     return res;
@@ -150,5 +153,6 @@ class UserDBProvider {
     await db.rawQuery(
         """INSERT OR REPLACE INTO food_region_availability (food_id, avLocal, avLand, avSea, avAir, region_id) VALUES (?,?,?,?,?,?)""",
         [f.id, avLocal, avLand, avSea, avAir, regionCode]);
+    f.isEdited = true;
   }
 }
