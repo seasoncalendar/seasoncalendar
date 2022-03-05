@@ -110,7 +110,7 @@ class DBProvider {
     var region = await getCurrentRegion();
     var allRegions = await getRegions();
 
-    var fallbackRegion = region.fallbackRegion ?? "NULL";
+    var fallbackRegion = region.fallbackRegion?.id ?? region.fallbackRegionId ?? "NULL";
 
     // get the foods
     final List<Map<String, dynamic>> results = await db.rawQuery("""
@@ -120,7 +120,7 @@ class DBProvider {
         INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
         WHERE fr.region_id = ?
         
-        UNION
+        UNION ALL
         
         SELECT f.id AS id, f.type AS type, f.assetImgPath AS assetImgPath, f.assetImgInfo AS assetImgInfo, f.assetImgSourceUrl as assetImgSourceUrl, 
                fr.region_id as region_id, fr.is_common as is_common, fr.avLocal as avLocal, fr.avLand as avLand, fr.avSea as avSea, fr.avAir as avAir
@@ -128,10 +128,20 @@ class DBProvider {
         INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
         WHERE fr.region_id = ?
         AND f.id NOT IN (SELECT f.id
-        FROM foods AS f
-        INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
-        WHERE fr.region_id = ?)
-        """, [region.id, fallbackRegion, region.id]);
+                         FROM foods AS f
+                         INNER JOIN food_region_availability AS fr ON (f.id == fr.food_id)
+                         WHERE fr.region_id = ?)
+        
+        UNION ALL
+        
+        SELECT f.id AS id, f.type AS type, f.assetImgPath AS assetImgPath, f.assetImgInfo AS assetImgInfo, f.assetImgSourceUrl as assetImgSourceUrl, 
+               IFNULL(fr.region_id, ?) as region_id, fr.is_common as is_common, fr.avLocal as avLocal, fr.avLand as avLand, fr.avSea as avSea, fr.avAir as avAir
+        FROM foods as f
+        LEFT OUTER JOIN (SELECT * FROM food_region_availability WHERE region_id = ? OR region_id = ?)
+          AS fr ON (f.id IS fr.food_id)
+        WHERE fr.region_id is NULL
+
+        """, [region.id, fallbackRegion, region.id, region.id, region.id, fallbackRegion]);
 
     return results.map((item) {
       String foodId = item['id'];
@@ -142,11 +152,11 @@ class DBProvider {
 
       Region region =
           allRegions.firstWhere((region) => region.id == item['region_id']);
-      int isCommon = item['is_common'];
-      String avLocal = item['avLocal'] ?? ",,,,,,,,,,,";
-      String avLand = item['avLand'] ?? ",,,,,,,,,,,";
-      String avSea = item['avSea'] ?? ",,,,,,,,,,,";
-      String avAir = item['avAir'] ?? ",,,,,,,,,,,";
+      int isCommon = item['is_common'] ?? 1;
+      String avLocal = item['avLocal'] ?? "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1";
+      String avLand = item['avLand'] ?? "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1";
+      String avSea = item['avSea'] ?? "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1";
+      String avAir = item['avAir'] ?? "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1";
 
       String foodNamesString = getTranslationByKey(foodId + "_names");
       String infoUrl = getTranslationByKey(foodId + "_infoUrl");

@@ -22,9 +22,14 @@ class FoodTile extends StatefulWidget {
         _allAvailabilities = foodToDisplay.getAvailabilitiesList(short: true),
         super(key: Key(foodToDisplay.id)) {
     _curAvailabilities = _allAvailabilities[_curMonthIndex];
-    int fstModeIdx =
-        _curAvailabilities.indexWhere((mode) => mode != Availability.none);
-    _curAvailabilityColor = availabilityModeColor[fstModeIdx]!;
+    int fstModeIdx = _curAvailabilities.indexWhere(isAvailable);
+    var isUnknown = _curAvailabilities.every((a) => a == Availability.unknown);
+
+    if (isUnknown) {
+      _curAvailabilityColor = availabilityModeColor[4]!;
+    } else {
+      _curAvailabilityColor = availabilityModeColor[fstModeIdx]!;
+    }
   }
 
   @override
@@ -205,8 +210,14 @@ Container getAvailabilityIconContainer(
   Widget containerChild;
   int fstModeIdx = availabilities.indexWhere(isAvailable);
   int sndModeIdx = availabilities.indexWhere(isAvailable, fstModeIdx + 1);
+  var isUnknown = availabilities.every((a) => a == Availability.unknown);
 
-  if (fstModeIdx == -1) {
+  if (fstModeIdx == -1 && isUnknown) {
+    int iconAlpha = getIconAlphaFromAvailability(Availability.unknown);
+    containerChild = Icon(availabilityModeIcons[4],
+        size: constraint.biggest.height,
+        color: Colors.black.withAlpha(iconAlpha));
+  } else if (fstModeIdx == -1) {
     int iconAlpha = getIconAlphaFromAvailability(Availability.none);
     containerChild = Icon(availabilityModeIcons[fstModeIdx],
         size: constraint.biggest.height,

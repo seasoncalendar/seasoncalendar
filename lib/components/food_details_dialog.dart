@@ -111,7 +111,13 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
     int sndModeIdx = _allAvailabilities[monthIndex]
         .indexWhere(isAvailable, fstModeIdx + 1);
 
-    if (fstModeIdx == -1) {
+    var isUnknown = _allAvailabilities[monthIndex].every((a) => a == Availability.unknown);
+
+    if (fstModeIdx == -1 && isUnknown) {
+      int iconAlpha = getIconAlphaFromAvailability(Availability.unknown);
+      containerChild = Icon(availabilityModeIcons[4],
+          color: Colors.black.withAlpha(iconAlpha));
+    } else if (fstModeIdx == -1) {
       int iconAlpha = getIconAlphaFromAvailability(Availability.none);
       containerChild = Icon(availabilityModeIcons[fstModeIdx],
           color: Colors.black.withAlpha(iconAlpha));

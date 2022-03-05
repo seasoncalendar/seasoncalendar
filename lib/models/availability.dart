@@ -46,7 +46,7 @@ List<Availability> overrideAvailabilities(List<Availability> orig,
 }
 
 int getIconAlphaFromAvailability(Availability av) {
-  if (av == n) return 230;
+  if (av == n || av == u) return 230;
   if (av == f) return 200;
   return 120;
 }
@@ -103,7 +103,8 @@ Map<int, Color> availabilityModeColor = {
   1: Colors.lime[200]!,
   2: Colors.yellowAccent[100]!,
   3: Colors.orangeAccent[100]!,
-  -1: Colors.grey[200]!,
+  4: Colors.grey[100]!,
+  -1: Colors.grey[400]!,
 };
 const Map<String, int> availabilityModeValues = {
   "local": 0,
