@@ -77,8 +77,7 @@ class UserDBProvider {
       """, [region.id]);
 
     List<Food> allFoods = origFoods ?? await DBProvider.db.getFoods();
-    List<Food> customFoods = results
-        .map((item) {
+    return results.map((item) {
           String foodId = item['food_id'];
 
           //throws on error
@@ -118,41 +117,30 @@ class UserDBProvider {
         })
         .whereNotNull()
         .toList();
-
-    return mergeCustomFoods(allFoods, customFoods);
   }
 
-  List<Food> mergeCustomFoods(List<Food> origFoods, List<Food> customFoods) {
-    var res = List.generate(origFoods.length, (i) => Food.copy(origFoods[i]));
-    for (var food in res) {
-      var match = customFoods.firstWhereOrNull((f) => f.id == food.id);
-      if (match != null) {
-        food.isEdited = true;
-        food.availabilities = LinkedHashMap.from(
-            food.availabilities.map((key, value) =>
-          MapEntry(key, overrideAvailabilities(value, match.availabilities[key]!))
-        ));
-      } else {
-        food.isEdited = false;
-      }
-    }
-    return res;
-  }
 
-  addCustomAvailability(Food f) async {
+  Future<void> addCustomAvailability(Food f) async {
     final Database db = await userdatabase;
-
-    var settings = await SettingsPageState.getSettings();
-    var regionCode = settings['regionCode'];
 
     var avLocal = availabilitiesToString(f.availabilities['local']!);
     var avLand = availabilitiesToString(f.availabilities['landTransport']!);
     var avSea = availabilitiesToString(f.availabilities['seaTransport']!);
     var avAir = availabilitiesToString(f.availabilities['flightTransport']!);
 
-    await db.rawQuery(
-        """INSERT OR REPLACE INTO food_region_availability (food_id, avLocal, avLand, avSea, avAir, region_id) VALUES (?,?,?,?,?,?)""",
-        [f.id, avLocal, avLand, avSea, avAir, regionCode]);
-    f.isEdited = true;
+    await db.rawQuery("""
+        INSERT OR REPLACE INTO food_region_availability
+        (food_id, avLocal, avLand, avSea, avAir, region_id) VALUES (?,?,?,?,?,?)""",
+        [f.id, avLocal, avLand, avSea, avAir, f.region.id]);
+  }
+
+  Future<void> revertCustomAvailability(Food f) async {
+    final Database db = await userdatabase;
+
+    await db.rawQuery("""
+        DELETE FROM food_region_availability
+        WHERE food_id = ? AND region_id = ?""",
+        [f.id, f.region.id]);
+
   }
 }

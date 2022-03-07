@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:seasoncalendar/components/food_view.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 
+import '../../app_data.dart';
+
 const maxEditDist = 3;
 
 class SearchScreen extends SearchDelegate<String> {
@@ -49,27 +51,27 @@ class SearchScreen extends SearchDelegate<String> {
 
   Widget getMatchingFoodView(BuildContext context, FoodDisplayConfiguration fdc) {
     var query = this.query.trim(); //clean search input
-    var allFoods = fdc.allFoods;
+    var matchFoods = AppData.of(context).curFoods;
 
     // show full list on small query
     if (query.length < 3) {
-      allFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
-      return FoodView.fromSearchResult(fdc, allFoods);
+      matchFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
+      return FoodView.fromSearchResult(fdc, matchFoods);
     }
 
     // show exact, starting and inner matches
-    var exactMatches = allFoods
+    var exactMatches = matchFoods
         .where((food) => food.synonyms
             .map((s) => s.toLowerCase())
             .contains(query.toLowerCase()))
         .toList();
 
-    var startsWithMatches = allFoods
+    var startsWithMatches = matchFoods
         .where((food) => food.synonyms.any(
             (synonym) => synonym.toLowerCase().startsWith(query.toLowerCase())))
         .toList();
 
-    var innerMatches = allFoods
+    var innerMatches = matchFoods
         .where((food) => food.synonyms.any((synonym) =>
             !synonym.toLowerCase().startsWith(query.toLowerCase()) &&
             synonym.toLowerCase().contains(query.toLowerCase())))
@@ -90,7 +92,7 @@ class SearchScreen extends SearchDelegate<String> {
 
     final Levenshtein lvs = Levenshtein();
 
-    var lvsResults = allFoods
+    var lvsResults = matchFoods
         .where((food) =>
             (food.synonyms.map((synonym) {
               return lvs.distance(synonym.toLowerCase(), query.toLowerCase()) /

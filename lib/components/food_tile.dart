@@ -54,6 +54,13 @@ class FoodTileState extends State<FoodTile> {
     );
   }
 
+  void _showFoodDialog() {
+    showDialog(
+      context: context,
+      builder: (_) => FoodDetailsDialog(widget._food),
+    );
+  }
+
   Widget _buildFoodTile() {
     GestureTapCallback tapCallback = () {};
     if (_isFavorite == 1) {
@@ -72,11 +79,6 @@ class FoodTileState extends State<FoodTile> {
       };
     }
 
-    Image foodImage = Image(
-      image: AssetImage(widget._food.assetImgPath),
-      filterQuality: FilterQuality.low,
-    );
-
     Container availabilityIconContainer = Container(
       color: Colors.white.withAlpha(220),
       padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
@@ -85,43 +87,6 @@ class FoodTileState extends State<FoodTile> {
             context, constraint, widget._curAvailabilities);
       }),
     );
-
-    List<Widget> actions = [];
-
-    actions += [
-      MaterialButton(
-        onPressed: () async {
-          final url = widget._food.infoUrl;
-          if (await canLaunch(url)) {
-            await launch(
-              url,
-              forceSafariVC: false,
-            );
-          }
-        },
-        child: Text(L10n.of(context).wikipedia),
-      ),
-      MaterialButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: Text(L10n.of(context).back)),
-    ];
-
-    showFoodInfo() {
-      showDialog(
-        context: context,
-        builder: (_) => AlertDialog(
-          backgroundColor: Colors.white,
-          content: FoodDetailsDialog(
-              widget._food, foodImage),
-          elevation: 10,
-          actions: actions,
-          // actionsPadding: EdgeInsets.symmetric(horizontal: 4),
-        ),
-        barrierDismissible: true,
-      );
-    }
 
     return Card(
         elevation: 3,
@@ -134,12 +99,16 @@ class FoodTileState extends State<FoodTile> {
                   clipBehavior: Clip.hardEdge,
                   alignment: AlignmentDirectional.topEnd,
                   children: <Widget>[
-                    Ink.image(
-                      image: AssetImage(widget._food.assetImgPath),
-                      child: InkWell(
-                        onTap: showFoodInfo,
-                        child: null,
-                      )),
+                    Hero(
+                      tag: widget._food.id,
+                      child: Ink.image(
+                        image: AssetImage(widget._food.assetImgPath),
+                        fit: BoxFit.cover,
+                        child: InkWell(
+                          onTap: _showFoodDialog,
+                          child: null,
+                        )),
+                    ),
                     FractionallySizedBox(
                       widthFactor: 2.5 / 12,
                       heightFactor: 2.5 / 10,

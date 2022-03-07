@@ -111,12 +111,12 @@ class Food {
     );
   }
 
-  List<List<Availability>> getAvailabilitiesList({bool short: false}) {
+  List<List<Availability>> getAvailabilitiesList({bool short = false}) {
     return List.generate(
         12, (monthIndex) => getAvailabilitiesByMonth(monthIndex, short: short));
   }
 
-  changeAvailabilitiesForMonth(List<Availability> av, int month) {
+  void changeAvailabilitiesForMonth(List<Availability> av, int month) {
     for (int i = 0; i < availabilityNames.length; i += 1) {
       availabilities[availabilityNames[i]]![month] = av[i];
     }

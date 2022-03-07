@@ -1,6 +1,10 @@
+import 'dart:collection';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:seasoncalendar/app_config.dart';
+import 'package:seasoncalendar/app_data.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:seasoncalendar/helpers/user_db_provider.dart';
 
@@ -12,40 +16,35 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 
 Future<List<Object>> foodDisplayConfigurationFuture() async {
-  var origFoods = await DBProvider.db.getFoods();
-  var customFoods = await UserDBProvider.db.getFoodsWithCustom(origFoods: origFoods);
   var favFoodIds = await getFavoriteFoods();
-  return [origFoods, customFoods, favFoodIds];
+  return [favFoodIds];
 }
 
 class FoodDisplayConfiguration extends ChangeNotifier {
-  List<Food> allFoods = [];
+  late AppConfig config;
+  late AppData data;
   List<String> favoriteFoodIds = [];
   List<Food> foodsToDisplay = [];
   bool favoritesSelected = false;
   int monthIndex = DateTime.now().toLocal().month - 1;
-  late AppConfig config;
 
-  FoodDisplayConfiguration.async(AppConfig config, List<dynamic> res) {
-    setFromFeature(config, res);
+  FoodDisplayConfiguration.async(AppConfig config, AppData data, List<dynamic> res) {
+    setFromFeature(config, data, res);
   }
 
-  update(AppConfig config) {
-      foodDisplayConfigurationFuture().then((res) {
-        setFromFeature(config, res);
-      });
+  static FoodDisplayConfiguration of(BuildContext context, {bool listen = true}) {
+    return Provider.of<FoodDisplayConfiguration>(context, listen: listen);
   }
 
-  setFromFeature(AppConfig config, List<dynamic> res) {
+  update(AppConfig config, AppData data) async {
+     var res = await foodDisplayConfigurationFuture();
+     setFromFeature(config, data, res);
+  }
+
+  setFromFeature(AppConfig config, AppData data, List<dynamic> res) {
     this.config = config;
-    if (config.useCustomAv) {
-      // use foods merged with custom entries
-      allFoods = res[1] as List<Food>;
-    } else {
-      // use default food entries
-      allFoods = res[0] as List<Food>;
-    }
-    favoriteFoodIds = res[2] as List<String>;
+    this.data = data;
+    favoriteFoodIds = res[0] as List<String>;
     foodsToDisplay = _getFilteredAndSortedFoods(config.getPreferences());
     notifyListeners();
   }
@@ -120,7 +119,7 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   List<Food> _getFilteredAndSortedFoods(Map<String, dynamic> settings) {
     // start with all possible foods...
     // filter for the current month by the display settings
-    var filteredFoods = allFoods.where((f) {
+    var filteredFoods = data.curFoods.where((f) {
       return showFoodPredicate(f, monthIndex, settings);
     }).toList();
     // sort remaining foods, first by display name.

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seasoncalendar/app_config.dart';
+import 'package:seasoncalendar/app_data.dart';
 
 import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:seasoncalendar/components/loading_scaffold.dart';
@@ -22,20 +23,17 @@ import 'package:seasoncalendar/screens/etc/imprint_screen.dart';
 import 'package:seasoncalendar/screens/etc/imgsources_screen.dart';
 import 'package:seasoncalendar/screens/etc/support_screen.dart';
 
-final initial_settings = loadAssetFromJson("assets/initialsettings.json");
-final independent_text =
-    loadAssetFromJson("assets/localization_independent_text.json");
-
 final Map<String, WidgetBuilder> appRoutes = {
   "/": (context) => FutureBuilder(
       future: foodDisplayConfigurationFuture(),
       builder: (_, AsyncSnapshot<List<Object>> snapshot) {
         if (snapshot.hasData) {
-          return ChangeNotifierProxyProvider<AppConfig, FoodDisplayConfiguration>(
-            create: (_) => FoodDisplayConfiguration.async(AppConfig.of(context), snapshot.data!),
-            update: (_, config, foodDC) {
-              foodDC ??= FoodDisplayConfiguration.async(config, snapshot.data!);
-              return foodDC..update(config);
+          return ChangeNotifierProxyProvider2<AppConfig, AppData, FoodDisplayConfiguration>(
+            create: (_) => FoodDisplayConfiguration.async(
+              AppConfig.of(context), AppData.of(context), snapshot.data!),
+            update: (_, config, data, foodDC) {
+              foodDC ??= FoodDisplayConfiguration.async(config, data, snapshot.data!);
+              return foodDC..update(config, data);
             },
             child: const HomeScreen(),
           );
