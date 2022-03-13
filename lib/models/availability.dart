@@ -83,6 +83,22 @@ List<Availability> availabilitiesFromBooleans(List<bool> avs) {
   return avs.map(mapii).toList();
 }
 
+List<Availability> availabilitiesSummary(List<Availability> avs) {
+  int fstModeIdx = avs.indexWhere(isAvailable);
+  int sndModeIdx = avs.indexWhere(isAvailable, fstModeIdx + 1);
+
+  if (fstModeIdx == -1) {
+    if (avs.every((a) => a == Availability.unknown)) {
+      return [Availability.unknown];
+    }
+    return [Availability.none];
+  } else if (sndModeIdx == -1) {
+    return [avs[fstModeIdx]];
+  } else {
+    return [avs[fstModeIdx], avs[sndModeIdx]];
+  }
+}
+
 /*
   idx 0: local
   idx 1: land
