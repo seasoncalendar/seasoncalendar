@@ -55,10 +55,10 @@ class FoodTileState extends State<FoodTile> {
   }
 
   void _showFoodDialog() {
-    showDialog(
-      context: context,
-      builder: (_) => FoodDetailsDialog(widget._food),
-    );
+    Navigator.push(context, HeroDialogRoute(
+        builder: (BuildContext context) {
+          return FoodDetailsDialog(widget._food);
+        }));
   }
 
   Widget _buildFoodTile() {
@@ -101,13 +101,15 @@ class FoodTileState extends State<FoodTile> {
                   children: <Widget>[
                     Hero(
                       tag: widget._food.id,
-                      child: Ink.image(
-                        image: AssetImage(widget._food.assetImgPath),
-                        fit: BoxFit.cover,
-                        child: InkWell(
-                          onTap: _showFoodDialog,
-                          child: null,
-                        )),
+                      child: Material(
+                        child: Ink.image(
+                          image: AssetImage(widget._food.assetImgPath),
+                          fit: BoxFit.cover,
+                          child: InkWell(
+                            onTap: _showFoodDialog,
+                            child: null,
+                          )),
+                      ),
                     ),
                     FractionallySizedBox(
                       widthFactor: 2.5 / 12,
