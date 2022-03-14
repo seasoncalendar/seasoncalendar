@@ -1225,5 +1225,7 @@
   "settingsCustomAvDisable": "Tap to disable and hide",
   "@settingsCustomAvDisable": {},
   "settingsCustomAvEnable": "Tap to allow editing",
-  "@settingsCustomAvEnable": {}
+  "@settingsCustomAvEnable": {},
+  "yes": "Yes",
+  "@yes": {}
 }
