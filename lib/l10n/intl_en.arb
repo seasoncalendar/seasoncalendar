@@ -1219,5 +1219,7 @@
   "customAvDeletePrompt": "Do you really want to delete your personal availability data? This action cannot be undone.",
   "@customAvDeletePrompt": {},
   "delete": "Delete",
-  "@delete": {}
+  "@delete": {},
+  "settingsCustomAvTitle": "Personal availabilities",
+  "@settingsCustomAvTitle": {}
 }
