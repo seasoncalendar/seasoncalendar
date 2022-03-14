@@ -1221,5 +1221,7 @@
   "delete": "Delete",
   "@delete": {},
   "settingsCustomAvTitle": "Personalized availabilities",
-  "@settingsCustomAvTitle": {}
+  "@settingsCustomAvTitle": {},
+  "settingsCustomAvDisable": "Tap to disable and hide",
+  "@settingsCustomAvDisable": {}
 }
