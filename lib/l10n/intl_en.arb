@@ -1220,6 +1220,6 @@
   "@customAvDeletePrompt": {},
   "delete": "Delete",
   "@delete": {},
-  "settingsCustomAvTitle": "Personal availabilities",
+  "settingsCustomAvTitle": "Personalized availabilities",
   "@settingsCustomAvTitle": {}
 }
