@@ -1229,5 +1229,7 @@
   "yes": "Yes",
   "@yes": {},
   "no": "No",
-  "@no": {}
+  "@no": {},
+  "dialogEnableCustomAv": "Enable personalization of availabilities?",
+  "@dialogEnableCustomAv": {}
 }
