@@ -1,0 +1,51 @@
+name: Flutter Build Develop App
+
+on:
+  push:
+    branches:
+      - main
+      # - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{github.event.inputs.for_ref}}
+
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+
+      - uses: subosito/flutter-action@v2
+        id: flutter-action
+        with:
+          # channel: 'stable'
+          flutter-version: '2.10.2'
+          cache: true
+          cache-key: flutter # optional, change this to force refresh cache
+          cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
+
+      - name: Setup flutter
+        run: |
+          flutter config --no-analytics
+          flutter doctor --verbose
+          flutter pub get
+          flutter update-packages
+          flutter pub run intl_utils:generate
+
+      - name: Build debug apk
+        run: flutter build apk --debug --flavor foss --verbose
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: seasoncalendar-release-apk
+          path: build/app/outputs/flutter-apk/app-foss-debug.apk

@@ -7,6 +7,9 @@
   "showAvLand": true,
   "showAvSea": true,
   "showAvAir": true,
+  "showUnavailable": false,
+  "showUnknown": true,
+  "useCustomAv": false,
   "languageCode": "null",
   "regionCode": "CE"
 }

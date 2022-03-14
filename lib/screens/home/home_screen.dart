@@ -7,23 +7,25 @@ import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/components/food_view.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Consumer<FoodDisplayConfiguration>(
-          builder: (context, fdc, child) {
+          builder: (context, fdc, _) {
             return MonthSelector(fdc);
           },
         ),
       ),
       body: Consumer<FoodDisplayConfiguration>(
-        builder: (context, fdc, child) {
+        builder: (context, fdc, _) {
           return FoodView(fdc);
         },
       ),
       bottomNavigationBar: Consumer<FoodDisplayConfiguration>(
-        builder: (context, fdc, child) {
+        builder: (context, fdc, _) {
           return HomeScreenNavigationBar(fdc);
         },
       ),

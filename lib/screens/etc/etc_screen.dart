@@ -3,11 +3,14 @@ import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
 
 class EtcPage extends StatelessWidget {
+  const EtcPage({Key? key}) : super(key: key);
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text(L10n.of(context).etcPageTitle)),
         body: Container(
-            margin: EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             child: SingleChildScrollView(
               child: Column(
                 children: getEtcPageItems(context),
@@ -16,24 +19,25 @@ class EtcPage extends StatelessWidget {
   }
 
   List<Widget> getEtcPageItems(BuildContext context) {
-    bool isGooglePlay =
-        AppConfig.of(context).buildFlavor == AppFlavor.googleplay;
+    bool isGooglePlay = AppConfig.of(context, listen: false).flavor == AppFlavor.googleplay;
     List<Widget> etcPageItems = List<Widget>.empty(growable: true);
 
     etcPageItems.add(ListTile(
-      leading: Icon(Icons.help),
+      leading: const Icon(Icons.help),
       title: Text(L10n.of(context).howToPageTitle),
       onTap: () => Navigator.of(context).pushNamed("/etc/howto"),
     ));
     etcPageItems.add(const Divider());
+
     etcPageItems.add(ListTile(
-      leading: Icon(Icons.info),
+      leading: const Icon(Icons.info),
       title: Text(L10n.of(context).aboutPageTitle),
       onTap: () => Navigator.of(context).pushNamed("/etc/about"),
     ));
     etcPageItems.add(const Divider());
+
     etcPageItems.add(ListTile(
-      leading: Icon(Icons.extension),
+      leading: const Icon(Icons.extension),
       title: Text(L10n.of(context).contribPageTitle),
       onTap: () => Navigator.of(context).pushNamed("/etc/contrib"),
     ));
@@ -42,7 +46,7 @@ class EtcPage extends StatelessWidget {
     // leave out support page for compliance with Google Play
     if (!isGooglePlay) {
       etcPageItems.add(ListTile(
-        leading: Icon(Icons.favorite),
+        leading: const Icon(Icons.favorite),
         title: Text(L10n.of(context).supportPageTitle),
         onTap: () => Navigator.of(context).pushNamed("/etc/support"),
       ));
@@ -50,7 +54,7 @@ class EtcPage extends StatelessWidget {
     }
 
     etcPageItems.add(ListTile(
-      leading: Icon(Icons.account_balance),
+      leading: const Icon(Icons.account_balance),
       title: Text(L10n.of(context).imprintPageTitle),
       onTap: () => Navigator.of(context).pushNamed("/etc/imprint"),
     ));

@@ -1,159 +1,166 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:seasoncalendar/components/availability_matrix.dart';
 import 'package:seasoncalendar/helpers/text_selector.dart';
+import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
+import 'package:seasoncalendar/generated/l10n.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../app_config.dart';
+import '../app_data.dart';
+import 'food_edit_availabilities.dart';
 
 class FoodDetailsDialog extends StatefulWidget {
-  final Food _food;
-  final Image _foodImage;
-  final List<List<Availability>> _allAvailabilities;
+  Food _food;
+  //final Image _foodImage;
 
-  FoodDetailsDialog(Food food, Image foodImage, dynamic allAvailabilities)
-      : _food = food,
-        _foodImage = foodImage,
-        _allAvailabilities = allAvailabilities;
+  FoodDetailsDialog(Food food, {Key? key})
+      : _food = food, super(key: key);
 
   @override
-  State<StatefulWidget> createState() => new FoodDetailsState();
+  State<StatefulWidget> createState() => FoodDetailsState();
 }
 
 class FoodDetailsState extends State<FoodDetailsDialog> {
-  bool editing = false;
 
   @override
   Widget build(BuildContext context) {
+    widget._food = AppData.of(context).curFoods.firstWhere(
+            (e) => e.id == widget._food.id);
+
     var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
-    var availabilities = Column(
-      children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            for (var i = 0; i < 4; i += 1) getAvailabilityInfoCard(context, i)
-          ],
-        ),
-        SizedBox(height: 5),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            for (var i = 4; i < 8; i += 1) getAvailabilityInfoCard(context, i)
-          ],
-        ),
-        SizedBox(height: 5),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            for (var i = 8; i < 12; i += 1) getAvailabilityInfoCard(context, i)
-          ],
-        ),
-      ],
-    );
-
-    var imgAndAvailabilities;
-    var regionInfo = Text(widget._food.region.name);
-    //Text(L10n.of(context). widget._food.region.name)
+    Widget imgAndAvailabilities;
+    var regionInfo = Text(widget._food.region.name
+        + (widget._food.isEdited ? " (edited)" : ""));
 
     if (isPortrait) {
       imgAndAvailabilities = Column(
         children: <Widget>[
-          widget._foodImage,
-          SizedBox(height: 10),
-          SizedBox(width: 5),
+          Hero(
+            tag: widget._food.id,
+            child: Image.asset(widget._food.assetImgPath),
+          ),
+          const SizedBox(height: 4),
           regionInfo,
-          SizedBox(width: 5),
-          availabilities,
-        ],
+          const SizedBox(height: 2),
+          AvailabilityMatrix(widget._food,
+              wasEditedCallback: () => setState(() {})),
+        ]
       );
     } else {
       // isLandscape
       imgAndAvailabilities = Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
-            flex: 41,
-            child: widget._foodImage,
-          ),
-          SizedBox(width: 5),
-          regionInfo,
-          SizedBox(width: 5),
+            flex: 2,
+            child: Column(
+              children: <Widget>[
+                Image.asset(
+                  widget._food.assetImgPath,
+                  fit: BoxFit.cover,
+                ),
+                const SizedBox(width: 5),
+                regionInfo,
+            ],
+          )),
+          const SizedBox(width: 5),
           Expanded(
-            flex: 100,
-            child: availabilities,
+            flex: 3,
+            child: AvailabilityMatrix(widget._food,
+                wasEditedCallback: () => setState(() {})
+            ),
           ),
         ],
       );
     }
 
-    return SingleChildScrollView(
-      child: Column(
-        children: <Widget>[
-          Text(
-            widget._food.displayName,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline5,
-          ),
-          SizedBox(height: 10),
-          imgAndAvailabilities,
-        ],
-      ),
-    );
-  }
+    List<Widget> actions = [];
 
-  Widget getAvailabilityInfoCard(BuildContext context, int monthIndex) {
-    Widget containerChild;
-
-    int fstModeIdx = widget._allAvailabilities[monthIndex]
-        .indexWhere((mode) => mode != Availability.none);
-    int sndModeIdx = widget._allAvailabilities[monthIndex]
-        .indexWhere((mode) => mode != Availability.none, fstModeIdx + 1);
-
-    if (fstModeIdx == -1) {
-      int iconAlpha = getIconAlphaFromAvailability(Availability.none);
-      containerChild = Icon(availabilityModeIcons[fstModeIdx],
-          color: Colors.black.withAlpha(iconAlpha));
-    } else if (sndModeIdx == -1) {
-      int iconAlpha = getIconAlphaFromAvailability(
-          widget._allAvailabilities[monthIndex][fstModeIdx]);
-      containerChild = Icon(availabilityModeIcons[fstModeIdx],
-          color: Colors.black.withAlpha(iconAlpha));
+    if (AppConfig.of(context).useCustomAv) {
+      actions = [ MaterialButton(
+          onPressed: widget._food.isEdited
+              ? () {
+            AppData.of(context, listen: false).revertAvailabilities(widget._food);
+          }
+              : null,
+          child: Text("Revert"),
+      )];
     } else {
-      int primaryIconAlpha = getIconAlphaFromAvailability(
-          widget._allAvailabilities[monthIndex][fstModeIdx]);
-      int secondaryIconAlpha = getIconAlphaFromAvailability(
-          widget._allAvailabilities[monthIndex][sndModeIdx]);
-      containerChild = Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Icon(availabilityModeIcons[fstModeIdx],
-              color: Colors.black.withAlpha(primaryIconAlpha)),
-          Text(" / "),
-          Icon(availabilityModeIcons[sndModeIdx],
-              color: Colors.black.withAlpha(secondaryIconAlpha)),
-        ],
-      );
+      actions = [IconButton(
+        icon: const Icon(Icons.edit),
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (_) => AlertDialog(
+                content: Text("Enable editing of availabilities?"),
+                actions: [
+                  MaterialButton(
+                    child: Text("No"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    }),
+                  MaterialButton(
+                      child: Text("Yes"),
+                      onPressed: () {
+                        AppConfig.of(context, listen: false).useCustomAv = true;
+                        Navigator.of(context).pop();
+                      }),
+                ]),
+          );
+        },
+      )];
     }
 
-    return Expanded(
-      flex: 1,
-      child: Container(
-        child: Card(
-            elevation: 1,
-            color: availabilityModeColor[fstModeIdx],
-            child: Container(
-              padding: const EdgeInsets.all(2),
-              child: Column(
-                children: <Widget>[
-                  Text(
-                      getMonthNameFromIndex(context, monthIndex)
-                          .substring(0, 3),
-                      style: TextStyle(fontWeight: FontWeight.bold)),
-                  FittedBox(
-                    fit: BoxFit.contain,
-                    child: containerChild,
-                  ),
-                ],
+    actions += [
+      MaterialButton(
+        onPressed: () async {
+          final url = widget._food.infoUrl;
+          if (await canLaunch(url)) {
+            await launch(
+              url,
+              forceSafariVC: false,
+            );
+          }
+        },
+        child: Text(L10n.of(context).wikipedia),
+      ),
+      MaterialButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          child: Text(L10n.of(context).back)),
+    ];
+
+    return Consumer<AppData>(
+      builder: (_, data, child) { return child!; },
+      child: AlertDialog(
+        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        buttonPadding: EdgeInsets.zero,
+        backgroundColor: Colors.white,
+        content: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              FittedBox(
+                child: Text(
+                  widget._food.displayName,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline5,
+                ),
               ),
-            )),
+              const SizedBox(height: 10),
+              imgAndAvailabilities,
+            ],
+          ),
+        ),
+        elevation: 10,
+        actions: actions,
+        actionsAlignment: MainAxisAlignment.spaceAround,
+        // actionsPadding: EdgeInsets.symmetric(horizontal: 4),
       ),
     );
   }
+
 }

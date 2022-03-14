@@ -15,7 +15,7 @@ final ThemeData defaultTheme = ThemeData(
 
 // Define the default TextTheme. Use this to specify the default
 // text styling for headlines, titles, bodies of text, and more.
-  textTheme: TextTheme(
+  textTheme: const TextTheme(
     headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
     headline2: TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold),
     headline3: TextStyle(fontSize: 36.0, fontWeight: FontWeight.bold),
@@ -34,5 +34,5 @@ final Color foodInfoViewBackgroundColor = Colors.lightGreen[50]!;
 
 final ListTileTheme defaultListTileTheme = ListTileTheme(
   selectedColor: Colors.lightGreen[700],
-  child: SizedBox.shrink(),
+  child: const SizedBox.shrink(),
 );

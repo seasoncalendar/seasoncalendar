@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'package:url_launcher/url_launcher.dart';
-
+import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/components/food_details_dialog.dart';
-import 'package:seasoncalendar/generated/l10n.dart';
+
+import 'dialog_page_route.dart';
 
 class FoodTile extends StatefulWidget {
   final Food _food;
@@ -15,21 +14,24 @@ class FoodTile extends StatefulWidget {
   late final List<Availability> _curAvailabilities;
   Color _curAvailabilityColor = Colors.white70;
 
-  FoodTile(Food foodToDisplay, int curMonthIndex)
+  FoodTile(Food foodToDisplay, int curMonthIndex, {Key? key})
       : _food = foodToDisplay,
         _curMonthIndex = curMonthIndex,
-        _allAvailabilities = List.generate(
-            12,
-            (monthIndex) =>
-                foodToDisplay.getAvailabilitiesByMonth(monthIndex)) {
+        _allAvailabilities = foodToDisplay.getAvailabilitiesList(short: true),
+        super(key: Key(foodToDisplay.id)) {
     _curAvailabilities = _allAvailabilities[_curMonthIndex];
-    int fstModeIdx =
-        _curAvailabilities.indexWhere((mode) => mode != Availability.none);
-    _curAvailabilityColor = availabilityModeColor[fstModeIdx]!;
+    int fstModeIdx = _curAvailabilities.indexWhere(isAvailable);
+    var isUnknown = _curAvailabilities.every((a) => a == Availability.unknown);
+
+    if (isUnknown) {
+      _curAvailabilityColor = availabilityModeColor[4]!;
+    } else {
+      _curAvailabilityColor = availabilityModeColor[fstModeIdx]!;
+    }
   }
 
   @override
-  FoodTileState createState() => new FoodTileState();
+  FoodTileState createState() => FoodTileState();
 }
 
 class FoodTileState extends State<FoodTile> {
@@ -50,6 +52,13 @@ class FoodTileState extends State<FoodTile> {
     );
   }
 
+  void _showFoodDialog() {
+    Navigator.push(context, DialogPageRoute(
+        builder: (BuildContext context) {
+          return FoodDetailsDialog(widget._food);
+        }));
+  }
+
   Widget _buildFoodTile() {
     GestureTapCallback tapCallback = () {};
     if (_isFavorite == 1) {
@@ -68,64 +77,14 @@ class FoodTileState extends State<FoodTile> {
       };
     }
 
-    Image foodImage = Image(
-      image: AssetImage(widget._food.assetImgPath),
-      filterQuality: FilterQuality.low,
-    );
-
     Container availabilityIconContainer = Container(
       color: Colors.white.withAlpha(220),
       padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-      child: new LayoutBuilder(builder: (context, constraint) {
+      child: LayoutBuilder(builder: (context, constraint) {
         return getAvailabilityIconContainer(
             context, constraint, widget._curAvailabilities);
       }),
     );
-
-    List<Widget> actions = [];
-
-    // TODO feature for editing availabilities
-    if (false) {
-      actions.add(MaterialButton(
-        onPressed: () async {},
-        child: Text("Edit"), // TODO l10n
-      ));
-    }
-
-    actions += [
-      MaterialButton(
-        onPressed: () async {
-          final url = widget._food.infoUrl;
-          if (await canLaunch(url)) {
-            await launch(
-              url,
-              forceSafariVC: false,
-            );
-          }
-        },
-        child: Text(L10n.of(context).wikipedia),
-      ),
-      MaterialButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: Text(L10n.of(context).back)),
-    ];
-
-    GestureTapCallback showFoodInfo = () {
-      showDialog(
-        context: context,
-        builder: (_) => AlertDialog(
-          backgroundColor: Colors.white,
-          content: FoodDetailsDialog(
-              widget._food, foodImage, widget._allAvailabilities),
-          elevation: 10,
-          actions: actions,
-          // actionsPadding: EdgeInsets.symmetric(horizontal: 4),
-        ),
-        barrierDismissible: true,
-      );
-    };
 
     return Card(
         elevation: 3,
@@ -138,9 +97,17 @@ class FoodTileState extends State<FoodTile> {
                   clipBehavior: Clip.hardEdge,
                   alignment: AlignmentDirectional.topEnd,
                   children: <Widget>[
-                    GestureDetector(
-                      onTap: showFoodInfo,
-                      child: foodImage,
+                    Hero(
+                      tag: widget._food.id,
+                      child: Material(
+                        child: Ink.image(
+                          image: AssetImage(widget._food.assetImgPath),
+                          fit: BoxFit.cover,
+                          child: InkWell(
+                            onTap: _showFoodDialog,
+                            child: null,
+                          )),
+                      ),
                     ),
                     FractionallySizedBox(
                       widthFactor: 2.5 / 12,
@@ -150,7 +117,7 @@ class FoodTileState extends State<FoodTile> {
                         decoration: ShapeDecoration(
                             color: Colors.white.withAlpha(200),
                             shape: OutlineInputBorder(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(0),
                                   bottomLeft: Radius.circular(10),
                                   bottomRight: Radius.circular(0),
@@ -160,9 +127,8 @@ class FoodTileState extends State<FoodTile> {
                             )),
                         child: InkWell(
                           onTap: tapCallback,
-                          child:
-                              new LayoutBuilder(builder: (context, constraint) {
-                            return getFavIcon(context, constraint, _isFavorite);
+                          child: LayoutBuilder(builder: (context, constraint) {
+                              return getFavIcon(context, constraint, _isFavorite);
                           }),
                         ),
                       ),
@@ -197,23 +163,30 @@ class FoodTileState extends State<FoodTile> {
 }
 
 Icon getFavIcon(context, constraint, int isFavorite) {
-  if (isFavorite == 1)
+  if (isFavorite == 1) {
     return Icon(Icons.star, size: constraint.biggest.height);
-  else if (isFavorite == -1)
+  } else if (isFavorite == -1) {
     return Icon(Icons.star_border, size: constraint.biggest.height);
-  else
+  } else {
+    // TODO why/when does this case happen
+    // could hint at errors in the data grabbing
     return Icon(Icons.star_half, size: constraint.biggest.height);
+  }
 }
 
 Container getAvailabilityIconContainer(
     BuildContext context, constraint, List<Availability> availabilities) {
   Widget containerChild;
-  int fstModeIdx =
-      availabilities.indexWhere((mode) => mode != Availability.none);
-  int sndModeIdx = availabilities.indexWhere(
-      (mode) => mode != Availability.none, fstModeIdx + 1);
+  int fstModeIdx = availabilities.indexWhere(isAvailable);
+  int sndModeIdx = availabilities.indexWhere(isAvailable, fstModeIdx + 1);
+  var isUnknown = availabilities.every((a) => a == Availability.unknown);
 
-  if (fstModeIdx == -1) {
+  if (fstModeIdx == -1 && isUnknown) {
+    int iconAlpha = getIconAlphaFromAvailability(Availability.unknown);
+    containerChild = Icon(availabilityModeIcons[4],
+        size: constraint.biggest.height,
+        color: Colors.black.withAlpha(iconAlpha));
+  } else if (fstModeIdx == -1) {
     int iconAlpha = getIconAlphaFromAvailability(Availability.none);
     containerChild = Icon(availabilityModeIcons[fstModeIdx],
         size: constraint.biggest.height,
@@ -235,7 +208,7 @@ Container getAvailabilityIconContainer(
         Icon(availabilityModeIcons[fstModeIdx],
             size: constraint.biggest.height,
             color: Colors.black.withAlpha(primaryIconAlpha)),
-        Text(" / "),
+        const Text(" / "),
         Icon(availabilityModeIcons[sndModeIdx],
             size: constraint.biggest.height / 1.4,
             color: Colors.black.withAlpha(secondaryIconAlpha)),

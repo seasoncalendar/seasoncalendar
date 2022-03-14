@@ -1,0 +1,2 @@
+Versió 1.1.2+15: Canvis interns (mecanisme de construcció i metadades de l'aplicació).
+La política de privadesa i els permisos de l'aplicació es mantenen sense canvis.

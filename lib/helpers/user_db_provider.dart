@@ -1,3 +1,6 @@
+import 'dart:collection';
+
+import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/region.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -56,7 +59,15 @@ class UserDBProvider {
     return db;
   }
 
-  Future<List<Food>> getCustomFoods() async {
+  deleteDB() async {
+    await _userdatabase?.close();
+    _userdatabase = null;
+    var databasesPath = await getDatabasesPath();
+    var path = join(databasesPath, "custom_foods.db");
+    deleteDatabase(path);
+  }
+
+  Future<List<Food>> getFoodsWithCustom({List<Food>? origFoods}) async {
     final Database db = await userdatabase;
     Region region = await DBProvider.db.getCurrentRegion();
 
@@ -65,10 +76,8 @@ class UserDBProvider {
       FROM food_region_availability WHERE region_id = ?
       """, [region.id]);
 
-    List<Food> allFoods = await DBProvider.db.getFoods();
-
-    return results
-        .map((item) {
+    List<Food> allFoods = origFoods ?? await DBProvider.db.getFoods();
+    return results.map((item) {
           String foodId = item['food_id'];
 
           //throws on error
@@ -80,10 +89,10 @@ class UserDBProvider {
           String assetImgInfo = dbFood.assetImgInfo;
 
           int isCommon = dbFood.isCommon ? 1 : 0;
-          String avLocal = item['avLocal'];
-          String avLand = item['avLand'];
-          String avSea = item['avSea'];
-          String avAir = item['avAir'];
+          String avLocal = item['avLocal'] ?? ",,,,,,,,,,,";
+          String avLand = item['avLand'] ?? ",,,,,,,,,,,";
+          String avSea = item['avSea'] ?? ",,,,,,,,,,,";
+          String avAir = item['avAir'] ?? ",,,,,,,,,,,";
 
           String foodNamesString = dbFood.displayName;
           for (String syn in dbFood.synonyms) {
@@ -110,19 +119,28 @@ class UserDBProvider {
         .toList();
   }
 
-  addCustomFood(Food f) async {
+
+  Future<void> addCustomAvailability(Food f) async {
     final Database db = await userdatabase;
 
-    var settings = await SettingsPageState.getSettings();
-    var regionCode = settings['regionCode'];
+    var avLocal = availabilitiesToString(f.availabilities['local']!);
+    var avLand = availabilitiesToString(f.availabilities['landTransport']!);
+    var avSea = availabilitiesToString(f.availabilities['seaTransport']!);
+    var avAir = availabilitiesToString(f.availabilities['flightTransport']!);
 
-    var avLocal = f.availabilities['local'];
-    var avLand = f.availabilities['landTransport'];
-    var avSea = f.availabilities['seaTransport'];
-    var avAir = f.availabilities['flightTransport'];
+    await db.rawQuery("""
+        INSERT OR REPLACE INTO food_region_availability
+        (food_id, avLocal, avLand, avSea, avAir, region_id) VALUES (?,?,?,?,?,?)""",
+        [f.id, avLocal, avLand, avSea, avAir, f.region.id]);
+  }
 
-    await db.rawQuery(
-        """INSERT OR REPLACE INTO food_region_availability (food_id, avLocal, avLand, avSea, avAir, region_id) VALUES (?,?,?,?,?,?)""",
-        [f.id, avLocal, avLand, avSea, avAir, regionCode]);
+  Future<void> revertCustomAvailability(Food f) async {
+    final Database db = await userdatabase;
+
+    await db.rawQuery("""
+        DELETE FROM food_region_availability
+        WHERE food_id = ? AND region_id = ?""",
+        [f.id, f.region.id]);
+
   }
 }

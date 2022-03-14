@@ -32,7 +32,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 31
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -40,12 +40,13 @@ android {
 
     lintOptions {
         disable 'InvalidPackage'
+        checkReleaseBuilds false // release list is broken
     }
 
     defaultConfig {
         applicationId "flunzmas.seasoncalendar"
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 31
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
     }
@@ -74,6 +75,17 @@ android {
             dimension "app"
         }
     }
+
+    // Change the automatic versionCode mapping for different ABIs when building split APKs
+    // note ABIs 'armeabi', 'mips', and 'mips64' are not used
+    project.ext.abiCodes = ['armeabi-v7a':3, 'arm64-v8a':4, 'x86':1, 'x86_64':2] // old default
+    //project.ext.versionCodes = ['armeabi-v7a':1, 'arm64-v8a':2, 'x86':3, 'x86_64':4] // new default
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            output.versionCodeOverride =
+                    project.ext.abiCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) * 1000 + android.defaultConfig.versionCode
+        }
+    }
 }
 
 flutter {
@@ -81,6 +93,6 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 }

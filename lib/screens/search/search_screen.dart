@@ -3,26 +3,26 @@ import 'dart:math';
 import 'package:edit_distance/edit_distance.dart';
 
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/components/loading_scaffold.dart';
-import 'package:seasoncalendar/helpers/db_provider.dart';
 
-import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/components/food_view.dart';
+import 'package:seasoncalendar/models/food_display_configuration.dart';
+
+import '../../app_data.dart';
 
 const maxEditDist = 3;
 
 class SearchScreen extends SearchDelegate<String> {
-  final int _monthIndex;
-
-  SearchScreen(int monthIndex, String searchFieldLabel)
-      : _monthIndex = monthIndex,
+  final FoodDisplayConfiguration _fdc;
+  
+  SearchScreen(FoodDisplayConfiguration fdc, String searchFieldLabel)
+      : _fdc = fdc,
         super(searchFieldLabel: searchFieldLabel);
 
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
-          icon: Icon(Icons.clear),
+          icon: const Icon(Icons.clear),
           onPressed: () {
             query = "";
           })
@@ -46,41 +46,32 @@ class SearchScreen extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-    return FutureBuilder(
-      future: DBProvider.db.getFoods(),
-      builder: (context, AsyncSnapshot<Iterable<Food>> snapshot) {
-        if (snapshot.hasData) {
-          List<Food> _newestFoodCatalog = List.from(snapshot.data!);
-          return getMatchingFoodView(context, _newestFoodCatalog);
-        } else {
-          return LoadingWidget();
-        }
-      },
-    );
+    return getMatchingFoodView(context, _fdc);
   }
 
-  Widget getMatchingFoodView(BuildContext context, List<Food> dbFoods) {
+  Widget getMatchingFoodView(BuildContext context, FoodDisplayConfiguration fdc) {
     var query = this.query.trim(); //clean search input
+    var matchFoods = AppData.of(context).curFoods;
 
     // show full list on small query
     if (query.length < 3) {
-      dbFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
-      return FoodView.fromSearchResult(dbFoods, _monthIndex);
+      matchFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
+      return FoodView.fromSearchResult(fdc, matchFoods);
     }
 
     // show exact, starting and inner matches
-    var exactMatches = dbFoods
+    var exactMatches = matchFoods
         .where((food) => food.synonyms
             .map((s) => s.toLowerCase())
             .contains(query.toLowerCase()))
         .toList();
 
-    var startsWithMatches = dbFoods
+    var startsWithMatches = matchFoods
         .where((food) => food.synonyms.any(
             (synonym) => synonym.toLowerCase().startsWith(query.toLowerCase())))
         .toList();
 
-    var innerMatches = dbFoods
+    var innerMatches = matchFoods
         .where((food) => food.synonyms.any((synonym) =>
             !synonym.toLowerCase().startsWith(query.toLowerCase()) &&
             synonym.toLowerCase().contains(query.toLowerCase())))
@@ -88,22 +79,20 @@ class SearchScreen extends SearchDelegate<String> {
 
     var matches = exactMatches;
 
-    var tmp = []
-      ..addAll(startsWithMatches)
-      ..addAll(innerMatches);
-    tmp.forEach((food) {
+    var tmp = [...startsWithMatches, ...innerMatches];
+    for (var food in tmp) {
       if (!matches.contains(food)) {
         matches.add(food);
       }
-    });
-
-    if (matches.length > 0) {
-      return FoodView.fromSearchResult(matches, _monthIndex);
     }
 
-    final Levenshtein lvs = new Levenshtein();
+    if (matches.isNotEmpty) {
+      return FoodView.fromSearchResult(fdc, matches);
+    }
 
-    var lvsResults = dbFoods
+    final Levenshtein lvs = Levenshtein();
+
+    var lvsResults = matchFoods
         .where((food) =>
             (food.synonyms.map((synonym) {
               return lvs.distance(synonym.toLowerCase(), query.toLowerCase()) /
@@ -112,6 +101,6 @@ class SearchScreen extends SearchDelegate<String> {
             0.5)
         .toList();
 
-    return FoodView.fromSearchResult(lvsResults, _monthIndex);
+    return FoodView.fromSearchResult(fdc, lvsResults);
   }
 }

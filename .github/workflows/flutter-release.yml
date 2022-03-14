@@ -1,0 +1,103 @@
+name: Flutter Release App
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      for_ref:
+        default: ''
+        description: The branch or tag that shall be used for checkout (defaults to '')
+        required: false
+        type: string
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{github.event.inputs.for_ref}}
+
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+
+      - uses: subosito/flutter-action@v2
+        id: flutter-action
+        with:
+          # channel: 'stable'
+          flutter-version: '2.10.2'
+          cache: true
+          cache-key: flutter # optional, change this to force refresh cache
+          cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
+
+      - name: Setup flutter
+        run: |
+          flutter config --no-analytics
+          flutter doctor --verbose
+          flutter pub get
+          flutter update-packages
+          flutter pub run intl_utils:generate
+
+      - name: Prepare signing key
+        run: |
+          echo ${{ secrets.SIGNING_KEY_DECRYPTED }} > android/key.jks.base64
+          base64 -d android/key.jks.base64 > android/key.jks
+          touch android/key.properties
+          echo storePassword=${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }} > android/key.properties
+          echo keyPassword=${{ secrets.KEY_PROPERTIES_STORE_AND_KEY_PASSWD }} >> android/key.properties
+          echo keyAlias=${{ secrets.KEY_ALIAS }} >> android/key.properties
+          echo storeFile=$(pwd)/android/key.jks >> android/key.properties
+          wc android/key.properties
+
+      - name: Build release apk
+        run: flutter build apk --release --flavor foss --verbose
+        id: build-apk
+
+      - name: Build release apk
+        run: flutter build apk --release --flavor foss --verbose --split-per-abi
+        id: build-apk-split
+
+      - name: Build app bundle
+        run: flutter build appbundle --release --flavor googleplay --verbose
+        id: build-bundle
+
+      - name: Remove signing key
+        run: |
+          rm android/key.jks.base64 android/key.jks android/key.properties
+
+      - run: scripts/rename_apks.sh
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: seasoncalendar-release-apks
+          path: build/app/outputs/flutter-apk/seasoncalendar*.apk
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: appbundle-release
+          path: build/app/outputs/bundle/googleplayRelease/app-googleplay-release.aab
+
+      - name: Create Github Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/v')
+        with:
+          draft: true
+          generate_release_notes: true
+          files: build/app/outputs/flutter-apk/seasoncalendar*.apk
+
+      # - name: Create Google Play Release
+      #   uses: r0adkll/upload-google-play@v1
+      #   if: startsWith(github.ref, 'refs/tags/v')
+      #   with:
+      #   serviceAccountJson: ${{ SERVICE_ACCOUNT_JSON }}
+      #   packageName: flunzmas.seasoncalendar
+      #   releaseFiles: app-foss-release.aab
+      #   track: production
+      #   inAppUpdatePriority: 2
+      #   whatsNewDirectory: distribution/whatsnew
+      #   mappingFile: app/build/outputs/mapping/release/mapping.txt

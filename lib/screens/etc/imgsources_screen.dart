@@ -6,9 +6,9 @@ import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 
 class ImgSourcesScreen extends StatelessWidget {
-  List<Food> _allFoods = List<Food>.empty();
+  final List<Food> _allFoods;
 
-  ImgSourcesScreen(this._allFoods) {
+  ImgSourcesScreen(this._allFoods, {Key? key}) : super(key: key) {
     _allFoods.sort((a, b) => a.displayName.compareTo(b.displayName));
   }
 
@@ -32,7 +32,7 @@ class ImgSourcesScreen extends StatelessWidget {
                     L10n.of(context).imprintImgSourcesPublisher +
                     _allFoods[i].assetImgInfo.split("/")[1].trim()),
                 trailing: IconButton(
-                  icon: Icon(Icons.open_in_new),
+                  icon: const Icon(Icons.open_in_new),
                   onPressed: () async {
                     final url = _allFoods[i].assetImgSourceUrl;
                     if (await canLaunch(url)) {
