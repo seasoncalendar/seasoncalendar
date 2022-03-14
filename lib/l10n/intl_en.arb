@@ -1215,5 +1215,7 @@
   "howToPageUnavailable": "Usually not available.",
   "@howToPageUnavailable": {},
   "confirmOperation": "Are you sure?",
-  "@confirmOperation": {}
+  "@confirmOperation": {},
+  "customAvDeletePrompt": "Do you really want to delete your personal availability data? This action cannot be undone.",
+  "@customAvDeletePrompt": {}
 }
