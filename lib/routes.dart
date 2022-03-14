@@ -4,11 +4,8 @@ import 'package:provider/provider.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/app_data.dart';
 
-import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:seasoncalendar/components/loading_scaffold.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
-import 'package:seasoncalendar/helpers/json_asset_loader.dart';
-import 'package:seasoncalendar/helpers/user_db_provider.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/screens/etc/howto_screen.dart';

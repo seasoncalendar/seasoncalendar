@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:devicelocale/devicelocale.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +40,7 @@ Future<List<dynamic>> appConfigFuture() async {
     flavorStr = await const MethodChannel('flavor').invokeMethod<String>('getFlavor') ?? "googleplay";
   } on Exception{
     flavorStr = "googleplay";
-    print('Failed to load flavor, defaulting to googleplay flavor!');
+    log('Failed to load flavor, defaulting to googleplay flavor!');
   }
   var pref = await SharedPreferences.getInstance();
   var initialSettings = await loadAssetFromJson("assets/initialsettings.json");

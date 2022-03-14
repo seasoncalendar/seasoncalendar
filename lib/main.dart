@@ -11,6 +11,7 @@ import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/l10n/localizationsDelegates/material_localization_eo.dart';
 
+// ignore: unused_import
 import 'components/loading_scaffold.dart';
 
 void main() async {
@@ -54,14 +55,14 @@ class MyApp extends StatelessWidget {
                             child: buildMaterialApp(fContext),
                           );
                         } else {
-                          return const Center(
-                              child: CircularProgressIndicator());
+                          return const Center(child: CircularProgressIndicator());
+                          // return LoadingScaffold();
                         }
                       });
                 });
           } else {
             return const Center(child: CircularProgressIndicator());
-            //return LoadingScaffold();
+            // return LoadingScaffold();
           }
         });
   }

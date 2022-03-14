@@ -1,4 +1,5 @@
-import 'dart:collection';
+
+import 'dart:developer';
 
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/region.dart';
@@ -7,7 +8,6 @@ import 'package:path/path.dart';
 import 'package:collection/collection.dart';
 import 'dart:io';
 import 'package:seasoncalendar/models/food.dart';
-import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
 
 class UserDBProvider {
@@ -17,27 +17,25 @@ class UserDBProvider {
   static Database? _userdatabase;
 
   Future<Database> get userdatabase async {
-    if (_userdatabase == null) {
-      _userdatabase = await initDB();
-    }
+    _userdatabase ??= await initDB();
     return _userdatabase!;
   }
 
   _onOpen(Database db) async {
     // Database is open, print its version
-    print('db version ${await db.getVersion()}');
+    log('user db version ${await db.getVersion()}');
   }
 
   _onCreate(Database db, int version) async {
     // Database is created, create the table
     await db.execute(
         "CREATE TABLE food_region_availability (food_id	TEXT NOT NULL, region_id TEXT NOT NULL, avLocal	TEXT, avLand	TEXT, avSea	TEXT, avAir	TEXT, PRIMARY KEY(food_id, region_id))");
-    print('created user db');
+    log('created user db');
   }
 
   _onUpgrade(Database db, int oldVersion, int newVersion) async {
     // Database version is updated, alter the table
-    print('Upgrade from $oldVersion to $newVersion');
+    log('Upgrade user db from $oldVersion to $newVersion');
   }
 
   initDB() async {

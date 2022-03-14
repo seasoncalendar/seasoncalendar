@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:mutex/mutex.dart';
 import 'package:flutter/services.dart';
 import 'package:path/path.dart';
-import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/models/region.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';

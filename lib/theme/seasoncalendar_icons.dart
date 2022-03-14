@@ -25,10 +25,13 @@ class SeasonCalendarIcons {
   static const _kFontFam = 'SeasonCalendar';
   static const _kFontPkg = null;
 
+  // TODO unused remove?
   static const IconData arrow_left =
       IconData(0xf060, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  // TODO remove unused ?
   static const IconData arrow_right =
       IconData(0xf061, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  // ignore: constant_identifier_names
   static const IconData apple_alt =
       IconData(0xf5d1, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData carrot =

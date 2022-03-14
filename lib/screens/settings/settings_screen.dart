@@ -1,14 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:intl/intl.dart';
-
-import 'package:package_info_plus/package_info_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:seasoncalendar/helpers/lang_helper.dart';
 import 'package:seasoncalendar/helpers/user_db_provider.dart';
-
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/generated/l10n.dart';

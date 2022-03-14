@@ -1,19 +1,14 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seasoncalendar/components/availability_matrix.dart';
-import 'package:seasoncalendar/helpers/text_selector.dart';
-import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../app_config.dart';
 import '../app_data.dart';
-import 'food_edit_availabilities.dart';
 
 class FoodDetailsDialog extends StatefulWidget {
   Food _food;
-  //final Image _foodImage;
 
   FoodDetailsDialog(Food food, {Key? key})
       : _food = food, super(key: key);

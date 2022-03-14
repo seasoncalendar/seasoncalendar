@@ -9,17 +9,13 @@ import 'dialog_page_route.dart';
 
 class FoodTile extends StatefulWidget {
   final Food _food;
-  final int _curMonthIndex;
-  final List<List<Availability>> _allAvailabilities;
-  late final List<Availability> _curAvailabilities;
-  Color _curAvailabilityColor = Colors.white70;
+  final List<Availability> _curAvailabilities;
+  late final Color _curAvailabilityColor;
 
   FoodTile(Food foodToDisplay, int curMonthIndex, {Key? key})
       : _food = foodToDisplay,
-        _curMonthIndex = curMonthIndex,
-        _allAvailabilities = foodToDisplay.getAvailabilitiesList(short: true),
+        _curAvailabilities = foodToDisplay.getAvailabilitiesList(short: true)[curMonthIndex],
         super(key: Key(foodToDisplay.id)) {
-    _curAvailabilities = _allAvailabilities[_curMonthIndex];
     int fstModeIdx = _curAvailabilities.indexWhere(isAvailable);
     var isUnknown = _curAvailabilities.every((a) => a == Availability.unknown);
 
@@ -137,26 +133,25 @@ class FoodTileState extends State<FoodTile> {
                 )),
             Expanded(
                 flex: 2,
-                child: Container(
-                    child: Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Expanded(
-                      child: Container(
-                        padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-                        child: FittedBox(
-                          fit: BoxFit.contain,
-                          child: Text(
-                            widget._food.displayName,
-                            style: foodText,
-                          ),
+                  Expanded(
+                    child: Container(
+                      padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+                      child: FittedBox(
+                        fit: BoxFit.contain,
+                        child: Text(
+                          widget._food.displayName,
+                          style: foodText,
                         ),
                       ),
                     ),
-                    availabilityIconContainer
+                  ),
+                  availabilityIconContainer
                   ],
-                )))
+                ))
           ],
         ));
   }
