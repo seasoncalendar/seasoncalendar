@@ -86,7 +86,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
             AppData.of(context, listen: false).revertAvailabilities(widget._food);
           }
               : null,
-          child: Text("Revert"),
+          child: const Icon(Icons.delete, semanticLabel: "Reset"),
       )];
     } else {
       actions = [IconButton(
@@ -95,15 +95,15 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
           showDialog(
               context: context,
               builder: (_) => AlertDialog(
-                content: Text("Enable editing of availabilities?"),
+                content: Text(L10n.of(context).dialogEnableCustomAv),
                 actions: [
                   MaterialButton(
-                    child: Text("No"),
+                    child: Text(L10n.of(context).back),
                     onPressed: () {
                       Navigator.of(context).pop();
                     }),
                   MaterialButton(
-                      child: Text("Yes"),
+                      child: Text(L10n.of(context).confirm),
                       onPressed: () {
                         AppConfig.of(context, listen: false).useCustomAv = true;
                         Navigator.of(context).pop();

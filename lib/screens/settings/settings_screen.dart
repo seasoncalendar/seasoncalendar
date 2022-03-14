@@ -187,14 +187,11 @@ class SettingsPageState extends State<SettingsPage> {
     settingsItems.add(const Divider());
 
     settingsItems.add(SwitchListTile.adaptive(
-      secondary: Icon(Icons.edit_note),
-      title: Text(
-          "Custom availabilities"), //L10n.of(context).settingsEnableCustomAvTitle),
+      secondary: const Icon(Icons.edit_note),
+      title: Text(L10n.of(context).settingsEnableCustomAvTitle),
       subtitle: AppConfig.of(context).useCustomAv
-          ? Text("Tab to hide custom availabilities")
-          : //L10n.of(context).settingsDisableCustomAv),
-          Text(
-              "Tab to allow editing availability"), //L10n.of(context).settingsEnableCustomAv):
+          ? Text(L10n.of(context).settingsCustomAvDisable)
+          : Text(L10n.of(context).settingsCustomAvEnable),
       value: AppConfig.of(context).useCustomAv,
       dense: false,
       onChanged: (newVal) {
@@ -205,7 +202,7 @@ class SettingsPageState extends State<SettingsPage> {
 
     settingsItems.add(ListTileTheme(
       child: ListTile(
-        leading: Icon(Icons.delete_forever),
+        leading: const Icon(Icons.delete_forever),
         title: Text(L10n.of(context).settingsResetCustomAvTitle),
         isThreeLine: false,
         enabled: widget._settings!["useCustomAv"],
@@ -214,16 +211,15 @@ class SettingsPageState extends State<SettingsPage> {
           bool? res = await showDialog(
             context: context,
             builder: (_) => AlertDialog(
-              title: Text("Are you sure?"),
-              content: Text(
-                  "Do you really want to delete your locally edited availability data. This action cannot be undone."),
+              title: Text(L10n.of(context).confirmOperation),
+              content: Text(L10n.of(context).customAvDeletePrompt),
               elevation: 10,
               actions: [
                 MaterialButton(
                   onPressed: () {
                     Navigator.of(context).pop(true);
                   },
-                  child: Text("Delete"),
+                  child: Text(L10n.of(context).delete),
                 ),
                 MaterialButton(
                     onPressed: () {
@@ -236,7 +232,7 @@ class SettingsPageState extends State<SettingsPage> {
           if (res ?? false) {
             UserDBProvider.db.deleteDB();
             var snackBar = const SnackBar(
-              content: Text('Custom availability data was deleted!'),
+              content: Text('Personalized availabilities were deleted!'),
             );
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
 
