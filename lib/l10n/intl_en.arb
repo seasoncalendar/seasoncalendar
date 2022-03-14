@@ -1223,5 +1223,7 @@
   "settingsCustomAvTitle": "Personalized availabilities",
   "@settingsCustomAvTitle": {},
   "settingsCustomAvDisable": "Tap to disable and hide",
-  "@settingsCustomAvDisable": {}
+  "@settingsCustomAvDisable": {},
+  "settingsCustomAvEnable": "Tap to allow editing",
+  "@settingsCustomAvEnable": {}
 }
