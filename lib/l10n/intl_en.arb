@@ -1217,5 +1217,7 @@
   "confirmOperation": "Are you sure?",
   "@confirmOperation": {},
   "customAvDeletePrompt": "Do you really want to delete your personal availability data? This action cannot be undone.",
-  "@customAvDeletePrompt": {}
+  "@customAvDeletePrompt": {},
+  "delete": "Delete",
+  "@delete": {}
 }
