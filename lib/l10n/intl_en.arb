@@ -1213,5 +1213,7 @@
   "howToPageUnknown": "Availability unknown. (Please contribute ;-))",
   "@howToPageUnknown": {},
   "howToPageUnavailable": "Usually not available.",
-  "@howToPageUnavailable": {}
+  "@howToPageUnavailable": {},
+  "confirmOperation": "Are you sure?",
+  "@confirmOperation": {}
 }
