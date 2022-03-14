@@ -52,24 +52,30 @@ class FoodDisplayConfiguration extends ChangeNotifier {
     updateFoodsAndNotify();
   }
 
+  bool get fruitsSelected {
+    return config.getValue("showFruits");
+  }
+
+  bool get vegetablesSelected {
+    return config.getValue("showVegetables");
+  }
+
   void toggleFavoritesSelected() async {
     favoritesSelected = !favoritesSelected;
     updateFoodsAndNotify();
   }
 
   void toggleFruitsSelected() async {
-    bool fruitsSelected = config.getValue("showFruits");
     config.setValue("showFruits", !fruitsSelected);
     updateFoodsAndNotify();
   }
 
   void toggleVegetablesSelected() async {
-    bool vegetablesSelected = config.getValue("showVegetables");
     config.setValue("showVegetables", !vegetablesSelected);
     updateFoodsAndNotify();
   }
 
-  updateFoodsAndNotify() async {
+  void updateFoodsAndNotify() async {
     favoriteFoodIds = await getFavoriteFoods();
     foodsToDisplay = _getFilteredAndSortedFoods(config.getPreferences());
     notifyListeners();
@@ -83,10 +89,10 @@ class FoodDisplayConfiguration extends ChangeNotifier {
     if (settings['includeUncommon'] == false && !f.isCommon) {
       return false;
     }
-    if (!settings["showFruits"] && f.isFruit()) {
+    if (!fruitsSelected && f.isFruit()) {
       return false;
     }
-    if (!settings["showVegetables"] && f.isVegetable()) {
+    if (!vegetablesSelected && f.isVegetable()) {
       return false;
     }
     List<Availability> avails = f.getAvailabilitiesByMonth(monthIndex, short: true);
