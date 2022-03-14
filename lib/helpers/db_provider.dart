@@ -13,16 +13,16 @@ class DBProvider {
   DBProvider._();
 
   static final DBProvider db = DBProvider._();
-  static final Mutex _db_file_mutex = Mutex();
+  static final Mutex _dbMutex = Mutex();
   static Database? _database;
 
   Future<Database> get database async {
     if (_database == null) {
-      await _db_file_mutex.acquire();
+      await _dbMutex.acquire();
       try {
         _database ??= await initDB();
       } finally {
-        _db_file_mutex.release();
+        _dbMutex.release();
       }
     }
 
