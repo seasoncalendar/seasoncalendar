@@ -35,7 +35,6 @@ dependencies:
   swipe: ^0.0.1
   sqflite: ^2.0.2
   provider: ^5.0.0
-  flutter_phoenix: ^1.0.0
   # flutter_map: ^0.10.1+1
   # sprintf: ^5.0.0
   devicelocale: ^0.5.0

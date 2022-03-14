@@ -1,10 +1,7 @@
 import 'package:provider/provider.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:seasoncalendar/app_data.dart';
-
 import 'package:seasoncalendar/routes.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/theme/themes.dart';
@@ -17,11 +14,7 @@ import 'components/loading_scaffold.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  var configuredApp = Phoenix(
-    child: const MyApp()
-  );
-
-  return runApp(configuredApp);
+  return runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {

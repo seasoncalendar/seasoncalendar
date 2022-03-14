@@ -37,6 +37,7 @@ List<Food> mergeCustomFoods(List<Food> origFoods, List<Food> customFoods) {
 class AppData extends ChangeNotifier {
   List<Food> origFoods;
   late List<Food> curFoods;
+  late AppConfig config;
 
   AppData.fromAsync(AppConfig config, List<dynamic> asyncRes)
   : origFoods = asyncRes[0] {
@@ -49,6 +50,7 @@ class AppData extends ChangeNotifier {
   }
 
   setFromFeature(AppConfig config, List<dynamic> asyncRes) {
+    this.config = config;
     origFoods = asyncRes[0];
     if (config.useCustomAv) {
       // use foods merged with custom entries
@@ -64,14 +66,14 @@ class AppData extends ChangeNotifier {
     return Provider.of<AppData>(context, listen: listen);
   }
 
-  void changeAvailability(Food food, int monthIndex, List<Availability> ret) async {
+  Future<void> changeAvailability(Food food, int monthIndex, List<Availability> ret) async {
     food.changeAvailabilitiesForMonth(ret, monthIndex);
     food.isEdited = true;
     await UserDBProvider.db.addCustomAvailability(food);
     notifyListeners();
   }
 
-  void revertAvailabilities(Food food) async {
+  Future<void> revertAvailabilities(Food food) async {
     var orig = origFoods.firstWhere((e) => e.id == food.id);
     food.availabilities = LinkedHashMap.from(
         food.availabilities.map((key, value) =>
@@ -80,5 +82,10 @@ class AppData extends ChangeNotifier {
     food.isEdited = false;
     await UserDBProvider.db.revertCustomAvailability(food);
     notifyListeners();
+  }
+
+  Future<void> deleteCustomAvailabilities() async {
+    await UserDBProvider.db.deleteDB();
+    setFromFeature(config, await appDataFuture(config));
   }
 }

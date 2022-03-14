@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:seasoncalendar/helpers/lang_helper.dart';
-import 'package:seasoncalendar/helpers/user_db_provider.dart';
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/screens/settings/settings_availabilities_dialog.dart';
+
+import '../../app_data.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -161,15 +161,12 @@ class SettingsPageState extends State<SettingsPage> {
             ),
           );
           if (res ?? false) {
-            UserDBProvider.db.deleteDB();
+            await AppData.of(context, listen: false).deleteCustomAvailabilities();
+
             var snackBar = const SnackBar(
               content: Text('Personalized availabilities were deleted!'),
             );
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-            Navigator.of(context).pushNamed("/settings").then((_) {
-              Phoenix.rebirth(context);
-            });
           }
         },
       ),
