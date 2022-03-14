@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/app_data.dart';
-
 import 'package:seasoncalendar/components/loading_scaffold.dart';
-import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
-import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/screens/etc/howto_screen.dart';
 import 'package:seasoncalendar/screens/home/home_screen.dart';
 import 'package:seasoncalendar/screens/settings/settings_screen.dart';
@@ -40,7 +37,7 @@ final Map<String, WidgetBuilder> appRoutes = {
       }),
 
 
-  "/settings": (context) => SettingsPage(AppConfig.of(context).initialSettings),
+  "/settings": (context) => const SettingsPage(),
   "/settings/region": (_) => const SettingsRegionPage(),
   "/settings/language": (_) => const SettingsLanguagePage(),
   "/etc": (_) => const EtcPage(),
@@ -49,15 +46,9 @@ final Map<String, WidgetBuilder> appRoutes = {
   "/etc/contrib": (_) => const ContribPage(),
   "/etc/support": (_) => const SupportPage(),
   "/etc/imprint": (_) => const ImprintPage(),
-  "/etc/imprint/imgs": (context) => FutureBuilder(
-        future: DBProvider.db.getFoods(),
-        builder: (context, AsyncSnapshot<Iterable<Food>> snapshot) {
-          if (snapshot.hasData) {
-            final allFoods = List<Food>.from(snapshot.data!);
-            return ImgSourcesScreen(allFoods);
-          } else {
-            return const LoadingScaffold();
-          }
-        },
-      ),
+  "/etc/imprint/imgs": (_) => Consumer<AppData>(
+    builder: (_, data, __) {
+      return ImgSourcesScreen(data.origFoods);
+    },
+  ),
 };

@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:path/path.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/models/region.dart';
-import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:sqflite/sqflite.dart';
 
 import 'lang_helper.dart';
@@ -73,30 +72,9 @@ class DBProvider {
     return res;
   }
 
-  @Deprecated("Use AppConfig instead")
-  Future<Region> getCurrentRegion() async {
-    final Database db = await database;
-    var settings = await SettingsPageState.getSettings();
-    var regionCode = settings['regionCode'];
-
-    final List<Map<String, dynamic>> results = await db.rawQuery("""
-        SELECT id, fallbackRegion, assetPath
-        FROM regions 
-        WHERE id = ?
-        """, [regionCode]);
-
-    if (results.length != 1) {
-      throw "current Region not in Database";
-    }
-
-    Region region = Region.fromMap(results[0]);
-    return region;
-  }
-
-  Future<List<Food>> getFoods() async {
+  Future<List<Food>> getFoods(Region region) async {
     final Database db = await database;
 
-    var region = await getCurrentRegion();
     var allRegions = await getRegions();
 
     var fallbackRegion = region.fallbackRegion?.id ?? region.fallbackRegionId ?? "NULL";

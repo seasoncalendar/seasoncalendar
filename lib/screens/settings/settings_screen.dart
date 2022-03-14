@@ -1,96 +1,35 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:seasoncalendar/helpers/lang_helper.dart';
 import 'package:seasoncalendar/helpers/user_db_provider.dart';
-import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/screens/settings/settings_availabilities_dialog.dart';
 
 class SettingsPage extends StatefulWidget {
-  final Map<String, dynamic> _initialSettings;
-  Map<String, dynamic>? _settings;
-
-  SettingsPage(Map<String, dynamic> initialSettings, {Key? key})
-      : _initialSettings = initialSettings, super(key: key);
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
   SettingsPageState createState() => SettingsPageState();
 }
 
 class SettingsPageState extends State<SettingsPage> {
-  static Future<Map<String, dynamic>> getSettings() async {
-    final initialSettings =
-        await loadAssetFromJson("assets/initialsettings.json");
-    return getSettingsI(initialSettings);
-  }
-
-  static Future<Map<String, dynamic>> getSettingsI(
-      Map<String, dynamic> initialSettings) async {
-    Map<String, dynamic> settings = {};
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    for (var key in initialSettings.keys) {
-      settings[key] = prefs.get(key) ?? initialSettings[key];
-    }
-    return settings;
-  }
-
-  setSettingI(String key, dynamic newVal) async {
-    widget._settings![key] = newVal;
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setValue(prefs, key, newVal);
-  }
-
-  setValue(SharedPreferences prefs, String key, dynamic value) {
-    setState(() {
-      if (value is bool) {
-        prefs.setBool(key, value);
-      } else if (value is double) {
-        prefs.setDouble(key, value);
-      } else if (value is int) {
-        prefs.setInt(key, value);
-      } else if (value is String) {
-        prefs.setString(key, value);
-      } else if (value is List<String>) {
-        prefs.setStringList(key, value);
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text(L10n.of(context).settingsPageTitle)),
-        body: SingleChildScrollView(
-            child: FutureBuilder(
-                future: getSettingsI(widget._initialSettings),
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    widget._settings = snapshot.data! as Map<String, dynamic>;
-                    return _buildSettings(
-                        context, widget._settings);
-                  } else {
-                    return const Align(
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator());
-                  }
-                })));
-  }
-
-  Widget _buildSettings(BuildContext context, settings) {
     List<Widget> settingsItems = List<Widget>.empty(growable: true);
 
     settingsItems.add(SwitchListTile.adaptive(
       secondary: const Icon(Icons.folder_special),
       title: Text(L10n.of(context).settingsUncommonTitle),
       subtitle: Text(L10n.of(context).settingsUncommonText),
-      value: widget._settings!["includeUncommon"],
+      value: AppConfig.of(context, listen: false).getValue("includeUncommon"),
       dense: false,
       onChanged: (newVal) {
-        setSettingI("includeUncommon", newVal);
+        setState(() {
+          AppConfig.of(context, listen: false).setValue("includeUncommon", newVal);
+        });
       },
     ));
     settingsItems.add(const Divider());
@@ -98,10 +37,12 @@ class SettingsPageState extends State<SettingsPage> {
     settingsItems.add(SwitchListTile.adaptive(
       secondary: const Icon(Icons.sort),
       title: Text(L10n.of(context).settingsSortingTitle),
-      value: widget._settings!["foodSorting"],
+      value: AppConfig.of(context, listen: false).getValue("foodSorting"),
       dense: false,
       onChanged: (newVal) {
-        setSettingI("foodSorting", newVal);
+        setState(() {
+          AppConfig.of(context, listen: false).setValue("foodSorting", newVal);
+        });
       },
     ));
     settingsItems.add(const Divider());
@@ -109,7 +50,7 @@ class SettingsPageState extends State<SettingsPage> {
     showFilterFoodsDialog() {
       List<bool> avList = List.generate(
           avIcons.length, (i) {
-            return widget._settings![avSettingsKeys[i]];
+            return AppConfig.of(context, listen: false).getValue(avSettingsKeys[i]);
           }
       );
       showDialog(
@@ -120,9 +61,13 @@ class SettingsPageState extends State<SettingsPage> {
         ),
       ).then((ret) {
         if (ret != null) {
-          for (int i in Iterable.generate(avSettingsKeys.length)) {
-            setSettingI(avSettingsKeys[i], ret[i]);
-          }
+          setState(() {
+            for (int i in Iterable.generate(avSettingsKeys.length)) {
+              AppConfig.of(context, listen: false)
+                  .setValue(avSettingsKeys[i], ret[i]);
+              //setSettingI(avSettingsKeys[i], ret[i]);
+            }
+          });
         }
       });
     }
@@ -191,7 +136,7 @@ class SettingsPageState extends State<SettingsPage> {
         leading: const Icon(Icons.delete_forever),
         title: Text(L10n.of(context).settingsResetCustomAvTitle),
         isThreeLine: false,
-        enabled: widget._settings!["useCustomAv"],
+        enabled: AppConfig.of(context, listen: false).getValue("useCustomAv"),
         dense: false,
         onTap: () async {
           bool? res = await showDialog(
@@ -261,12 +206,16 @@ class SettingsPageState extends State<SettingsPage> {
       },
     ));
 
-    return Container(
-        margin: const EdgeInsets.all(10),
-        child: SingleChildScrollView(
-          child: Column(
-            children: settingsItems,
-          ),
-        ));
+    return Scaffold(
+        appBar: AppBar(title: Text(L10n.of(context).settingsPageTitle)),
+        body: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.all(10),
+            child: Column(
+              children: settingsItems,
+            )
+          )
+        ),
+    );
   }
 }

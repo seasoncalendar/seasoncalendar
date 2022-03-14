@@ -11,8 +11,8 @@ import 'models/availability.dart';
 import 'models/food.dart';
 
 Future<List<Object>> appDataFuture(AppConfig config) async {
-  var origFoods = await DBProvider.db.getFoods();
-  var customFoods = await UserDBProvider.db.getFoodsWithCustom(origFoods: origFoods);
+  var origFoods = await DBProvider.db.getFoods(config.curRegion);
+  var customFoods = await UserDBProvider.db.getFoodsWithCustom(config.curRegion, origFoods: origFoods);
   var allFoods = mergeCustomFoods(origFoods, customFoods);
   return [origFoods, allFoods];
 }
