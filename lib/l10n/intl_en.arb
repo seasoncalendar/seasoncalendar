@@ -1227,5 +1227,7 @@
   "settingsCustomAvEnable": "Tap to allow editing",
   "@settingsCustomAvEnable": {},
   "yes": "Yes",
-  "@yes": {}
+  "@yes": {},
+  "no": "No",
+  "@no": {}
 }
