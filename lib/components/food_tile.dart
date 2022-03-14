@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/models/availability.dart';
-
-import 'package:url_launcher/url_launcher.dart';
-
 import 'package:seasoncalendar/theme/themes.dart';
 import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/components/food_details_dialog.dart';
-import 'package:seasoncalendar/generated/l10n.dart';
+
+import 'dialog_page_route.dart';
 
 class FoodTile extends StatefulWidget {
   final Food _food;
@@ -55,7 +53,7 @@ class FoodTileState extends State<FoodTile> {
   }
 
   void _showFoodDialog() {
-    Navigator.push(context, HeroDialogRoute(
+    Navigator.push(context, DialogPageRoute(
         builder: (BuildContext context) {
           return FoodDetailsDialog(widget._food);
         }));
