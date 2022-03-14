@@ -13,7 +13,6 @@ import 'package:seasoncalendar/screens/settings/settings_availabilities_dialog.d
 class SettingsPage extends StatefulWidget {
   final Map<String, dynamic> _initialSettings;
   Map<String, dynamic>? _settings;
-  String _versionInfo = "...";
 
   SettingsPage(Map<String, dynamic> initialSettings, {Key? key})
       : _initialSettings = initialSettings, super(key: key);
@@ -67,15 +66,12 @@ class SettingsPageState extends State<SettingsPage> {
         appBar: AppBar(title: Text(L10n.of(context).settingsPageTitle)),
         body: SingleChildScrollView(
             child: FutureBuilder(
-                future: Future.wait(
-                    [getSettingsI(widget._initialSettings), getVersionInfo()]),
-                builder: (context, AsyncSnapshot<List<Object>> snapshot) {
+                future: getSettingsI(widget._initialSettings),
+                builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    widget._settings =
-                        snapshot.data![0] as Map<String, dynamic>;
-                    widget._versionInfo = snapshot.data![1] as String;
+                    widget._settings = snapshot.data! as Map<String, dynamic>;
                     return _buildSettings(
-                        context, widget._settings, widget._versionInfo);
+                        context, widget._settings);
                   } else {
                     return const Align(
                         alignment: Alignment.center,
@@ -84,12 +80,7 @@ class SettingsPageState extends State<SettingsPage> {
                 })));
   }
 
-  Future<String> getVersionInfo() async {
-    PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    return packageInfo.version + "+" + packageInfo.buildNumber;
-  }
-
-  Widget _buildSettings(BuildContext context, settings, versionInfo) {
+  Widget _buildSettings(BuildContext context, settings) {
     List<Widget> settingsItems = List<Widget>.empty(growable: true);
 
     settingsItems.add(SwitchListTile.adaptive(
@@ -256,9 +247,7 @@ class SettingsPageState extends State<SettingsPage> {
       enabled: kDebugMode,
       title: Text(L10n.of(context).settingsVersion),
       trailing: Text(
-        widget._versionInfo +
-            versionCodeSuffixFromAppFlavor(
-                AppConfig.of(context, listen: false).flavor),
+        AppConfig.of(context, listen: false).versionFull,
         style: const TextStyle(color: Colors.black38),
       ),
       isThreeLine: false,
