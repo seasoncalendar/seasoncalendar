@@ -99,6 +99,7 @@ class SettingsLanguagePage extends StatelessWidget {
       subtitle: Text(L10n.of(context).settingsLanguageUseLocaleSub),
       onChanged: (String? val) {
         AppConfig.of(context, listen: false).setLanguage(val!);
+        Navigator.of(context).pop(val);
       }
     );
   }
