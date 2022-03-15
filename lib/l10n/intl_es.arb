@@ -635,5 +635,9 @@
   "no": "No",
   "@no": {},
   "dialogEnableCustomAv": "¿Habilitar la personalización de disponibilidades?",
-  "@dialogEnableCustomAv": {}
+  "@dialogEnableCustomAv": {},
+  "hintCustomAvDeleted": "Se han eliminado las disponibilidades personalizadas.",
+  "@hintCustomAvDeleted": {},
+  "dialogCustomAvTitle": "Cambiar las disponibilidades",
+  "@dialogCustomAvTitle": {}
 }

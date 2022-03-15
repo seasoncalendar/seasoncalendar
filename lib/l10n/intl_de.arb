@@ -635,5 +635,9 @@
   "no": "Nein",
   "@no": {},
   "dialogEnableCustomAv": "Benutzerdefinierte Verfügbarkeiten erlauben?",
-  "@dialogEnableCustomAv": {}
+  "@dialogEnableCustomAv": {},
+  "hintCustomAvDeleted": "Benutzerdefinierte Verfügbarkeiten wurden gelöscht!",
+  "@hintCustomAvDeleted": {},
+  "dialogCustomAvTitle": "Verfügbarkeiten anpassen",
+  "@dialogCustomAvTitle": {}
 }

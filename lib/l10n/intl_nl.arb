@@ -459,7 +459,7 @@
   "@imprintPageDisclaimerHeadline": {
     "description": "The phrase 'Disclaimer'"
   },
-  "imprintPageDataText2": "Hartelijk dank aan het team van Lebensmittellexikon.de voor de toestemming om uw seizoensgegevens te gebruiken!",
+  "imprintPageDataText2": "Hartelijk dank aan het team van Lebensmittellexikon.de voor de toestemming om uw beschikbaarheidsgegevens te gebruiken!",
   "@imprintPageDataText2": {
     "description": "Saying thanks to those that let their data be used here"
   },
@@ -1228,5 +1228,9 @@
   "dialogEnableCustomAv": "Personalisering van beschikbaarheid mogelijk maken?",
   "@dialogEnableCustomAv": {},
   "customAvDeletePrompt": "Wilt u echt uw persoonlijke beschikbaarheidsgegevens wissen? Deze actie kan niet ongedaan worden gemaakt.",
-  "@customAvDeletePrompt": {}
+  "@customAvDeletePrompt": {},
+  "hintCustomAvDeleted": "Gepersonaliseerde beschikbaarheden zijn verwijderd!",
+  "@hintCustomAvDeleted": {},
+  "dialogCustomAvTitle": "Verander beschikbaarheid",
+  "@dialogCustomAvTitle": {}
 }
