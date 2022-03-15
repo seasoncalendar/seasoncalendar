@@ -107,10 +107,14 @@ class AppConfig extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeLocale(Locale newLocale) async {
+  void changeLocale(Locale newLocale, {notify = true}) async {
+    if (locale == newLocale) return;
+
     locale = newLocale;
     await L10n.load(newLocale);
-    notifyListeners();
+    if (notify) {
+      notifyListeners();
+    }
   }
 
   void setLanguage(String languageCode) async {
