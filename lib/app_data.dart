@@ -88,4 +88,38 @@ class AppData extends ChangeNotifier {
     await UserDBProvider.db.deleteDB();
     setFromFeature(config, await appDataFuture(config));
   }
+
+  List<String> get favoriteFoods {
+    return config.prefs.getStringList("favoriteFoods") ?? List<String>.empty(growable: true);
+  }
+
+  set favoriteFoods(List<String> favoriteFoods) {
+    config.prefs.setStringList("favoriteFoods", favoriteFoods);
+  }
+
+  bool isFavoriteFood(Food food) {
+    List<String>? foods = config.prefs.getStringList("favoriteFoods");
+    if (foods == null) {
+      return false;
+    } else {
+      return foods.contains(food.id);
+    }
+  }
+
+  void addFavoriteFood(String foodId) {
+    List<String> foods = favoriteFoods;
+    if (foods.contains(foodId)) return;
+    foods.add(foodId);
+    foods.sort();
+    favoriteFoods = foods;
+    // notifying listeners is not necessary
+  }
+
+  void removeFavoriteFood(String foodId) {
+    List<String> foods = favoriteFoods;
+    if (!foods.contains(foodId)) return;
+    foods.remove(foodId);
+    favoriteFoods = foods;
+    notifyListeners();
+  }
 }

@@ -18,6 +18,9 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
+  //final Widget loadingWidget = const LoadingMaterialApp();
+  final Widget loadingWidget = const LoadingWidget();
+
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -48,14 +51,12 @@ class MyApp extends StatelessWidget {
                             child: buildMaterialApp(fContext),
                           );
                         } else {
-                          return const Center(child: CircularProgressIndicator());
-                          // return LoadingScaffold();
+                          return loadingWidget;
                         }
                       });
                 });
           } else {
-            return const Center(child: CircularProgressIndicator());
-            // return LoadingScaffold();
+            return loadingWidget;
           }
         });
   }

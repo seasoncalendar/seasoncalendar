@@ -18,24 +18,17 @@ import 'package:seasoncalendar/screens/etc/imgsources_screen.dart';
 import 'package:seasoncalendar/screens/etc/support_screen.dart';
 
 final Map<String, WidgetBuilder> appRoutes = {
-  "/": (context) => FutureBuilder(
-      future: foodDisplayConfigurationFuture(),
-      builder: (_, AsyncSnapshot<List<Object>> snapshot) {
-        if (snapshot.hasData) {
-          return ChangeNotifierProxyProvider2<AppConfig, AppData, FoodDisplayConfiguration>(
-            create: (_) => FoodDisplayConfiguration.async(
-              AppConfig.of(context), AppData.of(context), snapshot.data!),
-            update: (_, config, data, foodDC) {
-              foodDC ??= FoodDisplayConfiguration.async(config, data, snapshot.data!);
-              return foodDC..update(config, data);
-            },
-            child: const HomeScreen(),
-          );
-        } else {
-          return const LoadingScaffold();
-        }
-      }),
-
+  "/": (context) {
+    return ChangeNotifierProxyProvider2<AppConfig, AppData, FoodDisplayConfiguration>(
+      create: (_) =>
+        FoodDisplayConfiguration.async(AppConfig.of(context), AppData.of(context)),
+      update: (_, config, data, foodDC) {
+        foodDC ??= FoodDisplayConfiguration.async(config, data);
+        return foodDC..update(config, data);
+        },
+      child: const HomeScreen()
+    );
+  },
 
   "/settings": (context) => const SettingsPage(),
   "/settings/region": (_) => const SettingsRegionPage(),

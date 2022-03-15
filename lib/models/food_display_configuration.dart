@@ -6,23 +6,16 @@ import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/app_data.dart';
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
-import 'package:seasoncalendar/helpers/favorite_foods.dart';
-
-Future<List<Object>> foodDisplayConfigurationFuture() async {
-  var favFoodIds = await getFavoriteFoods();
-  return [favFoodIds];
-}
 
 class FoodDisplayConfiguration extends ChangeNotifier {
   late AppConfig config;
   late AppData data;
-  List<String> favoriteFoodIds = [];
   List<Food> foodsToDisplay = [];
   bool favoritesSelected = false;
   int monthIndex = DateTime.now().toLocal().month - 1;
 
-  FoodDisplayConfiguration.async(AppConfig config, AppData data, List<dynamic> res) {
-    setFromFeature(config, data, res);
+  FoodDisplayConfiguration.async(AppConfig config, AppData data) {
+    setFromFeature(config, data);
   }
 
   static FoodDisplayConfiguration of(BuildContext context, {bool listen = true}) {
@@ -30,16 +23,13 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   }
 
   update(AppConfig config, AppData data) async {
-     var res = await foodDisplayConfigurationFuture();
-     setFromFeature(config, data, res);
+     setFromFeature(config, data);
   }
 
-  setFromFeature(AppConfig config, AppData data, List<dynamic> res) {
+  setFromFeature(AppConfig config, AppData data) {
     this.config = config;
     this.data = data;
-    favoriteFoodIds = res[0] as List<String>;
-    foodsToDisplay = _getFilteredAndSortedFoods(config.getPreferences());
-    notifyListeners();
+    updateFoodsAndNotify();
   }
 
   setMonth(int value) {
@@ -76,14 +66,13 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   }
 
   void updateFoodsAndNotify() async {
-    favoriteFoodIds = await getFavoriteFoods();
     foodsToDisplay = _getFilteredAndSortedFoods(config.getPreferences());
     notifyListeners();
   }
 
   bool showFoodPredicate(Food f, int month, Map<String, dynamic> settings) {
     // favorites only?
-    if (favoritesSelected && !favoriteFoodIds.contains(f.id)) {
+    if (favoritesSelected && !data.favoriteFoods.contains(f.id)) {
       return false;
     }
     if (settings['includeUncommon'] == false && !f.isCommon) {

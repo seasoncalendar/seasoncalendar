@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/theme/themes.dart';
-import 'package:seasoncalendar/helpers/favorite_foods.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/components/food_details_dialog.dart';
-
+import 'package:seasoncalendar/app_data.dart';
 import 'dialog_page_route.dart';
 
 class FoodTile extends StatefulWidget {
@@ -31,22 +30,7 @@ class FoodTile extends StatefulWidget {
 }
 
 class FoodTileState extends State<FoodTile> {
-  // -1 means 'not favorite', +1 means 'favorite', else undefined.
-  int _isFavorite = 0;
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: isFavoriteFood(widget._food),
-      builder: (context, AsyncSnapshot<bool> snapshot) {
-        if (snapshot.hasData) {
-          _isFavorite =
-              snapshot.hasData ? (snapshot.data! ? 1 : -1) : _isFavorite;
-        }
-        return _buildFoodTile();
-      },
-    );
-  }
+  bool _isFavorite = false;
 
   void _showFoodDialog() {
     Navigator.push(context, DialogPageRoute(
@@ -55,24 +39,28 @@ class FoodTileState extends State<FoodTile> {
         }));
   }
 
-  Widget _buildFoodTile() {
-    GestureTapCallback tapCallback = () {};
-    if (_isFavorite == 1) {
-      tapCallback = () {
-        removeFavoriteFood(widget._food.id);
-        setState(() {
-          _isFavorite = -1;
-        });
-      };
-    } else if (_isFavorite == -1) {
-      tapCallback = () {
-        addFavoriteFood(widget._food.id);
-        setState(() {
-          _isFavorite = 1;
-        });
-      };
-    }
+  @override
+  void initState() {
+    super.initState();
+    _isFavorite = AppData.of(context, listen: false).isFavoriteFood(widget._food);
+  }
 
+  favoriteCallback() {
+    if (_isFavorite) {
+      AppData.of(context, listen: false).removeFavoriteFood(widget._food.id);
+      setState(() {
+        _isFavorite = false;
+      });
+    } else {
+      AppData.of(context, listen: false).addFavoriteFood(widget._food.id);
+      setState(() {
+        _isFavorite = true;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     Container availabilityIconContainer = Container(
       color: Colors.white.withAlpha(220),
       padding: const EdgeInsets.fromLTRB(5, 5, 5, 5),
@@ -122,7 +110,7 @@ class FoodTileState extends State<FoodTile> {
                                   width: 0, color: Colors.white.withAlpha(200)),
                             )),
                         child: InkWell(
-                          onTap: tapCallback,
+                          onTap: favoriteCallback,
                           child: LayoutBuilder(builder: (context, constraint) {
                               return getFavIcon(context, constraint, _isFavorite);
                           }),
@@ -157,15 +145,11 @@ class FoodTileState extends State<FoodTile> {
   }
 }
 
-Icon getFavIcon(context, constraint, int isFavorite) {
-  if (isFavorite == 1) {
+Icon getFavIcon(context, constraint, bool isFavorite) {
+  if (isFavorite) {
     return Icon(Icons.star, size: constraint.biggest.height);
-  } else if (isFavorite == -1) {
-    return Icon(Icons.star_border, size: constraint.biggest.height);
   } else {
-    // TODO why/when does this case happen
-    // could hint at errors in the data grabbing
-    return Icon(Icons.star_half, size: constraint.biggest.height);
+    return Icon(Icons.star_border, size: constraint.biggest.height);
   }
 }
 
