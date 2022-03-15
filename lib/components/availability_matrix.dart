@@ -102,7 +102,7 @@ class AvailabilityMatrix extends StatelessWidget {
         barrierDismissible: true,
         builder: (_) => FoodEditAvailabilities(
           avs,
-          title: Text(L10n.of(context).settingsFilterTitle),
+          title: Text(L10n.of(context).dialogCustomAvTitle),
         ),
       );
       if (ret != null) {

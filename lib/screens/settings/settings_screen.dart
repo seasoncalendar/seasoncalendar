@@ -164,7 +164,7 @@ class SettingsPageState extends State<SettingsPage> {
             await AppData.of(context, listen: false).deleteCustomAvailabilities();
 
             var snackBar = const SnackBar(
-              content: Text('Personalized availabilities were deleted!'),
+              content: Text(L10n.of(context).hintCustomAvDeleted),
             );
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           }
