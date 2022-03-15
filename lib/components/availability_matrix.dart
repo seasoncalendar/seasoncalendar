@@ -11,51 +11,60 @@ import 'food_edit_availabilities.dart';
 class AvailabilityMatrix extends StatelessWidget {
   final Food food;
   final Function? wasEditedCallback;
-  late List<List<Availability>> allAvailabilities; // TODO remove and get from _food jit
 
-  AvailabilityMatrix(this.food, {this.wasEditedCallback, Key? key}) : super(key: key);
+  const AvailabilityMatrix(this.food, {this.wasEditedCallback, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    allAvailabilities = food.getAvailabilitiesList(short: false);
+    var allAvailabilities = food.getAvailabilitiesList(short: false);
+
+    /*
+    var g = GridView.count(
+      crossAxisCount: 4,
+      children: [
+        for (var i = 0; i < 12; i += 1) _availabilityInfoCard(context, i)
+      ],
+    );
+
+    return g;
+     */
 
     return Column(
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            for (var i = 0; i < 4; i += 1) _availabilityInfoCard(context, i)
+            for (var i = 0; i < 4; i += 1) _availabilityInfoCard(context, allAvailabilities[i], i)
           ],
         ),
         const SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            for (var i = 4; i < 8; i += 1) _availabilityInfoCard(context, i)
+            for (var i = 4; i < 8; i += 1) _availabilityInfoCard(context, allAvailabilities[i], i)
           ],
         ),
         const SizedBox(height: 5),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            for (var i = 8; i < 12; i += 1) _availabilityInfoCard(context, i)
+            for (var i = 8; i < 12; i += 1) _availabilityInfoCard(context, allAvailabilities[i], i)
           ],
         ),
       ],
     );
   }
 
-  Widget _availabilityInfoCard(BuildContext context, int monthIndex) {
+  Widget _availabilityInfoCard(BuildContext context, List<Availability> avs, int monthIndex) {
     Widget icons;
 
-    var summaryAvs = availabilitiesSummary(allAvailabilities[monthIndex]);
+    // TODO use summary
+    // var summaryAvs = availabilitiesSummary(avs);
 
-    int fstModeIdx = allAvailabilities[monthIndex]
-        .indexWhere(isAvailable);
-    int sndModeIdx = allAvailabilities[monthIndex]
-        .indexWhere(isAvailable, fstModeIdx + 1);
+    int fstModeIdx = avs.indexWhere(isAvailable);
+    int sndModeIdx = avs.indexWhere(isAvailable, fstModeIdx + 1);
 
-    var isUnknown = allAvailabilities[monthIndex].every((a) => a == Availability.unknown);
+    var isUnknown = avs.every((a) => a == Availability.unknown);
 
     if (fstModeIdx == -1 && isUnknown) {
       fstModeIdx = 4;
@@ -67,15 +76,12 @@ class AvailabilityMatrix extends StatelessWidget {
       icons = Icon(availabilityModeIcons[fstModeIdx],
           color: Colors.black.withAlpha(iconAlpha));
     } else if (sndModeIdx == -1) {
-      int iconAlpha = getIconAlphaFromAvailability(
-          allAvailabilities[monthIndex][fstModeIdx]);
+      int iconAlpha = getIconAlphaFromAvailability(avs[fstModeIdx]);
       icons = Icon(availabilityModeIcons[fstModeIdx],
           color: Colors.black.withAlpha(iconAlpha));
     } else {
-      int primaryIconAlpha = getIconAlphaFromAvailability(
-          allAvailabilities[monthIndex][fstModeIdx]);
-      int secondaryIconAlpha = getIconAlphaFromAvailability(
-          allAvailabilities[monthIndex][sndModeIdx]);
+      int primaryIconAlpha = getIconAlphaFromAvailability(avs[fstModeIdx]);
+      int secondaryIconAlpha = getIconAlphaFromAvailability(avs[sndModeIdx]);
       icons = Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -95,8 +101,8 @@ class AvailabilityMatrix extends StatelessWidget {
         context: context,
         barrierDismissible: true,
         builder: (_) => FoodEditAvailabilities(
-          food.getAvailabilitiesList()[monthIndex],
-          title: Text(L10n.of(context).settingsFilterTitle),
+          avs,
+          title: Text(L10n.of(context).dialogCustomAvTitle),
         ),
       );
       if (ret != null) {

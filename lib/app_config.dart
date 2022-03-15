@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:devicelocale/devicelocale.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,13 +36,17 @@ String versionCodeSuffixFromAppFlavor(AppFlavor flavor) {
 }
 
 Future<List<dynamic>> appConfigFuture() async {
+  PackageInfo packageInfo = await PackageInfo.fromPlatform();
+  var versionInfo = packageInfo.version + "+" + packageInfo.buildNumber;
+  
   String flavorStr = "googleplay";
   try {
     flavorStr = await const MethodChannel('flavor').invokeMethod<String>('getFlavor') ?? "googleplay";
   } on Exception{
     flavorStr = "googleplay";
-    print('Failed to load flavor, defaulting to googleplay flavor!');
+    log('Failed to load flavor, defaulting to googleplay flavor!');
   }
+
   var pref = await SharedPreferences.getInstance();
   var initialSettings = await loadAssetFromJson("assets/initialsettings.json");
   var langCode = pref.getString("languageCode") ?? initialSettings["languageCode"]!;
@@ -50,10 +57,11 @@ Future<List<dynamic>> appConfigFuture() async {
   }
   var independentText = await loadAssetFromJson("assets/localization_independent_text.json");
   var regions = await DBProvider.db.getRegions();
-  return [flavorStr, pref, initialSettings, independentText, regions];
+  return [versionInfo, flavorStr, pref, initialSettings, independentText, regions];
 }
 
 class AppConfig extends ChangeNotifier {
+  final String versionInfo;
   final AppFlavor flavor;
   final SharedPreferences prefs;
   final Map<String, dynamic> initialSettings;
@@ -63,11 +71,12 @@ class AppConfig extends ChangeNotifier {
   late Region curRegion;
 
   AppConfig.fromAsync(List<dynamic> asyncRes)
-      : flavor = appFlavorFromString(asyncRes[0]),
-        prefs = asyncRes[1],
-        initialSettings = asyncRes[2],
-        independentText = asyncRes[3],
-        regions = asyncRes[4]
+      : versionInfo = asyncRes[0],
+        flavor = appFlavorFromString(asyncRes[1]),
+        prefs = asyncRes[2],
+        initialSettings = asyncRes[3],
+        independentText = asyncRes[4],
+        regions = asyncRes[5]
   {
     // load and set locale  (note L10n already loaded)
     String? languageCode = getValue('languageCode');
@@ -82,6 +91,10 @@ class AppConfig extends ChangeNotifier {
     return Provider.of<AppConfig>(context, listen: listen);
   }
 
+  String get versionFull {
+    return versionInfo + versionCodeSuffixFromAppFlavor(flavor);
+  }
+
   String get languageCode {
     return getValue("languageCode")!;
   }
@@ -94,10 +107,14 @@ class AppConfig extends ChangeNotifier {
     notifyListeners();
   }
 
-  void changeLocale(Locale newLocale) async {
+  void changeLocale(Locale newLocale, {notify = true}) async {
+    if (locale == newLocale) return;
+
     locale = newLocale;
     await L10n.load(newLocale);
-    notifyListeners();
+    if (notify) {
+      notifyListeners();
+    }
   }
 
   void setLanguage(String languageCode) async {

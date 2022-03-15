@@ -1,22 +1,17 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:seasoncalendar/components/availability_matrix.dart';
-import 'package:seasoncalendar/helpers/text_selector.dart';
-import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../app_config.dart';
 import '../app_data.dart';
-import 'food_edit_availabilities.dart';
 
 class FoodDetailsDialog extends StatefulWidget {
-  Food _food;
-  //final Image _foodImage;
+  final Food originalFood;
 
-  FoodDetailsDialog(Food food, {Key? key})
-      : _food = food, super(key: key);
+  const FoodDetailsDialog(Food food, {Key? key})
+      : originalFood = food, super(key: key);
 
   @override
   State<StatefulWidget> createState() => FoodDetailsState();
@@ -26,26 +21,25 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
 
   @override
   Widget build(BuildContext context) {
-    widget._food = AppData.of(context).curFoods.firstWhere(
-            (e) => e.id == widget._food.id);
+    var food = AppData.of(context).curFoods.firstWhere(
+            (e) => e.id == widget.originalFood.id);
 
     var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
 
     Widget imgAndAvailabilities;
-    var regionInfo = Text(widget._food.region.name
-        + (widget._food.isEdited ? " (edited)" : ""));
+    var regionInfo = Text(food.region.name + (food.isEdited ? " (edited)" : ""));
 
     if (isPortrait) {
       imgAndAvailabilities = Column(
         children: <Widget>[
           Hero(
-            tag: widget._food.id,
-            child: Image.asset(widget._food.assetImgPath),
+            tag: food.id,
+            child: Image.asset(food.assetImgPath),
           ),
           const SizedBox(height: 4),
           regionInfo,
           const SizedBox(height: 2),
-          AvailabilityMatrix(widget._food,
+          AvailabilityMatrix(food,
               wasEditedCallback: () => setState(() {})),
         ]
       );
@@ -59,7 +53,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
             child: Column(
               children: <Widget>[
                 Image.asset(
-                  widget._food.assetImgPath,
+                  food.assetImgPath,
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(width: 5),
@@ -69,7 +63,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
           const SizedBox(width: 5),
           Expanded(
             flex: 3,
-            child: AvailabilityMatrix(widget._food,
+            child: AvailabilityMatrix(food,
                 wasEditedCallback: () => setState(() {})
             ),
           ),
@@ -81,12 +75,12 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
 
     if (AppConfig.of(context).useCustomAv) {
       actions = [ MaterialButton(
-          onPressed: widget._food.isEdited
+          onPressed: food.isEdited
               ? () {
-            AppData.of(context, listen: false).revertAvailabilities(widget._food);
+            AppData.of(context, listen: false).revertAvailabilities(food);
           }
               : null,
-          child: Text("Revert"),
+          child: const Icon(Icons.delete, semanticLabel: "Reset"),
       )];
     } else {
       actions = [IconButton(
@@ -95,15 +89,15 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
           showDialog(
               context: context,
               builder: (_) => AlertDialog(
-                content: Text("Enable editing of availabilities?"),
+                content: Text(L10n.of(context).dialogEnableCustomAv),
                 actions: [
                   MaterialButton(
-                    child: Text("No"),
+                    child: Text(L10n.of(context).back),
                     onPressed: () {
                       Navigator.of(context).pop();
                     }),
                   MaterialButton(
-                      child: Text("Yes"),
+                      child: Text(L10n.of(context).confirm),
                       onPressed: () {
                         AppConfig.of(context, listen: false).useCustomAv = true;
                         Navigator.of(context).pop();
@@ -117,7 +111,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
     actions += [
       MaterialButton(
         onPressed: () async {
-          final url = widget._food.infoUrl;
+          final url = food.infoUrl;
           if (await canLaunch(url)) {
             await launch(
               url,
@@ -145,7 +139,7 @@ class FoodDetailsState extends State<FoodDetailsDialog> {
             children: <Widget>[
               FittedBox(
                 child: Text(
-                  widget._food.displayName,
+                  food.displayName,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headline5,
                 ),

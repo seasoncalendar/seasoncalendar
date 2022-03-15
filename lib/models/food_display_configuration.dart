@@ -1,35 +1,21 @@
-import 'dart:collection';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/app_data.dart';
-import 'package:seasoncalendar/helpers/db_provider.dart';
-import 'package:seasoncalendar/helpers/user_db_provider.dart';
-
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/models/food.dart';
-import 'package:seasoncalendar/screens/settings/settings_screen.dart';
-import 'package:seasoncalendar/helpers/favorite_foods.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:seasoncalendar/helpers/json_asset_loader.dart';
-
-Future<List<Object>> foodDisplayConfigurationFuture() async {
-  var favFoodIds = await getFavoriteFoods();
-  return [favFoodIds];
-}
 
 class FoodDisplayConfiguration extends ChangeNotifier {
   late AppConfig config;
   late AppData data;
-  List<String> favoriteFoodIds = [];
   List<Food> foodsToDisplay = [];
   bool favoritesSelected = false;
   int monthIndex = DateTime.now().toLocal().month - 1;
 
-  FoodDisplayConfiguration.async(AppConfig config, AppData data, List<dynamic> res) {
-    setFromFeature(config, data, res);
+  FoodDisplayConfiguration.async(AppConfig config, AppData data) {
+    setFromFeature(config, data);
   }
 
   static FoodDisplayConfiguration of(BuildContext context, {bool listen = true}) {
@@ -37,16 +23,13 @@ class FoodDisplayConfiguration extends ChangeNotifier {
   }
 
   update(AppConfig config, AppData data) async {
-     var res = await foodDisplayConfigurationFuture();
-     setFromFeature(config, data, res);
+     setFromFeature(config, data);
   }
 
-  setFromFeature(AppConfig config, AppData data, List<dynamic> res) {
+  setFromFeature(AppConfig config, AppData data) {
     this.config = config;
     this.data = data;
-    favoriteFoodIds = res[0] as List<String>;
-    foodsToDisplay = _getFilteredAndSortedFoods(config.getPreferences());
-    notifyListeners();
+    updateFoodsAndNotify();
   }
 
   setMonth(int value) {
@@ -59,41 +42,46 @@ class FoodDisplayConfiguration extends ChangeNotifier {
     updateFoodsAndNotify();
   }
 
+  bool get fruitsSelected {
+    return config.getValue("showFruits");
+  }
+
+  bool get vegetablesSelected {
+    return config.getValue("showVegetables");
+  }
+
   void toggleFavoritesSelected() async {
     favoritesSelected = !favoritesSelected;
     updateFoodsAndNotify();
   }
 
   void toggleFruitsSelected() async {
-    bool fruitsSelected = config.getValue("showFruits");
     config.setValue("showFruits", !fruitsSelected);
     updateFoodsAndNotify();
   }
 
   void toggleVegetablesSelected() async {
-    bool vegetablesSelected = config.getValue("showVegetables");
     config.setValue("showVegetables", !vegetablesSelected);
     updateFoodsAndNotify();
   }
 
-  updateFoodsAndNotify() async {
-    favoriteFoodIds = await getFavoriteFoods();
+  void updateFoodsAndNotify() async {
     foodsToDisplay = _getFilteredAndSortedFoods(config.getPreferences());
     notifyListeners();
   }
 
   bool showFoodPredicate(Food f, int month, Map<String, dynamic> settings) {
     // favorites only?
-    if (favoritesSelected && !favoriteFoodIds.contains(f.id)) {
+    if (favoritesSelected && !data.favoriteFoods.contains(f.id)) {
       return false;
     }
     if (settings['includeUncommon'] == false && !f.isCommon) {
       return false;
     }
-    if (!settings["showFruits"] && f.isFruit()) {
+    if (!fruitsSelected && f.isFruit()) {
       return false;
     }
-    if (!settings["showVegetables"] && f.isVegetable()) {
+    if (!vegetablesSelected && f.isVegetable()) {
       return false;
     }
     List<Availability> avails = f.getAvailabilitiesByMonth(monthIndex, short: true);

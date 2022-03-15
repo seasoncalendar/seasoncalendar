@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:seasoncalendar/components/loading_scaffold.dart';
 
 import 'package:seasoncalendar/models/food.dart';
 import 'package:seasoncalendar/models/food_display_configuration.dart';
 import 'package:seasoncalendar/components/food_tile.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
-import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:swipe/swipe.dart';
 
 enum FoodViewMode {
@@ -25,7 +23,7 @@ class FoodView extends StatelessWidget {
         _selectedFoods = fdc.foodsToDisplay,
         _mode = fdc.favoritesSelected ? FoodViewMode.favorite : FoodViewMode.main, super(key: key);
 
-  FoodView.fromSearchResult(FoodDisplayConfiguration fdc, List<Food> searchResultFoods, {Key? key})
+  const FoodView.fromSearchResult(FoodDisplayConfiguration fdc, List<Food> searchResultFoods, {Key? key})
       : _fdc = fdc,
         _selectedFoods = searchResultFoods,
         _mode = FoodViewMode.search, super(key: key);
@@ -93,64 +91,62 @@ class FoodView extends StatelessWidget {
     return SizedBox(
         height: double.infinity,
         width: double.infinity,
-        child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 35,
-                child: Container(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 35,
+              child: Container(),
+            ),
+            Expanded(
+              flex: 20,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Container(),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: LayoutBuilder(builder: (context, constraint) {
+                      var cst =
+                          constraint.biggest.width < constraint.biggest.height
+                              ? constraint.biggest.width
+                              : constraint.biggest.height;
+                      return Icon(
+                        emptyIcon,
+                        size: cst,
+                        color: Colors.black45,
+                      );
+                    }),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Container(),
+                  ),
+                ],
               ),
-              Expanded(
+            ),
+            Expanded(
                 flex: 20,
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: Container(),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: LayoutBuilder(builder: (context, constraint) {
-                        var cst =
-                            constraint.biggest.width < constraint.biggest.height
-                                ? constraint.biggest.width
-                                : constraint.biggest.height;
-                        return Icon(
-                          emptyIcon,
-                          size: cst,
-                          color: Colors.black45,
-                        );
-                      }),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Container(),
-                    ),
-                  ],
-                ),
-              ),
-              Expanded(
-                  flex: 20,
-                  child: Text(
-                    emptyText,
-                    style: const TextStyle(
-                        color: Colors.black54, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  )),
-              Expanded(
-                  flex: 20,
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: emptyHint,
-                  )),
-              Expanded(
-                flex: 2,
-                child: Container(),
-              ),
-            ],
-          ),
+                child: Text(
+                  emptyText,
+                  style: const TextStyle(
+                      color: Colors.black54, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                )),
+            Expanded(
+                flex: 20,
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: emptyHint,
+                )),
+            Expanded(
+              flex: 2,
+              child: Container(),
+            ),
+          ],
         ));
   }
 }

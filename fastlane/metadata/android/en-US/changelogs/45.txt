@@ -1,0 +1,8 @@
+Version 1.5.0+45:
+- option to personalize availability data
+- support multiple regions + fallback
+- display options for unavailable and unknown foods
+- new language Catalan (thanks Maite Guix)
+- correct image for chicory
+- improve UI responsiveness
+- revert versionCode scheme for releases on github and IzzyOnDroid

@@ -1,110 +1,35 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
-import 'package:intl/intl.dart';
-
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:seasoncalendar/helpers/lang_helper.dart';
-import 'package:seasoncalendar/helpers/user_db_provider.dart';
-
-import 'package:shared_preferences/shared_preferences.dart';
-
-import 'package:seasoncalendar/helpers/json_asset_loader.dart';
 import 'package:seasoncalendar/models/availability.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/screens/settings/settings_availabilities_dialog.dart';
 
-class SettingsPage extends StatefulWidget {
-  final Map<String, dynamic> _initialSettings;
-  Map<String, dynamic>? _settings;
-  String _versionInfo = "...";
+import '../../app_data.dart';
 
-  SettingsPage(Map<String, dynamic> initialSettings, {Key? key})
-      : _initialSettings = initialSettings, super(key: key);
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
   SettingsPageState createState() => SettingsPageState();
 }
 
 class SettingsPageState extends State<SettingsPage> {
-  static Future<Map<String, dynamic>> getSettings() async {
-    final initialSettings =
-        await loadAssetFromJson("assets/initialsettings.json");
-    return getSettingsI(initialSettings);
-  }
-
-  static Future<Map<String, dynamic>> getSettingsI(
-      Map<String, dynamic> initialSettings) async {
-    Map<String, dynamic> settings = {};
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    for (var key in initialSettings.keys) {
-      settings[key] = prefs.get(key) ?? initialSettings[key];
-    }
-    return settings;
-  }
-
-  setSettingI(String key, dynamic newVal) async {
-    widget._settings![key] = newVal;
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    setValue(prefs, key, newVal);
-  }
-
-  setValue(SharedPreferences prefs, String key, dynamic value) {
-    setState(() {
-      if (value is bool) {
-        prefs.setBool(key, value);
-      } else if (value is double) {
-        prefs.setDouble(key, value);
-      } else if (value is int) {
-        prefs.setInt(key, value);
-      } else if (value is String) {
-        prefs.setString(key, value);
-      } else if (value is List<String>) {
-        prefs.setStringList(key, value);
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: Text(L10n.of(context).settingsPageTitle)),
-        body: SingleChildScrollView(
-            child: FutureBuilder(
-                future: Future.wait(
-                    [getSettingsI(widget._initialSettings), getVersionInfo()]),
-                builder: (context, AsyncSnapshot<List<Object>> snapshot) {
-                  if (snapshot.hasData) {
-                    widget._settings =
-                        snapshot.data![0] as Map<String, dynamic>;
-                    widget._versionInfo = snapshot.data![1] as String;
-                    return _buildSettings(
-                        context, widget._settings, widget._versionInfo);
-                  } else {
-                    return const Align(
-                        alignment: Alignment.center,
-                        child: CircularProgressIndicator());
-                  }
-                })));
-  }
-
-  Future<String> getVersionInfo() async {
-    PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    return packageInfo.version + "+" + packageInfo.buildNumber;
-  }
-
-  Widget _buildSettings(BuildContext context, settings, versionInfo) {
     List<Widget> settingsItems = List<Widget>.empty(growable: true);
 
     settingsItems.add(SwitchListTile.adaptive(
       secondary: const Icon(Icons.folder_special),
       title: Text(L10n.of(context).settingsUncommonTitle),
       subtitle: Text(L10n.of(context).settingsUncommonText),
-      value: widget._settings!["includeUncommon"],
+      value: AppConfig.of(context, listen: false).getValue("includeUncommon"),
       dense: false,
       onChanged: (newVal) {
-        setSettingI("includeUncommon", newVal);
+        setState(() {
+          AppConfig.of(context, listen: false).setValue("includeUncommon", newVal);
+        });
       },
     ));
     settingsItems.add(const Divider());
@@ -112,10 +37,12 @@ class SettingsPageState extends State<SettingsPage> {
     settingsItems.add(SwitchListTile.adaptive(
       secondary: const Icon(Icons.sort),
       title: Text(L10n.of(context).settingsSortingTitle),
-      value: widget._settings!["foodSorting"],
+      value: AppConfig.of(context, listen: false).getValue("foodSorting"),
       dense: false,
       onChanged: (newVal) {
-        setSettingI("foodSorting", newVal);
+        setState(() {
+          AppConfig.of(context, listen: false).setValue("foodSorting", newVal);
+        });
       },
     ));
     settingsItems.add(const Divider());
@@ -123,7 +50,7 @@ class SettingsPageState extends State<SettingsPage> {
     showFilterFoodsDialog() {
       List<bool> avList = List.generate(
           avIcons.length, (i) {
-            return widget._settings![avSettingsKeys[i]];
+            return AppConfig.of(context, listen: false).getValue(avSettingsKeys[i]);
           }
       );
       showDialog(
@@ -134,9 +61,13 @@ class SettingsPageState extends State<SettingsPage> {
         ),
       ).then((ret) {
         if (ret != null) {
-          for (int i in Iterable.generate(avSettingsKeys.length)) {
-            setSettingI(avSettingsKeys[i], ret[i]);
-          }
+          setState(() {
+            for (int i in Iterable.generate(avSettingsKeys.length)) {
+              AppConfig.of(context, listen: false)
+                  .setValue(avSettingsKeys[i], ret[i]);
+              //setSettingI(avSettingsKeys[i], ret[i]);
+            }
+          });
         }
       });
     }
@@ -150,7 +81,7 @@ class SettingsPageState extends State<SettingsPage> {
     ));
     settingsItems.add(const Divider());
 
-    var languageCode = AppConfig.of(context).locale!.languageCode;
+    var languageCode = AppConfig.of(context).locale?.languageCode ?? "?";
     var languageName = languageNameFromCode[languageCode] ?? languageCode;
     languageName = languageName.length > 20 ? languageCode : languageName;
 
@@ -187,14 +118,11 @@ class SettingsPageState extends State<SettingsPage> {
     settingsItems.add(const Divider());
 
     settingsItems.add(SwitchListTile.adaptive(
-      secondary: Icon(Icons.edit_note),
-      title: Text(
-          "Custom availabilities"), //L10n.of(context).settingsEnableCustomAvTitle),
+      secondary: const Icon(Icons.edit_note),
+      title: Text(L10n.of(context).settingsEnableCustomAvTitle),
       subtitle: AppConfig.of(context).useCustomAv
-          ? Text("Tab to hide custom availabilities")
-          : //L10n.of(context).settingsDisableCustomAv),
-          Text(
-              "Tab to allow editing availability"), //L10n.of(context).settingsEnableCustomAv):
+          ? Text(L10n.of(context).settingsCustomAvDisable)
+          : Text(L10n.of(context).settingsCustomAvEnable),
       value: AppConfig.of(context).useCustomAv,
       dense: false,
       onChanged: (newVal) {
@@ -205,25 +133,24 @@ class SettingsPageState extends State<SettingsPage> {
 
     settingsItems.add(ListTileTheme(
       child: ListTile(
-        leading: Icon(Icons.delete_forever),
+        leading: const Icon(Icons.delete_forever),
         title: Text(L10n.of(context).settingsResetCustomAvTitle),
         isThreeLine: false,
-        enabled: widget._settings!["useCustomAv"],
+        enabled: AppConfig.of(context, listen: false).getValue("useCustomAv"),
         dense: false,
         onTap: () async {
           bool? res = await showDialog(
             context: context,
             builder: (_) => AlertDialog(
-              title: Text("Are you sure?"),
-              content: Text(
-                  "Do you really want to delete your locally edited availability data. This action cannot be undone."),
+              title: Text(L10n.of(context).confirmOperation),
+              content: Text(L10n.of(context).customAvDeletePrompt),
               elevation: 10,
               actions: [
                 MaterialButton(
                   onPressed: () {
                     Navigator.of(context).pop(true);
                   },
-                  child: Text("Delete"),
+                  child: Text(L10n.of(context).delete),
                 ),
                 MaterialButton(
                     onPressed: () {
@@ -234,15 +161,12 @@ class SettingsPageState extends State<SettingsPage> {
             ),
           );
           if (res ?? false) {
-            UserDBProvider.db.deleteDB();
+            await AppData.of(context, listen: false).deleteCustomAvailabilities();
+
             var snackBar = const SnackBar(
-              content: Text('Custom availability data was deleted!'),
+              content: Text(L10n.of(context).hintCustomAvDeleted),
             );
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-            Navigator.of(context).pushNamed("/settings").then((_) {
-              Phoenix.rebirth(context);
-            });
           }
         },
       ),
@@ -265,9 +189,7 @@ class SettingsPageState extends State<SettingsPage> {
       enabled: kDebugMode,
       title: Text(L10n.of(context).settingsVersion),
       trailing: Text(
-        widget._versionInfo +
-            versionCodeSuffixFromAppFlavor(
-                AppConfig.of(context, listen: false).flavor),
+        AppConfig.of(context, listen: false).versionFull,
         style: const TextStyle(color: Colors.black38),
       ),
       isThreeLine: false,
@@ -281,12 +203,16 @@ class SettingsPageState extends State<SettingsPage> {
       },
     ));
 
-    return Container(
-        margin: const EdgeInsets.all(10),
-        child: SingleChildScrollView(
-          child: Column(
-            children: settingsItems,
-          ),
-        ));
+    return Scaffold(
+        appBar: AppBar(title: Text(L10n.of(context).settingsPageTitle)),
+        body: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.all(10),
+            child: Column(
+              children: settingsItems,
+            )
+          )
+        ),
+    );
   }
 }

@@ -1,8 +1,6 @@
 import 'dart:collection';
 
-import 'package:flutter/material.dart';
-import 'package:seasoncalendar/models/region.dart';
-
+import 'region.dart';
 import 'availability.dart';
 
 
@@ -58,7 +56,6 @@ class Food {
     displayName = synonyms[0];
 
     // handle availabilities
-    availabilities = LinkedHashMap<String, List<Availability>>();
     availabilities['local'] =
         availabilitiesFromStringList(splitByCommaAndTrim(avLocal));
     availabilities['landTransport'] =

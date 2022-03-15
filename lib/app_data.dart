@@ -11,8 +11,8 @@ import 'models/availability.dart';
 import 'models/food.dart';
 
 Future<List<Object>> appDataFuture(AppConfig config) async {
-  var origFoods = await DBProvider.db.getFoods();
-  var customFoods = await UserDBProvider.db.getFoodsWithCustom(origFoods: origFoods);
+  var origFoods = await DBProvider.db.getFoods(config.curRegion);
+  var customFoods = await UserDBProvider.db.getFoodsWithCustom(config.curRegion, origFoods: origFoods);
   var allFoods = mergeCustomFoods(origFoods, customFoods);
   return [origFoods, allFoods];
 }
@@ -37,6 +37,7 @@ List<Food> mergeCustomFoods(List<Food> origFoods, List<Food> customFoods) {
 class AppData extends ChangeNotifier {
   List<Food> origFoods;
   late List<Food> curFoods;
+  late AppConfig config;
 
   AppData.fromAsync(AppConfig config, List<dynamic> asyncRes)
   : origFoods = asyncRes[0] {
@@ -49,6 +50,7 @@ class AppData extends ChangeNotifier {
   }
 
   setFromFeature(AppConfig config, List<dynamic> asyncRes) {
+    this.config = config;
     origFoods = asyncRes[0];
     if (config.useCustomAv) {
       // use foods merged with custom entries
@@ -64,14 +66,14 @@ class AppData extends ChangeNotifier {
     return Provider.of<AppData>(context, listen: listen);
   }
 
-  void changeAvailability(Food food, int monthIndex, List<Availability> ret) async {
+  Future<void> changeAvailability(Food food, int monthIndex, List<Availability> ret) async {
     food.changeAvailabilitiesForMonth(ret, monthIndex);
     food.isEdited = true;
     await UserDBProvider.db.addCustomAvailability(food);
     notifyListeners();
   }
 
-  void revertAvailabilities(Food food) async {
+  Future<void> revertAvailabilities(Food food) async {
     var orig = origFoods.firstWhere((e) => e.id == food.id);
     food.availabilities = LinkedHashMap.from(
         food.availabilities.map((key, value) =>
@@ -79,6 +81,45 @@ class AppData extends ChangeNotifier {
         ));
     food.isEdited = false;
     await UserDBProvider.db.revertCustomAvailability(food);
+    notifyListeners();
+  }
+
+  Future<void> deleteCustomAvailabilities() async {
+    await UserDBProvider.db.deleteDB();
+    setFromFeature(config, await appDataFuture(config));
+  }
+
+  List<String> get favoriteFoods {
+    return config.prefs.getStringList("favoriteFoods") ?? List<String>.empty(growable: true);
+  }
+
+  set favoriteFoods(List<String> favoriteFoods) {
+    config.prefs.setStringList("favoriteFoods", favoriteFoods);
+  }
+
+  bool isFavoriteFood(Food food) {
+    List<String>? foods = config.prefs.getStringList("favoriteFoods");
+    if (foods == null) {
+      return false;
+    } else {
+      return foods.contains(food.id);
+    }
+  }
+
+  void addFavoriteFood(String foodId) {
+    List<String> foods = favoriteFoods;
+    if (foods.contains(foodId)) return;
+    foods.add(foodId);
+    foods.sort();
+    favoriteFoods = foods;
+    // notifying listeners is not necessary
+  }
+
+  void removeFavoriteFood(String foodId) {
+    List<String> foods = favoriteFoods;
+    if (!foods.contains(foodId)) return;
+    foods.remove(foodId);
+    favoriteFoods = foods;
     notifyListeners();
   }
 }

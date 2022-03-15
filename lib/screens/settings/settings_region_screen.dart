@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_phoenix/flutter_phoenix.dart';
 import 'package:seasoncalendar/app_config.dart';
 import 'package:seasoncalendar/generated/l10n.dart';
-import 'package:seasoncalendar/helpers/db_provider.dart';
 import 'package:seasoncalendar/models/region.dart';
-import 'package:seasoncalendar/screens/settings/settings_screen.dart';
 import 'package:seasoncalendar/theme/themes.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsRegionPage extends StatelessWidget {
   const SettingsRegionPage({Key? key}) : super(key: key);

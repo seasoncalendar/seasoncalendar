@@ -20,7 +20,9 @@ class FoodEditAvailabilities extends StatefulWidget {
 class FoodEditAvailabilitiesState extends State<FoodEditAvailabilities> {
   late List<bool> boolAvailabilities;
 
+  @override
   initState() {
+    super.initState();
     boolAvailabilities = availabilitiesToBooleans(widget.availabilities);
   }
 
