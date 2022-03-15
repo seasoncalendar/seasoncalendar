@@ -12,7 +12,7 @@ class HomeScreenNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Material(
       color: Theme.of(context).colorScheme.primary,
       child: Row(
         children: <Widget>[
