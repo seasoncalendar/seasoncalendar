@@ -459,7 +459,7 @@
   "@imprintPageDisclaimerHeadline": {
     "description": "The phrase 'Disclaimer'"
   },
-  "imprintPageDataText2": "Hartelijk dank aan het team van Lebensmittellexikon.de voor de toestemming om uw seizoensgegevens te gebruiken!",
+  "imprintPageDataText2": "Hartelijk dank aan het team van Lebensmittellexikon.de voor de toestemming om uw beschikbaarheidsgegevens te gebruiken!",
   "@imprintPageDataText2": {
     "description": "Saying thanks to those that let their data be used here"
   },
@@ -1201,7 +1201,7 @@
   "@confirm": {},
   "settingsEnableCustomAvTitle": "Schakel maatwerkbeschikbaarheid in",
   "@settingsEnableCustomAvTitle": {},
-  "settingsResetCustomAvTitle": "Reset gepersonaliseerde beschikbaarheden",
+  "settingsResetCustomAvTitle": "Reset gepersonaliseerde beschikbaarheid",
   "@settingsResetCustomAvTitle": {},
   "settingsEnableCustomAvSubtitle": "Als dit is ingeschakeld, beschikbaarheid kan worden aangepast op je apparaat en maatwerk zal worden getoond",
   "@settingsEnableCustomAvSubtitle": {},
@@ -1211,11 +1211,11 @@
   "@howToPageUnavailable": {},
   "howToPageUnknown": "Beschikbaarheid onbekend. (Graag bijdragen ;-))",
   "@howToPageUnknown": {},
-  "confirmOperation": "Ben je zeker?",
+  "confirmOperation": "Weet je het zeker?",
   "@confirmOperation": {},
-  "delete": "Wissen",
+  "delete": "Wis",
   "@delete": {},
-  "settingsCustomAvTitle": "Gepersonaliseerde beschikbaarheden",
+  "settingsCustomAvTitle": "Gepersonaliseerde beschikbaarheid",
   "@settingsCustomAvTitle": {},
   "settingsCustomAvDisable": "Tik om uit te schakelen en te verbergen",
   "@settingsCustomAvDisable": {},
