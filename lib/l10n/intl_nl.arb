@@ -1228,5 +1228,9 @@
   "dialogEnableCustomAv": "Personalisering van beschikbaarheid mogelijk maken?",
   "@dialogEnableCustomAv": {},
   "customAvDeletePrompt": "Wilt u echt uw persoonlijke beschikbaarheidsgegevens wissen? Deze actie kan niet ongedaan worden gemaakt.",
-  "@customAvDeletePrompt": {}
+  "@customAvDeletePrompt": {},
+  "hintCustomAvDeleted": "Gepersonaliseerde beschikbaarheden zijn verwijderd!",
+  "@hintCustomAvDeleted": {},
+  "dialogCustomAvTitle": "Verander beschikbaarheid",
+  "@dialogCustomAvTitle": {}
 }
