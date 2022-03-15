@@ -1231,5 +1231,7 @@
   "no": "No",
   "@no": {},
   "dialogEnableCustomAv": "Enable personalization of availabilities?",
-  "@dialogEnableCustomAv": {}
+  "@dialogEnableCustomAv": {},
+  "hintCustomAvDeleted": "Personalized availabilities were deleted!",
+  "@hintCustomAvDeleted": {}
 }
