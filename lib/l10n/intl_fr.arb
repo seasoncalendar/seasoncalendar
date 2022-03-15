@@ -635,5 +635,9 @@
   "dialogEnableCustomAv": "Permettre la personnalisation des disponibilités ?",
   "@dialogEnableCustomAv": {},
   "customAvDeletePrompt": "Voulez-vous vraiment supprimer vos données personnelles de disponibilité ? Cette action ne peut pas être annulée.",
-  "@customAvDeletePrompt": {}
+  "@customAvDeletePrompt": {},
+  "dialogCustomAvTitle": "Modifier les disponibilités",
+  "@dialogCustomAvTitle": {},
+  "hintCustomAvDeleted": "Les disponibilités personnalisées ont été supprimées !",
+  "@hintCustomAvDeleted": {}
 }
