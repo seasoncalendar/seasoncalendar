@@ -1233,5 +1233,7 @@
   "dialogEnableCustomAv": "Enable personalization of availabilities?",
   "@dialogEnableCustomAv": {},
   "hintCustomAvDeleted": "Personalized availabilities were deleted!",
-  "@hintCustomAvDeleted": {}
+  "@hintCustomAvDeleted": {},
+  "dialogCustomAvTitle": "Change Availabilities",
+  "@dialogCustomAvTitle": {}
 }
