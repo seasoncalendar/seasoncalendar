@@ -81,7 +81,7 @@ class SettingsPageState extends State<SettingsPage> {
     ));
     settingsItems.add(const Divider());
 
-    var languageCode = AppConfig.of(context).locale!.languageCode;
+    var languageCode = AppConfig.of(context).locale?.languageCode ?? "?";
     var languageName = languageNameFromCode[languageCode] ?? languageCode;
     languageName = languageName.length > 20 ? languageCode : languageName;
 

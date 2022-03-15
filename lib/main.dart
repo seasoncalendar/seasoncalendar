@@ -18,10 +18,39 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  //final Widget loadingWidget = const LoadingMaterialApp();
-  final Widget loadingWidget = const LoadingWidget();
-
   const MyApp({Key? key}) : super(key: key);
+
+  localeResolutionApp (config) => MaterialApp(
+    debugShowCheckedModeBanner: false,
+    localeListResolutionCallback: (deviceLocales, supportedLocales) {
+      final newLocale =
+      basicLocaleListResolution(deviceLocales, supportedLocales);
+      // if null after localeLoadedFromPrefs use device locale
+      if (config != null && config.locale == null) {
+        config?.changeLocale(newLocale, notify: false);
+        return newLocale;
+      }
+      return config?.locale;
+    },
+    localeResolutionCallback: (deviceLocale, supportedLocales) {
+      final newLocale =
+      basicLocaleListResolution([deviceLocale!], supportedLocales);
+      if (config != null && config.locale == null) {
+        config.changeLocale(newLocale, notify: false);
+        return newLocale;
+      }
+      return config?.locale;
+    },
+    localizationsDelegates: [
+      L10n.delegate,
+      GlobalMaterialLocalizations.delegate,
+      MaterialLocalizationEoDelegate(),
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
+    supportedLocales: L10n.delegate.supportedLocales,
+  );
+
 
   @override
   Widget build(BuildContext context) {
@@ -51,43 +80,27 @@ class MyApp extends StatelessWidget {
                             child: buildMaterialApp(fContext),
                           );
                         } else {
-                          return loadingWidget;
+                          //return loadingWidget2;
+                          return localeResolutionApp(AppConfig.of(context));
                         }
                       });
                 });
           } else {
-            return loadingWidget;
+            return Container();
           }
         });
   }
 
   Widget buildMaterialApp(BuildContext context) {
     return MaterialApp(
-      localeListResolutionCallback: (deviceLocales, supportedLocales) {
-        final newLocale =
-        basicLocaleListResolution(deviceLocales, supportedLocales);
-        // if null after localeLoadedFromPrefs use device locale
-        if (AppConfig.of(context).locale == null) {
-          AppConfig.of(context).changeLocale(newLocale);
-          return newLocale;
-        }
-        return AppConfig.of(context).locale;
-      },
-      localeResolutionCallback: (deviceLocale, supportedLocales) {
-        final newLocale =
-        basicLocaleListResolution([deviceLocale!], supportedLocales);
-        if (AppConfig.of(context).locale == null) {
-          AppConfig.of(context).changeLocale(newLocale);
-          return newLocale;
-        }
-        return AppConfig.of(context).locale;
-      },
       debugShowCheckedModeBanner: true,
       title: L10n.current.appTitle,
       initialRoute: '/',
       routes: appRoutes,
       theme: defaultTheme,
       darkTheme: defaultTheme,
+      localeListResolutionCallback: (_, __) => AppConfig.of(context).locale,
+      localeResolutionCallback:  (_, __) => AppConfig.of(context).locale,
       localizationsDelegates: [
         L10n.delegate,
         GlobalMaterialLocalizations.delegate,
