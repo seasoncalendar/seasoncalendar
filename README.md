@@ -1,3 +1,13 @@
+## Update Nov 8. 2024: End of App Life
+
+I have decided to archive the app's repository and unlist it on Google Play. I won't find the time to work on this project anymore, and I don't want to offer an app that deteriorates in quality as I struggle to keep it maintained. The app in its current version will remain available on F-Droid. 
+
+**A sincere thank you to all contributors, and to the users for 5000+ installs and 2000+ peak installed audience!**
+
+<img width="1314" alt="image" src="https://github.com/user-attachments/assets/82f76f2f-26c0-474e-bcda-3a2e75a9d6fb">
+<img width="1040" alt="image" src="https://github.com/user-attachments/assets/eb9b5982-cd7d-4384-85bc-8988b3d4abab">
+
+
 # Seasonal Foods Calendar
 
 [![Build App](https://github.com/seasoncalendar/seasoncalendar/actions/workflows/flutter.yml/badge.svg)](https://github.com/seasoncalendar/seasoncalendar/actions/workflows/flutter.yml)
@@ -11,12 +21,6 @@ A practical and easy to use app showing you which kinds of fruit, vegetables, sa
 Foods that are produced regionally are often times cheaper, tastier and better for the environment due to a shorter and more convenient transport.
 
 [<img alt='Get it on F-Droid' src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" height="75">](https://f-droid.org/packages/flunzmas.seasoncalendar)
-[<img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height="75">](https://play.google.com/store/apps/details?id=flunzmas.seasoncalendar)
-
-**I aim at continuously extending the languages and regions supported!**
-
-- _Supported Languages: German, English, French, Spanish, Polish, Dutch, Italian_
-- _Supported Regions: Central Europe_
 
 ### Screenshots
 
